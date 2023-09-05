@@ -1,6 +1,6 @@
 import './style.css';
 import { useState } from 'react';
-import GetWorkerModel from '../../models/GetWorkerModel';
+import GetWorkerModal from '../../Modals/GetWorkerModal';
 
 const WorkerRow = (props) => {
 
@@ -22,7 +22,7 @@ const WorkerRow = (props) => {
                 <td className='WorkerRow_td'>{props.phone}</td>
                 <td className='WorkerRow_td'>{props.address}</td>
             </tr>
-            <GetWorkerModel
+            <GetWorkerModal
             handleCloseModal={handleCloseModal}
             openModal={openModal} 
             user_id = {props.id}

@@ -1,4 +1,4 @@
-import '../Dashboard/style.css';
+import './style.css';
 import React from "react";
 
 import NavSide from '../../../components/Admin/NavSide';

@@ -2,7 +2,7 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import AddWorkerModal from '../../../components/models/AddWorkerModal';
+// import AddWorkerModal from '../../../components/models/AddWorkerModal';
 
 import NavSide from '../../../components/Partner/NavSide';
 import Header from '../../../components/Shared/Header';

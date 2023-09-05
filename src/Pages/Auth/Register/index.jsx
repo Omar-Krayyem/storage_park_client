@@ -1,9 +1,9 @@
-import '../Register/style.css';
+import './style.css';
 import { Link} from 'react-router-dom'
 import React, { useState } from "react";
 import axios from "axios"
 import logo from '../../../images/logo_p.png';
-import RegistrationMsgModal from '../../../components/models/RegistrationMsgModal';
+import RegistrationMsgModal from '../../../components/Modals/RegistrationMsgModal';
 
 const Register = () => {
     const [first_name, setFName] = useState("");

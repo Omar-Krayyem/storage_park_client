@@ -1,4 +1,4 @@
-import '../Partners/style.css';
+import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 

@@ -1,6 +1,6 @@
 import './style.css';
 import { useState } from 'react';
-import RequestModel from '../../models/RequestModel';
+import RequestModal from '../../Modals/RequestModal';
 
 const RequestRow = (props) => {
 
@@ -22,7 +22,7 @@ const RequestRow = (props) => {
                 <td className='UserRow_td'>{props.phone}</td>
                 <td className='UserRow_td'>{props.address}</td>
             </tr>
-            <RequestModel
+            <RequestModal
             handleCloseModal={handleCloseModal}
             openModal={openModal} 
             user_id = {props.id}

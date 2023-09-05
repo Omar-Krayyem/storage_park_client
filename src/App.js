@@ -1,15 +1,16 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
-import Login from './pages/Auth/Login/index';
-import Register from './pages/Auth/Register/index'
-import AdminDashboard from './pages/Admin/Dashboard';
-import Requests from './pages/Admin/Requests';
-import Partners from './pages/Admin/Partners';
+import Login from './Pages/Auth/Login';
+import Register from './Pages/Auth/Register'
+import AdminDashboard from './Pages/Admin/Dashboard';
+import Requests from './Pages/Admin/Requests/index';
+import Partners from './Pages/Admin/Partners';
 import Workers from './Pages/Admin/Workers';
-import PartnerDashboard from './pages/Partner/Dashboard';
-import PlacedIncoming from './pages/Partner/PlacedIncoming';
-import AddIncomingorder from './pages/Partner/AddIncomingorder';
+import PartnerDashboard from './Pages/Partner/Dashboard';
+import PlacedIncoming from './Pages/Partner/PlacedIncoming';
+import AddIncomingorder from './Pages/Partner/AddIncomingorder';
+
 function App() {
   return (
     <Routes>

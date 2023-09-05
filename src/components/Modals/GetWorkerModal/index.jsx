@@ -1,9 +1,9 @@
-import '../PartnerModal/style.css';
+import './style.css';
 import Modal from 'react-modal';
 import React, { useState, useEffect }from "react";
 import axios from 'axios';
 
-const GetWorkerModel = ({ openModal, handleCloseModal, user_id }) => {
+const GetWorkerModal = ({ openModal, handleCloseModal, user_id }) => {
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
     const [email, setEmail] = useState("");
@@ -157,4 +157,4 @@ const GetWorkerModel = ({ openModal, handleCloseModal, user_id }) => {
     );
 }
 
-export default GetWorkerModel;
+export default GetWorkerModal;

@@ -1,4 +1,4 @@
-import '../RegistrationMsgModal/style.css';
+import './style.css';
 import Modal from 'react-modal';
 import React from "react";
 

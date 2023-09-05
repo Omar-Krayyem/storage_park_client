@@ -1,4 +1,4 @@
-import '../PartnerModel/style.css';
+import './style.css';
 import Modal from 'react-modal';
 import React, { useState }from "react";
 import axios from 'axios';

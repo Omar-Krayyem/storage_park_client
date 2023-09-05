@@ -1,6 +1,6 @@
 import './style.css';
 import { useState } from 'react';
-import UserModel from '../../models/PartnerModel';
+import PartnerModal from '../../Modals/PartnerModal';
 
 const PartnerRow = (props) => {
 
@@ -22,7 +22,7 @@ const PartnerRow = (props) => {
                 <td className='PartnerRow_td'>{props.phone}</td>
                 <td className='PartnerRow_td'>{props.address}</td>
             </tr>
-            <UserModel
+            <PartnerModal
             handleCloseModal={handleCloseModal}
             openModal={openModal} 
             user_id = {props.id}

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef }from "react";
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
 
-const RequestModel = ({ openModal, handleCloseModal, user_id }) => {
+const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
     const [email, setEmail] = useState("");
@@ -188,4 +188,4 @@ const RequestModel = ({ openModal, handleCloseModal, user_id }) => {
     );
 }
 
-export default RequestModel;
+export default RequestModal;

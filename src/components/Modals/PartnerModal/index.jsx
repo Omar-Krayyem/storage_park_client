@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import React, { useState, useEffect }from "react";
 import axios from 'axios';
 
-const PartnerModel = ({ openModal, handleCloseModal, user_id }) => {
+const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
     const [email, setEmail] = useState("");
@@ -167,4 +167,4 @@ const PartnerModel = ({ openModal, handleCloseModal, user_id }) => {
     );
 }
 
-export default PartnerModel;
+export default PartnerModal;
