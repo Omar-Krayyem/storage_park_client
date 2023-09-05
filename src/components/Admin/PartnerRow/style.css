@@ -1,0 +1,22 @@
+.PartnerRow{
+    width: 100%;
+}
+
+.PartnerRow_tr {
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.PartnerRow_td {
+    width: 25%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.PartnerRow_tr:hover{
+    background-color: #FF8B13;
+}
