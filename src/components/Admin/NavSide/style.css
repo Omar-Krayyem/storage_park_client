@@ -1,0 +1,99 @@
+.sidebar{
+    background-color: #1D2126;
+    color: #F0F0F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    font-size: 1rem;
+    height: 100vh;
+    font-weight: 600;
+}
+
+.sidebar .Link{
+    text-decoration: none;
+}
+
+.logo{
+    text-align: center;
+}
+
+
+.logo img{
+    height: 50px;
+    cursor: pointer;
+}
+
+.upper_section{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    gap: 30px;
+}
+
+.sections{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.title_section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.title_section:hover{
+    color: #FF8B13;
+    transition: 0.5s;
+}
+
+.arrow{
+    rotate: -90deg;
+    margin-top: 4px;
+}
+
+.reflect{
+    transform: scaleX(-1);
+}
+
+.section-pages{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    gap: 7px;
+}
+
+.section-pages .page{
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.section-pages .page:hover{
+    color: #FF8B13;     
+}
+
+.first{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.selected{
+    color: #FF8B13;
+}
+
+.arrow.expanded {
+    transform: rotate(90deg);
+}
+
+.lower-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
