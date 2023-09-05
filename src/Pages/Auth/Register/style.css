@@ -1,0 +1,147 @@
+.RegisterPage{
+    background-color: #F0F0F0;
+    height: 100vh;
+}
+
+.RegisterPage .RegisterComponent{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+}
+
+.RegisterComponent .leftSide img{
+    width: 400px;
+}
+
+.RegisterComponent .rightSide{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.rightSide .form_header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    color: #1D2126;
+}
+
+.rightSide .form_header .title{
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.rightSide .form_header .subTitle{
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.rightSide .RegisterForm{
+    display: flex;
+    width: 416px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.RegisterForm .nameSection{
+    width: 416px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.RegisterForm .halftext_feild{
+    width: 49%;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.RegisterForm .half{
+    width: 195px;
+    height: 35px;
+    font-size: 22px;
+    border: 2px solid #FF8B13;
+    background: #FFF;
+    color: #1D2126;
+    outline: none;
+    margin-top: 0;
+    padding: 0 5px;
+}
+
+.RegisterForm .text_feild{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.RegisterForm  label{
+    color: #1D2126;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.RegisterForm  .full{
+    width: 98%;
+    height: 35px;
+    font-size: 22px;
+    border: 2px solid #FF8B13;
+    background: #FFF;
+    color: #1D2126;
+    outline: none;
+    margin-top: 0;
+    padding: 0 5px;
+}
+
+.RegisterForm .RegisterBtn{
+    border-radius: 45px;
+    background: #1D2126;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 35px;
+    cursor: pointer;
+    border: none;
+}
+
+.RegisterForm .RegisterBtn:hover{
+    color: #1D2126;
+    background-color: #FF8B13;
+    transition: 0.5s;
+}
+
+.RegisterForm .form_bottom{
+    width: 100% ;
+    color: #1D2126;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.RegisterForm .linkBtn{
+    color: #FF8B13;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+}
+
+.error{
+    color: red;
+    font-size: 18px;
+}
