@@ -1,28 +1,29 @@
-import '../PartnerModal/style.css';
+import './style.css';
 import Modal from 'react-modal';
 import React, { useState, useEffect }from "react";
 import axios from 'axios';
 
-const GetWorkerModel = ({ openModal, handleCloseModal, user_id }) => {
+const PartnerModel = ({ openModal, handleCloseModal, user_id }) => {
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
+    const [company_name, setName] = useState("");
 
 
     const token = localStorage.getItem("token");
 
     const getUser = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/admin/worker/${user_id}`, {
+            await axios.get(`http://127.0.0.1:8000/api/admin/partner/${user_id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
             .then(response => {
-                console.log(response.data.data)
                 setFName(response.data.data.first_name)
                 setLName(response.data.data.last_name)
+                setName(response.data.data.company_name)
                 setEmail(response.data.data.email)
                 setPhone(response.data.data.phone)
                 setAddress(response.data.data.address)
@@ -35,7 +36,7 @@ const GetWorkerModel = ({ openModal, handleCloseModal, user_id }) => {
     const deleteUser = (e) => {
         e.preventDefault();
 
-        axios.delete(`http://127.0.0.1:8000/api/admin/worker/${user_id}`, {
+        axios.delete(`http://127.0.0.1:8000/api/admin/partner/${user_id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -53,17 +54,16 @@ const GetWorkerModel = ({ openModal, handleCloseModal, user_id }) => {
     const updateUser = (e) => {
         e.preventDefault();
 
-        const postData = {user_id, first_name, last_name, email, phone, address};
-        console.log(postData)
+        const postData = {user_id, first_name, last_name, email, phone, company_name, address};
     
-        axios.post('http://127.0.0.1:8000/api/admin/worker/update', postData, {
+        axios.post('http://127.0.0.1:8000/api/admin/partner/', postData, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
         .then(response => {
-            console.log(response.data.data);
-            // window.location.reload();
+            console.log(response);
+            window.location.reload();
         })
         .catch(error => {
             console.log(error);
@@ -104,6 +104,16 @@ const GetWorkerModel = ({ openModal, handleCloseModal, user_id }) => {
                                     onChange={(e) => setLName(e.target.value)}
                                     ></input> 
                                 </div>
+                            </div>
+                            <div className="text_feild">
+                                <label>Company Name</label>
+                                <input 
+                                className='full'
+                                type="text" 
+                                required
+                                value={company_name}
+                                onChange={(e) => setName(e.target.value)}
+                                ></input>
                             </div>
                             <div className="text_feild">
                                 <label>Work Email</label>
@@ -157,4 +167,4 @@ const GetWorkerModel = ({ openModal, handleCloseModal, user_id }) => {
     );
 }
 
-export default GetWorkerModel;
+export default PartnerModel;

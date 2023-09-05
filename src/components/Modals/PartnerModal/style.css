@@ -1,0 +1,127 @@
+.partnerModal{
+    width: 540px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F0F0F0;
+    padding: 50px;
+}
+.partnerModal .body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #1D2126;
+    gap: 20px;
+}
+
+.partnerForm{
+    display: flex;
+    width: 416px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.partnerForm .nameSection{
+    width: 416px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.partnerForm .halftext_feild{
+    width: 49%;
+    flex-direction: column;
+}
+
+.partnerForm .half{
+    width: 195px;
+    font-size: 16px;
+    border: 2px solid #FF8B13;
+    background: #FFF;
+    color: #1D2126;
+    padding: 0 3px;
+    outline: none;
+    margin-top: 8px;
+    padding: 5px 5px;
+}
+
+.partnerForm .text_feild{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.partnerForm  label{
+    color: #1D2126;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.partnerForm  .full{
+    width: 98%;
+    font-size: 16px;
+    border: 2px solid #FF8B13;
+    background: #FFF;
+    color: #1D2126;
+    outline: none;
+    margin-top: 0;
+    padding: 5px 5px;
+
+}
+
+.partnerForm .RegisterBtn{
+    border-radius: 25px;
+    background: #1D2126;
+    width: 100%;
+    color: #F0F0F0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.partnerForm .RegisterBtn:hover{
+    color: #1D2126;
+    background-color: #FF8B13;
+    transition: 0.5s;
+}
+
+.btnSection{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btnSection button{
+    width: 49%;
+}
+
+.partnerForm .btn{
+    background-color: #1D2126;
+    color: #F0F0F0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 5px 0;
+}
+
+.partnerForm .btn:hover{
+    background-color: #FF8B13;
+    color: #1D2126;
+    transition: 0.5s;
+}
+
+.partnerForm .close{
+    width: 100%;
+}
