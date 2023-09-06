@@ -5,9 +5,9 @@ import axios from 'axios';
 import NavSide from '../../../components/Partner/NavSide';
 import Header from '../../../components/Shared/Header';
 import { Link } from 'react-router-dom';
-import IncomingPlacedRow from '../../../components/Partner/IncomingPlacedRow';
+import ShipmentPlacedRow from '../../../components/Partner/ShipmentPlacedRow';
 
-const PlacedIncoming = () => {
+const ShipmentIncoming = () => {
 
     const name = localStorage.getItem("user_name");
 
@@ -19,7 +19,7 @@ const PlacedIncoming = () => {
 
 
     const getOrders = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/partner/incoming/placed`, {
+            await axios.get(`http://127.0.0.1:8000/api/partner/incoming/shipment`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -34,7 +34,7 @@ const PlacedIncoming = () => {
     };
 
     const getSearched = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/partner/incoming/placed/search/${searchInput}`, {
+        await axios.get(`http://127.0.0.1:8000/api/partner/incoming/shipment/search/${searchInput}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -56,7 +56,7 @@ const PlacedIncoming = () => {
     }, [searchInput]);
 
     return (
-        <div className='placedincoming_page'> 
+        <div className='ShipmentIncoming_page'> 
             <div className='left_side'>
                 <NavSide/>
             </div>
@@ -66,30 +66,29 @@ const PlacedIncoming = () => {
                 </div>
                 <div className='body'>
                     <div className='title'>
-                    <div className='page_title'><h1>Placed Orders</h1></div>
+                    <div className='page_title'><h1>Shipment Orders</h1></div>
                         <div className='right_title'>
-                        <Link to={'/partner/incoming/create'}><button>Place Order</button></Link>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
                     <div className='table'>
-                        <table className='placedincoming_table'>
-                            <thead className='placedincoming_thead'>
+                        <table className='ShipmentIncoming_table'>
+                            <thead className='ShipmentIncoming_thead'>
                                 <tr className=''>
-                                    <th className='placedincoming_th top_left'>Order ID</th>
-                                    <th className='placedincoming_th'>Number of Order Items</th>
-                                    <th className='placedincoming_th '>Placed at</th>
-                                    <th className='placedincoming_th top_right'>Total Price $</th>
+                                    <th className='ShipmentIncoming_th top_left'>Order ID</th>
+                                    <th className='ShipmentIncoming_th'>Number of Order Items</th>
+                                    <th className='ShipmentIncoming_th '>Placed at</th>
+                                    <th className='ShipmentIncoming_th top_right'>Total Price $</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {searchInput === "" ? (
                                     orders.map((order) => (
-                                        <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        <ShipmentPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
                                     ))
                                 ) : (
                                     searchedPartners.map((order) => (
-                                        <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        <ShipmentPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
                                     ))
                                 )}
                             </tbody>
@@ -101,4 +100,4 @@ const PlacedIncoming = () => {
     );
 }
 
-export default PlacedIncoming;
+export default ShipmentIncoming;

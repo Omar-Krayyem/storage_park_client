@@ -12,7 +12,7 @@ import PlacedIncoming from './Pages/Partner/PlacedIncoming';
 import AddIncomingorder from './Pages/Partner/AddIncomingorder';
 import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
 import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
-
+import ShipmentIncoming from './Pages/Partner/ShipmentIncoming';
 function App() {
   return (
     <Routes>
@@ -33,6 +33,9 @@ function App() {
         <Route index element={<PartnerDashboard/>} />
         <Route path='incoming/placed' element={<PlacedIncoming/>} ></Route>
         <Route path='incoming/create' element={<AddIncomingorder/>} ></Route>
+
+        <Route path='incoming/shipment' element={<ShipmentIncoming/>} />
+
       </Route>
     </Routes>
   );

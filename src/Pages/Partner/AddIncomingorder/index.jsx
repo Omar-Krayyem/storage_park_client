@@ -119,7 +119,7 @@ const AddIncomingOrder = () => {
 
         try {
             console.log(newProducts , oldProducts)
-            await axios.post(`http://127.0.0.1:8000/api/partner/incoming/create`, {
+            await axios.post(`http://127.0.0.1:8000/api/partner/incoming/placed/create`, {
                 latitude,
                 longitude,
                 newProducts,
