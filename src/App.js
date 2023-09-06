@@ -11,6 +11,7 @@ import PartnerDashboard from './Pages/Partner/Dashboard';
 import PlacedIncoming from './Pages/Partner/PlacedIncoming';
 import AddIncomingorder from './Pages/Partner/AddIncomingorder';
 import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
+import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='workers' element={<Workers/>} />
 
         <Route path='incoming/placed' element={<AdminPlacedIncoming/>} />
+        <Route path='incoming/shipment' element={<AdminShipmentIncoming/>} />
       </Route>
 
       <Route path='/partner'>

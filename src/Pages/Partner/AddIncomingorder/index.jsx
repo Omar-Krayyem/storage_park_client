@@ -37,7 +37,7 @@ const AddIncomingOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            // console.log(response.data.data)
+            console.log(response.data.data)
             setExistProducts(response.data.data);
             
         } catch (error) {
@@ -85,6 +85,8 @@ const AddIncomingOrder = () => {
             const oldProduct = {
                 id: selectedProductId,
                 name: selectedProductName,
+                description: description,
+                price: +price,
                 quantity: +quantity,
             }
 
@@ -140,6 +142,8 @@ const AddIncomingOrder = () => {
         for(let i = 0; i < existProducts.length; i++){
             if(existProducts[i].id === parseInt(ProductId)){
                 setSelectedProductName(existProducts[i].name);
+                setDescription(existProducts[i].description);
+                setPrice(existProducts[i].price);
             }
         }
     };
@@ -300,8 +304,8 @@ const AddIncomingOrder = () => {
                                         <div><span>Name: </span>{product.productName}</div>
                                         <div><span>Description: </span>{product.description}</div>
                                         <div><span>Category ID: </span>{product.category_id}</div>
-                                        <div><span>Quantity: </span>{product.quantity}</div>
                                         <div><span>Price: </span>{product.price}</div>
+                                        <div><span>Quantity: </span>{product.quantity}</div>
                                     </div>
                                     <button className='btn' onClick={() => handleDeleteProduct(product.productName)}>Delete</button>
                                 </div>
@@ -310,8 +314,10 @@ const AddIncomingOrder = () => {
                             {oldProducts.map((product, index) => (
                                  <div className='display_product' key={index}>
                                     <div className='attributes'>
-                                        <div><span>Product id: </span>{product.id}</div>
+                                            {/* <div><span>Product id: </span>{product.id}</div> */}
                                         <div><span>Product Name: </span>{product.name}</div>
+                                        <div><span>Description: </span>{product.description}</div>
+                                        <div><span>Price: </span>{product.price}</div>
                                         <div><span>Quantity: </span>{product.quantity}</div>
                                     </div>
                                     <button className='btn' onClick={() => handleDeleteOldProduct(product.id)}>Delete</button>
