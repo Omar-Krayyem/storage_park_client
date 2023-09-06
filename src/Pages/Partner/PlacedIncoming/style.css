@@ -1,4 +1,4 @@
-.workers_page {
+.placedincoming_page {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,29 +9,29 @@
     width: 100%;
 }
 
-.workers_page .left_side {
+.placedincoming_page .left_side {
     width: 20%;
     height: 100vh;
     position: fixed;
 }
 
-.workers_page .right_side {
+.placedincoming_page .right_side {
     width: 80%;
     margin-left: 20%;
 }
 
-.workers_page .right_side .head{
+.placedincoming_page .right_side .head{
     width: 80%;
     position: fixed;
 }
 
 
-.workers_page .right_side .body{
+.placedincoming_page .right_side .body{
     margin-top: 50px;
     padding: 40px 50px;
 }
 
-.workers_page .right_side .body .title{
+.placedincoming_page .right_side .body .title{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -62,7 +62,7 @@
     transition: 0.5s;
 }
 
-.workers_page .body .title input{
+.placedincoming_page .body .title input{
     border: 2px solid #CCCCCC;
     font-size: 18px;
     width: 400px;
@@ -73,11 +73,11 @@
     
 }
 
-.workers_page .table{
+.placedincoming_page .table{
     padding-top: 20px;
 }
 
-.workers_page .worker_table {
+.placedincoming_page .placedincoming_table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
@@ -87,13 +87,13 @@
     border-top-right-radius: 15px;
 }
 
-.worker_table .worker_thead {
+.placedincoming_table .placedincoming_thead {
     font-size: 20px;
     color: #F0F0F0;
     background-color: #1D2126;
 }
   
-.worker_table .workers_th {
+.placedincoming_table .placedincoming_th {
     width: 25%;
     padding: 10px 20px;
     text-align: center;

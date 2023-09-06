@@ -34,7 +34,7 @@ const PlacedIncoming = () => {
     };
 
     const getSearched = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/admin/worker/search/${searchInput}`, {
+        await axios.get(`http://127.0.0.1:8000/api/partner/incoming/search/${searchInput}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -56,7 +56,7 @@ const PlacedIncoming = () => {
     }, [searchInput]);
 
     return (
-        <div className='workers_page'> 
+        <div className='placedincoming_page'> 
             <div className='left_side'>
                 <NavSide/>
             </div>
@@ -73,13 +73,13 @@ const PlacedIncoming = () => {
                         </div>
                     </div>
                     <div className='table'>
-                        <table className='worker_table'>
-                            <thead className='worker_thead'>
+                        <table className='placedincoming_table'>
+                            <thead className='placedincoming_thead'>
                                 <tr className=''>
-                                    <th className='workers_th top_left'>Order ID</th>
-                                    <th className='workers_th'>Number of Order Items</th>
-                                    <th className='workers_th '>Placed at</th>
-                                    <th className='workers_th top_right'>Total Price</th>
+                                    <th className='placedincoming_th top_left'>Order ID</th>
+                                    <th className='placedincoming_th'>Number of Order Items</th>
+                                    <th className='placedincoming_th '>Placed at</th>
+                                    <th className='placedincoming_th top_right'>Total Price</th>
                                 </tr>
                             </thead>
                             <tbody>
