@@ -2,32 +2,31 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// import AddWorkerModal from '../../../components/models/AddWorkerModal';
-
 import NavSide from '../../../components/Partner/NavSide';
 import Header from '../../../components/Shared/Header';
 import { Link } from 'react-router-dom';
-// import WorkerRow from '../../../components/Admin/WorkerRow';
+import IncomingPlacedRow from '../../../components/Partner/IncomingPlacedRow';
 
 const PlacedIncoming = () => {
 
     const name = localStorage.getItem("user_name");
 
-    const [Users , setUsers] = useState([]);
+    const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
 
     const token = localStorage.getItem("token");
 
 
-    const getUsers = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/admin/worker`, {
+    const getOrders = async () => {
+            await axios.get(`http://127.0.0.1:8000/api/partner/incoming`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
             .then(response => {
-                setUsers(response.data.data);
+                console.log(response.data)
+                setOrders(response.data.data);
             })            
             .catch(error => {
                 console.log(error);
@@ -50,7 +49,7 @@ const PlacedIncoming = () => {
 
     useEffect(() => {
         if (searchInput === "") {
-            getUsers();
+            getOrders();
         } else {
             getSearched();
         }
@@ -84,15 +83,15 @@ const PlacedIncoming = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {searchInput === "" ? (
-                                    Users.map((worker) => (
-                                        <WorkerRow id={worker.id} name={`${worker.first_name} ${worker.last_name}`} email={worker.email} phone={worker.phone} address={worker.address}/>
+                                {searchInput === "" ? (
+                                    orders.map((order) => (
+                                        <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
                                     ))
                                 ) : (
-                                    searchedPartners.map((worker) => (
-                                        <WorkerRow id={worker.id} name={`${worker.first_name} ${worker.last_name}`} email={worker.email} phone={worker.phone} address={worker.address}/>
+                                    searchedPartners.map((order) => (
+                                        <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
                                     ))
-                                )} */}
+                                )}
                             </tbody>
                         </table>
                     </div>
