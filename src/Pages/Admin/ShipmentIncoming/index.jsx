@@ -34,12 +34,13 @@ const PlacedIncoming = () => {
     };
 
     const getSearched = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/admin/incoming/placed/search/${searchInput}`, {
+        await axios.get(`http://127.0.0.1:8000/api/admin/incoming/shipment/search/${searchInput}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         })
         .then(response => {
+            console.log(response.data.data)
             setSearchedRequests(response.data.data);
         })   
         .catch(error => {
@@ -89,7 +90,7 @@ const PlacedIncoming = () => {
                                     ))
                                 ) : (
                                     searchedPartners.map((order) => (
-                                        <IncomingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        <IncomingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} total_price={order.total_price} placed_at={order.placed_at}/>
                                     ))
                                 )}
                             </tbody>
