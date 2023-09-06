@@ -10,6 +10,7 @@ import Workers from './Pages/Admin/Workers';
 import PartnerDashboard from './Pages/Partner/Dashboard';
 import PlacedIncoming from './Pages/Partner/PlacedIncoming';
 import AddIncomingorder from './Pages/Partner/AddIncomingorder';
+import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path='requests' element={<Requests/>} />
         <Route path='partners' element={<Partners/>} />
         <Route path='workers' element={<Workers/>} />
+
+        <Route path='incoming/placed' element={<AdminPlacedIncoming/>} />
       </Route>
 
       <Route path='/partner'>

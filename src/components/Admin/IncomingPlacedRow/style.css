@@ -1,0 +1,22 @@
+.IncomingPlacedRow{
+    width: 100%;
+}
+
+.AdminIncomingPlacedRow_tr {
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.adminIncomingPlacedRow_td {
+    width: 20%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.AdminIncomingPlacedRow_tr:hover{
+    background-color: #FF8B13;
+}

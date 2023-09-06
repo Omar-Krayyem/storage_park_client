@@ -2,10 +2,10 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import NavSide from '../../../components/Partner/NavSide';
+import NavSide from '../../../components/Admin/NavSide';
 import Header from '../../../components/Shared/Header';
 import { Link } from 'react-router-dom';
-import IncomingPlacedRow from '../../../components/Partner/IncomingPlacedRow';
+import IncomingPlacedRow from '../../../components/Admin/IncomingPlacedRow';
 
 const PlacedIncoming = () => {
 
@@ -19,13 +19,13 @@ const PlacedIncoming = () => {
 
 
     const getOrders = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/partner/incoming`, {
+            await axios.get(`http://127.0.0.1:8000/api/admin/incoming/placed`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
             .then(response => {
-                console.log(response.data)
+                console.log(response.data.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -56,7 +56,7 @@ const PlacedIncoming = () => {
     }, [searchInput]);
 
     return (
-        <div className='placedincoming_page'> 
+        <div className='Adminplacedincoming_page'> 
             <div className='left_side'>
                 <NavSide/>
             </div>
@@ -73,19 +73,20 @@ const PlacedIncoming = () => {
                         </div>
                     </div>
                     <div className='table'>
-                        <table className='placedincoming_table'>
-                            <thead className='placedincoming_thead'>
+                        <table className='adminplacedincoming_table'>
+                            <thead className='Adminplacedincoming_thead'>
                                 <tr className=''>
-                                    <th className='placedincoming_th top_left'>Order ID</th>
-                                    <th className='placedincoming_th'>Number of Order Items</th>
-                                    <th className='placedincoming_th '>Placed at</th>
-                                    <th className='placedincoming_th top_right'>Total Price $</th>
+                                    <th className='adminplacedincoming_th top_left'>Order ID</th>
+                                    <th className='adminplacedincoming_th'>Company Name</th>
+                                    <th className='adminplacedincoming_th'>Number of Order Items</th>
+                                    <th className='adminplacedincoming_th '>Placed at</th>
+                                    <th className='adminplacedincoming_th top_right'>Total Price $</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {searchInput === "" ? (
                                     orders.map((order) => (
-                                        <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        <IncomingPlacedRow id={order.id} company_name={order.user.company_name} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
                                     ))
                                 ) : (
                                     searchedPartners.map((order) => (

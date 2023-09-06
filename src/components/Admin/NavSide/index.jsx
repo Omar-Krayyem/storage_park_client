@@ -75,7 +75,7 @@ const NavSide = () => {
                             
                             {isSectionExpanded("incomingOrders") && (
                                 <div className="section-pages">
-                                    <div className="page">Placed</div>
+                                    <NavLink to={'/admin/incoming/placed'}><div className={`page ${activeSection === "placed" ? 'selected' : ''}`} onClick={() => handlePageClick("Placed")}>Placed</div></NavLink>
                                     <div className="page">Shipments</div>
                                     <div className="page">Delivered</div>
                                 </div>
