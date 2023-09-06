@@ -34,7 +34,7 @@ const PlacedIncoming = () => {
     };
 
     const getSearched = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/partner/incoming/search/${searchInput}`, {
+        await axios.get(`http://127.0.0.1:8000/api/admin/incoming/placed/search/${searchInput}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -68,7 +68,6 @@ const PlacedIncoming = () => {
                     <div className='title'>
                     <div className='page_title'><h1>Placed Orders</h1></div>
                         <div className='right_title'>
-                        <Link to={'/partner/incoming/create'}><button>Place Order</button></Link>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
@@ -90,7 +89,7 @@ const PlacedIncoming = () => {
                                     ))
                                 ) : (
                                     searchedPartners.map((order) => (
-                                        <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        <IncomingPlacedRow id={order.id} company_name={order.user.company_name} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
                                     ))
                                 )}
                             </tbody>
