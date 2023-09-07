@@ -7,16 +7,25 @@ import { Link } from 'react-router-dom';
 import NavSide from '../../../components/Partner/NavSide';
 import Header from '../../../components/Shared/Header';
 
+import CreatableSelect from "react-select/creatable";
+
+import { Map , Marker, Draggable } from "pigeon-maps"
+import logo from '../../../images/logo_d.png';
+
+
+
 const AddIncomingOrder = () => {
     const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
 
-    const [latitude, setLatitude] = useState("");
-    const [longitude, setLongitude] = useState("");
+
+    const [anchor, setAnchor] = useState([50.879, 4.6997]);
+    const [latitude, setLatitude] = useState(anchor[0]);
+    const [longitude, setLongitude] = useState(anchor[1]);
+
+    const [markerImage, setMarkerImage] = useState(logo);
 
     const [newProducts, setNewProducts] = useState([]);
-    const [oldProducts, setOldProducts] = useState([]);
-    const [isNewProduct, setIsNewProduct] = useState(false);
 
     const [productName, setProductName] = useState("");
     const [price, setPrice] = useState(0);
@@ -26,9 +35,38 @@ const AddIncomingOrder = () => {
 
     const [error, setError] = useState("");
 
+    const [categories, setCategories] = useState([]);
     const [existProducts, setExistProducts] = useState([]);
     const [selectedProductId, setSelectedProductId] = useState(0);
-    const [selectedProductName, setSelectedProductName] = useState("")
+
+    const options = existProducts.map((product) => ({
+        value: product.id,
+        label: product.name
+    }));
+
+    const handleMapClick = ({ latLng }) => {
+
+        console.log('handleMapClick')
+        
+        const latitudeDigits = parseFloat(latLng[0].toFixed(4));
+        const longitudeDigits = parseFloat(latLng[1].toFixed(4));
+
+        setLatitude(latitudeDigits);
+        setLongitude(longitudeDigits);
+
+        console.log(latitudeDigits , longitudeDigits)
+    };
+
+    // const handleMapDragEnd = ({ anchor }) => {
+    //     if (anchor) {
+    //         setAnchor(anchor);
+    //         setLatitude(anchor[0]);
+    //         setLongitude(anchor[1]);
+            
+    //         const newMarkerImage = `https://example.com/new-marker-image.png`; // Replace with your new marker image URL
+    //         setMarkerImage(newMarkerImage);
+    //     }
+    // };
 
     const getProducts = async () => {
         try {
@@ -37,9 +75,8 @@ const AddIncomingOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.data)
-            setExistProducts(response.data.data);
-            
+            setExistProducts(response.data.data.products);
+            setCategories(response.data.data.categories)
         } catch (error) {
             console.error("Error fetching products:", error);
         }
@@ -52,59 +89,41 @@ const AddIncomingOrder = () => {
     const handleAddProduct = (e) => {
         e.preventDefault();
 
-        if (isNewProduct) {
             if (!productName || !price || !quantity || !description || selectedCategoryId === 0) {
                 setError("Please fill in all fields.");
                 return;
             }
 
             const newProduct = {
+                id: selectedProductId,
                 productName,
                 description,
-                product_category_id: selectedCategoryId,
+                product_category_id: parseInt(selectedCategoryId),
                 price: +price,
                 quantity: +quantity,
             };
 
+            console.log(newProduct);
+
             setNewProducts([...newProducts, newProduct]);
+
+            
 
             // Reset form fields
             setProductName("");
             setPrice(0);
             setQuantity(1);
             setDescription("");
-            setSelectedCategoryId("0");
+            setSelectedCategoryId(0);
             setError("");
-        } 
-        else {
-            if (selectedProductId === "0") {
-                setError("Please select an existing product.");
-                return;
-            }
-
-            const oldProduct = {
-                id: selectedProductId,
-                name: selectedProductName,
-                description: description,
-                price: +price,
-                quantity: +quantity,
-            }
-
-            setOldProducts([...oldProducts, oldProduct]);
-            setQuantity(1);
-            setError("");
-        }
+            setSelectedProductId(0);
+           
     };
-
+    console.log(newProducts);
     const handleDeleteProduct = (productNameToDelete) => {
         const updatedProducts = newProducts.filter(product => product.productName !== productNameToDelete);
         setNewProducts(updatedProducts);
     };
-
-    const handleDeleteOldProduct = (productIdToDelete) => {
-        const updatedProducts = oldProducts.filter(product => product.id !== productIdToDelete);
-        setOldProducts(updatedProducts);
-    }
 
     const handleAddOrder = async () => {
         if (!latitude || !longitude) {
@@ -112,18 +131,16 @@ const AddIncomingOrder = () => {
             return;
         }
 
-        if (newProducts.length === 0 && oldProducts.length === 0) {
+        if (newProducts.length === 0) {
             setError("There are no products");
             return;
         }
 
         try {
-            console.log(newProducts , oldProducts)
             await axios.post(`http://127.0.0.1:8000/api/partner/incoming/placed/create`, {
                 latitude,
                 longitude,
                 newProducts,
-                oldProducts
             }, {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -135,17 +152,33 @@ const AddIncomingOrder = () => {
         }
     };
 
-    const handleSelectExistingProduct = (e) => {
-        const ProductId = e.target.value;
-        setSelectedProductId(ProductId);
+    const handleChange = (selectedOption) => {
 
-        for(let i = 0; i < existProducts.length; i++){
-            if(existProducts[i].id === parseInt(ProductId)){
-                setSelectedProductName(existProducts[i].name);
-                setDescription(existProducts[i].description);
-                setPrice(existProducts[i].price);
+        if(selectedOption.value === selectedOption.label){
+            console.log('new')
+            setProductName(selectedOption.label)
+            setPrice(0);
+            setQuantity(1);
+            setDescription("");
+            setSelectedCategoryId(0);
+            setError("");
+            setSelectedProductId(0)
+        }
+        else{
+            setSelectedProductId(selectedOption.value);
+
+            for(let i = 0; i < existProducts.length; i++){
+                if(existProducts[i].id === selectedOption.value){
+                    setProductName(existProducts[i].name);
+                    setDescription(existProducts[i].description);
+                    setPrice(existProducts[i].price);
+                    setSelectedCategoryId(existProducts[i].category.id);
+                    // setSelectedCategoryName(existProducts[i].category.name);
+                    // options(null);
+                }
             }
         }
+        
     };
 
 
@@ -176,7 +209,7 @@ const AddIncomingOrder = () => {
                                     type="text"
                                     required
                                     value={latitude}
-                                    onChange={(e) => setLatitude(e.target.value)}
+                                    disabled
                                 ></input>
                             </div>
                             <div className="halftext_feild ">
@@ -186,9 +219,23 @@ const AddIncomingOrder = () => {
                                     type="text"
                                     required
                                     value={longitude}
-                                    onChange={(e) => setLongitude(e.target.value)}
+                                    disabled
                                 ></input>
                             </div>
+                        </div>
+                        <div className='mapContainer'>
+                            <Map height={300} 
+                            defaultCenter={[latitude, longitude]} 
+                            defaultZoom={13} 
+                            onClick={handleMapClick}
+                            >
+                                <Marker width={40} anchor={[latitude, longitude]} />
+                            </Map>
+                            {/* <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
+                                <Draggable offset={[60, 87]} anchor={anchor} onDragEnd={handleMapDragEnd}>
+                                    <img src={logo} width={55} height={55} alt="Pigeon!" />
+                                </Draggable>
+                            </Map> */}
                         </div>
                     </div>
 
@@ -196,25 +243,16 @@ const AddIncomingOrder = () => {
                         <h2>Order Items:</h2>
 
                         <div className='product_section'>
-                            <div>
-                                <label>New Product</label>
-                                <input
-                                    type="checkbox"
-                                    checked={isNewProduct}
-                                    onChange={() => setIsNewProduct(!isNewProduct)}
-                                />
-                            </div>
-                            {isNewProduct ? (
-                                <>
                                     <div className="halftext_feild">
                                         <label>Name</label>
-                                        <input
-                                            className='half'
-                                            type="text"
-                                            required
-                                            value={productName}
-                                            onChange={(e) => setProductName(e.target.value)}
-                                        ></input>
+
+                                        <CreatableSelect
+                                        options={options}
+                                        onChange={handleChange}
+                                        className='creatableSelect'
+                                        placeholder= "product name"
+                                        isSearchable
+                                        />
                                     </div>
                                     <div className="halftext_feild ">
                                         <label>Description</label>
@@ -236,14 +274,11 @@ const AddIncomingOrder = () => {
                                             required
                                         >
                                             <option value="0">Select a category</option>
-                                            <option value="1">Electronics</option>
-                                            <option value="2">Fashion</option>
-                                            <option value="3">Home & Garden</option>
-                                            <option value="4">Health & Beauty</option>
-                                            <option value="5">Sports & Outdoors</option>
-                                            <option value="6">Automotive</option>
-                                            <option value="7">Toys & Games</option>
-                                            <option value="8">Office & Stationery</option>
+                                            {categories.map((category) => (
+                                                <option key={category.id} value={category.id}>
+                                                    {category.category}
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
 
@@ -258,27 +293,6 @@ const AddIncomingOrder = () => {
                                             onChange={(e) => setPrice(e.target.value)}
                                         ></input>
                                     </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="halftext_feild">
-                                        <label>Product Name</label>
-                                        <select
-                                            className="half"
-                                            value={selectedProductId}
-                                            onChange={handleSelectExistingProduct}
-                                            required
-                                        >
-                                            <option value="0">Select product name</option>
-                                            {existProducts.map((product) => (
-                                                <option key={product.id} value={product.id}>
-                                                    {product.name}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                </>
-                            )}
 
                             <div className="halftext_feild ">
                                 <label>Quantity</label>
@@ -303,28 +317,21 @@ const AddIncomingOrder = () => {
                                     <div className='attributes'>
                                         <div><span>Name: </span>{product.productName}</div>
                                         <div><span>Description: </span>{product.description}</div>
-                                        <div><span>Category ID: </span>{product.category_id}</div>
+                                        {categories.map((category) => {
+                                            if (product.product_category_id === category.id) {
+                                                return (
+                                                    <div key={category.id}>
+                                                        <span>Category: </span>{category.category}
+                                                    </div>
+                                                );
+                                            }
+                                        })}
                                         <div><span>Price: </span>{product.price}</div>
                                         <div><span>Quantity: </span>{product.quantity}</div>
                                     </div>
                                     <button className='btn' onClick={() => handleDeleteProduct(product.productName)}>Delete</button>
                                 </div>
-                            ))}
-
-                            {oldProducts.map((product, index) => (
-                                 <div className='display_product' key={index}>
-                                    <div className='attributes'>
-                                            {/* <div><span>Product id: </span>{product.id}</div> */}
-                                        <div><span>Product Name: </span>{product.name}</div>
-                                        <div><span>Description: </span>{product.description}</div>
-                                        <div><span>Price: </span>{product.price}</div>
-                                        <div><span>Quantity: </span>{product.quantity}</div>
-                                    </div>
-                                    <button className='btn' onClick={() => handleDeleteOldProduct(product.id)}>Delete</button>
-                                 </div>
-                            ))}
-
-                                        
+                            ))}         
                         </div>
                     </div>
 

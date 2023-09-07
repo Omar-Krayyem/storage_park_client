@@ -23,6 +23,7 @@
 .AddOrder_page .right_side .head{
     width: 83%;
     position: fixed;
+    z-index: 1;
 }
 
 .AddOrder_page .right_side .body{
@@ -155,3 +156,22 @@
     color: #1D2126;
     transition: 0.5s;
 }
+
+.creatableSelect {
+    width: 200px;
+    font-size: 16px;
+    border: 2px solid #FF8B13;
+    outline: none;
+}
+
+.creatableSelect:focus {
+    border-color: #1D2126;
+    box-shadow: none;
+}
+
+
+
+.mapContainer{
+    margin-top: 20px;
+}
+
