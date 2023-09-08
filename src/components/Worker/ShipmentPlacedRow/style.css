@@ -1,0 +1,22 @@
+.ShipmentPlacedRow{
+    width: 100%;
+}
+
+.ShipmentPlacedRow_tr {
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.ShipmentPlacedRow_td {
+    width: 25%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.ShipmentPlacedRow_tr:hover{
+    background-color: #FF8B13;
+}

@@ -17,6 +17,10 @@ import PlacedIncomingById from './Pages/Partner/PlacedOrderById';
 import AdminPlacedIncomingById from './Pages/Admin/PlacedOrderById';
 import AdminShipmentIncomingById from './Pages/Admin/ShipmentOrderById';
 import ShipmentIncomingById from './Pages/Partner/ShipmentOrderById';
+
+import WorkerDashboard from './Pages/Worker/Dashboard';
+import WorkerShipmentIncoming from './Pages/Worker/ShipmentIncoming';
+import WorkerShipmentIncomingById from './Pages/Worker/ShipmentOrderById';
 function App() {
   return (
     <Routes>
@@ -44,7 +48,13 @@ function App() {
 
         <Route path='incoming/shipment' element={<ShipmentIncoming/>} />
         <Route path='incoming/shipment/:id' element={<ShipmentIncomingById/>} ></Route>
+      </Route>
 
+      <Route path='/worker'>
+        <Route index element={<WorkerDashboard/>} />
+
+        <Route path='incoming/shipment' element={<WorkerShipmentIncoming/>} />
+        <Route path='incoming/shipment/:id' element={<WorkerShipmentIncomingById/>} ></Route>
       </Route>
     </Routes>
   );

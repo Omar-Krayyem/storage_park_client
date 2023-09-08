@@ -71,7 +71,7 @@ const AddIncomingOrder = () => {
                             <div className="halftext_feild">
                                 <label>Company Name</label>
                                 <input
-                                    className='Q'
+                                    className='half'
                                     type="text"
                                     required
                                     value={order.user?.company_name || ''}
@@ -81,7 +81,7 @@ const AddIncomingOrder = () => {
                             <div className="halftext_feild">
                                 <label>Total Price</label>
                                 <input
-                                    className='Q'
+                                    className='half'
                                     type="text"
                                     required
                                     value={order.total_price}
@@ -91,7 +91,7 @@ const AddIncomingOrder = () => {
                             <div className="halftext_feild ">
                                 <label>Placed At</label>
                                 <input
-                                    className='Q'
+                                    className='half'
                                     type="text"
                                     required
                                     value={order.placed_at}

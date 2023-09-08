@@ -12,7 +12,7 @@ import { Map , Marker } from "pigeon-maps"
 
 
 
-const PlacedIncomingById = () => {
+const AddIncomingOrder = () => {
     const { id } = useParams();
     const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
@@ -24,23 +24,18 @@ const PlacedIncomingById = () => {
     const [orderItems, setOrderItems] = useState([]);
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
 
-    const [workers, setWorkers] = useState([]);
-    const [selectedWorkerId, setSelectedWorkerId] = useState(0);
-
-    const [error, setError] = useState("");
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/placed/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/worker/incoming/shipment/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
             console.log(response.data.data);
-            setLatitude(response.data.data.order.latitude);
-            setLongitude(response.data.data.order.longitude);
-            setOrder(response.data.data.order);
-            setWorkers(response.data.data.workers);
-            setOrderItems(response.data.data.order.order_items)
+            setLatitude(response.data.data.latitude);
+            setLongitude(response.data.data.longitude);
+            setOrder(response.data.data);
+            setOrderItems(response.data.data.order_items)
             setMapDataLoaded(true);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -51,28 +46,30 @@ const PlacedIncomingById = () => {
         getOrder();
     }, []);
 
+    const AddToDelivered = () => {
+        const postData = {id};
 
-    const addToShipment = () => {
-        if(selectedWorkerId === 0){
-            setError("Select worker")
-        }
-        else{
-            const postData = {id , selectedWorkerId};
-            console.log(postData)
-
-            axios.post('http://127.0.0.1:8000/api/admin/incoming/placed/selectWorker', postData, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-                }
-            })
-            .then(response => {
-                console.log(response);
-                window.location.href = '/admin/incoming/shipment';
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        }
+        axios.post('http://127.0.0.1:8000/api/worker/incoming/shipment/addToDelivered', postData
+        
+        
+        
+        
+        
+        
+        
+        
+         , {
+        headers: {
+            'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            console.log(response);
+            window.location.href = '/worker/incoming/shipment';
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
 
@@ -87,10 +84,10 @@ const PlacedIncomingById = () => {
                 </div>
                 <div className='body'>
                     <div className='title'>
-                        <div className='page_title'><h1>Placed Order Number: {id}</h1></div>
+                        <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
                         <div className='right_title'>
-                            <button onClick={addToShipment}>Add to Shipment</button>
-                            <Link to={'/admin/incoming/placed'}><button>Back</button></Link>
+                            <button onClick={AddToDelivered}>Delivered</button>
+                            <Link to={'/worker/incoming/shipment'}><button>Back</button></Link>
                         </div>
                     </div>
 
@@ -184,30 +181,10 @@ const PlacedIncomingById = () => {
                             ))}         
                         </div>
                     </div>
-                        
-                    <div className='select_worker'>
-                        <div className="halftext_feild">
-                                <label>Select Worker</label>
-                                <select
-                                    className="half"
-                                    value={selectedWorkerId}
-                                    onChange={(e) => setSelectedWorkerId(e.target.value)}
-                                    required
-                                >
-                                <option value="0">Select a worker</option>
-                                {workers.map((worker) => (
-                                    <option key={worker.id} value={worker.id}>
-                                        {worker.first_name} {worker.last_name}
-                                    </option>
-                                ))}
-                                </select>
-                            </div>
-                            <div >{error}</div>
-                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-export default PlacedIncomingById;
+export default AddIncomingOrder;

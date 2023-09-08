@@ -27,7 +27,7 @@ const Login = () => {
                     window.location.href = '/admin';
                 }
                 else if(user_type === 2){
-                    window.location.href = '/admin';
+                    window.location.href = '/worker';
                 }
                 else if(user_type === 3){
                     window.location.href = '/partner';
