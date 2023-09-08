@@ -1,16 +1,9 @@
 import './style.css';
-import { useState } from 'react';
 
 const ShipmentPlacedRow = (props) => {
 
-    const [openModal, setOpenModal] = useState(false);
-
-    const handleCloseModal = () => {
-        setOpenModal(false);
-    }
-
     const handleOpenModal = () => {
-        setOpenModal(true);
+        window.location.href = `/partner/incoming/shipment/${props.id}`;
     }
 
     return(

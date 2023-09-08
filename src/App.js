@@ -15,6 +15,8 @@ import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
 import ShipmentIncoming from './Pages/Partner/ShipmentIncoming';
 import PlacedIncomingById from './Pages/Partner/PlacedOrderById';
 import AdminPlacedIncomingById from './Pages/Admin/PlacedOrderById';
+import AdminShipmentIncomingById from './Pages/Admin/ShipmentOrderById';
+import ShipmentIncomingById from './Pages/Partner/ShipmentOrderById';
 function App() {
   return (
     <Routes>
@@ -31,6 +33,7 @@ function App() {
         <Route path='incoming/placed/:id' element={<AdminPlacedIncomingById/>} ></Route>
 
         <Route path='incoming/shipment' element={<AdminShipmentIncoming/>} />
+        <Route path='incoming/shipment/:id' element={<AdminShipmentIncomingById/>} ></Route>
       </Route>
 
       <Route path='/partner'>
@@ -40,6 +43,7 @@ function App() {
         <Route path='incoming/placed/:id' element={<PlacedIncomingById/>} ></Route>
 
         <Route path='incoming/shipment' element={<ShipmentIncoming/>} />
+        <Route path='incoming/shipment/:id' element={<ShipmentIncomingById/>} ></Route>
 
       </Route>
     </Routes>
