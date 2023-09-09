@@ -12,22 +12,21 @@ import { Map , Marker } from "pigeon-maps"
 
 
 
-const AdminDeliveredOrderById = () => {
+const DeliveredOrderById = () => {
     const { id } = useParams();
     const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
 
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
-
-    const [worker, setWorker] = useState("")
+    
     const [order, setOrder] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
 
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/shipment/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/partner/incoming/delivered/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -37,7 +36,6 @@ const AdminDeliveredOrderById = () => {
             setLongitude(response.data.data.longitude);
             setOrder(response.data.data);
             setOrderItems(response.data.data.order_items)
-            setWorker(`${response.data.data.worker.first_name}  ${response.data.data.worker.last_name}`)
             setMapDataLoaded(true);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -62,7 +60,7 @@ const AdminDeliveredOrderById = () => {
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
                         <div className='right_title'>
-                            <Link to={'/admin/incoming/delivered'}><button>Back</button></Link>
+                            <Link to={'/partner/incoming/delivered'}><button>Back</button></Link>
                         </div>
                     </div>
 
@@ -71,19 +69,9 @@ const AdminDeliveredOrderById = () => {
                         <div className='location_inputs'>
                             <h2>Order Info:</h2>
                             <div className="halftext_feild">
-                                <label>Company Name</label>
-                                <input
-                                    className='Q'
-                                    type="text"
-                                    required
-                                    value={order.user?.company_name || ''}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild">
                                 <label>Total Price</label>
                                 <input
-                                    className='Q'
+                                    className='half'
                                     type="text"
                                     required
                                     value={order.total_price}
@@ -93,7 +81,7 @@ const AdminDeliveredOrderById = () => {
                             <div className="halftext_feild ">
                                 <label>Placed At</label>
                                 <input
-                                    className='Q'
+                                    className='half'
                                     type="text"
                                     required
                                     value={order.placed_at}
@@ -103,7 +91,7 @@ const AdminDeliveredOrderById = () => {
                             <div className="halftext_feild ">
                                 <label>Delivered At</label>
                                 <input
-                                    className='Q'
+                                    className='half'
                                     type="text"
                                     required
                                     value={order.delivered_at}
@@ -166,22 +154,10 @@ const AdminDeliveredOrderById = () => {
                             ))}         
                         </div>
                     </div>
-                    <div>
-                        <div className="halftext_feild ">
-                            <label>Worker</label>
-                            <input
-                                className='half'
-                                type="text"
-                                required
-                                value={worker}
-                                disabled
-                            ></input>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-export default AdminDeliveredOrderById;
+export default DeliveredOrderById;

@@ -1,0 +1,109 @@
+.ShipmentIncoming_page {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.ShipmentIncoming_page .left_side {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+}
+
+.ShipmentIncoming_page .right_side {
+    width: 80%;
+    margin-left: 20%;
+}
+
+.ShipmentIncoming_page .right_side .head{
+    width: 80%;
+    position: fixed;
+}
+
+
+.ShipmentIncoming_page .right_side .body{
+    margin-top: 50px;
+    padding: 40px 50px;
+}
+
+.ShipmentIncoming_page .right_side .body .title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right_title{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.right_title button{
+    background-color: #1D2126;
+    color: #F0F0F0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 7px 25px;
+}
+
+.right_title button:hover{
+    background-color: #FF8B13;
+    color: #1D2126;
+    transition: 0.5s;
+}
+
+.ShipmentIncoming_page .body .title input{
+    border: 2px solid #CCCCCC;
+    font-size: 18px;
+    width: 400px;
+    outline: none;
+    border-radius: 25px;
+    padding: 7px 15px;
+    background-color: transparent;
+    
+}
+
+.ShipmentIncoming_page .table{
+    padding-top: 20px;
+}
+
+.ShipmentIncoming_page .ShipmentIncoming_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.ShipmentIncoming_table .ShipmentIncoming_thead {
+    font-size: 20px;
+    color: #F0F0F0;
+    background-color: #1D2126;
+}
+  
+.ShipmentIncoming_table .ShipmentIncoming_th {
+    width: 25%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.top_left{
+    border-top-left-radius: 15px;
+}
+
+.top_right{
+    border-top-right-radius: 15px;
+}
+

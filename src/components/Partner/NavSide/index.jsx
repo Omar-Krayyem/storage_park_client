@@ -58,7 +58,7 @@ const NavSide = () => {
                                 <div className="section-pages">
                                     <Link to={'/partner/incoming/placed'}><div className="page">Placed</div></Link>
                                     <Link to={'/partner/incoming/shipment'}><div className="page">Shipments</div></Link>
-                                    <div className="page">Delivered</div>
+                                    <Link to={'/partner/incoming/delivered'}><div className="page">Delivered</div></Link>
                                 </div>
                             )}
                         </div>

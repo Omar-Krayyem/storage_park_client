@@ -17,10 +17,12 @@ import AdminDeliveredOrderById from './Pages/Admin/DeliveredOrderById';
 
 import PartnerDashboard from './Pages/Partner/Dashboard';
 import PlacedIncoming from './Pages/Partner/PlacedIncoming';
+import PlacedIncomingById from './Pages/Partner/PlacedOrderById';
 import AddIncomingorder from './Pages/Partner/AddIncomingorder';
 import ShipmentIncoming from './Pages/Partner/ShipmentIncoming';
-import PlacedIncomingById from './Pages/Partner/PlacedOrderById';
 import ShipmentIncomingById from './Pages/Partner/ShipmentOrderById';
+import DeliveredIncoming from './Pages/Partner/DeliveredIncoming';
+import DeliveredOrderById from './Pages/Partner/DeliveredOrderById';
 
 import WorkerDashboard from './Pages/Worker/Dashboard';
 import WorkerShipmentIncoming from './Pages/Worker/ShipmentIncoming';
@@ -56,6 +58,9 @@ function App() {
 
         <Route path='incoming/shipment' element={<ShipmentIncoming/>} />
         <Route path='incoming/shipment/:id' element={<ShipmentIncomingById/>} ></Route>
+
+        <Route path='incoming/delivered' element={<DeliveredIncoming/>} />
+        <Route path='incoming/delivered/:id' element={<DeliveredOrderById/>} ></Route>
       </Route>
 
       <Route path='/worker'>
