@@ -53,7 +53,7 @@ const NavSide = () => {
                             {isSectionExpanded("incomingOrders") && (
                                 <div className="section-pages">
                                     <Link to={'/worker/incoming/shipment'}><div className="page">Shipments</div></Link>
-                                    <div className="page">Delivered</div>
+                                    <Link to={'/worker/incoming/delivered'}><div className="page">Delivered</div></Link>
                                 </div>
                             )}
                         </div>
