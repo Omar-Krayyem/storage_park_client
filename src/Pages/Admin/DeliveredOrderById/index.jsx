@@ -12,21 +12,22 @@ import { Map , Marker } from "pigeon-maps"
 
 
 
-const AddIncomingOrder = () => {
+const AdminDeliveredOrderById = () => {
     const { id } = useParams();
     const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
 
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
-    
+
+    const [worker, setWorker] = useState("")
     const [order, setOrder] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
 
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/worker/incoming/shipment/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/shipment/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -36,6 +37,7 @@ const AddIncomingOrder = () => {
             setLongitude(response.data.data.longitude);
             setOrder(response.data.data);
             setOrderItems(response.data.data.order_items)
+            setWorker(`${response.data.data.worker.first_name}  ${response.data.data.worker.last_name}`)
             setMapDataLoaded(true);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -46,27 +48,9 @@ const AddIncomingOrder = () => {
         getOrder();
     }, []);
 
-    const AddToDelivered = () => {
-        const postData = {id};
-
-        axios.post('http://127.0.0.1:8000/api/worker/incoming/shipment/addToDelivered', postData
-        , {
-        headers: {
-            'Authorization': `Bearer ${token}`
-            }
-        })
-        .then(response => {
-            console.log(response);
-            window.location.href = '/worker/incoming/shipment';
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    }
-
 
     return (
-        <div className='AddOrder_page'>
+        <div className='AdminDeliveredOrderById_page'>
             <div className='left_side'>
                 <NavSide />
             </div>
@@ -78,8 +62,7 @@ const AddIncomingOrder = () => {
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
                         <div className='right_title'>
-                            <button onClick={AddToDelivered}>Delivered</button>
-                            <Link to={'/worker/incoming/shipment'}><button>Back</button></Link>
+                            <Link to={'/admin/incoming/delivered'}><button>Back</button></Link>
                         </div>
                     </div>
 
@@ -90,7 +73,7 @@ const AddIncomingOrder = () => {
                             <div className="halftext_feild">
                                 <label>Company Name</label>
                                 <input
-                                    className='half'
+                                    className='Q'
                                     type="text"
                                     required
                                     value={order.user?.company_name || ''}
@@ -100,7 +83,7 @@ const AddIncomingOrder = () => {
                             <div className="halftext_feild">
                                 <label>Total Price</label>
                                 <input
-                                    className='half'
+                                    className='Q'
                                     type="text"
                                     required
                                     value={order.total_price}
@@ -110,10 +93,20 @@ const AddIncomingOrder = () => {
                             <div className="halftext_feild ">
                                 <label>Placed At</label>
                                 <input
-                                    className='half'
+                                    className='Q'
                                     type="text"
                                     required
                                     value={order.placed_at}
+                                    disabled
+                                ></input>
+                            </div>
+                            <div className="halftext_feild ">
+                                <label>Delivered At</label>
+                                <input
+                                    className='Q'
+                                    type="text"
+                                    required
+                                    value={order.delivered_at}
                                     disabled
                                 ></input>
                             </div>
@@ -173,10 +166,22 @@ const AddIncomingOrder = () => {
                             ))}         
                         </div>
                     </div>
+                    <div>
+                        <div className="halftext_feild ">
+                            <label>Worker</label>
+                            <input
+                                className='half'
+                                type="text"
+                                required
+                                value={worker}
+                                disabled
+                            ></input>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-export default AddIncomingOrder;
+export default AdminDeliveredOrderById;

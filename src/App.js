@@ -3,24 +3,29 @@ import { Route, Routes } from 'react-router-dom';
 
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register'
+
 import AdminDashboard from './Pages/Admin/Dashboard';
 import Requests from './Pages/Admin/Requests/index';
 import Partners from './Pages/Admin/Partners';
 import Workers from './Pages/Admin/Workers';
+import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
+import AdminPlacedIncomingById from './Pages/Admin/PlacedOrderById';
+import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
+import AdminShipmentIncomingById from './Pages/Admin/ShipmentOrderById';
+import AdminDeliveredIncoming from './Pages/Admin/DeliveredIncoming';
+import AdminDeliveredOrderById from './Pages/Admin/DeliveredOrderById';
+
 import PartnerDashboard from './Pages/Partner/Dashboard';
 import PlacedIncoming from './Pages/Partner/PlacedIncoming';
 import AddIncomingorder from './Pages/Partner/AddIncomingorder';
-import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
-import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
 import ShipmentIncoming from './Pages/Partner/ShipmentIncoming';
 import PlacedIncomingById from './Pages/Partner/PlacedOrderById';
-import AdminPlacedIncomingById from './Pages/Admin/PlacedOrderById';
-import AdminShipmentIncomingById from './Pages/Admin/ShipmentOrderById';
 import ShipmentIncomingById from './Pages/Partner/ShipmentOrderById';
 
 import WorkerDashboard from './Pages/Worker/Dashboard';
 import WorkerShipmentIncoming from './Pages/Worker/ShipmentIncoming';
 import WorkerShipmentIncomingById from './Pages/Worker/ShipmentOrderById';
+
 function App() {
   return (
     <Routes>
@@ -38,6 +43,9 @@ function App() {
 
         <Route path='incoming/shipment' element={<AdminShipmentIncoming/>} />
         <Route path='incoming/shipment/:id' element={<AdminShipmentIncomingById/>} ></Route>
+
+        <Route path='incoming/delivered' element={<AdminDeliveredIncoming/>} />
+        <Route path='incoming/delivered/:id' element={<AdminDeliveredOrderById/>} ></Route>
       </Route>
 
       <Route path='/partner'>

@@ -77,7 +77,7 @@ const NavSide = () => {
                                 <div className="section-pages">
                                     <NavLink to={'/admin/incoming/placed'}><div className={`page ${activeSection === "placed" ? 'selected' : ''}`} onClick={() => handlePageClick("Placed")}>Placed</div></NavLink>
                                     <NavLink to={'/admin/incoming/shipment'}><div className={`page ${activeSection === "shipment" ? 'selected' : ''}`} onClick={() => handlePageClick("shipment")}>Shipments</div></NavLink>
-                                    <div className="page">Delivered</div>
+                                    <NavLink to={'/admin/incoming/delivered'}><div className={`page ${activeSection === "delivered" ? 'selected' : ''}`} onClick={() => handlePageClick("delivered")}>Delivered</div></NavLink>
                                 </div>
                             )}
                         </div>
