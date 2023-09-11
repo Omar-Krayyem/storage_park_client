@@ -61,7 +61,7 @@ const NavSide = () => {
 
                         <div className="title_section">
                             <div className='icon'><FaWarehouse size={25}/> </div>
-                            <div className="title">Stored Products</div>
+                            <NavLink to={'/admin/stock'}><div className={`page ${activeSection === "stored_products" ? 'selected' : ''}`} onClick={() => handlePageClick("stored_products")}>Stored Products</div></NavLink>
                         </div>
 
                         <div className="section">

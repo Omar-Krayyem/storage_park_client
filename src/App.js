@@ -8,6 +8,7 @@ import AdminDashboard from './Pages/Admin/Dashboard';
 import Requests from './Pages/Admin/Requests/index';
 import Partners from './Pages/Admin/Partners';
 import Workers from './Pages/Admin/Workers';
+import AdminStock from './Pages/Admin/Stock';
 import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
 import AdminPlacedIncomingById from './Pages/Admin/PlacedOrderById';
 import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
@@ -41,6 +42,8 @@ function App() {
         <Route path='requests' element={<Requests/>} />
         <Route path='partners' element={<Partners/>} />
         <Route path='workers' element={<Workers/>} />
+
+        <Route path='stock' element={<AdminStock/>} />
 
         <Route path='incoming/placed' element={<AdminPlacedIncoming/>} />
         <Route path='incoming/placed/:id' element={<AdminPlacedIncomingById/>} ></Route>
