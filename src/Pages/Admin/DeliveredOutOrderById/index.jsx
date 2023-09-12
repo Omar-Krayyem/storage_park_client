@@ -8,7 +8,7 @@ import { Map , Marker } from "pigeon-maps"
 
 localStorage.setItem("activeSection", "Incdelivered");
 
-const AdminDeliveredOrderById = () => {
+const AdminOutgoingDeliveredOrder = () => {
     const { id } = useParams();
     const token = localStorage.getItem("token");
 
@@ -22,7 +22,7 @@ const AdminDeliveredOrderById = () => {
 
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/shipment/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/admin/outgoing/shipment/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -45,12 +45,12 @@ const AdminDeliveredOrderById = () => {
 
 
     return (
-        <div className='AdminIncomingDeliveredOrder_page'>
+        <div className='AdminOutgoingDeliveredOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
                         <div className='right_title'>
-                            <Link to={'/admin/incoming/delivered'}><button>Back</button></Link>
+                            <Link to={'/admin/outgoing/delivered'}><button>Back</button></Link>
                         </div>
                     </div>
 
@@ -95,6 +95,40 @@ const AdminDeliveredOrderById = () => {
                                     type="text"
                                     required
                                     value={order.delivered_at}
+                                    disabled
+                                ></input>
+                            </div>
+                        </div>
+
+                        <div className='info_row'>
+                            <h2>Customer Info:</h2>
+                            <div className="halftext_feild">
+                                <label>Name</label>
+                                <input
+                                    className='Q'
+                                    type="text"
+                                    required
+                                    value={order.customer?.name}
+                                    disabled
+                                ></input>
+                            </div>
+                            <div className="halftext_feild">
+                                <label>Email</label>
+                                <input
+                                    className='half'
+                                    type="text"
+                                    required
+                                    value={order.customer?.email}
+                                    disabled
+                                ></input>
+                            </div>
+                            <div className="halftext_feild ">
+                                <label>Phone</label>
+                                <input
+                                    className='Q'
+                                    type="text"
+                                    required
+                                    value={order.customer?.phone}
                                     disabled
                                 ></input>
                             </div>
@@ -171,4 +205,4 @@ const AdminDeliveredOrderById = () => {
     );
 }
 
-export default AdminDeliveredOrderById;
+export default AdminOutgoingDeliveredOrder;

@@ -42,18 +42,17 @@
     gap: 20px;
 }
 
-.AdminIncomingShipmentOrder_page .location_section{
-    padding: 20px 0;
-    border-bottom: 1px solid #FF8B13 ;
-}
-
-.AdminIncomingShipmentOrder_page .location_inputs{
-    width: 100%;
+.AdminIncomingShipmentOrder_page .info_row{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    gap: 40px;
     align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.AdminIncomingShipmentOrder_page  .Order_Info{
+    padding: 20px 0;
+    border-bottom: 1px solid #FF8B13 ;
 }
 
 .AdminIncomingShipmentOrder_page .halftext_feild{

@@ -17,20 +17,23 @@
     flex-direction: column;
     gap: 20px;
 }
+.AdminIncomingDeliveredOrder_page h2{
+    width: 200px;
+}
 
-.AdminIncomingDeliveredOrder_page .location_section{
+.AdminIncomingDeliveredOrder_page .info_row{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.AdminIncomingDeliveredOrder_page  .Order_Info{
     padding: 20px 0;
     border-bottom: 1px solid #FF8B13 ;
 }
 
-.AdminIncomingDeliveredOrder_page .location_inputs{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 40px;
-    align-items: center;
-}
 .AdminIncomingDeliveredOrder_page .halftext_feild{
     flex-direction: column;
 }

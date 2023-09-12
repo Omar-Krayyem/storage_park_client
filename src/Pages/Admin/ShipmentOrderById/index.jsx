@@ -46,13 +46,6 @@ const AdminIncomingShipmentOrder = () => {
 
     return (
         <div className='AdminIncomingShipmentOrder_page'>
-            {/* <div className='left_side'>
-                <NavSide />
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div> */}
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
@@ -61,9 +54,9 @@ const AdminIncomingShipmentOrder = () => {
                         </div>
                     </div>
 
-                    <div className='location_section'>
+                    <div className='Order_Info'>
                         
-                        <div className='location_inputs'>
+                        <div className='info_row'>
                             <h2>Order Info:</h2>
                             <div className="halftext_feild">
                                 <label>Company Name</label>
@@ -78,7 +71,7 @@ const AdminIncomingShipmentOrder = () => {
                             <div className="halftext_feild">
                                 <label>Total Price</label>
                                 <input
-                                    className='half'
+                                    className='Q'
                                     type="text"
                                     required
                                     value={order.total_price}
@@ -88,7 +81,7 @@ const AdminIncomingShipmentOrder = () => {
                             <div className="halftext_feild ">
                                 <label>Placed At</label>
                                 <input
-                                    className='half'
+                                    className='Q'
                                     type="text"
                                     required
                                     value={order.placed_at}
@@ -97,7 +90,7 @@ const AdminIncomingShipmentOrder = () => {
                             </div>
                         </div>
 
-                        <div className='location_inputs'>
+                        <div className='info_row'>
                             <h2>Location Info:</h2>
                             <div className="halftext_feild">
                                 <label>Latitude</label>
@@ -164,7 +157,6 @@ const AdminIncomingShipmentOrder = () => {
                         </div>
                     </div>
                 </div>
-            {/* </div> */}
         </div>
     );
 }
