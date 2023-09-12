@@ -1,0 +1,22 @@
+.OutgoingDeliveredRow{
+    width: 100%;
+}
+
+.AdminOutgoingDeliveredRow_tr {
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.AdminOutgoingDeliveredRow_td {
+    width: 20%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.AdminOutgoingDeliveredRow_tr:hover{
+    background-color: #FF8B13;
+}
