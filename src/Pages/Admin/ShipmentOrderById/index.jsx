@@ -9,6 +9,7 @@ import { Map , Marker } from "pigeon-maps"
 
 
 const AdminIncomingShipmentOrder = () => {
+    localStorage.setItem("activeSection", "Incshipment");
     const { id } = useParams();
     const token = localStorage.getItem("token");
 

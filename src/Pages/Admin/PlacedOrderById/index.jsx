@@ -13,10 +13,10 @@ import { Map , Marker } from "pigeon-maps"
 
 
 const AdminIncomingPlacedOrder = () => {
+    localStorage.setItem("activeSection", "Incplaced");
     const { id } = useParams();
-    const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
-
+    
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
     

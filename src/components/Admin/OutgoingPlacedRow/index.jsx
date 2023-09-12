@@ -3,7 +3,7 @@ import './style.css';
 const AdminOutgoingPlacedRow = (props) => {
 
     const handleOpenModal = () => {
-        window.location.href = `/admin/incoming/placed/${props.id}`;
+        window.location.href = `/admin/outgoing/placed/${props.id}`;
     }
 
     return(

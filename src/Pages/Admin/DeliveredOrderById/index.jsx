@@ -6,6 +6,8 @@ import { Link, useParams  } from 'react-router-dom';
 
 import { Map , Marker } from "pigeon-maps"
 
+localStorage.setItem("activeSection", "Incdelivered");
+
 const AdminDeliveredOrderById = () => {
     const { id } = useParams();
     const token = localStorage.getItem("token");

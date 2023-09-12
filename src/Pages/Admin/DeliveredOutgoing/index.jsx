@@ -65,19 +65,19 @@ const DeliveredOutgoing = () => {
                                 <tr className=''>
                                     <th className='AdminDeliveredOutgoing_th top_left'>Order ID</th>
                                     <th className='AdminDeliveredOutgoing_th'>Company Name</th>
-                                    <th className='AdminDeliveredOutgoing_th'>Worker Name</th>
-                                    <th className='AdminDeliveredOutgoing_th '>Placed At</th>
+                                    <th className='AdminDeliveredOutgoing_th'>Customer Name</th>
+                                    <th className='AdminDeliveredOutgoing_th '>Worker Name</th>
                                     <th className='AdminDeliveredOutgoing_th top_right'>Delivered At</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {searchInput === "" ? (
                                     orders.map((order) => (
-                                        <OutgoingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} placed_at={order.placed_at} delivered_at={order.delivered_at}/>
+                                        <OutgoingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} customer_name={order.customer.name} delivered_at={order.delivered_at}/>
                                     ))
                                 ) : (
                                     searchedPartners.map((order) => (
-                                        <OutgoingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} placed_at={order.placed_at} delivered_at={order.delivered_at}/>
+                                        <OutgoingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} customer_name={order.customer.name} delivered_at={order.delivered_at}/>
                                     ))
                                 )}
                             </tbody>
