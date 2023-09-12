@@ -83,11 +83,11 @@ const NavSide = (props) => {
                                 </div>
                             )}
                         </div>
-                        
+
                         <div className="section">
                             <div className='title_section' onClick={() => toggleSection("outgoingOrders")}>
                                 <div className='first'>
-                                    <div className='icon reflect'><TbTruckDelivery  size={27}/> </div>
+                                    <div className='icon reflect'> <TbTruckDelivery size={27}/> </div>
                                     <div className="title">Outgoing Orders</div>
                                 </div>
                                 <div className={`arrow ${isSectionExpanded("outgoingOrders") ? 'expanded' : ''}`}><RiArrowDownSLine/></div>
@@ -95,13 +95,12 @@ const NavSide = (props) => {
                             
                             {isSectionExpanded("outgoingOrders") && (
                                 <div className="section-pages">
-                                    <div className="page">Placed</div>
-                                    <div className="page">Shipments</div>
-                                    <div className="page">Delivered</div>
+                                    <NavLink to={'/admin/outgoing/placed'}><div className={`page ${activeSection === "Outplaced" ? 'selected' : ''}`} onClick={() => handlePageClick("Outplaced")}>Placed</div></NavLink>
+                                    <NavLink to={'/admin/outgoing/shipment'}><div className={`page ${activeSection === "Outshipment" ? 'selected' : ''}`} onClick={() => handlePageClick("Outshipment")}>Shipments</div></NavLink>
+                                    <NavLink to={'/admin/outgoing/delivered'}><div className={`page ${activeSection === "Outdelivered" ? 'selected' : ''}`} onClick={() => handlePageClick("Outdelivered")}>Delivered</div></NavLink>
                                 </div>
                             )}
                         </div>
-
                     </div>
                 </div>
                 

@@ -16,6 +16,8 @@ import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
 import AdminShipmentIncomingById from './Pages/Admin/ShipmentOrderById';
 import AdminDeliveredIncoming from './Pages/Admin/DeliveredIncoming';
 import AdminDeliveredOrderById from './Pages/Admin/DeliveredOrderById';
+import AdminPlacedOutgoing from './Pages/Admin/PlacedOutgoing';
+
 import AdminLayout from './utils/AdminLayout';
 
 import PartnerDashboard from './Pages/Partner/Dashboard';
@@ -79,6 +81,8 @@ function App() {
 
         <Route path='incoming/delivered' element={isAdmin? <AdminDeliveredIncoming/> : <Navigate to="/"/>}/>
         <Route path='incoming/delivered/:id' element={isAdmin? <AdminDeliveredOrderById/> : <Navigate to="/"/>}/>
+
+        <Route path='outgoing/placed' element={isAdmin? <AdminPlacedOutgoing/> : <Navigate to="/"/>} />
       </Route>
 
       <Route path='/partner'>
