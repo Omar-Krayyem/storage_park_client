@@ -9,29 +9,12 @@
     width: 100%;
 }
 
-.partners_page .left_side {
-    width: 20%;
-    height: 100vh;
-    position: fixed;
-}
-
-.partners_page .right_side {
-    width: 80%;
-    margin-left: 20%;
-}
-
-.partners_page .right_side .head{
-    width: 80%;
-    position: fixed;
-}
-
-
-.partners_page .right_side .body{
-    margin-top: 50px;
+.partners_page .body{
+    width: 100%;
     padding: 40px 50px;
 }
 
-.partners_page .right_side .body .title{
+.partners_page .body .title{
     display: flex;
     flex-direction: row;
     justify-content: space-between;

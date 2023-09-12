@@ -4,14 +4,9 @@ import axios from 'axios';
 
 import AddWorkerModal from '../../../components/Modals/AddWorkerModal';
 
-import NavSide from '../../../components/Admin/NavSide';
-import Header from '../../../components/Shared/Header';
 import WorkerRow from '../../../components/Admin/WorkerRow';
 
 const Workers = () => {
-
-    const name = localStorage.getItem("user_name");
-
     const [Users , setUsers] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
@@ -66,13 +61,6 @@ const Workers = () => {
 
     return (
         <div className='workers_page'> 
-            <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Workers</h1></div>
@@ -104,7 +92,6 @@ const Workers = () => {
                             </tbody>
                         </table>
                     </div>
-                </div>
             </div>
             <AddWorkerModal
             handleCloseModal={handleCloseModal}

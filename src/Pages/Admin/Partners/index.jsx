@@ -2,14 +2,9 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import NavSide from '../../../components/Admin/NavSide';
-import Header from '../../../components/Shared/Header';
 import PartnerRow from '../../../components/Admin/PartnerRow';
 
 const Partners = () => {
-
-    const name = localStorage.getItem("user_name");
-
     const [Users , setUsers] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
@@ -54,13 +49,6 @@ const Partners = () => {
 
     return (
         <div className='partners_page'> 
-            <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Partners</h1></div>
@@ -92,7 +80,6 @@ const Partners = () => {
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

@@ -4,15 +4,15 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
+// import NavSide from '../../../components/Admin/NavSide';
+// import Header from '../../../components/Shared/Header';
 
 
 import { Map , Marker } from "pigeon-maps"
 
 
 
-const PlacedIncomingById = () => {
+const AdminIncomingPlacedOrder = () => {
     const { id } = useParams();
     const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
@@ -77,14 +77,14 @@ const PlacedIncomingById = () => {
 
 
     return (
-        <div className='AddOrder_page'>
-            <div className='left_side'>
+        <div className='AdminIncomingPlacedOrder_page'>
+            {/* <div className='left_side'>
                 <NavSide />
             </div>
             <div className='right_side'>
                 <div className='head'>
                     <Header name={name} />
-                </div>
+                </div> */}
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order Number: {id}</h1></div>
@@ -205,9 +205,9 @@ const PlacedIncomingById = () => {
                             <div >{error}</div>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     );
 }
 
-export default PlacedIncomingById;
+export default AdminIncomingPlacedOrder;

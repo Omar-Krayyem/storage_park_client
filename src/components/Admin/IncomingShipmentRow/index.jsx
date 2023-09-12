@@ -8,7 +8,7 @@ const IncomingShipmentRow = (props) => {
 
     return(
         <>
-        <tr onClick={handleOpenModal} className='AdminIncomingShipmentRow_tr' id={props.id}>
+            <tr onClick={handleOpenModal} className='AdminIncomingShipmentRow_tr' id={props.id}>
                 <td className='adminIncomingShipmentRow_td'>{props.id}</td>
                 <td className='adminIncomingShipmentRow_td'>{props.company_name}</td>
                 <td className='adminIncomingShipmentRow_td'>{props.worker_name}</td>
@@ -16,8 +16,6 @@ const IncomingShipmentRow = (props) => {
                 <td className='adminIncomingShipmentRow_td'>{props.total_price}</td>
             </tr>
         </>
-            
-        
     );
 }
 

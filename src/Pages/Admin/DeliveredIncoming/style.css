@@ -9,29 +9,12 @@
     width: 100%;
 }
 
-.AdminDeliveredIncoming_page .left_side {
-    width: 20%;
-    height: 100vh;
-    position: fixed;
-}
-
-.AdminDeliveredIncoming_page .right_side {
-    width: 80%;
-    margin-left: 20%;
-}
-
-.AdminDeliveredIncoming_page .right_side .head{
-    width: 80%;
-    position: fixed;
-}
-
-
-.AdminDeliveredIncoming_page .right_side .body{
-    margin-top: 50px;
+.AdminDeliveredIncoming_page .body{
+    width: 100%;
     padding: 40px 50px;
 }
 
-.AdminDeliveredIncoming_page .right_side .body .title{
+.AdminDeliveredIncoming_page .body .title{
     display: flex;
     flex-direction: row;
     justify-content: space-between;

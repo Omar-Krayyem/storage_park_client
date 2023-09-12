@@ -1,50 +1,60 @@
-.AddOrder_page {
+.AdminIncomingPlacedOrder_page {
     margin: 0;
-    padding: 0;
+    padding: 20px 50px;
     box-sizing: border-box;
     background-color: #F0F0F0;
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    align-items: flex-start;
+    min-height: 10vh;
     width: 100%;
 }
 
-.AddOrder_page .left_side {
+/* .AdminIncomingPlacedOrder_page .left_side {
     width: 17%;
     height: 100vh;
     position: fixed;
 }
 
-.AddOrder_page .right_side {
+.AdminIncomingPlacedOrder_page .right_side {
     width: 83%;
     margin-left: 17%;
 }
 
-.AddOrder_page .right_side .head{
+.AdminIncomingPlacedOrder_page .right_side .head{
     width: 83%;
     position: fixed;
     z-index: 1;
-}
-
+}  */
+/* 
 .AddOrder_page .right_side .body{
     margin-top: 50px;
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+} */
+
+.AdminIncomingPlacedOrder_page .body{
+    width: 100%;
+    /* margin-top: 50px; */
+    /* padding: 40px 50px; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.AddOrder_page .right_side .body .title .right_title{
+.AdminIncomingPlacedOrder_page .body .title .right_title{
     display: flex;
     flex-direction: row;
 }
 
-.AddOrder_page .location_section{
+.AdminIncomingPlacedOrder_page .location_section{
     padding: 20px 0;
     border-bottom: 1px solid #FF8B13 ;
 }
 
-.location_inputs{
+.AdminIncomingPlacedOrder_page{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -52,11 +62,11 @@
     gap: 40px;
     align-items: center;
 }
-.AddOrder_page .halftext_feild{
+.AdminIncomingPlacedOrder_page .halftext_feild{
     flex-direction: column;
 }
 
-.AddOrder_page .half{
+.AdminIncomingPlacedOrder_page .half{
     width: 280px;
     font-size: 16px;
     border: 2px solid #FF8B13;
@@ -68,7 +78,7 @@
     padding: 5px 5px;
 }
 
-.AddOrder_page .Q{
+.AdminIncomingPlacedOrder_page .Q{
     width: 150px;
     font-size: 16px;
     border: 2px solid #FF8B13;
@@ -80,7 +90,7 @@
     padding: 5px 5px;
 }
 
-.AddOrder_page  label{
+.AdminIncomingPlacedOrder_page  label{
     color: #1D2126;
     font-family: Inter;
     font-size: 20px;
@@ -90,7 +100,7 @@
     margin-right: 10px;
 }
 
-.product_section{
+.AdminIncomingPlacedOrder_page .product_section{
     display: flex;
     flex-flow: row wrap;
     gap: 25px;
@@ -98,26 +108,26 @@
     justify-content: flex-start ;
 }
 
-.AddOrder_page .btn{
+.AdminIncomingPlacedOrder_page .AddOrder_page .btn{
     padding: 0 20px;
     height: 30px;
     border-radius: 0;
 }
 
-.product_section .halftext_feild{
+.AdminIncomingPlacedOrder_page .product_section .halftext_feild{
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 }
 
-.display_products{
+.AdminIncomingPlacedOrder_page .display_products{
     display: flex;
     flex-direction: column;
     margin-top: 20PX;
     gap: 20px;
 }
 
-.display_product{
+.AdminIncomingPlacedOrder_page .display_product{
     display: flex;
     flex-flow: row;
     padding: 10px;
@@ -128,23 +138,23 @@
     justify-content: space-between;
 }
 
-.display_product .attributes{
+.AdminIncomingPlacedOrder_page .display_product .attributes{
     display: flex;
     flex-flow: row wrap;
     gap: 15px;
 }
 
-.display_product span{
+.AdminIncomingPlacedOrder_page .display_product span{
     font-weight: 600;
 }
 
-.AddOrder_page .placebutton{
+.AdminIncomingPlacedOrder_page .placebutton{
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.AddOrder_page .placebutton button{
+.AdminIncomingPlacedOrder_page .placebutton button{
     background-color: #1D2126;
     padding: 7px 25px ;
     color: #F0F0F0;
@@ -156,31 +166,31 @@
     cursor: pointer;
 }
 
-.AddOrder_page .placebutton button:hover{
+.AdminIncomingPlacedOrder_page .placebutton button:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
 }
 
-.creatableSelect {
+.AdminIncomingPlacedOrder_page .creatableSelect {
     width: 200px;
     font-size: 16px;
     border: 2px solid #FF8B13;
     outline: none;
 }
 
-.creatableSelect:focus {
+.AdminIncomingPlacedOrder_page .creatableSelect:focus {
     border-color: #1D2126;
     box-shadow: none;
 }
 
 
 
-.mapContainer{
+.AdminIncomingPlacedOrder_page .mapContainer{
     margin-top: 20px;
 }
 
-.select_worker{
+.AdminIncomingPlacedOrder_page .select_worker{
     display: flex;
     flex-direction: row;
     align-items: flex-end;

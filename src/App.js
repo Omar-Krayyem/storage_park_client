@@ -1,5 +1,6 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
 
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register'
@@ -15,6 +16,7 @@ import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
 import AdminShipmentIncomingById from './Pages/Admin/ShipmentOrderById';
 import AdminDeliveredIncoming from './Pages/Admin/DeliveredIncoming';
 import AdminDeliveredOrderById from './Pages/Admin/DeliveredOrderById';
+import AdminLayout from './utils/AdminLayout';
 
 import PartnerDashboard from './Pages/Partner/Dashboard';
 import PlacedIncoming from './Pages/Partner/PlacedIncoming';
@@ -32,27 +34,51 @@ import WorkerDeliveredIncoming from './Pages/Worker/DeliveredIncoming';
 import WorkerDeliveredOrderById from './Pages/Worker/DeliveredOrderById';
 
 function App() {
+  let user_type = localStorage.getItem("user_type");
+
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isWorker, setIsWorker] =useState(false);
+  const [isPartner, setIsPartner] =useState(false);
+
+  useEffect(() => {
+    if (parseInt(user_type) === 1) {
+      setIsAdmin(true);
+    }
+    else if (parseInt(user_type) === 2) {
+      setIsWorker(true);
+    }
+    else if (parseInt(user_type) === 3) {
+      setIsPartner(true);
+    }
+  }, []);
+
+  if (!isAdmin && !isWorker && !isPartner) {
+    return null; // or loading indicator or redirect to a loading page
+  }
+
   return (
     <Routes>
       <Route path="/" element={<Login/>} />
       <Route path="/Register" element={<Register/>} />
 
-      <Route path="/admin" >
-        <Route index element={<AdminDashboard/>} />
-        <Route path='requests' element={<Requests/>} />
-        <Route path='partners' element={<Partners/>} />
-        <Route path='workers' element={<Workers/>} />
+      {/* <Route path='/admin/incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/"/>} /> */}
+      
+      <Route path="/admin" element={isAdmin? <AdminLayout/> : <Navigate to="/"/>}>
+        <Route index element={isAdmin? <AdminDashboard/> : <Navigate to="/"/>} />
+        <Route path='requests' element={isAdmin? <Requests/> : <Navigate to="/"/>} />
+        <Route path='partners' element={isAdmin? <Partners/> : <Navigate to="/"/>} />
+        <Route path='workers' element={isAdmin? <Workers/> : <Navigate to="/"/>} />
 
-        <Route path='stock' element={<AdminStock/>} />
+        <Route path='stock' element={isAdmin? <AdminStock/> : <Navigate to="/"/>} />
 
-        <Route path='incoming/placed' element={<AdminPlacedIncoming/>} />
-        <Route path='incoming/placed/:id' element={<AdminPlacedIncomingById/>} ></Route>
+        <Route path='incoming/placed' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/"/>} />
+        <Route path='/admin/incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/"/>} />
 
-        <Route path='incoming/shipment' element={<AdminShipmentIncoming/>} />
-        <Route path='incoming/shipment/:id' element={<AdminShipmentIncomingById/>} ></Route>
+        <Route path='incoming/shipment' element={isAdmin? <AdminShipmentIncoming/> : <Navigate to="/"/>}/>
+        <Route path='incoming/shipment/:id' element={isAdmin? <AdminShipmentIncomingById/> : <Navigate to="/"/>}/>
 
-        <Route path='incoming/delivered' element={<AdminDeliveredIncoming/>} />
-        <Route path='incoming/delivered/:id' element={<AdminDeliveredOrderById/>} ></Route>
+        <Route path='incoming/delivered' element={isAdmin? <AdminDeliveredIncoming/> : <Navigate to="/"/>}/>
+        <Route path='incoming/delivered/:id' element={isAdmin? <AdminDeliveredOrderById/> : <Navigate to="/"/>}/>
       </Route>
 
       <Route path='/partner'>

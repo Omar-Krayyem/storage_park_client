@@ -2,15 +2,9 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import NavSide from '../../../components/Admin/NavSide';
-import Header from '../../../components/Shared/Header';
-import { Link } from 'react-router-dom';
 import IncomingShipmentRow from '../../../components/Admin/IncomingShipmentRow';
 
 const PlacedIncoming = () => {
-
-    const name = localStorage.getItem("user_name");
-
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
@@ -58,13 +52,6 @@ const PlacedIncoming = () => {
 
     return (
         <div className='AdminShipmentincoming_page'> 
-            <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div>
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Shipment Orders</h1></div>
@@ -97,7 +84,6 @@ const PlacedIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

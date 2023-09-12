@@ -1,10 +1,11 @@
 import './style.css';
 import React from "react";
 
-const Header = (props) => {
+const Header = () => {
+    const name = localStorage.getItem("user_name");
     return (
         <div className='Header'> 
-            LOGGED IN <span>{props.name}</span>
+            LOGGED IN <span>{name}</span>
         </div>
     );
 }

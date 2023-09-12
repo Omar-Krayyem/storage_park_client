@@ -2,15 +2,9 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import NavSide from '../../../components/Admin/NavSide';
-import Header from '../../../components/Shared/Header';
-import { Link } from 'react-router-dom';
 import IncomingPlacedRow from '../../../components/Admin/IncomingPlacedRow';
 
 const PlacedIncoming = () => {
-
-    const name = localStorage.getItem("user_name");
-
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
@@ -57,13 +51,6 @@ const PlacedIncoming = () => {
 
     return (
         <div className='Adminplacedincoming_page'> 
-            <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div>
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Placed Orders</h1></div>
@@ -77,7 +64,7 @@ const PlacedIncoming = () => {
                                 <tr className=''>
                                     <th className='adminplacedincoming_th top_left'>Order ID</th>
                                     <th className='adminplacedincoming_th'>Company Name</th>
-                                    <th className='adminplacedincoming_th'>Number of Order Items</th>
+                                    <th className='adminplacedincoming_th'>Order Items</th>
                                     <th className='adminplacedincoming_th '>Placed at</th>
                                     <th className='adminplacedincoming_th top_right'>Total Price $</th>
                                 </tr>
@@ -96,7 +83,6 @@ const PlacedIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

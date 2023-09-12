@@ -8,7 +8,7 @@ const IncomingDeliveredRow = (props) => {
 
     return(
         <>
-        <tr onClick={handleOpenModal} className='AdminIncomingDeliveredRow_tr' id={props.id}>
+            <tr onClick={handleOpenModal} className='AdminIncomingDeliveredRow_tr' id={props.id}>
                 <td className='AdminIncomingDeliveredRow_td'>{props.id}</td>
                 <td className='AdminIncomingDeliveredRow_td'>{props.company_name}</td>
                 <td className='AdminIncomingDeliveredRow_td'>{props.worker_name}</td>
@@ -16,8 +16,6 @@ const IncomingDeliveredRow = (props) => {
                 <td className='AdminIncomingDeliveredRow_td'>{props.delivered_at}</td>
             </tr>
         </>
-            
-        
     );
 }
 

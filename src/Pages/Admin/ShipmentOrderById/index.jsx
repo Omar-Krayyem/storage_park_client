@@ -4,22 +4,17 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
-
-
 import { Map , Marker } from "pigeon-maps"
 
 
 
-const AddIncomingOrder = () => {
+const AdminIncomingShipmentOrder = () => {
     const { id } = useParams();
-    const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
 
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
-    
+    const [worker, setWorker] = useState("");
     const [order, setOrder] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
@@ -35,6 +30,7 @@ const AddIncomingOrder = () => {
             setLatitude(response.data.data.latitude);
             setLongitude(response.data.data.longitude);
             setOrder(response.data.data);
+            setWorker(`${response.data.data.worker.first_name}  ${response.data.data.worker.last_name}`)
             setOrderItems(response.data.data.order_items)
             setMapDataLoaded(true);
         } catch (error) {
@@ -48,14 +44,14 @@ const AddIncomingOrder = () => {
 
 
     return (
-        <div className='AddOrder_page'>
-            <div className='left_side'>
+        <div className='AdminIncomingShipmentOrder_page'>
+            {/* <div className='left_side'>
                 <NavSide />
             </div>
             <div className='right_side'>
                 <div className='head'>
                     <Header name={name} />
-                </div>
+                </div> */}
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
@@ -154,10 +150,22 @@ const AddIncomingOrder = () => {
                             ))}         
                         </div>
                     </div>
+                    <div>
+                        <div className="halftext_feild ">
+                            <label>Worker</label>
+                            <input
+                                className='half'
+                                type="text"
+                                required
+                                value={worker}
+                                disabled
+                            ></input>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     );
 }
 
-export default AddIncomingOrder;
+export default AdminIncomingShipmentOrder;
