@@ -73,7 +73,7 @@ const DeliveredOutgoing = () => {
                             <tbody>
                                 {searchInput === "" ? (
                                     orders.map((order) => (
-                                        <OutgoingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} customer_name={order.customer.name} delivered_at={order.delivered_at}/>
+                                        <OutgoingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker?.first_name} ${order.worker?.last_name}`} customer_name={order.customer.name} delivered_at={order.delivered_at}/>
                                     ))
                                 ) : (
                                     searchedPartners.map((order) => (
