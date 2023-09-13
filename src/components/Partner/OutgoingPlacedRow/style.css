@@ -1,0 +1,22 @@
+.OutgingPlacedRow{
+    width: 100%;
+}
+
+.OutgingPlacedRow_tr {
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.OutgingPlacedRow_td {
+    width: 25%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.OutgingPlacedRow_tr:hover{
+    background-color: #FF8B13;
+}
