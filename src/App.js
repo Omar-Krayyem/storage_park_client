@@ -32,6 +32,7 @@ import ShipmentIncoming from './Pages/Partner/ShipmentIncoming';
 import ShipmentIncomingById from './Pages/Partner/ShipmentOrderById';
 import DeliveredIncoming from './Pages/Partner/DeliveredIncoming';
 import DeliveredOrderById from './Pages/Partner/DeliveredOrderById';
+import PartnerLayout from './utils/PartnerLayout';
 
 import WorkerDashboard from './Pages/Worker/Dashboard';
 import WorkerShipmentIncoming from './Pages/Worker/ShipmentIncoming';
@@ -94,17 +95,17 @@ function App() {
         <Route path='outgoing/delivered/:id' element={isAdmin? <AdminDeliveredOutOrderById/> : <Navigate to="/"/>}/>
       </Route>
 
-      <Route path='/partner'>
-        <Route index element={<PartnerDashboard/>} />
-        <Route path='incoming/placed' element={<PlacedIncoming/>} ></Route>
-        <Route path='incoming/create' element={<AddIncomingorder/>} ></Route>
-        <Route path='incoming/placed/:id' element={<PlacedIncomingById/>} ></Route>
+      <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to="/"/>}>
+        <Route index  element={isPartner? <PartnerDashboard/> : <Navigate to="/"/>} />
+        <Route path='incoming/placed' element={isPartner? <PlacedIncoming/> : <Navigate to="/"/>} />
+        <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/"/>} />
+        <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/"/>} />
 
-        <Route path='incoming/shipment' element={<ShipmentIncoming/>} />
-        <Route path='incoming/shipment/:id' element={<ShipmentIncomingById/>} ></Route>
+        <Route path='incoming/shipment' element={isPartner? <ShipmentIncoming/> : <Navigate to="/"/>} />
+        <Route path='incoming/shipment/:id' element={isPartner? <ShipmentIncomingById/> : <Navigate to="/"/>} />
 
-        <Route path='incoming/delivered' element={<DeliveredIncoming/>} />
-        <Route path='incoming/delivered/:id' element={<DeliveredOrderById/>} ></Route>
+        <Route path='incoming/delivered' element={isPartner? <DeliveredIncoming/> : <Navigate to="/"/>} />
+        <Route path='incoming/delivered/:id' element={isPartner? <DeliveredOrderById/> : <Navigate to="/"/>} />
       </Route>
 
       <Route path='/worker'>
