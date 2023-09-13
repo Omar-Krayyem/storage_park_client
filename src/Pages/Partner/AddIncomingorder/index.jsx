@@ -4,41 +4,26 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
-
 import CreatableSelect from "react-select/creatable";
 
-import { Map , Marker, Draggable } from "pigeon-maps"
-import logo from '../../../images/logo_d.png';
-
-
+import { Map , Marker } from "pigeon-maps"
 
 const AddIncomingOrder = () => {
     const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
-
-
     const [anchor, setAnchor] = useState([50.879, 4.6997]);
     const [latitude, setLatitude] = useState(anchor[0]);
     const [longitude, setLongitude] = useState(anchor[1]);
-
-    const [markerImage, setMarkerImage] = useState(logo);
-
     const [newProducts, setNewProducts] = useState([]);
-
     const [productName, setProductName] = useState("");
     const [price, setPrice] = useState(0);
     const [quantity, setQuantity] = useState(1);
     const [description, setDescription] = useState("");
     const [selectedCategoryId, setSelectedCategoryId] = useState(0);
-
     const [error, setError] = useState("");
-
     const [categories, setCategories] = useState([]);
     const [existProducts, setExistProducts] = useState([]);
     const [selectedProductId, setSelectedProductId] = useState(0);
-
     const options = existProducts.map((product) => ({
         value: product.id,
         label: product.name
@@ -56,17 +41,6 @@ const AddIncomingOrder = () => {
 
         console.log(latitudeDigits , longitudeDigits)
     };
-
-    // const handleMapDragEnd = ({ anchor }) => {
-    //     if (anchor) {
-    //         setAnchor(anchor);
-    //         setLatitude(anchor[0]);
-    //         setLongitude(anchor[1]);
-            
-    //         const newMarkerImage = `https://example.com/new-marker-image.png`; // Replace with your new marker image URL
-    //         setMarkerImage(newMarkerImage);
-    //     }
-    // };
 
     const getProducts = async () => {
         try {
@@ -106,10 +80,7 @@ const AddIncomingOrder = () => {
             console.log(newProduct);
 
             setNewProducts([...newProducts, newProduct]);
-
             
-
-            // Reset form fields
             setProductName("");
             setPrice(0);
             setQuantity(1);
@@ -173,8 +144,6 @@ const AddIncomingOrder = () => {
                     setDescription(existProducts[i].description);
                     setPrice(existProducts[i].price);
                     setSelectedCategoryId(existProducts[i].category.id);
-                    // setSelectedCategoryName(existProducts[i].category.name);
-                    // options(null);
                 }
             }
         }
@@ -183,17 +152,10 @@ const AddIncomingOrder = () => {
 
 
     return (
-        <div className='AddOrder_page'>
-            {/* <div className='left_side'>
-                <NavSide />
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div> */}
+        <div className='AddIncomingOrder_page'>
                 <div className='body'>
                     <div className='title'>
-                        <div className='page_title'><h1>Place Order</h1></div>
+                        <div className='page_title'><h1>Place New Order</h1></div>
                         <div className='right_title'>
                             <Link to={'/partner/incoming/placed'}><button>Back</button></Link>
                         </div>
@@ -201,27 +163,7 @@ const AddIncomingOrder = () => {
 
                     <div className='location_section'>
                         <div className='location_inputs'>
-                            <h2>Location Info:</h2>
-                            <div className="halftext_feild">
-                                <label>Latitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={latitude}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild ">
-                                <label>Longitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={longitude}
-                                    disabled
-                                ></input>
-                            </div>
+                            <h2>Select Location:</h2>
                         </div>
                         <div className='mapContainer'>
                             <Map height={300} 
@@ -231,11 +173,6 @@ const AddIncomingOrder = () => {
                             >
                                 <Marker width={40} anchor={[latitude, longitude]} />
                             </Map>
-                            {/* <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-                                <Draggable offset={[60, 87]} anchor={anchor} onDragEnd={handleMapDragEnd}>
-                                    <img src={logo} width={55} height={55} alt="Pigeon!" />
-                                </Draggable>
-                            </Map> */}
                         </div>
                     </div>
 
@@ -340,7 +277,6 @@ const AddIncomingOrder = () => {
                         <button onClick={handleAddOrder}>Place Order</button>
                     </div>
                 </div>
-            {/* </div> */}
         </div>
     );
 }
