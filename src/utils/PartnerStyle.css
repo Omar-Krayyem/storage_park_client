@@ -1,0 +1,20 @@
+.PartnerLayout{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.PartnerLayout .left_side{
+    width: 17%;
+    position: fixed;
+}
+
+.PartnerLayout .right_side{
+    margin-left: 17%;
+    width: 83%;
+}
+
+.PartnerLayout .right_side .head{
+    position: fixed;
+    margin-top: 20px;
+}

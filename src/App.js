@@ -59,15 +59,13 @@ function App() {
   }, []);
 
   if (!isAdmin && !isWorker && !isPartner) {
-    return null; // or loading indicator or redirect to a loading page
+    return null;
   }
 
   return (
     <Routes>
       <Route path="/" element={<Login/>} />
       <Route path="/Register" element={<Register/>} />
-
-      {/* <Route path='/admin/incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/"/>} /> */}
       
       <Route path="/admin" element={isAdmin? <AdminLayout/> : <Navigate to="/"/>}>
         <Route index element={isAdmin? <AdminDashboard/> : <Navigate to="/"/>} />
