@@ -34,6 +34,7 @@ const ShipmentOutgoing = () => {
             }
         })
         .then(response => {
+            console.log(response.data.data)
             setSearchedRequests(response.data.data);
         })   
         .catch(error => {
@@ -63,7 +64,7 @@ const ShipmentOutgoing = () => {
                             <thead className='ShipmentOutgoing_thead'>
                                 <tr className=''>
                                     <th className='ShipmentOutgoing_th top_left'>Order ID</th>
-                                    <th className='ShipmentOutgoing_th'>Number of Order Items</th>
+                                    <th className='ShipmentOutgoing_th'>Customer Name</th>
                                     <th className='ShipmentOutgoing_th '>Placed at</th>
                                     <th className='ShipmentOutgoing_th top_right'>Total Price $</th>
                                 </tr>
