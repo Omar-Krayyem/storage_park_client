@@ -56,13 +56,13 @@ const DeliveredIncoming = () => {
 
     return (
         <div className='ShipmentIncoming_page'> 
-            <div className='left_side'>
+            {/* <div className='left_side'>
                 <NavSide/>
             </div>
             <div className='right_side'>
                 <div className='head'>
                     <Header name={name} />
-                </div>
+                </div> */}
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Delivered Orders</h1></div>
@@ -94,7 +94,7 @@ const DeliveredIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     );
 }

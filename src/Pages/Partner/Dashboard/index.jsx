@@ -9,17 +9,17 @@ const Dashboard = () => {
 
     return (
         <div className='dashboard_page'> 
-            <div className='left_side'>
+            {/* <div className='left_side'>
                 <NavSide/>
             </div>
             <div className='right_side'>
                 <div className='head'>
                     <Header name={name} />
-                </div>
+                </div> */}
                 <div className='body'>
                     omar
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     );
 }

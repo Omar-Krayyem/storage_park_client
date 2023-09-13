@@ -49,13 +49,13 @@ const AddIncomingOrder = () => {
 
     return (
         <div className='AddOrder_page'>
-            <div className='left_side'>
+            {/* <div className='left_side'>
                 <NavSide />
             </div>
             <div className='right_side'>
                 <div className='head'>
                     <Header name={name} />
-                </div>
+                </div> */}
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order Number: {id}</h1></div>
@@ -145,7 +145,7 @@ const AddIncomingOrder = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     );
 }
