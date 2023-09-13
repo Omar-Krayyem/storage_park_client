@@ -1,9 +1,6 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
 import IncomingDeliveredRow from '../../../components/Partner/IncomingDeliveredRow';
 
 const DeliveredIncoming = () => {
@@ -55,14 +52,7 @@ const DeliveredIncoming = () => {
     }, [searchInput]);
 
     return (
-        <div className='ShipmentIncoming_page'> 
-            {/* <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div> */}
+        <div className='PartnerDeliveredIncoming_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Delivered Orders</h1></div>
@@ -71,13 +61,13 @@ const DeliveredIncoming = () => {
                         </div>
                     </div>
                     <div className='table'>
-                        <table className='ShipmentIncoming_table'>
-                            <thead className='ShipmentIncoming_thead'>
+                        <table className='PartnerDeliveredIncoming_table'>
+                            <thead className='PartnerDeliveredIncoming_thead'>
                                 <tr className=''>
-                                    <th className='ShipmentIncoming_th top_left'>Order ID</th>
-                                    <th className='ShipmentIncoming_th'>Placed at</th>
-                                    <th className='ShipmentIncoming_th '>Delivered at</th>
-                                    <th className='ShipmentIncoming_th top_right'>Total Price $</th>
+                                    <th className='PartnerDeliveredIncoming_th top_left'>Order ID</th>
+                                    <th className='PartnerDeliveredIncoming_th'>Placed at</th>
+                                    <th className='PartnerDeliveredIncoming_th '>Delivered at</th>
+                                    <th className='PartnerDeliveredIncoming_th top_right'>Total Price $</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,7 +84,6 @@ const DeliveredIncoming = () => {
                         </table>
                     </div>
                 </div>
-            {/* </div> */}
         </div>
     );
 }
