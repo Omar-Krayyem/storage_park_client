@@ -45,7 +45,7 @@ const PartnerIncomingShipmentOrder = () => {
         <div className='PartnerIncomingShipmentOrder_page'>
                 <div className='body'>
                     <div className='title'>
-                        <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
+                        <div className='page_title'><h1>Shipment Order ID: {id}</h1></div>
                         <div className='right_title'>
                             <Link to={'/partner/incoming/shipment'}><button>Back</button></Link>
                         </div>

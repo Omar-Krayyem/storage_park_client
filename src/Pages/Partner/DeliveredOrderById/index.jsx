@@ -51,7 +51,7 @@ const DeliveredOrderById = () => {
         <div className='PartnerIncomingDeliveredOrder_page'>
                 <div className='body'>
                     <div className='title'>
-                        <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
+                        <div className='page_title'><h1>Delivered Order ID: {id}</h1></div>
                         <div className='right_title'>
                             <Link to={'/partner/incoming/delivered'}><button>Back</button></Link>
                         </div>
