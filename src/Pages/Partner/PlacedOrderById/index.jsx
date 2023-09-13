@@ -4,17 +4,10 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
-
-
 import { Map , Marker } from "pigeon-maps"
 
-
-
-const AddIncomingOrder = () => {
+const PartnerIncomingPlacedOrder = () => {
     const { id } = useParams();
-    const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
 
     const [latitude, setLatitude] = useState();
@@ -120,4 +113,4 @@ const AddIncomingOrder = () => {
     );
 }
 
-export default AddIncomingOrder;
+export default PartnerIncomingPlacedOrder;

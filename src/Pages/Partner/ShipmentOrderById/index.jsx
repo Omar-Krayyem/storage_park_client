@@ -4,15 +4,9 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
-
-
 import { Map , Marker } from "pigeon-maps"
 
-
-
-const AddIncomingOrder = () => {
+const PartnerIncomingShipmentOrder = () => {
     const { id } = useParams();
     const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
@@ -48,7 +42,7 @@ const AddIncomingOrder = () => {
 
 
     return (
-        <div className='AddOrder_page'>
+        <div className='PartnerIncomingShipmentOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
@@ -82,30 +76,8 @@ const AddIncomingOrder = () => {
                                 ></input>
                             </div>
                         </div>
-
-                        <div className='location_inputs'>
-                            <h2>Location Info:</h2>
-                            <div className="halftext_feild">
-                                <label>Latitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={latitude}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild ">
-                                <label>Longitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={longitude}
-                                    disabled
-                                ></input>
-                            </div>
-                        </div>
+                        
+                        <h2>Location Info:</h2>
                         <div className='mapContainer'>
                         {mapDataLoaded && (
                             <div className='mapContainer'>
@@ -138,9 +110,8 @@ const AddIncomingOrder = () => {
                         </div>
                     </div>
                 </div>
-            {/* </div> */}
         </div>
     );
 }
 
-export default AddIncomingOrder;
+export default PartnerIncomingShipmentOrder;
