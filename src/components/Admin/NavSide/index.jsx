@@ -7,19 +7,12 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import {TbTruckDelivery} from "react-icons/tb";
 import { FiLogOut } from 'react-icons/fi';
 import { BiSolidUser } from 'react-icons/bi';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavSide = () => {
 
     const [expandedSections, setExpandedSections] = useState([]);
     const [activeSection, setActiveSection] = useState("dashboard");
-
-    // // setActiveSection(localStorage.getItem("activeSection"));
-
-    // if (localStorage.getItem("activeSection") !== activeSection) {
-    //     setActiveSection(localStorage.getItem("activeSection"));
-    // }
-
 
     const toggleSection = (section) => {
         if (expandedSections.includes(section)) {
