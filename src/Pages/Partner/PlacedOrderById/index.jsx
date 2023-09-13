@@ -48,14 +48,7 @@ const AddIncomingOrder = () => {
 
 
     return (
-        <div className='AddOrder_page'>
-            {/* <div className='left_side'>
-                <NavSide />
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div> */}
+        <div className='PartnerIncomingPlacedOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order Number: {id}</h1></div>
@@ -89,30 +82,8 @@ const AddIncomingOrder = () => {
                                 ></input>
                             </div>
                         </div>
-
-                        <div className='location_inputs'>
-                            <h2>Location Info:</h2>
-                            <div className="halftext_feild">
-                                <label>Latitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={latitude}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild ">
-                                <label>Longitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={longitude}
-                                    disabled
-                                ></input>
-                            </div>
-                        </div>
+                        
+                        <h2>Location Info:</h2>
                         <div className='mapContainer'>
                         {mapDataLoaded && (
                             <div className='mapContainer'>
@@ -145,7 +116,6 @@ const AddIncomingOrder = () => {
                         </div>
                     </div>
                 </div>
-            {/* </div> */}
         </div>
     );
 }
