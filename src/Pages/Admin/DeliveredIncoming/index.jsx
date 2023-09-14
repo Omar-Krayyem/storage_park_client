@@ -7,7 +7,8 @@ import IncomingDeliveredRow from '../../../components/Admin/IncomingDeliveredRow
 const DeliveredIncoming = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
+    const [searchedOrders, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -50,6 +51,10 @@ const DeliveredIncoming = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
+
     return (
         <div className='AdminDeliveredIncoming_page'> 
                 <div className='body'>
@@ -66,19 +71,25 @@ const DeliveredIncoming = () => {
                                     <th className='AdminDeliveredIncoming_th top_left'>Order ID</th>
                                     <th className='AdminDeliveredIncoming_th'>Company Name</th>
                                     <th className='AdminDeliveredIncoming_th'>Worker Name</th>
-                                    <th className='AdminDeliveredIncoming_th '>Placed At</th>
-                                    <th className='AdminDeliveredIncoming_th top_right'>Delivered At</th>
+                                    <th className='AdminDeliveredIncoming_th '>Delivered At</th>
+                                    <th className='AdminDeliveredIncoming_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <IncomingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} placed_at={order.placed_at} delivered_at={order.delivered_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <IncomingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} placed_at={order.placed_at} delivered_at={order.delivered_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <IncomingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} delivered_at={order.delivered_at}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <IncomingDeliveredRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} delivered_at={order.delivered_at}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>

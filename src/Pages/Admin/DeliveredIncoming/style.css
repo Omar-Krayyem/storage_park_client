@@ -20,14 +20,14 @@
     justify-content: space-between;
 }
 
-.right_title{
+.AdminDeliveredIncoming_page .right_title{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
 }
 
-.right_title button{
+.AdminDeliveredIncoming_page .right_title button{
     background-color: #1D2126;
     color: #F0F0F0;
     cursor: pointer;
@@ -39,7 +39,7 @@
     padding: 7px 25px;
 }
 
-.right_title button:hover{
+.AdminDeliveredIncoming_page .right_title button:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
@@ -50,9 +50,9 @@
     font-size: 18px;
     width: 400px;
     outline: none;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 7px 15px;
-    background-color: transparent;
+    background-color: white;
     
 }
 
@@ -70,13 +70,13 @@
     border-top-right-radius: 15px;
 }
 
-.AdminDeliveredIncoming_table .AdminDeliveredIncoming_thead {
+.AdminDeliveredIncoming_page .AdminDeliveredIncoming_table .AdminDeliveredIncoming_thead {
     font-size: 20px;
     color: #F0F0F0;
     background-color: #1D2126;
 }
   
-.AdminDeliveredIncoming_table .AdminDeliveredIncoming_th {
+.AdminDeliveredIncoming_page .AdminDeliveredIncoming_table .AdminDeliveredIncoming_th {
     width: 20%;
     padding: 10px 20px;
     text-align: center;
