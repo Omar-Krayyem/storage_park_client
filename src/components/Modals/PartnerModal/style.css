@@ -43,10 +43,9 @@
     width: 100%;
 }
 
-.partnerModal .partnerForm{
+.partnerModal form{
     width: 100%;
     display: flex;
-    width: 416px;
     flex-direction: column;
     align-items: center;
     gap: 15px;
