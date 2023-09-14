@@ -1,22 +1,28 @@
+
 .StockRow{
     width: 100%;
 }
 
-.StockRow_tr {
+.AdminStockRow_tr {
     width: 100%;
     background-color: white;
     font-size: 16px;
     font-weight: 500;
     color: #1D2126;
-    cursor: pointer;
 }
 
-.StockRow_td {
-    width: 25%;
+.AdminStockRow_td {
+    width: 22%;
     padding: 10px 20px;
     text-align: center;
 }
 
-.StockRow_tr:hover{
-    background-color: #FF8B13;
+.AdminStockRow_svg {
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.AdminStockRow_svg:hover {
+    color: #FF8B13;
+    transition: 0.5s;
 }

@@ -1,4 +1,4 @@
-.AdminShipmentincoming_page {
+.AdminStock_page {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,25 +9,25 @@
     width: 100%;
 }
 
-.AdminShipmentincoming_page .body{
+.AdminStock_page .body{
     width: 100%;
     padding: 40px 50px;
 }
 
-.AdminShipmentincoming_page .body .title{
+.AdminStock_page .body .title{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.right_title{
+.AdminStock_page .right_title{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
 }
 
-.right_title button{
+.AdminStock_page .right_title button{
     background-color: #1D2126;
     color: #F0F0F0;
     cursor: pointer;
@@ -39,28 +39,28 @@
     padding: 7px 25px;
 }
 
-.right_title button:hover{
+.AdminStock_page .right_title button:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
 }
 
-.AdminShipmentincoming_page .body .title input{
+.AdminStock_page .body .title input{
     border: 2px solid #CCCCCC;
     font-size: 18px;
     width: 400px;
     outline: none;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 7px 15px;
-    background-color: transparent;
+    background-color: white;
     
 }
 
-.AdminShipmentincoming_page .table{
+.AdminStock_page .table{
     padding-top: 20px;
 }
 
-.AdminShipmentincoming_page .adminShipmentIncoming_table {
+.AdminStock_page .AdminStock_table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
@@ -70,13 +70,13 @@
     border-top-right-radius: 15px;
 }
 
-.adminShipmentIncoming_table .AdminShipmetnIncoming_thead {
+.AdminStock_page .AdminStock_table .AdminStock_thead {
     font-size: 20px;
     color: #F0F0F0;
     background-color: #1D2126;
 }
   
-.adminShipmentIncoming_table .adminShipmentIncoming_th {
+.AdminStock_page .AdminStock_table .AdminStock_th {
     width: 20%;
     padding: 10px 20px;
     text-align: center;

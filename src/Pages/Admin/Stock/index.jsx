@@ -1,14 +1,13 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import StockRow from '../../../components/Admin/AdminStockRow';
 
-import StockRow from '../../../components/Admin/StockRow';
-
-const PlacedIncoming = () => {
+const Stock = () => {
     const [stocks , setStocks] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
-
+    const [searchedProduct, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
 
 
@@ -50,8 +49,12 @@ const PlacedIncoming = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(stocks.length === 0 && searchedProduct.length === 0);
+    }, [stocks,searchInput, searchedProduct]);
+
     return (
-        <div className='AdminShipmentincoming_page'> 
+        <div className='AdminStock_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Stored Products</h1></div>
@@ -60,24 +63,31 @@ const PlacedIncoming = () => {
                         </div>
                     </div>
                     <div className='table'>
-                        <table className='adminShipmentIncoming_table'>
-                            <thead className='AdminShipmetnIncoming_thead'>
+                        <table className='AdminStock_table'>
+                            <thead className='AdminStock_thead'>
                                 <tr className=''>
-                                    <th className='adminShipmentIncoming_th top_left'>Name</th>
-                                    <th className='adminShipmentIncoming_th'>Company Name</th>
-                                    <th className='adminShipmentIncoming_th'>Category</th>
-                                    <th className='adminShipmentIncoming_th top_right'>Quantity</th>
+                                    <th className='AdminStock_th top_left'>Name</th>
+                                    <th className='AdminStock_th'>Company Name</th>
+                                    <th className='AdminStock_th'>Category</th>
+                                    <th className='AdminStock_th'>Quantity</th>
+                                    <th className='AdminStock_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    stocks.map((order) => (
-                                        <StockRow id={order.id} name={order.product.name} company_name={order.user.company_name} category={order.product.category.category} quantity={order.quantity}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <StockRow id={order.id} name={order.product.name} company_name={order.user.company_name} category={order.product.category.category} quantity={order.quantity}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        stocks.map((stock) => (
+                                            <StockRow id={stock.id} name={stock.product.name} company_name={stock.user.company_name} category={stock.product.category.category} quantity={stock.quantity}/>
+                                        ))
+                                    ) : (
+                                        searchedProduct.map((stock) => (
+                                            <StockRow id={stock.id} name={stock.product.name} company_name={stock.user.company_name} category={stock.product.category.category} quantity={stock.quantity}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
@@ -87,4 +97,4 @@ const PlacedIncoming = () => {
     );
 }
 
-export default PlacedIncoming;
+export default Stock;
