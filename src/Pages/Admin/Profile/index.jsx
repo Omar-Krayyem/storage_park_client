@@ -1,7 +1,9 @@
 import './style.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
 const Profile = () => {
+    const [user_id, setId] = useState(0);
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
     const [email, setEmail] = useState("");
@@ -10,7 +12,35 @@ const Profile = () => {
     const [password, setPassword] = useState("");
     const [conPassword, setConPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
+    const token = localStorage.getItem("token");
+
+    const getUser = async () => {
+        await axios.get(`http://127.0.0.1:8000/api/admin/profile/get`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            console.log(response.data.data)
+            setId(response.data.data.id)
+            setFName(response.data.data.first_name)
+            setLName(response.data.data.last_name)
+            setEmail(response.data.data.email)
+            setPhone(response.data.data.phone)
+            setAddress(response.data.data.address)
+        })
+        .catch(error => {
+            console.log(error);
+        });    
+    };
+
+    
+    useEffect(() => {
+        getUser();
+    }, []);
+ 
     return (
         <div className='AdminProfile_page'> 
                 <div className='body'>
@@ -88,16 +118,8 @@ const Profile = () => {
                                 ></input> 
                             </div>
                             <div className='error'>{errorMessage}</div>
-                            <button className='btn'>Update</button>
-                            {/* <input
-                                    type="submit"
-                                    className="RegisterBtn"
-                                    value="Get Start"
-                                    onClick={async (e) => {
-                                        e.preventDefault();
-                                        submitForm(e);
-                                    }}
-                            ></input> */}
+                            <div className='success'>{successMessage}</div>
+                            <button className='btn' onClick={updateInfo}>Update</button>
                         </form>
                     </div>
                 </div>
