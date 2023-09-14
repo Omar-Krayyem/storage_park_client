@@ -1,66 +1,30 @@
 .AdminIncomingDeliveredOrder_page {
     margin: 0;
-    padding: 0;
+    padding: 20px 50px;
     box-sizing: border-box;
     background-color: #F0F0F0;
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    align-items: flex-start;
+    min-height: 10vh;
     width: 100%;
+    gap: 40px;
+    justify-content: flex-start;
 }
 
 .AdminIncomingDeliveredOrder_page .body{
     width: 100%;
-    /* margin-top: 50px; */
-    padding: 40px 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.AdminIncomingDeliveredOrder_page h2{
-    width: 200px;
-}
 
-.AdminIncomingDeliveredOrder_page .info_row{
+.AdminIncomingDeliveredOrder_page .body .title .right_title{
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    gap: 20px;
-    padding: 10px 0;
 }
 
-.AdminIncomingDeliveredOrder_page  .Order_Info{
-    padding: 20px 0;
-    border-bottom: 1px solid #FF8B13 ;
-}
 
-.AdminIncomingDeliveredOrder_page .halftext_feild{
-    flex-direction: column;
-}
-
-.AdminIncomingDeliveredOrder_page .half{
-    width: 280px;
-    font-size: 16px;
-    border: 2px solid #FF8B13;
-    background: #FFF;
-    color: #1D2126;
-    padding: 0 3px;
-    outline: none;
-    margin-top: 8px;
-    padding: 5px 5px;
-}
-
-.AdminIncomingDeliveredOrder_page .Q{
-    width: 150px;
-    font-size: 16px;
-    border: 2px solid #FF8B13;
-    background: #FFF;
-    color: #1D2126;
-    padding: 0 3px;
-    outline: none;
-    margin-top: 8px;
-    padding: 5px 5px;
-}
 
 .AdminIncomingDeliveredOrder_page  label{
     color: #1D2126;
@@ -70,54 +34,6 @@
     line-height: normal;
     text-transform: capitalize;
     margin-right: 10px;
-}
-
-.AdminIncomingDeliveredOrder_page .product_section{
-    display: flex;
-    flex-flow: row wrap;
-    gap: 25px;
-    align-items: flex-end;
-    justify-content: flex-start ;
-}
-
-.AdminIncomingDeliveredOrder_page .btn{
-    padding: 0 20px;
-    height: 30px;
-    border-radius: 0;
-}
-
-.AdminIncomingDeliveredOrder_page .product_section .halftext_feild{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.AdminIncomingDeliveredOrder_page .display_products{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20PX;
-    gap: 20px;
-}
-
-.AdminIncomingDeliveredOrder_page .display_product{
-    display: flex;
-    flex-flow: row;
-    padding: 10px;
-    border: 2PX solid #FF8B13;
-    gap: 20px;
-    background-color: white;
-    color: #1D2126;
-    justify-content: space-between;
-}
-
-.AdminIncomingDeliveredOrder_page .display_product .attributes{
-    display: flex;
-    flex-flow: row wrap;
-    gap: 15px;
-}
-
-.AdminIncomingDeliveredOrder_page .display_product span{
-    font-weight: 600;
 }
 
 .AdminIncomingDeliveredOrder_page .placebutton{
@@ -145,20 +61,73 @@
 }
 
 .AdminIncomingDeliveredOrder_page .creatableSelect {
-    width: 200px;
+    width: 250px;
     font-size: 16px;
-    border: 2px solid #FF8B13;
+    font-weight: 400;
+    border: 2px solid #CCCCCC;
+    background-color: white;
+    border-radius: 5px;
     outline: none;
+    padding: 5px 10px;
+    color: #1D2126;
 }
-
-.AdminIncomingDeliveredOrder_page .creatableSelect:focus {
-    border-color: #1D2126;
-    box-shadow: none;
-}
-
-
 
 .AdminIncomingDeliveredOrder_page .mapContainer{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
+.AdminIncomingDeliveredOrder_page .select_worker{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
+    color: red;
+
+}
+
+.AdminIncomingDeliveredOrder_page .table{
+    padding-top: 20px;
+}
+
+.AdminIncomingDeliveredOrder_page .AdminIncomingDeliveredOrder_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.AdminIncomingDeliveredOrder_page .AdminIncomingDeliveredOrder_thead {
+    font-size: 20px;
+    color: #F0F0F0;
+    background-color: #1D2126;
+}
+  
+.AdminIncomingDeliveredOrder_page .AdminIncomingDeliveredOrder_th {
+    width: 20%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.AdminIncomingDeliveredOrder_page .AdminIncomingDeliveredOrder_tr{
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+}
+
+.AdminIncomingDeliveredOrder_page .AdminIncomingDeliveredOrder_td {
+    width: 22%;
+    padding: 10px 20px;
+    text-align: center;
+}
+.top_left{
+    border-top-left-radius: 15px;
+}
+
+.top_right{
+    border-top-right-radius: 15px;
+}
