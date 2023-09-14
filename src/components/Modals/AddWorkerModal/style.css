@@ -1,4 +1,4 @@
-.partnerModal{
+.AddWorkerModal{
     width: 540px;
     position: absolute;
     top: 50%;
@@ -7,7 +7,29 @@
     background-color: #F0F0F0;
     padding: 50px;
 }
-.partnerModal .body{
+
+.AddWorkerModal .body .title{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.AddWorkerModal .body .title h1{
+    color: #FF8B13;
+}
+
+.AddWorkerModal .body .title .icon{
+    color: #1D2126;
+    cursor: pointer;   
+}
+
+.AddWorkerModal .body .title .icon:hover{
+    color: #FF8B13;
+    transition: 0.5s;
+}
+
+.AddWorkerModal .body{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,45 +38,51 @@
     gap: 20px;
 }
 
-.partnerForm{
+.AddWorkerModal form{
     display: flex;
-    width: 416px;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
 }
 
-.partnerForm .nameSection{
-    width: 416px;
+.form_body{
+    width: 100%;
+}
+
+.AddWorkerModal .AddWorkerForm .nameSection{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 10px;
 }
-.partnerForm .halftext_feild{
-    width: 49%;
+.AddWorkerModal .AddWorkerForm .halftext_feild{
+    width: 100%;
     flex-direction: column;
 }
 
-.partnerForm .half{
-    width: 195px;
+.AddWorkerModal .AddWorkerForm .half{
+    width: 100%;
     font-size: 16px;
-    border: 2px solid #FF8B13;
+    border: 2px solid #CCCCCC;
     background: #FFF;
     color: #1D2126;
     padding: 0 3px;
     outline: none;
     margin-top: 8px;
     padding: 5px 5px;
+    border-radius: 5px;
 }
 
-.partnerForm .text_feild{
+.AddWorkerModal .AddWorkerForm .text_feild{
     display: flex;
     width: 100%;
     flex-direction: column;
     gap: 8px;
 }
 
-.partnerForm  label{
+.AddWorkerModal .AddWorkerForm  label{
     color: #1D2126;
     font-family: Inter;
     font-size: 20px;
@@ -63,48 +91,20 @@
     text-transform: capitalize;
 }
 
-.partnerForm  .full{
-    width: 98%;
+.AddWorkerModal .AddWorkerForm  .full{
+    width: 100%;
     font-size: 16px;
-    border: 2px solid #FF8B13;
+    border: 2px solid #CCCCCC;
     background: #FFF;
     color: #1D2126;
     outline: none;
     margin-top: 0;
     padding: 5px 5px;
-
+    border-radius: 5px;
 }
 
-.partnerForm .RegisterBtn{
-    border-radius: 25px;
-    background: #1D2126;
+.AddWorkerModal .AddWorkerForm .addbtn{
     width: 100%;
-    color: #F0F0F0;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-}
-
-.partnerForm .RegisterBtn:hover{
-    color: #1D2126;
-    background-color: #FF8B13;
-    transition: 0.5s;
-}
-
-.btnSection{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.btnSection button{
-    width: 49%;
-}
-
-.partnerForm .btn{
     background-color: #1D2126;
     color: #F0F0F0;
     cursor: pointer;
@@ -116,12 +116,8 @@
     padding: 5px 0;
 }
 
-.partnerForm .btn:hover{
+.AddWorkerModal .AddWorkerForm .addbtn:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
-}
-
-.partnerForm .close{
-    width: 100%;
 }

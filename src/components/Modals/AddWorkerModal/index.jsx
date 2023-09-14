@@ -2,6 +2,7 @@ import './style.css';
 import Modal from 'react-modal';
 import React, { useState }from "react";
 import axios from 'axios';
+import {AiOutlineClose} from 'react-icons/ai'
 
 const AddWorkerModal = ({ openModal, handleCloseModal }) => {
     const [first_name, setFName] = useState("");
@@ -10,12 +11,19 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("")
-
+    const [error, setError] = useState("");
 
     const token = localStorage.getItem("token");
 
     const AddWorker = (e) => {
         e.preventDefault();
+
+        if (!/^\d+$/.test(phone)) {
+            setError("Phone number should contain only numbers");
+            setTimeout(() => setError(""), 2000);
+            return;
+        }
+
 
         const postData = {first_name, last_name, email, password, phone, address};
         console.log(postData)
@@ -30,19 +38,32 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
             // window.location.reload();
         })
         .catch(error => {
-            console.log(error);
+            if (error.response && error.response.data && error.response.data.data) {
+                setError(error.response.data.data);
+            } else {
+                setError("An error occurred");
+            }
+            setTimeout(() => setError(""), 2000);
         });
-
-
     }
 
 
     return (
         <div>
-            <Modal isOpen={openModal} className="partnerModal">
+            <Modal isOpen={openModal} className="AddWorkerModal">
                 <div className='body'>
+                <div className='title'>
+                    <h1>Partner</h1>
+                    <AiOutlineClose 
+                    onClick={async (e) => {
+                        e.preventDefault();
+                        handleCloseModal();
+                    }}
+                    className='icon'
+                    size={25}/>
+                </div>
                 <div className="form_body">
-                        <form className='partnerForm'>
+                        <form className='AddWorkerForm'>
                             <div className='nameSection'>
                                 <div className="halftext_feild">
                                     <label>First Name</label>
@@ -106,10 +127,8 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 ></input> 
                             </div>
-                            <div className='btnSection'>
-                                <button className='btn' onClick={AddWorker}>Add</button>
-                                <button className='btn' onClick={async(e) => {e.preventDefault(); handleCloseModal();}}>Close</button>
-                            </div>
+                            <div className='error'>{error}</div>
+                            <button className='addbtn' onClick={AddWorker}>Add</button>
                         </form>
                     </div>
                 </div>
