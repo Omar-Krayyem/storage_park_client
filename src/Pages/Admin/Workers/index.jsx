@@ -9,7 +9,8 @@ import WorkerRow from '../../../components/Admin/WorkerRow';
 const Workers = () => {
     const [Users , setUsers] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
+    const [searchedWorker, setSearchedWorker] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -44,7 +45,7 @@ const Workers = () => {
             }
         })
         .then(response => {
-            setSearchedRequests(response.data.data);
+            setSearchedWorker(response.data.data);
         })   
         .catch(error => {
             console.log(error);
@@ -58,6 +59,10 @@ const Workers = () => {
             getSearched();
         }
     }, [searchInput]);
+
+    useEffect(() => {
+        setNoRecords(Users.length === 0 && searchedWorker.length === 0);
+    }, [Users, searchInput, searchedWorker]);
 
     return (
         <div className='workers_page'> 
@@ -76,18 +81,25 @@ const Workers = () => {
                                     <th className='workers_th top_left'>Worker Name</th>
                                     <th className='workers_th'>Email</th>
                                     <th className='workers_th '>Phone Number</th>
-                                    <th className='workers_th top_right'>Address</th>
+                                    <th className='partners_th'>Address</th>
+                                    <th className='partners_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    Users.map((worker) => (
-                                        <WorkerRow id={worker.id} name={`${worker.first_name} ${worker.last_name}`} email={worker.email} phone={worker.phone} address={worker.address}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((worker) => (
-                                        <WorkerRow id={worker.id} name={`${worker.first_name} ${worker.last_name}`} email={worker.email} phone={worker.phone} address={worker.address}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        Users.map((worker) => (
+                                            <WorkerRow id={worker.id} name={`${worker.first_name} ${worker.last_name}`} email={worker.email} phone={worker.phone} address={worker.address}/>
+                                        ))
+                                    ) : (
+                                        searchedWorker.map((worker) => (
+                                            <WorkerRow id={worker.id} name={`${worker.first_name} ${worker.last_name}`} email={worker.email} phone={worker.phone} address={worker.address}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
