@@ -36,7 +36,44 @@ const Profile = () => {
         });    
     };
 
-    
+    const updateInfo = (e) => {
+        e.preventDefault();
+
+        if (!/^\d+$/.test(phone)) {
+            setErrorMessage("Phone number should contain only numbers");
+            setTimeout(() => setErrorMessage(""), 3000);
+            return;
+        }
+
+        if ((password && conPassword) && (password !== conPassword || password.length < 6)) {
+            setErrorMessage("Passwords do not match or are too short");
+            setTimeout(() => setErrorMessage(""), 3000);
+            return;
+        }
+
+        const postData = {user_id, first_name, last_name, email, phone, address, password};
+        console.log(postData)
+
+        axios.post('http://127.0.0.1:8000/api/admin/profile', postData, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            console.log(response.data.data);
+            setSuccessMessage("Updated Successfully");
+        setTimeout(() => setSuccessMessage(""), 3000);
+        })
+        .catch(error => {
+            if (error.response && error.response.data && error.response.data.data) {
+                setErrorMessage(error.response.data.data);
+            } else {
+                setErrorMessage("An error occurred");
+            }
+            setTimeout(() => setErrorMessage(""), 3000);
+        });
+    }
+
     useEffect(() => {
         getUser();
     }, []);
