@@ -7,7 +7,8 @@ import IncomingShipmentRow from '../../../components/Admin/IncomingShipmentRow';
 const PlacedIncoming = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
+    const [searchedOrders, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -50,6 +51,10 @@ const PlacedIncoming = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
+
     return (
         <div className='AdminShipmentincoming_page'> 
                 <div className='body'>
@@ -67,18 +72,24 @@ const PlacedIncoming = () => {
                                     <th className='adminShipmentIncoming_th'>Company Name</th>
                                     <th className='adminShipmentIncoming_th'>Worker Name</th>
                                     <th className='adminShipmentIncoming_th '>Placed at</th>
-                                    <th className='adminShipmentIncoming_th top_right'>Total Price $</th>
+                                    <th className='adminShipmentIncoming_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <IncomingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <IncomingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <IncomingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} placed_at={order.placed_at}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <IncomingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} placed_at={order.placed_at}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
