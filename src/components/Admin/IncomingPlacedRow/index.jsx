@@ -1,19 +1,25 @@
 import './style.css';
+import {AiFillEye} from 'react-icons/ai'
 
 const IncomingPlacedRow = (props) => {
 
-    const handleOpenModal = () => {
+    const handleOpenOrder = () => {
         window.location.href = `/admin/incoming/placed/${props.id}`;
     }
 
     return(
         <>
-            <tr onClick={handleOpenModal} className='AdminIncomingPlacedRow_tr' id={props.id}>
-                <td className='adminIncomingPlacedRow_td'>{props.id}</td>
-                <td className='adminIncomingPlacedRow_td'>{props.company_name}</td>
-                <td className='adminIncomingPlacedRow_td'>{props.item_count}</td>
-                <td className='adminIncomingPlacedRow_td'>{props.placed_at}</td>
-                <td className='adminIncomingPlacedRow_td'>{props.total_price}</td>
+            <tr className='AdminIncomingPlacedRow_tr' id={props.id}>
+                <td className='AdminIncomingPlacedRow_td'>{props.id}</td>
+                <td className='AdminIncomingPlacedRow_td'>{props.company_name}</td>
+                <td className='AdminIncomingPlacedRow_td'>{props.placed_at}</td>
+                <td className='AdminIncomingPlacedRow_td'>{props.total_price}</td>
+                <td className='AdminIncomingPlacedRow_td'>
+                    <AiFillEye 
+                    onClick={handleOpenOrder} 
+                    className='adminIncomingPlacedRow_svg'
+                    size={20}/>
+                </td>
             </tr>
         </>    
     );

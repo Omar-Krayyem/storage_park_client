@@ -7,8 +7,8 @@ import IncomingPlacedRow from '../../../components/Admin/IncomingPlacedRow';
 const PlacedIncoming = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
-
+    const [searchedOrders, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
 
 
@@ -49,6 +49,10 @@ const PlacedIncoming = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
+
     return (
         <div className='Adminplacedincoming_page'> 
                 <div className='body'>
@@ -64,20 +68,26 @@ const PlacedIncoming = () => {
                                 <tr className=''>
                                     <th className='adminplacedincoming_th top_left'>Order ID</th>
                                     <th className='adminplacedincoming_th'>Company Name</th>
-                                    <th className='adminplacedincoming_th'>Order Items</th>
                                     <th className='adminplacedincoming_th '>Placed at</th>
-                                    <th className='adminplacedincoming_th top_right'>Total Price $</th>
+                                    <th className='adminplacedincoming_th'>Total Price $</th>
+                                    <th className='adminplacedincoming_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <IncomingPlacedRow id={order.id} company_name={order.user.company_name} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <IncomingPlacedRow id={order.id} company_name={order.user.company_name} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <IncomingPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <IncomingPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
