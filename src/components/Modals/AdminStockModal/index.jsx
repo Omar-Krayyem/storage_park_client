@@ -2,6 +2,7 @@ import './style.css';
 import Modal from 'react-modal';
 import React, { useState, useEffect }from "react";
 import axios from 'axios';
+import {AiOutlineClose} from 'react-icons/ai'
 
 const AdminStockModal = ({ openModal, handleCloseModal, id }) => {
     const [company_name, setCompnay] = useState("");
@@ -42,6 +43,16 @@ const AdminStockModal = ({ openModal, handleCloseModal, id }) => {
         <div>
             <Modal isOpen={openModal} className="AdminStockModal">
                 <div className='body'>
+                <div className='title'>
+                    <h1>Stored Product</h1>
+                    <AiOutlineClose 
+                    onClick={async (e) => {
+                        e.preventDefault();
+                        handleCloseModal();
+                    }}
+                    className='icon'
+                    size={25}/>
+                </div>
                 <div className="form_body">
                         <form className='partnerForm'>
                             <div className="text_feild">
@@ -110,15 +121,6 @@ const AdminStockModal = ({ openModal, handleCloseModal, id }) => {
                                 ></input> 
                             </div>
                             </div>
-                            <button
-                                type="submit"
-                                className="close btn"
-                                value="Close"
-                                onClick={async (e) => {
-                                    e.preventDefault();
-                                    handleCloseModal();
-                                }}
-                            >Close</button>
                         </form>
                     </div>
                 </div>
