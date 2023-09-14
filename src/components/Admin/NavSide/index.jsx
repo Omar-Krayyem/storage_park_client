@@ -105,10 +105,12 @@ const NavSide = () => {
                 </div>
                 
                 <div className="lower-section">
-                    <div className={`title_section ${activeSection === "profile" ? 'selected' : ''}`} onClick={() => handlePageClick("profile")}>
-                        <div className='icon'><BiSolidUser size={25}/></div>
-                        <div className="title">Profile</div>
-                    </div>
+                    <NavLink className="nav_link" to={'/admin/profile'}>
+                        <div className={`title_section ${activeSection === "profile" ? 'selected' : ''}`} onClick={() => handlePageClick("profile")}>
+                            <div className='icon'><BiSolidUser size={25} /></div>
+                            <div className="title">Profile</div>
+                        </div>
+                    </NavLink>
                     <div className="title_section">
                         <div className='icon'><FiLogOut  size={25}/></div>
                         <div className="title">Logout</div>

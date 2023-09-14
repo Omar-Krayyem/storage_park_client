@@ -22,6 +22,7 @@ import AdminShipmentOutgoing from './Pages/Admin/ShipmentOutgoing';
 import AdminShipmentOutgoingById from './Pages/Admin/ShipmentOutOrderById';
 import AdminDeliveredOutgoing from './Pages/Admin/DeliveredOutgoing';
 import AdminDeliveredOutOrderById from './Pages/Admin/DeliveredOutOrderById';
+import AdminProfile from './Pages/Admin/Profile';
 import AdminLayout from './utils/AdminLayout';
 
 import PartnerDashboard from './Pages/Partner/Dashboard';
@@ -84,7 +85,7 @@ function App() {
         <Route path='stock' element={isAdmin? <AdminStock/> : <Navigate to="/"/>} />
 
         <Route path='incoming/placed' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/"/>} />
-        <Route path='/admin/incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/"/>} />
+        <Route path='incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/"/>} />
 
         <Route path='incoming/shipment' element={isAdmin? <AdminShipmentIncoming/> : <Navigate to="/"/>}/>
         <Route path='incoming/shipment/:id' element={isAdmin? <AdminShipmentIncomingById/> : <Navigate to="/"/>}/>
@@ -93,13 +94,15 @@ function App() {
         <Route path='incoming/delivered/:id' element={isAdmin? <AdminDeliveredOrderById/> : <Navigate to="/"/>}/>
 
         <Route path='outgoing/placed' element={isAdmin? <AdminPlacedOutgoing/> : <Navigate to="/"/>} />
-        <Route path='/admin/outgoing/placed/:id' element={isAdmin? <AdminPlacedOutgoingById/> : <Navigate to="/"/>} />
+        <Route path='outgoing/placed/:id' element={isAdmin? <AdminPlacedOutgoingById/> : <Navigate to="/"/>} />
 
         <Route path='outgoing/shipment' element={isAdmin? <AdminShipmentOutgoing/> : <Navigate to="/"/>}/>
         <Route path='outgoing/shipment/:id' element={isAdmin? <AdminShipmentOutgoingById/> : <Navigate to="/"/>}/>
 
         <Route path='outgoing/delivered' element={isAdmin? <AdminDeliveredOutgoing/> : <Navigate to="/"/>}/>
         <Route path='outgoing/delivered/:id' element={isAdmin? <AdminDeliveredOutOrderById/> : <Navigate to="/"/>}/>
+
+        <Route path='profile' element={isAdmin? <AdminProfile/> : <Navigate to="/"/>}/>
       </Route>
 
       <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to="/"/>}>
