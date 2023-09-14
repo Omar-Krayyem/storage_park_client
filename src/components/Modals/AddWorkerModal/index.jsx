@@ -53,7 +53,7 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
             <Modal isOpen={openModal} className="AddWorkerModal">
                 <div className='body'>
                 <div className='title'>
-                    <h1>Partner</h1>
+                    <h1>Add Worker</h1>
                     <AiOutlineClose 
                     onClick={async (e) => {
                         e.preventDefault();
