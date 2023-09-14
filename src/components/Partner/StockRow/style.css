@@ -1,0 +1,22 @@
+.StockRow{
+    width: 100%;
+}
+
+.StockRow_tr {
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.StockRow_td {
+    width: 25%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.StockRow_tr:hover{
+    background-color: #FF8B13;
+}

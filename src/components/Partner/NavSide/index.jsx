@@ -42,10 +42,12 @@ const NavSide = () => {
                             </div>
                         </NavLink>
 
-                        <div className="title_section">
-                            <div className='icon'><FaWarehouse size={25}/> </div>
-                            <div className="title">Stored Products</div>
-                        </div>
+                        <NavLink className="nav_link" to={'/partner/stock'}>
+                            <div className={`title_section ${activeSection === "stock" ? 'selected' : ''}`} onClick={() => handlePageClick("stock")}>
+                                <div className='icon'><FaWarehouse size={25} /></div>
+                                <div className="title">Stored Products</div>
+                            </div>
+                        </NavLink>
 
                         <div className="section">
                             <div className='title_section' onClick={() => toggleSection("incomingOrders")}>

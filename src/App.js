@@ -32,6 +32,7 @@ import ShipmentIncoming from './Pages/Partner/ShipmentIncoming';
 import ShipmentIncomingById from './Pages/Partner/ShipmentOrderById';
 import DeliveredIncoming from './Pages/Partner/DeliveredIncoming';
 import DeliveredOrderById from './Pages/Partner/DeliveredOrderById';
+import PartnerStock from './Pages/Partner/Stock';
 import PlacedOutgoing from './Pages/Partner/PlacedOutgoing';
 import PlacedOutOrderById from './Pages/Partner/PlacedOutOrderById';
 import ShipmentOutgoing from './Pages/Partner/ShipmentOutgoing';
@@ -112,6 +113,8 @@ function App() {
 
         <Route path='incoming/delivered' element={isPartner? <DeliveredIncoming/> : <Navigate to="/"/>} />
         <Route path='incoming/delivered/:id' element={isPartner? <DeliveredOrderById/> : <Navigate to="/"/>} />
+
+        <Route path='stock' element={isPartner? <PartnerStock/> : <Navigate to="/"/>} />
 
         <Route path='outgoing/placed' element={isPartner? <PlacedOutgoing/> : <Navigate to="/"/>} />
         <Route path='outgoing/placed/:id' element={isPartner? <PlacedOutOrderById/> : <Navigate to="/"/>} />
