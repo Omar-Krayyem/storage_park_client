@@ -2,6 +2,7 @@ import './style.css';
 import Modal from 'react-modal';
 import React, { useState, useEffect }from "react";
 import axios from 'axios';
+import {AiOutlineClose} from 'react-icons/ai'
 
 const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
     const [first_name, setFName] = useState("");
@@ -10,7 +11,8 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
     const [company_name, setName] = useState("");
-
+    const [error, setError] = useState("");
+    const [msg, setMsg] = useState("");
 
     const token = localStorage.getItem("token");
 
@@ -54,6 +56,12 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
     const updateUser = (e) => {
         e.preventDefault();
 
+        if (!/^\d+$/.test(phone)) {
+            setError("Phone number should contain only numbers");
+            setTimeout(() => setError(""), 2000);
+            return;
+        }
+
         const postData = {user_id, first_name, last_name, email, phone, company_name, address};
     
         axios.post('http://127.0.0.1:8000/api/admin/partner/', postData, {
@@ -63,13 +71,17 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
         })
         .then(response => {
             console.log(response);
-            window.location.reload();
+            setMsg("Updated Successfullyy")
+            setTimeout(() => setMsg(""), 2000);
         })
         .catch(error => {
-            console.log(error);
+            if (error.response && error.response.data && error.response.data.data) {
+                setError(error.response.data.data);
+            } else {
+                setError("An error occurred");
+            }
+            setTimeout(() => setError(""), 2000);
         });
-
-
     }
 
     useEffect(() => {
@@ -81,6 +93,16 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
         <div>
             <Modal isOpen={openModal} className="partnerModal">
                 <div className='body'>
+                <div className='title'>
+                    <h1>Partner</h1>
+                    <AiOutlineClose 
+                    onClick={async (e) => {
+                        e.preventDefault();
+                        handleCloseModal();
+                    }}
+                    className='icon'
+                    size={25}/>
+                </div>
                 <div className="form_body">
                         <form className='partnerForm'>
                             <div className='nameSection'>
@@ -146,19 +168,12 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
                                 onChange={(e) => setAddress(e.target.value)}
                                 ></input> 
                             </div>
+                            <div className='error'>{error}</div>
+                            <div className='msg'>{msg}</div>
                             <div className='btnSection'>
                                 <button className='btn' onClick={updateUser}>Update</button>
                                 <button className='btn' onClick={deleteUser}>Delete</button>
                             </div>
-                            <button
-                                type="submit"
-                                className="close btn"
-                                value="Close"
-                                onClick={async (e) => {
-                                    e.preventDefault();
-                                    handleCloseModal();
-                                }}
-                            >Close</button>
                         </form>
                     </div>
                 </div>
