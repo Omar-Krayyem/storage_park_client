@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import IncomingShipmentRow from '../../../components/Admin/IncomingShipmentRow';
 
-const PlacedIncoming = () => {
+const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedOrders, setSearchedRequests] = useState([]);
@@ -99,4 +99,4 @@ const PlacedIncoming = () => {
     );
 }
 
-export default PlacedIncoming;
+export default ShipmentIncoming;
