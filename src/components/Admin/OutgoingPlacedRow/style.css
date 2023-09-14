@@ -17,6 +17,12 @@
     text-align: center;
 }
 
-.AdminOutgoingPlacedRow_tr:hover{
-    background-color: #FF8B13;
+.AdminOutgoingPlacedRow_svg {
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.AdminOutgoingPlacedRow_svg:hover {
+    color: #FF8B13;
+    transition: 0.5s;
 }
