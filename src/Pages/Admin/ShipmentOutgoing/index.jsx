@@ -7,7 +7,8 @@ import OutgoingShipmentRow from '../../../components/Admin/OutgoingShipmentRow';
 const ShipmentOutgoing = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
+    const [searchedOrders, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -50,6 +51,10 @@ const ShipmentOutgoing = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
+
     return (
         <div className='AdminShipmentOutgoing_page'> 
                 <div className='body'>
@@ -67,18 +72,24 @@ const ShipmentOutgoing = () => {
                                     <th className='AdminShipmentOutgoing_th'>Company Name</th>
                                     <th className='AdminShipmentOutgoing_th'>Customer Name</th>
                                     <th className='AdminShipmentOutgoing_th '>Worker Name</th>
-                                    <th className='AdminShipmentOutgoing_th top_right'>Placed at</th>
+                                    <th className='AdminShipmentOutgoing_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <OutgoingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} customer_name={order.customer.name} placed_at={order.placed_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <OutgoingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} customer_name={order.customer.name} placed_at={order.placed_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <OutgoingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} customer_name={order.customer.name}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <OutgoingShipmentRow id={order.id} company_name={order.user.company_name} worker_name={`${order.worker.first_name} ${order.worker.last_name}`} customer_name={order.customer.name}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
