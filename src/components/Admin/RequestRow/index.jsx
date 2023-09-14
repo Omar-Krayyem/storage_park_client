@@ -1,7 +1,7 @@
 import './style.css';
 import { useState } from 'react';
 import RequestModal from '../../Modals/RequestModal';
-
+import {AiFillEye} from 'react-icons/ai'
 const RequestRow = (props) => {
 
     const [openModal, setOpenModal] = useState(false);
@@ -16,11 +16,17 @@ const RequestRow = (props) => {
 
     return(
         <>
-        <tr onClick={handleOpenModal} className='UserRow_tr' id={props.id}>
-                <td className='UserRow_td'>{props.name}</td>
-                <td className='UserRow_td'>{props.email}</td>
-                <td className='UserRow_td'>{props.phone}</td>
-                <td className='UserRow_td'>{props.address}</td>
+        <tr className='RequestRow_tr' id={props.id}>
+                <td className='RequestRow_td'>{props.name}</td>
+                <td className='RequestRow_td'>{props.email}</td>
+                <td className='RequestRow_td'>{props.phone}</td>
+                <td className='RequestRow_td'>{props.address}</td>
+                <td className='RequestRow_td'>
+                    <AiFillEye 
+                    onClick={handleOpenModal} 
+                    className='RequestRow_svg'
+                    size={20}/>
+                </td>
             </tr>
             <RequestModal
             handleCloseModal={handleCloseModal}

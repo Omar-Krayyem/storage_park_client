@@ -63,7 +63,8 @@ const Requests = () => {
                                     <th className='request_th top_left'>Company Name</th>
                                     <th className='request_th'>Email</th>
                                     <th className='request_th '>Phone Number</th>
-                                    <th className='request_th top_right'>Address</th>
+                                    <th className='request_th'>Address</th>
+                                    <th className='request_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>

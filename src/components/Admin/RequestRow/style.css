@@ -1,22 +1,27 @@
-.UserRow{
+.RequestRow{
     width: 100%;
 }
 
-.UserRow_tr {
+.RequestRow_tr {
     width: 100%;
     background-color: white;
     font-size: 16px;
     font-weight: 500;
     color: #1D2126;
-    cursor: pointer;
 }
 
-.UserRow_td {
-    width: 25%;
+.RequestRow_td {
+    width: 23%;
     padding: 10px 20px;
     text-align: center;
 }
 
-.UserRow_tr:hover{
-    background-color: #FF8B13;
+.RequestRow_svg {
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.RequestRow_svg:hover {
+    color: #FF8B13;
+    transition: 0.5s;
 }
