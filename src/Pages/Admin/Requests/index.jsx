@@ -8,6 +8,7 @@ const Requests = () => {
     const [Users , setUsers] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedRequests, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -47,6 +48,10 @@ const Requests = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(Users.length === 0 && searchedRequests.length === 0);
+    }, [Users,searchInput, searchedRequests]);
+
     return (
         <div className='requests_page'> 
                 <div className='body'>
@@ -68,14 +73,20 @@ const Requests = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    Users.map((user) => (
-                                        <RequestRow id={user.id} name={user.company_name} email={user.email} phone={user.phone} address={user.address}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedRequests.map((request) => (
-                                        <RequestRow id={request.id} name={request.company_name} email={request.email} phone={request.phone} address={request.address}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        Users.map((request) => (
+                                            <RequestRow id={request.id} name={request.company_name} email={request.email} phone={request.phone} address={request.address}/>
+                                        ))
+                                    ) : (
+                                        searchedRequests.map((request) => (
+                                            <RequestRow id={request.id} name={request.company_name} email={request.email} phone={request.phone} address={request.address}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
