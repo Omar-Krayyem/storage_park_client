@@ -6,8 +6,9 @@
     transform: translate(-50%, -50%);
     background-color: #F0F0F0;
     padding: 50px;
-    
+    outline: none;
 }
+
 .requestModal .body{
     display: flex;
     justify-content: center;

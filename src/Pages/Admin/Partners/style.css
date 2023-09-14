@@ -26,9 +26,9 @@
     font-size: 18px;
     width: 400px;
     outline: none;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 7px 15px;
-    background-color: transparent;
+    background-color: white;
     
 }
 
@@ -53,23 +53,9 @@
 }
   
 .partner_table .partners_th {
-    width: 25%;
+    width: 22%;
     padding: 10px 20px;
     text-align: center;
-}
-  
-.partner_table .request_td{
-    width: 25%;
-    padding: 10px 30px;
-    text-align: center;
-}
-
-.partner_table .request_tr {
-    background-color: white;
-    font-size: 16px;
-    font-weight: 500;
-    color: #1D2126;
-    cursor: pointer;
 }
 
 .top_left{

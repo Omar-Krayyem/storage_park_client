@@ -8,7 +8,7 @@ const Partners = () => {
     const [Users , setUsers] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
-
+    const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
 
     const getUsers = async () => {
@@ -47,6 +47,10 @@ const Partners = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(Users.length === 0 && searchedPartners.length === 0);
+    }, [Users,searchInput, searchedPartners]);
+
     return (
         <div className='partners_page'> 
                 <div className='body'>
@@ -63,18 +67,25 @@ const Partners = () => {
                                     <th className='partners_th top_left'>Company Name</th>
                                     <th className='partners_th'>Email</th>
                                     <th className='partners_th '>Phone Number</th>
-                                    <th className='partners_th top_right'>Address</th>
+                                    <th className='partners_th'>Address</th>
+                                    <th className='partners_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    Users.map((user) => (
-                                        <PartnerRow id={user.id} name={user.company_name} email={user.email} phone={user.phone} address={user.address}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((partner) => (
-                                        <PartnerRow id={partner.id} name={partner.company_name} email={partner.email} phone={partner.phone} address={partner.address}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        Users.map((user) => (
+                                            <PartnerRow id={user.id} name={user.company_name} email={user.email} phone={user.phone} address={user.address} />
+                                        ))
+                                    ) : (
+                                        searchedPartners.map((partner) => (
+                                            <PartnerRow id={partner.id} name={partner.company_name} email={partner.email} phone={partner.phone} address={partner.address} />
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
