@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import React, { useState, useEffect, useRef }from "react";
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
-
+import {AiOutlineClose} from 'react-icons/ai'
 const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
@@ -99,6 +99,16 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
         <div>
             <Modal isOpen={openModal} className="requestModal">
                 <div className='body'>
+                <div className='title'>
+                    <h1>Request</h1>
+                    <AiOutlineClose 
+                    onClick={async (e) => {
+                        e.preventDefault();
+                        handleCloseModal();
+                    }}
+                    className='icon'
+                    size={25}/>
+                </div>
                 <div className="form_body">
                         <form ref={form} className='requestForm'>
                             <div className='nameSection'>
@@ -107,16 +117,16 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                                     <input 
                                     className='half'
                                     type="text" 
-                                    required
+                                    disabled                                    
                                     value={first_name}
                                     ></input>
                                 </div>
-                                <div className="halftext_feild ">
+                                <div className="halftext_feild end">
                                     <label>Last Name</label>
                                     <input 
                                     className='half'
                                     type="text"
-                                    required
+                                    disabled
                                     value={last_name}
                                     ></input> 
                                 </div>
@@ -126,7 +136,7 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                                 <input 
                                 className='full'
                                 type="text" 
-                                required
+                                disabled
                                 value={company_name}
                                 name='company_name'
                                 ></input>
@@ -137,7 +147,7 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                                 className='full'
                                 type="email" 
                                 name='email'
-                                required
+                                disabled
                                 value={email}
                                 ></input>
                             </div>
@@ -146,7 +156,7 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                                 <input 
                                 className='full'
                                 type="text" 
-                                required
+                                disabled
                                 value={phone}
                                 ></input>
                             </div>
@@ -155,7 +165,7 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                                 <input 
                                 className='full'
                                 type="text"
-                                required
+                                disabled
                                 value={address}
                                 ></input> 
                             </div>
@@ -170,15 +180,6 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                                 <button className='btn' onClick={acceptRequest}>Accept</button>
                                 <button className='btn' onClick={deleteRequest}>Reject</button>
                             </div>
-                            <button
-                                type="submit"
-                                className="close btn"
-                                value="Close"
-                                onClick={async (e) => {
-                                    e.preventDefault();
-                                    handleCloseModal();
-                                }}
-                            >Close</button>
                         </form>
                     </div>
                 </div>
