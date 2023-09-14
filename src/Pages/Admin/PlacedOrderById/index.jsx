@@ -87,65 +87,25 @@ const AdminIncomingPlacedOrder = () => {
                         </div>
                     </div>
 
-                    <div className='Order_Info'>
-                        
-                        <div className='info_row'>
-                            <h2>Order Info:</h2>
-                            <div className="halftext_feild">
-                                <label>Company Name</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={order.user?.company_name || ''}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild">
-                                <label>Total Price</label>
-                                <input
-                                    className='Q'
-                                    type="text"
-                                    required
-                                    value={order.total_price}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild ">
-                                <label>Placed At</label>
-                                <input
-                                    className='Q'
-                                    type="text"
-                                    required
-                                    value={order.placed_at}
-                                    disabled
-                                ></input>
-                            </div>
-                        </div>
+                    <div className='order_table'>
+                        <table className='AdminIncomingPlacedOrder_table'>
+                            <thead className='AdminIncomingPlacedOrder_thead'>
+                                <tr className=''>
+                                    <th className='AdminIncomingPlacedOrder_th top_left'>Company Name</th>
+                                    <th className='AdminIncomingPlacedOrder_th'>Total Price $</th>
+                                    <th className='AdminIncomingPlacedOrder_th top_right'>Placed At</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className='AdminIncomingPlacedOrder_tr'>
+                                    <td className='AdminIncomingPlacedOrder_td'>{order.user?.company_name || ''}</td>
+                                    <td className='AdminIncomingPlacedOrder_td'>{order.total_price}</td>
+                                    <td className='AdminIncomingPlacedOrder_td'>{order.placed_at}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <div className='info_row'>
-                            <h2>Location Info:</h2>
-                            <div className="halftext_feild">
-                                <label>Latitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={latitude}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild ">
-                                <label>Longitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={longitude}
-                                    disabled
-                                ></input>
-                            </div>
-                        </div>
                         <div className='mapContainer'>
                         {mapDataLoaded && (
                             <div className='mapContainer'>
@@ -159,30 +119,38 @@ const AdminIncomingPlacedOrder = () => {
                             </div>
                         )}
                         </div>
-                    </div>
 
-                    <div className='products_section'>
+                    <div className='order_table'>
                         <h2>Order Items:</h2>
-                        <div className='display_products'>
-                            {orderItems.map((item, index) => (
-                                <div className='display_product' key={index}>
-                                    <div className='attributes'>
-                                        <div><span>Name: </span>{item.product.name}</div>
-                                        <div><span>Description: </span>{item.product.description}</div>
-                                        <div><span>Category: </span>{item.product.category.category}</div>
-                                        <div><span>Price: </span>{item.product.price}$</div>
-                                        <div><span>Quantity: </span>{item.quantity}</div>
-                                    </div>
-                                </div>
-                            ))}         
-                        </div>
+                        <table className='AdminIncomingPlacedOrder_table'>
+                            <thead className='AdminIncomingPlacedOrder_thead'>
+                                <tr className=''>
+                                    <th className='AdminIncomingPlacedOrder_th top_left'>Name</th>
+                                    <th className='AdminIncomingPlacedOrder_th'>Descritpion</th>
+                                    <th className='AdminIncomingPlacedOrder_th'>Category</th>
+                                    <th className='AdminIncomingPlacedOrder_th'>Price $</th>
+                                    <th className='AdminIncomingPlacedOrder_th top_right'>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {orderItems.map((item, index) => (
+                                    <tr className='AdminIncomingPlacedOrder_tr'>
+                                        <td className='AdminIncomingPlacedOrder_td'>{item.product.name}</td>
+                                        <td className='AdminIncomingPlacedOrder_td'>{item.product.description}</td>
+                                        <td className='AdminIncomingPlacedOrder_td'>{item.product.category.category}</td>
+                                        <td className='AdminIncomingPlacedOrder_td'>{item.product.price}</td>
+                                        <td className='AdminIncomingPlacedOrder_td'>{item.quantity}</td>
+                                    </tr>
+                                ))} 
+                            </tbody>
+                        </table>
                     </div>
                         
                     <div className='select_worker'>
                         <div className="halftext_feild">
                                 <label>Select Worker</label>
                                 <select
-                                    className="half"
+                                    className="creatableSelect half"
                                     value={selectedWorkerId}
                                     onChange={(e) => setSelectedWorkerId(e.target.value)}
                                     required
