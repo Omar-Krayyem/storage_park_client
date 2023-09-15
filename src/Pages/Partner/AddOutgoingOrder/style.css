@@ -1,0 +1,191 @@
+.AddOutgoing_page {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: row;
+    min-height: 91.7vh;
+    width: 100%;
+}
+
+.AddOutgoing_page .body{
+    width: 100%;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.AddOutgoing_page .input{
+    font-size: 16px;
+    height: 40px;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    background: white;
+    color: #1D2126;
+    padding: 0 3px;
+    outline: none;
+    margin-top: 8px;
+    padding: 5px 5px;
+}
+
+.AddOutgoing_page .Q{
+    width: 150px;
+}
+
+.AddOutgoing_page .half{
+    width: 245px;
+}
+
+.AddOutgoing_page  label{
+    color: #1D2126;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-right: 10px;
+}
+
+.AddOutgoing_page .customer_section{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: flex-start ;
+}
+
+.AddOutgoing_page .customer_section .input{
+    font-size: 16px;
+    height: 30px;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    background: white;
+    color: #1D2126;
+    padding: 0 3px;
+    outline: none;
+    margin-top: 8px;
+    padding: 5px 5px;
+}
+
+.AddOutgoing_page .product_section{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: flex-start ;
+}
+
+.AddOutgoing_page .product_section .halftext_feild{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+
+.AddOutgoing_page .customer_section .halftext_feild{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.AddOutgoing_page .table{
+    padding-top: 20px;
+}
+
+.AddOutgoing_page .table .AddOutgoing_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.AddOutgoing_page .table .AddOutgoing_thead {
+    font-size: 20px;
+    color: #F0F0F0;
+    background-color: #1D2126;
+}
+  
+.AddOutgoing_page .table .AddOutgoing_th {
+    width: 19%;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.AddOutgoing_page .table .AddOutgoing_tr{
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+}
+
+.AddIncoming_page .table .AddOutgoing_td {
+    width: 19%;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+
+.AddOutgoing_page .AddOutgoing_svg {
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.AddOutgoing_page .AddOutgoing_svg:hover {
+    color: #FF8B13;
+    transition: 0.5s;
+}
+
+.AddOutgoing_page .creatableSelect {
+    width: 250px;
+    font-size: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    outline: none;
+}
+
+.AddOutgoing_page .mapContainer{
+    margin-top: 20px;
+}
+
+.AddOutgoing_page .placebutton{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.AddOutgoing_page button{
+    background-color: #1D2126;
+    padding: 7px 25px ;
+    color: #F0F0F0;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.AddOutgoing_page button:hover{
+    background-color: #FF8B13;
+    color: #1D2126;
+    transition: 0.5s;
+}
+
+.AddOutgoing_page .btn{
+    padding: 0 20px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.text_align{
+    text-align: center  ;
+    width: 19%;
+    padding: 10px 10px;
+}

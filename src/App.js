@@ -35,6 +35,7 @@ import DeliveredIncoming from './Pages/Partner/DeliveredIncoming';
 import DeliveredOrderById from './Pages/Partner/DeliveredOrderById';
 import PartnerStock from './Pages/Partner/Stock';
 import PlacedOutgoing from './Pages/Partner/PlacedOutgoing';
+import AddOutgoingOrder from './Pages/Partner/AddOutgoingOrder';
 import PlacedOutOrderById from './Pages/Partner/PlacedOutOrderById';
 import ShipmentOutgoing from './Pages/Partner/ShipmentOutgoing';
 import ShipmentOutOrderById from './Pages/Partner/ShipmentOutOrderById';
@@ -123,6 +124,7 @@ function App() {
         <Route path='stock' element={isPartner? <PartnerStock/> : <Navigate to="/"/>} />
 
         <Route path='outgoing/placed' element={isPartner? <PlacedOutgoing/> : <Navigate to="/"/>} />
+        <Route path='outgoing/create' element={isPartner? <AddOutgoingOrder/> : <Navigate to="/"/>} />
         <Route path='outgoing/placed/:id' element={isPartner? <PlacedOutOrderById/> : <Navigate to="/"/>} />
 
         <Route path='outgoing/shipment' element={isPartner? <ShipmentOutgoing/> : <Navigate to="/"/>} />
