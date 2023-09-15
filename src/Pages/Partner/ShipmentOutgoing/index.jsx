@@ -7,7 +7,8 @@ import OutgoingShipmentRow from '../../../components/Partner/OutgoingShipmentRow
 const ShipmentOutgoing = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
+    const [searchedOrders, SetSearchedOrders] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -35,7 +36,7 @@ const ShipmentOutgoing = () => {
         })
         .then(response => {
             console.log(response.data.data)
-            setSearchedRequests(response.data.data);
+            SetSearchedOrders(response.data.data);
         })   
         .catch(error => {
             console.log(error);
@@ -49,6 +50,10 @@ const ShipmentOutgoing = () => {
             getSearched();
         }
     }, [searchInput]);
+
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
 
     return (
         <div className='PartnerShipmentOutgoing_page'> 
@@ -66,18 +71,25 @@ const ShipmentOutgoing = () => {
                                     <th className='ShipmentOutgoing_th top_left'>Order ID</th>
                                     <th className='ShipmentOutgoing_th'>Customer Name</th>
                                     <th className='ShipmentOutgoing_th '>Placed at</th>
-                                    <th className='ShipmentOutgoing_th top_right'>Total Price $</th>
+                                    <th className='placedOutgoing_th'>Total Price $</th>
+                                    <th className='placedOutgoing_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <OutgoingShipmentRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <OutgoingShipmentRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <OutgoingShipmentRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <OutgoingShipmentRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
