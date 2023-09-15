@@ -1,55 +1,73 @@
-.dashboard_page{
+.AdminDashboard_page{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #F0F0F0;
     display: flex;
     flex-direction: row;
-    min-height: 9vh;
+    min-height: 91.7vh;
     width: 100%;
-}
-/*
-.dashboard_page .right_side{
-    width: 100%;
+    overflow: hidden;
 }
 
-.dashboard_page .left_side{
-    width: 20%;
-    height: 100vh;
-    position: fixed;
-} */
-
-/* .dashboard_page .right_side .head{
-    position: fixed;
-} */
-
-/* .dashboard_page {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #F0F0F0;
+.AdminDashboard_page .body{
+    width: 100%;
+    padding: 40px 50px;
     display: flex;
-    flex-direction: row;
-    min-height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+.AdminDashboard_page .body .records{
+    display: flex;
+    flex-flow: row wrap;
     width: 100%;
-} */
-
-/* .dashboard_page .left_side {
-    width: 20%;
-    height: 100vh;
-    position: fixed;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
 }
 
-.dashboard_page .right_side {
-    width: 80%;
-    margin-left: 20%;
+.AdminDashboard_page .body .record{
+    width: 32%;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 30px;
+    font-weight: 900;
 }
 
-.dashboard_page .right_side .head{
-    width: 80%;
-    position: fixed;
-} */
+.AdminDashboard_page .record span{
+    color: #FF8B13;
+    font-size: 60px;
+}
 
-/* .dashboard_page .right_side .body{
-    margin-top: 50px;
-} */
+.AdminDashboard_page .graphs{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    height: 350px;
+    gap: 20px;
+}
+
+.AdminDashboard_page .graphs .pieChart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    height: 100%;
+    width: 49%;
+}
+
+.AdminDashboard_page .graphs .barChart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    height: 100%;
+    width: 49%;
+}
