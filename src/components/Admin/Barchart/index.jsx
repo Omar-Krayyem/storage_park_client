@@ -22,8 +22,8 @@ const Barchart = ({ data, width, height }) => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pv" fill="#1D2126" />
-          <Bar dataKey="uv" fill="#FF8B13" />
+          <Bar dataKey="incoming" fill="#1D2126" />
+          <Bar dataKey="outgoing" fill="#FF8B13" />
         </BarChart>
       </ResponsiveContainer>
     );

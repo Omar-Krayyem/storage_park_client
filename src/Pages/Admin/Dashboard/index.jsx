@@ -1,78 +1,98 @@
 import './style.css';
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import PieChart from '../../../components/Admin/pieChart';
 import Barchart from '../../../components/Admin/Barchart';
-const PieData = [
-    { name: 'Fashion', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 800 },
-    { name: 'Group E', value: 400 },
-    { name: 'Group F', value: 300 },
-    { name: 'Group G', value: 300 },
-    { name: 'Group H', value: 200 },
-  ];
-
-  const BarData = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
-  
 
 const Dashboard = () => {
+
+    const [ requests , setRequests] = useState(0);
+    const [ partners , setPartners] = useState(0);
+    const [ workers , setWorkers] = useState(0);
+
+    const [ placedInc , setPlacedInc] = useState(0);
+    const [ shipmentInc , setShipmentInc] = useState(0);
+    const [ deliveredInc , setDeliveredInc] = useState(0);
+
+    const [ placedOut , setPlacedOut] = useState(0);
+    const [ shipmentOut , setShipmentOut] = useState(0);
+    const [ deliveredOut , setDeliveredOut] = useState(0);
+
+    const [categories, setCategories] = useState([]);
+
+    
+
+      const token = localStorage.getItem("token");
+
+        const getUser = async () => {
+            await axios.get(`http://127.0.0.1:8000/api/admin/dashboard`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                console.log(response.data.data)
+                setRequests(response.data.data.requests)
+                setPartners(response.data.data.partner)
+                setWorkers(response.data.data.worker)
+
+                setPlacedInc(response.data.data.placedInc)
+                setShipmentInc(response.data.data.shipmentInc)
+                setDeliveredInc(response.data.data.deliveredInc)
+
+                setPlacedOut(response.data.data.placedOut)
+                setShipmentOut(response.data.data.shipmentOut)
+                setDeliveredOut(response.data.data.deliveredOut)
+
+                setCategories(response.data.data.category)
+            })
+            .catch(error => {
+                console.log(error);
+            });    
+        };
+
+        useEffect(() => {
+            getUser();
+        }, []);
+
+        const BarData = [
+            {
+              name: 'Placed Orders',
+              outgoing: placedOut,
+              incoming: placedInc,
+              amt: 2400,
+            },
+            {
+              name: 'shipment Orders',
+              outgoing: shipmentOut,
+              incoming: shipmentInc,
+              amt: 2210,
+            },
+            {
+              name: 'Delivered Orders',
+              outgoing: deliveredOut,
+              incoming: deliveredInc,
+              amt: 2290,
+            }
+          ];
+    
+        const PieData = categories.map((category) => (
+            { name: category.category, value: category.products_count }
+        ));
+
     return (
         <div className='AdminDashboard_page'> 
                 <div className='body'>
                 <div className='title'><h1>Dashboard</h1></div>
                     <div className='records'>
                         <div className='record'>
-                            <span>900</span>Requests
+                            <span>{requests}</span>Requests
                         </div>
                         <div className='record'>
-                            <span>290</span>Partners
+                            <span>{partners}</span>Partners
                         </div>
                         <div className='record'>
-                            <span>350</span>Workers
+                            <span>{workers}</span>Workers
                         </div>
                     </div>
                     <div className='graphs'>
