@@ -1,6 +1,6 @@
 import './style.css';
 import { useState } from 'react';
-import AdminStockModal from '../../Modals/AdminStockModal';
+import PartnerStockModal from '../../Modals/PartnerStockModal';
 import {AiFillEye} from 'react-icons/ai'
 
 const StockRow = (props) => {
@@ -29,7 +29,7 @@ const StockRow = (props) => {
                     size={20}/>
                 </td>
             </tr>
-            <AdminStockModal
+            <PartnerStockModal
             handleCloseModal={handleCloseModal}
             openModal={openModal} 
             id = {props.id}
