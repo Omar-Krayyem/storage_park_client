@@ -152,9 +152,44 @@
     box-shadow: none;
 }
 
-
-
-.PartnerIncomingPlacedOrder_page .mapContainer{
-    margin-top: 20px;
+.PartnerIncomingPlacedOrder_page .table{
+    padding-top: 20px;
 }
+
+.PartnerIncomingPlacedOrder_page .PartnerIncomingPlacedOrder_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.PartnerIncomingPlacedOrder_page .PartnerIncomingPlacedOrder_thead {
+    font-size: 20px;
+    color: #F0F0F0;
+    background-color: #1D2126;
+}
+  
+.PartnerIncomingPlacedOrder_page .PartnerIncomingPlacedOrder_th {
+    width: 20%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.PartnerIncomingPlacedOrder_page .PartnerIncomingPlacedOrder_tr{
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+}
+
+.PartnerIncomingPlacedOrder_page .PartnerIncomingPlacedOrder_td {
+    width: 22%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
 
