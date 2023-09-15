@@ -2,21 +2,26 @@
     width: 100%;
 }
 
-.StockRow_tr {
+.PartnerStockRow_tr {
     width: 100%;
     background-color: white;
     font-size: 16px;
     font-weight: 500;
     color: #1D2126;
-    cursor: pointer;
 }
 
-.StockRow_td {
-    width: 25%;
+.PartnerStockRow_td {
+    width: 22%;
     padding: 10px 20px;
     text-align: center;
 }
 
-.StockRow_tr:hover{
-    background-color: #FF8B13;
+.PartnerStockRow_svg {
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.PartnerStockRow_svg:hover {
+    color: #FF8B13;
+    transition: 0.5s;
 }

@@ -66,7 +66,8 @@ const Stock = () => {
                                     <th className='PartnerStock_th top_left'>Name</th>
                                     <th className='PartnerStock_th'>Category</th>
                                     <th className='PartnerStock_th'>Price</th>
-                                    <th className='PartnerStock_th top_right'>Quantity</th>
+                                    <th className='PartnerStock_th'>Quantity</th>
+                                    <th className='PartnerStock_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>

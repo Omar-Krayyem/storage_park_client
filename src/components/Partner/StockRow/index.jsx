@@ -1,6 +1,7 @@
 import './style.css';
 import { useState } from 'react';
 import AdminStockModal from '../../Modals/AdminStockModal';
+import {AiFillEye} from 'react-icons/ai'
 
 const StockRow = (props) => {
 
@@ -16,11 +17,17 @@ const StockRow = (props) => {
 
     return(
         <>
-        <tr onClick={handleOpenModal} className='StockRow_tr' id={props.id}>
-                <td className='StockRow_td'>{props.name}</td>
-                <td className='StockRow_td'>{props.category}</td>
-                <td className='StockRow_td'>{props.price}</td>
-                <td className='StockRow_td'>{props.quantity}</td>
+        <tr onClick={handleOpenModal} className='PartnerStockRow_tr' id={props.id}>
+                <td className='PartnerStockRow_td'>{props.name}</td>
+                <td className='PartnerStockRow_td'>{props.category}</td>
+                <td className='PartnerStockRow_td'>{props.price}</td>
+                <td className='PartnerStockRow_td'>{props.quantity}</td>
+                <td className='PartnerStockRow_td'>
+                    <AiFillEye 
+                    onClick={handleOpenModal} 
+                    className='PartnerStockRow_svg'
+                    size={20}/>
+                </td>
             </tr>
             <AdminStockModal
             handleCloseModal={handleCloseModal}

@@ -28,6 +28,12 @@ const NavSide = () => {
         setActiveSection(pageName);
     };
 
+    const handleLogout  = () => {
+        localStorage.setItem("token" , "");
+        localStorage.setItem("user_type", 0);
+        window.location.href = '/';
+    }
+    
     return (
         <div>
             <div className="sidebar">
@@ -93,7 +99,7 @@ const NavSide = () => {
                         <div className='icon'><BiSolidUser size={25}/></div>
                         <div className="title">Profile</div>
                     </div>
-                    <div className="title_section">
+                    <div className="title_section" onClick={handleLogout}>
                         <div className='icon'><FiLogOut  size={25}/></div>
                         <div className="title">Logout</div>
                     </div>
