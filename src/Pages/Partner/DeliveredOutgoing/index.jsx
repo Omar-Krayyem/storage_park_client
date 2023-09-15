@@ -6,7 +6,8 @@ import OutgoingDeliveredRow from '../../../components/Partner/OutgoingDeliveredR
 const DeliveredOutgoing = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
+    const [searchedOrders, SetSearchedOrders] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -34,7 +35,7 @@ const DeliveredOutgoing = () => {
         })
         .then(response => {
             console.log(response.data.data)
-            setSearchedRequests(response.data.data);
+            SetSearchedOrders(response.data.data);
         })   
         .catch(error => {
             console.log(error);
@@ -48,6 +49,10 @@ const DeliveredOutgoing = () => {
             getSearched();
         }
     }, [searchInput]);
+
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
 
     return (
         <div className='PartnerDeliveredOutgoing_page'> 
@@ -63,20 +68,27 @@ const DeliveredOutgoing = () => {
                             <thead className='PartnerDeliveredOutgoing_thead'>
                                 <tr className=''>
                                     <th className='PartnerDeliveredOutgoing_th top_left'>Order ID</th>
-                                    <th className='PartnerDeliveredOutgoing_th'>Placed at</th>
+                                    <th className='PartnerDeliveredOutgoing_th'>Customer Name</th>
                                     <th className='PartnerDeliveredOutgoing_th '>Delivered at</th>
-                                    <th className='PartnerDeliveredOutgoing_th top_right'>Total Price $</th>
+                                    <th className='PartnerDeliveredOutgoing_th'>Total Price $</th>
+                                    <th className='PartnerDeliveredIncoming_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <OutgoingDeliveredRow id={order.id} delivered_at={order.delivered_at} customer_name={order.customer?.name} placed_at={order.placed_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <OutgoingDeliveredRow id={order.id} delivered_at={order.delivered_at} customer_name={order.customer?.name} placed_at={order.placed_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <OutgoingDeliveredRow id={order.id} delivered_at={order.delivered_at} customer_name={order.customer?.name} placed_at={order.placed_at}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <OutgoingDeliveredRow id={order.id} delivered_at={order.delivered_at} customer_name={order.customer?.name} placed_at={order.placed_at}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>
