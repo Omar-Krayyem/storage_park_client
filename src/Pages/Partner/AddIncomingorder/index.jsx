@@ -1,4 +1,5 @@
 import './style.css';
+import {MdDelete} from 'react-icons/md'
 
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
@@ -9,7 +10,6 @@ import CreatableSelect from "react-select/creatable";
 import { Map , Marker } from "pigeon-maps"
 
 const AddIncomingOrder = () => {
-    const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
     const [anchor, setAnchor] = useState([50.879, 4.6997]);
     const [latitude, setLatitude] = useState(anchor[0]);
@@ -64,7 +64,7 @@ const AddIncomingOrder = () => {
         e.preventDefault();
 
             if (!productName || !price || !quantity || !description || selectedCategoryId === 0) {
-                setError("Please fill in all fields.");
+                setError("Please fill all fields.");
                 return;
             }
 
@@ -98,7 +98,7 @@ const AddIncomingOrder = () => {
 
     const handleAddOrder = async () => {
         if (!latitude || !longitude) {
-            setError("Please fill in all input fields.");
+            setError("Please fill all input fields.");
             return;
         }
 
@@ -152,7 +152,7 @@ const AddIncomingOrder = () => {
 
 
     return (
-        <div className='AddIncomingOrder_page'>
+        <div className='AddIncoming_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Place New Order</h1></div>
@@ -162,9 +162,7 @@ const AddIncomingOrder = () => {
                     </div>
 
                     <div className='location_section'>
-                        <div className='location_inputs'>
-                            <h2>Select Location:</h2>
-                        </div>
+                        <h2>Select Order Location:</h2>
                         <div className='mapContainer'>
                             <Map height={300} 
                             defaultCenter={[latitude, longitude]} 
@@ -182,7 +180,6 @@ const AddIncomingOrder = () => {
                         <div className='product_section'>
                                     <div className="halftext_feild">
                                         <label>Name</label>
-
                                         <CreatableSelect
                                         options={options}
                                         onChange={handleChange}
@@ -194,7 +191,7 @@ const AddIncomingOrder = () => {
                                     <div className="halftext_feild ">
                                         <label>Description</label>
                                         <input
-                                            className='half'
+                                            className='input half'
                                             type="text"
                                             required
                                             value={description}
@@ -205,7 +202,7 @@ const AddIncomingOrder = () => {
                                     <div className="halftext_feild">
                                         <label>Category</label>
                                         <select
-                                            className="half"
+                                            className="input half"
                                             value={selectedCategoryId}
                                             onChange={(e) => setSelectedCategoryId(e.target.value)}
                                             required
@@ -222,7 +219,7 @@ const AddIncomingOrder = () => {
                                     <div className="halftext_feild ">
                                         <label>Price</label>
                                         <input
-                                            className='Q'
+                                            className='input Q'
                                             type="number"
                                             required
                                             min={0}
@@ -234,7 +231,7 @@ const AddIncomingOrder = () => {
                             <div className="halftext_feild ">
                                 <label>Quantity</label>
                                 <input
-                                    className='Q'
+                                    className='input Q'
                                     type="number"
                                     required
                                     min={1}
@@ -247,29 +244,48 @@ const AddIncomingOrder = () => {
                             <button className='btn' onClick={handleAddProduct}>+</button>
                             <div className='error'>{error}</div>
                         </div>
+                        {newProducts.length > 0 && (
+                        <div className='table'>
+                            <table className='AddIncoming_table'>
+                                <thead className='AddIncoming_thead'>
+                                    <tr className=''>
+                                        <th className='AddIncoming_th top_left'>Name</th>
+                                        <th className='AddIncoming_th'>Descritpion</th>
+                                        <th className='AddIncoming_th'>Category</th>
+                                        <th className='AddIncoming_th'>Price $</th>
+                                        <th className='AddIncoming_th'>Quantity</th>
+                                        <th className='AddIncoming_th top_right'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {newProducts.map((product, index) => (
+                                        <tr className='AddIncoming_tr'>
+                                            <td className='AddIncoming_td'>{product.productName}</td>
+                                            <td className='AddIncoming_td'>{product.description}</td>
+                                            <td className='AddIncoming_td'>{categories.map((category) => {
+                                                if (product.product_category_id === category.id) {
+                                                    return (
+                                                        <div key={category.id}>
+                                                        {category.category}
+                                                        </div>
+                                                    );
+                                                }
+                                            })}</td>
+                                            <td className='AddIncoming_td'>{product.price}</td>
+                                            <td className='AddIncoming_td'>{quantity}</td>
+                                            <td>
+                                            <MdDelete 
+                                                onClick={() => handleDeleteProduct(product.productName)}
+                                                className='AddIncoming_svg'
+                                                size={20}/>
+                                            </td>
+                                        </tr>
+                                    ))} 
+                                </tbody>
+                            </table>
+                        </div>)}
 
-                        <div className='display_products'>
-                            {newProducts.map((product, index) => (
-                                <div className='display_product' key={index}>
-                                    <div className='attributes'>
-                                        <div><span>Name: </span>{product.productName}</div>
-                                        <div><span>Description: </span>{product.description}</div>
-                                        {categories.map((category) => {
-                                            if (product.product_category_id === category.id) {
-                                                return (
-                                                    <div key={category.id}>
-                                                        <span>Category: </span>{category.category}
-                                                    </div>
-                                                );
-                                            }
-                                        })}
-                                        <div><span>Price: </span>{product.price}</div>
-                                        <div><span>Quantity: </span>{product.quantity}</div>
-                                    </div>
-                                    <button className='btn' onClick={() => handleDeleteProduct(product.productName)}>Delete</button>
-                                </div>
-                            ))}         
-                        </div>
+                        
                     </div>
 
                     
