@@ -1,25 +1,75 @@
 import './style.css';
-import React from "react";
-
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import PieChart from '../../../components/Admin/pieChart';
+import Barchart from '../../../components/Admin/Barchart';
 
 const Dashboard = () => {
-    const name = localStorage.getItem("user_name");
+
+    const [ requests , setRequests] = useState(0);
+    const [ partners , setPartners] = useState(0);
+    const [ workers , setWorkers] = useState(0);
+
+    const [ placedInc , setPlacedInc] = useState(0);
+    const [ shipmentInc , setShipmentInc] = useState(0);
+    const [ deliveredInc , setDeliveredInc] = useState(0);
+
+    const [ placedOut , setPlacedOut] = useState(0);
+    const [ shipmentOut , setShipmentOut] = useState(0);
+    const [ deliveredOut , setDeliveredOut] = useState(0);
+    
+    const [categories, setCategories] = useState([]);
+    const BarData = [
+        {
+          name: 'Placed Orders',
+          outgoing: placedOut,
+          incoming: placedInc,
+          amt: 2400,
+        },
+        {
+          name: 'shipment Orders',
+          outgoing: shipmentOut,
+          incoming: shipmentInc,
+          amt: 2210,
+        },
+        {
+          name: 'Delivered Orders',
+          outgoing: deliveredOut,
+          incoming: deliveredInc,
+          amt: 2290,
+        }
+      ];
+
+    const PieData = categories.map((category) => (
+        { name: category.category, value: category.products_count }
+    ));
 
     return (
-        <div className='dashboard_page'> 
-            {/* <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div> */}
+        <div className='AdminDashboard_page'> 
                 <div className='body'>
-                    omar
+                <div className='title'><h1>Dashboard</h1></div>
+                    <div className='records'>
+                        <div className='record'>
+                            <span>{requests}</span>Requests
+                        </div>
+                        <div className='record'>
+                            <span>{partners}</span>Partners
+                        </div>
+                        <div className='record'>
+                            <span>{workers}</span>Workers
+                        </div>
+                    </div>
+                    <div className='graphs'>
+                    <div className='barChart'>
+                            <h2>Numbers of Orders</h2>
+                            <Barchart data={BarData}/>
+                        </div>
+                        <div className='pieChart'>
+                            <h2>Stored Product Categories</h2>
+                            <PieChart data={PieData} width={1200} height={1200} />
+                        </div>
+                    </div>
                 </div>
-            {/* </div> */}
         </div>
     );
 }

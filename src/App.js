@@ -69,9 +69,9 @@ function App() {
     // setIsLoading(false);
   }, []);
 
-  if (!isAdmin && !isWorker && !isPartner) {
-    return null;
-  }
+  // if (!isAdmin && !isWorker && !isPartner) {
+  //   return null;
+  // }
 
   return (
     <Routes>
