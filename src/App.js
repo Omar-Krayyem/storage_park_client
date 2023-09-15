@@ -40,6 +40,7 @@ import ShipmentOutgoing from './Pages/Partner/ShipmentOutgoing';
 import ShipmentOutOrderById from './Pages/Partner/ShipmentOutOrderById';
 import DeliveredOutgoing from './Pages/Partner/DeliveredOutgoing';
 import DeliveredOutOrderById from './Pages/Partner/DeliveredOutOrderById';
+import PartnerProfile from './Pages/Partner/Profile';
 import PartnerLayout from './utils/PartnerLayout';
 
 import WorkerDashboard from './Pages/Worker/Dashboard';
@@ -129,6 +130,8 @@ function App() {
 
         <Route path='outgoing/delivered' element={isPartner? <DeliveredOutgoing/> : <Navigate to="/"/>} />
         <Route path='outgoing/delivered/:id' element={isPartner? <DeliveredOutOrderById/> : <Navigate to="/"/>} />
+
+        <Route path='profile' element={isPartner? <PartnerProfile/> : <Navigate to="/"/>}/>
       </Route>
 
       <Route path='/worker'>
