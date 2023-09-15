@@ -7,7 +7,8 @@ import StockRow from '../../../components/Partner/StockRow';
 const Stock = () => {
     const [stocks , setStocks] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
+    const [searchedStocks, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -50,6 +51,10 @@ const Stock = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(stocks.length === 0 && searchedStocks.length === 0);
+    }, [stocks,searchInput, searchedStocks]);
+
     return (
         <div className='PartnerStock_page'> 
                 <div className='body'>
@@ -71,14 +76,20 @@ const Stock = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    stocks.map((order) => (
-                                        <StockRow id={order.id} name={order.product.name}  category={order.product.category.category} quantity={order.quantity}  price={order.product.price}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <StockRow id={order.id} name={order.product.name}  category={order.product.category.category} quantity={order.quantity} price={order.product.price}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        stocks.map((stock) => (
+                                            <StockRow id={stock.id} name={stock.product.name}  category={stock.product.category.category} quantity={stock.quantity}  price={stock.product.price}/>
+                                        ))
+                                    ) : (
+                                        searchedStocks.map((stock) => (
+                                            <StockRow id={stock.id} name={stock.product.name}  category={stock.product.category.category} quantity={stock.quantity}  price={stock.product.price}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>

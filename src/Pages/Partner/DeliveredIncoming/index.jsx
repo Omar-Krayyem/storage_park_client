@@ -5,8 +5,6 @@ import IncomingDeliveredRow from '../../../components/Partner/IncomingDeliveredR
 
 const DeliveredIncoming = () => {
 
-    const name = localStorage.getItem("user_name");
-
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
