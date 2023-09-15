@@ -7,8 +7,8 @@ const DeliveredIncoming = () => {
 
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
-
+    const [searchedOrders, setSearchedRequests] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
 
 
@@ -49,6 +49,10 @@ const DeliveredIncoming = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
+
     return (
         <div className='PartnerDeliveredIncoming_page'> 
                 <div className='body'>
@@ -65,18 +69,25 @@ const DeliveredIncoming = () => {
                                     <th className='PartnerDeliveredIncoming_th top_left'>Order ID</th>
                                     <th className='PartnerDeliveredIncoming_th'>Placed at</th>
                                     <th className='PartnerDeliveredIncoming_th '>Delivered at</th>
-                                    <th className='PartnerDeliveredIncoming_th top_right'>Total Price $</th>
+                                    <th className='PartnerDeliveredIncoming_th'>Total Price $</th>
+                                    <th className='PartnerDeliveredIncoming_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <IncomingDeliveredRow id={order.id} delivered_at={order.delivered_at} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <IncomingDeliveredRow id={order.id} delivered_at={order.delivered_at} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <IncomingDeliveredRow id={order.id} delivered_at={order.delivered_at} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <IncomingDeliveredRow id={order.id} delivered_at={order.delivered_at} total_price={order.total_price} placed_at={order.placed_at}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>

@@ -17,7 +17,7 @@ const StockRow = (props) => {
 
     return(
         <>
-        <tr onClick={handleOpenModal} className='PartnerStockRow_tr' id={props.id}>
+        <tr className='PartnerStockRow_tr' id={props.id}>
                 <td className='PartnerStockRow_td'>{props.name}</td>
                 <td className='PartnerStockRow_td'>{props.category}</td>
                 <td className='PartnerStockRow_td'>{props.price}</td>
