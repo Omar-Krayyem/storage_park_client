@@ -96,15 +96,14 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className='graphs'>
+                    <div className='barChart'>
+                            <h2>Numbers of Orders</h2>
+                            <Barchart data={BarData}/>
+                        </div>
                         <div className='pieChart'>
                             <h2>Stored Product Categories</h2>
                             <PieChart data={PieData} width={1200} height={1200} />
                         </div>
-                        <div className='barChart'>
-                            <h2>Numbers of Orders</h2>
-                            <Barchart data={BarData}/>
-                        </div>
-
                     </div>
                 </div>
         </div>

@@ -54,6 +54,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isWorker, setIsWorker] =useState(false);
   const [isPartner, setIsPartner] =useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (parseInt(user_type) === 1) {
@@ -65,6 +66,7 @@ function App() {
     else if (parseInt(user_type) === 3) {
       setIsPartner(true);
     }
+    // setIsLoading(false);
   }, []);
 
   if (!isAdmin && !isWorker && !isPartner) {
