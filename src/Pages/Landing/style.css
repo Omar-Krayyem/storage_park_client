@@ -1,0 +1,10 @@
+.Landing_page{
+    display: flex;
+    flex-direction: column;
+}
+
+.Landing_page .body{
+    display: flex;
+    flex-direction: column;
+    
+}

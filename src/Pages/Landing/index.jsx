@@ -8,7 +8,7 @@ const Landing = () => {
         <div className='Landing_page'> 
             <div className='nav_section'> <NavBar/> </div>
             <div className='body'>
-
+                
             </div>
             <div className="footer"><Footer/></div>
         </div>

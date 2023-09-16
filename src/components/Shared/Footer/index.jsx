@@ -6,7 +6,7 @@ import {BsFacebook} from 'react-icons/bs'
 const Navbar = () => {
 
     return (
-        <div className='footer'> 
+        <div className='footer_comp'> 
             <div className='upper'>
                 <div className="left">
                     <h1>Storage Park</h1>
