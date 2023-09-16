@@ -68,8 +68,8 @@ const ShipmentIncoming = () => {
                                 <tr className=''>
                                     <th className='ShipmentOutgoing_th top_left'>Order ID</th>
                                     <th className='ShipmentOutgoing_th'>Company Name</th>
+                                    <th className='ShipmentOutgoing_th'>Customer Name</th>
                                     <th className='ShipmentOutgoing_th '>Placed at</th>
-                                    <th className='ShipmentOutgoing_th'>Total Price $</th>
                                     <th className='ShipmentOutgoing_th top_right'></th>
                                 </tr>
                             </thead>
@@ -81,11 +81,11 @@ const ShipmentIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} customer_name={order.customer?.name} placed_at={order.placed_at}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} customer_name={order.customer?.name} placed_at={order.placed_at}/>
                                         ))
                                     )
                                 )}

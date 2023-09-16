@@ -2,7 +2,7 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import ShipmentPlacedRow from '../../../components/Worker/ShipmentIncomingRow';
+import ShipmentIncomingRow from '../../../components/Worker/ShipmentIncomingRow';
 
 const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -82,11 +82,11 @@ const ShipmentIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <ShipmentPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentIncomingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <ShipmentPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentIncomingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
                                         ))
                                     )
                                 )}

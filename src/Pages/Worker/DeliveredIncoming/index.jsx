@@ -1,7 +1,7 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DeliveredPlacedRow from '../../../components/Worker/DeliveredIncomingRow';
+import DeliveredIncomingRow from '../../../components/Worker/DeliveredIncomingRow';
 
 const DeliveredIncoming = () => {
 
@@ -81,11 +81,11 @@ const DeliveredIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <DeliveredPlacedRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} placed_at={order.placed_at}/>
+                                            <DeliveredIncomingRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} placed_at={order.placed_at}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <DeliveredPlacedRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} placed_at={order.placed_at}/>
+                                            <DeliveredIncomingRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} placed_at={order.placed_at}/>
                                         ))
                                     )
                                 )}

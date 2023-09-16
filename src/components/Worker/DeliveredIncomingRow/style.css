@@ -1,8 +1,8 @@
-.DeliveredPlacedRow{
+.DeliveredIncomingRow{
     width: 100%;
 }
 
-.DeliveredPlacedRow_tr {
+.DeliveredIncomingRow_tr {
     width: 100%;
     background-color: white;
     font-size: 16px;
@@ -10,18 +10,18 @@
     color: #1D2126;
 }
 
-.DeliveredPlacedRow_td {
+.DeliveredIncomingRow_td {
     width: 22%;
     padding: 10px 20px;
     text-align: center;
 }
 
-.DeliveredPlacedRow_svg {
+.DeliveredIncomingRow_svg {
     color: #1D2126;
     cursor: pointer;
 }
 
-.DeliveredPlacedRow_svg:hover {
+.DeliveredIncomingRow_svg:hover {
     color: #FF8B13;
     transition: 0.5s;
 }
