@@ -9,42 +9,25 @@
     width: 100%;
 }
 
-.ShipmentIncoming_page .left_side {
-    width: 20%;
-    height: 100vh;
-    position: fixed;
-}
-
-.ShipmentIncoming_page .right_side {
-    width: 80%;
-    margin-left: 20%;
-}
-
-.ShipmentIncoming_page .right_side .head{
-    width: 80%;
-    position: fixed;
-}
-
-
-.ShipmentIncoming_page .right_side .body{
-    margin-top: 50px;
+.ShipmentIncoming_page .body{
+    width: 100%;
     padding: 40px 50px;
 }
 
-.ShipmentIncoming_page .right_side .body .title{
+.ShipmentIncoming_page .body .title{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.right_title{
+.ShipmentIncoming_page .right_title{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
 }
 
-.right_title button{
+.ShipmentIncoming_page .right_title button{
     background-color: #1D2126;
     color: #F0F0F0;
     cursor: pointer;
@@ -56,7 +39,7 @@
     padding: 7px 25px;
 }
 
-.right_title button:hover{
+.ShipmentIncoming_page .right_title button:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
@@ -67,9 +50,9 @@
     font-size: 18px;
     width: 400px;
     outline: none;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 7px 15px;
-    background-color: transparent;
+    background-color: white;
     
 }
 
@@ -87,14 +70,14 @@
     border-top-right-radius: 15px;
 }
 
-.ShipmentIncoming_table .ShipmentIncoming_thead {
+.ShipmentIncoming_page .ShipmentIncoming_table .ShipmentIncoming_thead {
     font-size: 20px;
     color: #F0F0F0;
     background-color: #1D2126;
 }
   
-.ShipmentIncoming_table .ShipmentIncoming_th {
-    width: 25%;
+.ShipmentIncoming_page .ShipmentIncoming_table .ShipmentIncoming_th {
+    width: 22%;
     padding: 10px 20px;
     text-align: center;
 }
