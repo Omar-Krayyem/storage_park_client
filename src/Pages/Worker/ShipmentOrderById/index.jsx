@@ -58,76 +58,37 @@ const AddIncomingOrder = () => {
 
 
     return (
-        <div className='AddOrder_page'>
+        <div className='WorkerIncomingShipmentOrder_page'>
                 <div className='body'>
                     <div className='title'>
-                        <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
+                        <div className='page_title'><h1>Shipment Order ID: {id}</h1></div>
                         <div className='right_title'>
                             <button onClick={AddToDelivered}>Delivered</button>
                             <Link to={'/worker/incoming/shipment'}><button>Back</button></Link>
                         </div>
                     </div>
 
-                    <div className='location_section'>
-                        
-                        <div className='location_inputs'>
-                            <h2>Order Info:</h2>
-                            <div className="halftext_feild">
-                                <label>Company Name</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={order.user?.company_name || ''}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild">
-                                <label>Total Price</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={order.total_price}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild ">
-                                <label>Placed At</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={order.placed_at}
-                                    disabled
-                                ></input>
-                            </div>
-                        </div>
+                    <div className='order_table'>
+                        <table className='WorkerIncomingShipmentOrder_table'>
+                            <thead className='WorkerIncomingShipmentOrder_thead'>
+                                <tr className=''>
+                                    <th className='WorkerIncomingShipmentOrder_th top_left'>Company Name</th>
+                                    <th className='WorkerIncomingShipmentOrder_th'>Total Price $</th>
+                                    <th className='WorkerIncomingShipmentOrder_th top_right'>Placed At</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className='WorkerIncomingShipmentOrder_tr'>
+                                    <td className='WorkerIncomingShipmentOrder_td'>{order.user?.company_name || ''}</td>
+                                    <td className='WorkerIncomingShipmentOrder_td'>{order.total_price}</td>
+                                    <td className='WorkerIncomingShipmentOrder_td'>{order.placed_at}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <div className='location_inputs'>
-                            <h2>Location Info:</h2>
-                            <div className="halftext_feild">
-                                <label>Latitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={latitude}
-                                    disabled
-                                ></input>
-                            </div>
-                            <div className="halftext_feild ">
-                                <label>Longitude</label>
-                                <input
-                                    className='half'
-                                    type="text"
-                                    required
-                                    value={longitude}
-                                    disabled
-                                ></input>
-                            </div>
-                        </div>
-                        <div className='mapContainer'>
+                    
+                    <div className='mapContainer'>
                         {mapDataLoaded && (
                             <div className='mapContainer'>
                                 <Map
@@ -139,25 +100,34 @@ const AddIncomingOrder = () => {
                                 </Map>
                             </div>
                         )}
-                        </div>
                     </div>
 
-                    <div className='products_section'>
+                    <div className='order_table'>
                         <h2>Order Items:</h2>
-                        <div className='display_products'>
-                            {orderItems.map((item, index) => (
-                                <div className='display_product' key={index}>
-                                    <div className='attributes'>
-                                        <div><span>Name: </span>{item.product.name}</div>
-                                        <div><span>Description: </span>{item.product.description}</div>
-                                        <div><span>Category: </span>{item.product.category.category}</div>
-                                        <div><span>Price: </span>{item.product.price}$</div>
-                                        <div><span>Quantity: </span>{item.quantity}</div>
-                                    </div>
-                                </div>
-                            ))}         
-                        </div>
+                        <table className='WorkerIncomingShipmentOrder_table'>
+                            <thead className='WorkerIncomingShipmentOrder_thead'>
+                                <tr className=''>
+                                    <th className='WorkerIncomingShipmentOrder_th top_left'>Name</th>
+                                    <th className='WorkerIncomingShipmentOrder_th'>Descritpion</th>
+                                    <th className='WorkerIncomingShipmentOrder_th'>Category</th>
+                                    <th className='WorkerIncomingShipmentOrder_th'>Price $</th>
+                                    <th className='WorkerIncomingShipmentOrder_th top_right'>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {orderItems.map((item, index) => (
+                                    <tr className='WorkerIncomingShipmentOrder_tr'>
+                                        <td className='WorkerIncomingShipmentOrder_td'>{item.product.name}</td>
+                                        <td className='WorkerIncomingShipmentOrder_td'>{item.product.description}</td>
+                                        <td className='WorkerIncomingShipmentOrder_td'>{item.product.category.category}</td>
+                                        <td className='WorkerIncomingShipmentOrder_td'>{item.product.price}</td>
+                                        <td className='WorkerIncomingShipmentOrder_td'>{item.quantity}</td>
+                                    </tr>
+                                ))} 
+                            </tbody>
+                        </table>
                     </div>
+
                 </div>
         </div>
     );
