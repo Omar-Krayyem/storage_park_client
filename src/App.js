@@ -50,6 +50,7 @@ import WorkerShipmentIncomingById from './Pages/Worker/ShipmentOrderById';
 import WorkerDeliveredIncoming from './Pages/Worker/DeliveredIncoming';
 import WorkerDeliveredOrderById from './Pages/Worker/DeliveredOrderById';
 import WorkerShipmentOutgoing from './Pages/Worker/ShipmentOutgoing';
+import WorkerDeliveredOutgoing from './Pages/Worker/DeliveredOutgoing';
 import WorkerLayout from './utils/AdminLayout';
 
 function App() {
@@ -148,6 +149,8 @@ function App() {
         <Route path='incoming/delivered/:id' element={isWorker? <WorkerDeliveredOrderById/> : <Navigate to="/"/>}></Route>
 
         <Route path='outgoing/shipment' element={isWorker? <WorkerShipmentOutgoing/> : <Navigate to="/"/>} />
+
+        <Route path='outgoing/delivered' element={isWorker? <WorkerDeliveredOutgoing/> : <Navigate to="/"/>}/>
       </Route>
     </Routes>
   );
