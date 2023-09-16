@@ -1,30 +1,84 @@
-.dashboard_page {
+.WorkerDashboard_page{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #F0F0F0;
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    min-height: 91.7vh;
     width: 100%;
+    overflow: hidden;
 }
 
-.dashboard_page .left_side {
-    width: 20%;
-    height: 100vh;
-    position: fixed;
+.WorkerDashboard_page .body{
+    width: 100%;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.WorkerDashboard_page .body .records{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
 }
 
-.dashboard_page .right_side {
-    width: 80%;
-    margin-left: 20%;
+.WorkerDashboard_page .body .record{
+    width: 32%;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 30px;
+    font-weight: 900;
 }
 
-.dashboard_page .right_side .head{
-    width: 80%;
-    position: fixed;
+.WorkerDashboard_page .record span{
+    color: #FF8B13;
+    font-size: 60px;
 }
 
-.dashboard_page .right_side .body{
-    margin-top: 60px;
+.WorkerDashboard_page .graphs{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    height: 350px;
+    gap: 20px;
+}
+
+.WorkerDashboard_page .graphs .pieChart{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    gap: 10px;
+    height: 100%;
+    width: 49%;
+}
+
+.WorkerDashboard_page .graphs .inc_order{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    gap: 10px;
+    height: 100%;
+    width: 49%;
+}
+
+.WorkerDashboard_page .graphs .inc_order table{
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+}
+.WorkerDashboard_page .inc_order .tr{
+    padding: 5px 10px;
+    max-height: 40px;
+    border-bottom: 2px solid #cccccc;
 }

@@ -1,17 +1,17 @@
-import  './WorkerStyle.css';
+import  './AdminStyle.css';
 import React, {useState} from 'react'
-import WorkerNavSide from '../components/Worker/NavSide'
+import AdminNavSide from '../components/Admin/NavSide'
 import Header from '../components/Shared/Header'
 import {Outlet} from 'react-router-dom';
 
-const WorkerLayout = () => {
+const AdminLayout = () => {
 
     const [isOpened, setIsOpened] = useState(false)
 
     return (
-        <div className='WorkerLayout'>
+        <div className='AdminLayout'>
             <div className='left_side'>
-                <WorkerNavSide isOpened={isOpened} setIsOpened={setIsOpened}/>
+                <AdminNavSide isOpened={isOpened} setIsOpened={setIsOpened}/>
             </div>
             <div className='right_side'>
                 <Header className="head" isOpened={isOpened} setIsOpened={setIsOpened}/>
@@ -21,4 +21,4 @@ const WorkerLayout = () => {
     );
 }
 
-export default WorkerLayout
+export default AdminLayout

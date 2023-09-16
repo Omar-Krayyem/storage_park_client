@@ -1,6 +1,7 @@
 import './App.css';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
+import { NavLink } from 'react-router-dom';
 
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register'
@@ -54,8 +55,7 @@ import WorkerShipmentOutOrderById from './Pages/Worker/ShipmentOutOrderById';
 import WorkerDeliveredOutgoing from './Pages/Worker/DeliveredOutgoing';
 import WorkerDeliveredOutOrderById from './Pages/Worker/DeliveredOutOrderById';
 import WorkerProfile from './Pages/Worker/Profile';
-
-import WorkerLayout from './utils/AdminLayout';
+import WorkerLayout from './utils/WorkerLayout';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
@@ -63,7 +63,6 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isWorker, setIsWorker] =useState(false);
   const [isPartner, setIsPartner] =useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (parseInt(user_type) === 1) {
@@ -75,13 +74,12 @@ function App() {
     else if (parseInt(user_type) === 3) {
       setIsPartner(true);
     }
-    // setIsLoading(false);
-  }, []);
+    if (!isAdmin && !isWorker && !isPartner) {
+      <NavLink to={'/'}></NavLink>
+    }  
+  }, [user_type]);
 
-  if (!isAdmin && !isWorker && !isPartner) {
-    return null;
-  }
-
+ 
   return (
     <Routes>
       <Route path="/" element={<Login/>} />
