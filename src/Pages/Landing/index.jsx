@@ -1,7 +1,7 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import NavBar from '../../components/Shared/NavBar';
-
+import Footer from '../../components/Shared/Footer';
 const Landing = () => {
 
     return (
@@ -10,7 +10,7 @@ const Landing = () => {
             <div className='body'>
 
             </div>
-            <div className="footer"></div>
+            <div className="footer"><Footer/></div>
         </div>
     );
 }
