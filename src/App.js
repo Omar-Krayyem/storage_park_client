@@ -49,6 +49,7 @@ import WorkerShipmentIncoming from './Pages/Worker/ShipmentIncoming';
 import WorkerShipmentIncomingById from './Pages/Worker/ShipmentOrderById';
 import WorkerDeliveredIncoming from './Pages/Worker/DeliveredIncoming';
 import WorkerDeliveredOrderById from './Pages/Worker/DeliveredOrderById';
+import WorkerLayout from './utils/AdminLayout';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
@@ -136,14 +137,14 @@ function App() {
         <Route path='profile' element={isPartner? <PartnerProfile/> : <Navigate to="/"/>}/>
       </Route>
 
-      <Route path='/worker'>
-        <Route index element={<WorkerDashboard/>} />
+      <Route path='/worker' element={isWorker? <WorkerLayout/> : <Navigate to="/"/>}>
+        <Route index element={isWorker? <WorkerDashboard/> : <Navigate to="/"/>} />
 
-        <Route path='incoming/shipment' element={<WorkerShipmentIncoming/>} />
-        <Route path='incoming/shipment/:id' element={<WorkerShipmentIncomingById/>} ></Route>
+        <Route path='incoming/shipment' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/"/>} />
+        <Route path='incoming/shipment/:id' element={isWorker? <WorkerShipmentIncomingById/> : <Navigate to="/"/>}></Route>
 
-        <Route path='incoming/delivered' element={<WorkerDeliveredIncoming/>} />
-        <Route path='incoming/delivered/:id' element={<WorkerDeliveredOrderById/>} ></Route>
+        <Route path='incoming/delivered' element={isWorker? <WorkerDeliveredIncoming/> : <Navigate to="/"/>}/>
+        <Route path='incoming/delivered/:id' element={isWorker? <WorkerDeliveredOrderById/> : <Navigate to="/"/>}></Route>
       </Route>
     </Routes>
   );
