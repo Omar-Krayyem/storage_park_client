@@ -1,14 +1,9 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
 import DeliveredPlacedRow from '../../../components/Worker/DeliveredPlacedRow';
 
 const DeliveredIncoming = () => {
-
-    const name = localStorage.getItem("user_name");
 
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
@@ -56,13 +51,6 @@ const DeliveredIncoming = () => {
 
     return (
         <div className='ShipmentIncoming_page'> 
-            <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div>
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Delivered Orders</h1></div>
@@ -95,7 +83,6 @@ const DeliveredIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

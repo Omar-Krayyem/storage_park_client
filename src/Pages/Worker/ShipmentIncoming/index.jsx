@@ -1,16 +1,10 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-import NavSide from '../../../components/Worker/NavSide';
-import Header from '../../../components/Shared/Header';
 import { Link } from 'react-router-dom';
 import ShipmentPlacedRow from '../../../components/Worker/ShipmentPlacedRow';
 
 const ShipmentIncoming = () => {
-
-    const name = localStorage.getItem("user_name");
-
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedPartners, setSearchedRequests] = useState([]);
@@ -56,14 +50,7 @@ const ShipmentIncoming = () => {
     }, [searchInput]);
 
     return (
-        <div className='ShipmentIncoming_page'> 
-            <div className='left_side'>
-                <NavSide/>
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div>
+        <div className='ShipmentIncoming_page'>
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Shipment Orders</h1></div>
@@ -95,7 +82,6 @@ const ShipmentIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

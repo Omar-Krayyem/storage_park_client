@@ -3,18 +3,10 @@ import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
-
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
-
-
 import { Map , Marker } from "pigeon-maps"
-
-
 
 const AddIncomingOrder = () => {
     const { id } = useParams();
-    const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
 
     const [latitude, setLatitude] = useState();
@@ -67,13 +59,6 @@ const AddIncomingOrder = () => {
 
     return (
         <div className='AddOrder_page'>
-            <div className='left_side'>
-                <NavSide />
-            </div>
-            <div className='right_side'>
-                <div className='head'>
-                    <Header name={name} />
-                </div>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
@@ -174,7 +159,6 @@ const AddIncomingOrder = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }
