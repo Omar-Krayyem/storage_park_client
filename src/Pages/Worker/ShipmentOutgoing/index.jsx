@@ -1,8 +1,7 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import ShipmentPlacedRow from '../../../components/Worker/ShipmentIncomingRow';
+import ShipmentOutgoingRow from '../../../components/Worker/ShipmentOutgoingRow';
 
 const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -14,7 +13,7 @@ const ShipmentIncoming = () => {
 
 
     const getOrders = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/worker/incoming/shipment`, {
+            await axios.get(`http://127.0.0.1:8000/api/worker/outgoing/shipment`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -29,7 +28,7 @@ const ShipmentIncoming = () => {
     };
 
     const getSearched = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/worker/incoming/shipment/search/${searchInput}`, {
+        await axios.get(`http://127.0.0.1:8000/api/worker/outgoing/shipment/search/${searchInput}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -53,9 +52,9 @@ const ShipmentIncoming = () => {
     useEffect(() => {
         setNoRecords(orders.length === 0 && searchedOrders.length === 0);
     }, [orders,searchInput, searchedOrders]);
-
+        
     return (
-        <div className='ShipmentIncoming_page'>
+        <div className='ShipmentOutgoing_page'>
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Shipment Orders</h1></div>
@@ -64,14 +63,14 @@ const ShipmentIncoming = () => {
                         </div>
                     </div>
                     <div className='table'>
-                        <table className='ShipmentIncoming_table'>
-                            <thead className='ShipmentIncoming_thead'>
+                        <table className='ShipmentOutgoing_table'>
+                            <thead className='ShipmentOutgoing_thead'>
                                 <tr className=''>
-                                    <th className='ShipmentIncoming_th top_left'>Order ID</th>
-                                    <th className='ShipmentIncoming_th'>Company Name</th>
-                                    <th className='ShipmentIncoming_th '>Placed at</th>
-                                    <th className='ShipmentIncoming_th'>Total Price $</th>
-                                    <th className='ShipmentIncoming_th top_right'></th>
+                                    <th className='ShipmentOutgoing_th top_left'>Order ID</th>
+                                    <th className='ShipmentOutgoing_th'>Company Name</th>
+                                    <th className='ShipmentOutgoing_th '>Placed at</th>
+                                    <th className='ShipmentOutgoing_th'>Total Price $</th>
+                                    <th className='ShipmentOutgoing_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,11 +81,11 @@ const ShipmentIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <ShipmentPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <ShipmentPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
                                         ))
                                     )
                                 )}

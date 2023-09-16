@@ -1,0 +1,27 @@
+.ShipmentIncomingRow{
+    width: 100%;
+}
+
+.ShipmentIncomingRow_tr {
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D2126;
+}
+
+.ShipmentIncomingRow_td {
+    width: 22%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.ShipmentIncomingRow_svg {
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.ShipmentIncomingRow_svg:hover {
+    color: #FF8B13;
+    transition: 0.5s;
+}

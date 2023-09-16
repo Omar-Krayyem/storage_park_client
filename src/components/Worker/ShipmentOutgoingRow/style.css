@@ -1,8 +1,8 @@
-.ShipmentPlacedRow{
+.ShipmentOutgoingRow{
     width: 100%;
 }
 
-.ShipmentPlacedRow_tr {
+.ShipmentOutgoingRow_tr {
     width: 100%;
     background-color: white;
     font-size: 16px;
@@ -10,18 +10,18 @@
     color: #1D2126;
 }
 
-.ShipmentPlacedRow_td {
+.ShipmentOutgoingRow_td {
     width: 22%;
     padding: 10px 20px;
     text-align: center;
 }
 
-.ShipmentPlacedRow_svg {
+.ShipmentOutgoingRow_svg {
     color: #1D2126;
     cursor: pointer;
 }
 
-.ShipmentPlacedRow_svg:hover {
+.ShipmentOutgoingRow_svg:hover {
     color: #FF8B13;
     transition: 0.5s;
 }

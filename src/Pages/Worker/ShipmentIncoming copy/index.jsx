@@ -53,7 +53,7 @@ const ShipmentIncoming = () => {
     useEffect(() => {
         setNoRecords(orders.length === 0 && searchedOrders.length === 0);
     }, [orders,searchInput, searchedOrders]);
-
+        
     return (
         <div className='ShipmentIncoming_page'>
                 <div className='body'>

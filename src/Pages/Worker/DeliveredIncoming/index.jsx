@@ -1,7 +1,7 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DeliveredPlacedRow from '../../../components/Worker/DeliveredPlacedRow';
+import DeliveredPlacedRow from '../../../components/Worker/DeliveredIncomingRow';
 
 const DeliveredIncoming = () => {
 
