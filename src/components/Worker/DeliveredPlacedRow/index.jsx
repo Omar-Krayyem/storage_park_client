@@ -1,6 +1,7 @@
 import './style.css';
+import {AiFillEye} from 'react-icons/ai'
 
-const ShipmentPlacedRow = (props) => {
+const DeliveredPlacedRow = (props) => {
 
     const handleOpenModal = () => {
         window.location.href = `/worker/incoming/delivered/${props.id}`;
@@ -8,12 +9,17 @@ const ShipmentPlacedRow = (props) => {
 
     return(
         <>
-        <tr onClick={handleOpenModal} className='ShipmentPlacedRow_tr' id={props.id}>
-                <td className='ShipmentPlacedRow_td'>{props.id}</td>
-                <td className='ShipmentPlacedRow_td'>{props.company_name}</td>
-                <td className='ShipmentPlacedRow_td'>{props.placed_at}</td>
-                <td className='ShipmentPlacedRow_td'>{props.delivered_at}</td>
-                <td className='ShipmentPlacedRow_td'>{props.total_price}</td>
+        <tr className='DeliveredPlacedRow_tr' id={props.id}>
+                <td className='DeliveredPlacedRow_td'>{props.id}</td>
+                <td className='DeliveredPlacedRow_td'>{props.company_name}</td>
+                <td className='DeliveredPlacedRow_td'>{props.placed_at}</td>
+                <td className='DeliveredPlacedRow_td'>{props.delivered_at}</td>
+                <td className='DeliveredPlacedRow_td'>
+                    <AiFillEye 
+                    onClick={handleOpenModal} 
+                    className='DeliveredPlacedRow_svg'
+                    size={20}/>
+                </td>
             </tr>
         </>
             
@@ -21,4 +27,4 @@ const ShipmentPlacedRow = (props) => {
     );
 }
 
-export default ShipmentPlacedRow;
+export default DeliveredPlacedRow;

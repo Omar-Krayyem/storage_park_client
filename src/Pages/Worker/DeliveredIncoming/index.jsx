@@ -7,8 +7,8 @@ const DeliveredIncoming = () => {
 
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [searchedPartners, setSearchedRequests] = useState([]);
-
+    const [searchedOrders, setSearchedOrders] = useState([]);
+    const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
 
 
@@ -34,7 +34,7 @@ const DeliveredIncoming = () => {
             }
         })
         .then(response => {
-            setSearchedRequests(response.data.data);
+            setSearchedOrders(response.data.data);
         })   
         .catch(error => {
             console.log(error);
@@ -49,8 +49,12 @@ const DeliveredIncoming = () => {
         }
     }, [searchInput]);
 
+    useEffect(() => {
+        setNoRecords(orders.length === 0 && searchedOrders.length === 0);
+    }, [orders,searchInput, searchedOrders]);
+
     return (
-        <div className='ShipmentIncoming_page'> 
+        <div className='DeliveredIncoming_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Delivered Orders</h1></div>
@@ -59,25 +63,31 @@ const DeliveredIncoming = () => {
                         </div>
                     </div>
                     <div className='table'>
-                        <table className='ShipmentIncoming_table'>
-                            <thead className='ShipmentIncoming_thead'>
+                        <table className='DeliveredIncoming_table'>
+                            <thead className='DeliveredIncoming_thead'>
                                 <tr className=''>
-                                    <th className='ShipmentIncoming_th top_left'>Order ID</th>
-                                    <th className='ShipmentIncoming_th'>Company Name</th>
-                                    <th className='ShipmentIncoming_th'>Placed at</th>
-                                    <th className='ShipmentIncoming_th '>Delivered at</th>
-                                    <th className='ShipmentIncoming_th top_right'>Total Price $</th>
+                                    <th className='DeliveredIncoming_th top_left'>Order ID</th>
+                                    <th className='DeliveredIncoming_th'>Company Name</th>
+                                    <th className='DeliveredIncoming_th'>Placed at</th>
+                                    <th className='DeliveredIncoming_th '>Delivered at</th>
+                                    <th className='DeliveredIncoming_th top_right'></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {searchInput === "" ? (
-                                    orders.map((order) => (
-                                        <DeliveredPlacedRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                {noRecords ? (
+                                    <tr>
+                                        <td colSpan="5">No records found.</td>
+                                    </tr>
                                 ) : (
-                                    searchedPartners.map((order) => (
-                                        <DeliveredPlacedRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} total_price={order.total_price} placed_at={order.placed_at}/>
-                                    ))
+                                    searchInput === "" ? (
+                                        orders.map((order) => (
+                                            <DeliveredPlacedRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} placed_at={order.placed_at}/>
+                                        ))
+                                    ) : (
+                                        searchedOrders.map((order) => (
+                                            <DeliveredPlacedRow id={order.id} company_name={order.user.company_name} delivered_at={order.delivered_at} placed_at={order.placed_at}/>
+                                        ))
+                                    )
                                 )}
                             </tbody>
                         </table>

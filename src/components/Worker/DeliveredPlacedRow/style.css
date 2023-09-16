@@ -1,22 +1,27 @@
-.ShipmentPlacedRow{
+.DeliveredPlacedRow{
     width: 100%;
 }
 
-.ShipmentPlacedRow_tr {
+.DeliveredPlacedRow_tr {
     width: 100%;
     background-color: white;
     font-size: 16px;
     font-weight: 500;
     color: #1D2126;
-    cursor: pointer;
 }
 
-.ShipmentPlacedRow_td {
-    width: 20%;
+.DeliveredPlacedRow_td {
+    width: 22%;
     padding: 10px 20px;
     text-align: center;
 }
 
-.ShipmentPlacedRow_tr:hover{
-    background-color: #FF8B13;
+.DeliveredPlacedRow_svg {
+    color: #1D2126;
+    cursor: pointer;
+}
+
+.DeliveredPlacedRow_svg:hover {
+    color: #FF8B13;
+    transition: 0.5s;
 }
