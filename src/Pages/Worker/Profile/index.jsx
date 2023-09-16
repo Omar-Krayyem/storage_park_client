@@ -17,7 +17,7 @@ const Profile = () => {
     const token = localStorage.getItem("token");
 
     const getUser = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/admin/profile/get`, {
+        await axios.get(`http://127.0.0.1:8000/api/worker/profile/get`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -63,10 +63,12 @@ const Profile = () => {
             return;
         }
 
+        
+
         const postData = {user_id, first_name, last_name, email, phone, address, password};
         console.log(postData)
 
-        axios.post('http://127.0.0.1:8000/api/admin/profile', postData, {
+        axios.post('http://127.0.0.1:8000/api/worker/profile', postData, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -86,12 +88,14 @@ const Profile = () => {
         });
     }
 
+    
+
     useEffect(() => {
         getUser();
     }, []);
  
     return (
-        <div className='AdminProfile_page'> 
+        <div className='WorkerProfile_page'> 
                 <div className='body'>
                     <div className='title'><h1>Profile</h1></div>
                     <div className="form_body">

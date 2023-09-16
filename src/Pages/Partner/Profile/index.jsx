@@ -45,8 +45,20 @@ const Profile = () => {
             return;
         }
 
+        if((password !== "" && conPassword === "") ||(password === "" && conPassword !== "")){
+            setErrorMessage("To change password fill the all password fields");
+            setTimeout(() => setErrorMessage(""), 3000);
+            return;
+        }
+
+        if(password.length < 6){
+            setErrorMessage("Password is too short");
+            setTimeout(() => setErrorMessage(""), 3000);
+            return;
+        }
+
         if ((password && conPassword) && (password !== conPassword || password.length < 6)) {
-            setErrorMessage("Passwords do not match or are too short");
+            setErrorMessage("Passwords do not match");
             setTimeout(() => setErrorMessage(""), 3000);
             return;
         }

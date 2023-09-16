@@ -1,0 +1,118 @@
+.WorkerProfile_page{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: row;
+    min-height: 91.7vh;
+    width: 100%;
+}
+
+.WorkerProfile_page .body{
+    width: 100%;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.WorkerProfile_page .form_body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.WorkerProfile_page .ProfileForm{
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    
+    gap: 10px;
+}
+
+.WorkerProfile_page .ProfileForm .nameSection{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+.WorkerProfile_page .ProfileForm .halftext_feild{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.WorkerProfile_page .ProfileForm .half{
+    width: 100%;
+    font-size: 16px;
+    border: 2px solid #CCCCCC;
+    background: #FFF;
+    color: #1D2126;
+    padding: 0 3px;
+    outline: none;
+    margin-top: 8px;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+.WorkerProfile_page .ProfileForm .text_feild{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.WorkerProfile_page .ProfileForm  label{
+    color: #1D2126;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.WorkerProfile_page .ProfileForm  .full{
+    width: 100%;
+    height: 35px;
+    font-size: 18px;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    background: #FFF;
+    color: #1D2126;
+    outline: none;
+    margin-top: 0;
+    padding: 0 5px;
+}
+
+.WorkerProfile_page .ProfileForm .btn{
+    border-radius: 45px;
+    background: #1D2126;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 35px;
+    cursor: pointer;
+    border: none;
+}
+
+.WorkerProfile_page .ProfileForm .btn:hover{
+    color: #1D2126;
+    background-color: #FF8B13;
+    transition: 0.5s;
+}
+
+
+.error{
+    color: red;
+    font-size: 18px;
+}
+
+.success{
+    color: green;
+    font-size: 18px;
+}
