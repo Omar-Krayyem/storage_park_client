@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PieChart from '../../../components/Admin/pieChart';
 import Barchart from '../../../components/Admin/Barchart';
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 const Dashboard = () => {
 
@@ -79,7 +80,8 @@ const Dashboard = () => {
     ));
 
     return (
-        <div className='AdminDashboard_page'> 
+        <PartnerLayout> 
+            <div className='AdminDashboard_page'> 
                 <div className='body'>
                 <div className='title'><h1>Dashboard</h1></div>
                     <div className='records'>
@@ -104,7 +106,8 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
+        </PartnerLayout>
     );
 }
 
