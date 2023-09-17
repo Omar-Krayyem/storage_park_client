@@ -9,6 +9,7 @@ import Header from '../../../components/Shared/Header';
 
 
 import { Map , Marker } from "pigeon-maps"
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 
 
@@ -48,7 +49,8 @@ const DeliveredOrderById = () => {
 
 
     return (
-        <div className='PartnerIncomingDeliveredOrder_page'>
+        <PartnerLayout>
+            <div className='PartnerIncomingDeliveredOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Delivered Order ID: {id}</h1></div>
@@ -117,7 +119,9 @@ const DeliveredOrderById = () => {
                     </div>
 
                 </div>
-        </div>
+            </div>
+        </PartnerLayout>
+        
     );
 }
 
