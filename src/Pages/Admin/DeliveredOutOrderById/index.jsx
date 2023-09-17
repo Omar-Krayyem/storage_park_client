@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
 import { Map , Marker } from "pigeon-maps"
+import AdminLayout from '../../../utils/AdminLayout';
 
 localStorage.setItem("activeSection", "Incdelivered");
 
@@ -45,7 +46,8 @@ const AdminOutgoingDeliveredOrder = () => {
 
 
     return (
-        <div className='AdminOutgoingDeliveredOrder_page'>
+        <AdminLayout>
+            <div className='AdminOutgoingDeliveredOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
@@ -134,7 +136,9 @@ const AdminOutgoingDeliveredOrder = () => {
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
+        </AdminLayout>
+        
     );
 }
 
