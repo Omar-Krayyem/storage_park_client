@@ -1,11 +1,9 @@
 import './style.css';
 import {AiFillEye} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 
-const OutgoingShipmentRow = (props) => {
-
-    const handleOpenModal = () => {
-        window.location.href = `/partner/outgoing/shipment/${props.id}`;
-    }
+const OutgoingShipmentRow = (props) => {    
+    const navigate = useNavigate();
 
     return(
         <>
@@ -16,7 +14,7 @@ const OutgoingShipmentRow = (props) => {
                 <td className='OutgoingShipmentRow_td'>{props.total_price}</td>
                 <td className='OutgoingShipmentRow_td'>
                     <AiFillEye 
-                    onClick={handleOpenModal} 
+                    onClick={() => {navigate(`${props.id}`)}}
                     className='OutgoingShipmentRow_svg'
                     size={20}/>
                 </td>
