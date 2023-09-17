@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import CreatableSelect from "react-select/creatable";
 
 import { Map , Marker } from "pigeon-maps"
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 const AddOutgoingOrder = () => {
     const token = localStorage.getItem("token");
@@ -166,7 +167,8 @@ const AddOutgoingOrder = () => {
 
 
     return (
-        <div className='AddOutgoing_page'>
+        <PartnerLayout>
+            <div className='AddOutgoing_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Place New Outgoing Order</h1></div>
@@ -329,7 +331,8 @@ const AddOutgoingOrder = () => {
                         <button onClick={handleAddOrder}>Place Order</button>
                     </div>
                 </div>
-        </div>
+            </div>
+        </PartnerLayout>
     );
 }
 
