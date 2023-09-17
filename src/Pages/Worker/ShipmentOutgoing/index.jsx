@@ -2,6 +2,7 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ShipmentOutgoingRow from '../../../components/Worker/ShipmentOutgoingRow';
+import WorkerLayout from '../../../utils/WorkerLayout';
 
 const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -54,7 +55,8 @@ const ShipmentIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
         
     return (
-        <div className='ShipmentOutgoing_page'>
+        <WorkerLayout>
+            <div className='ShipmentOutgoing_page'>
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Shipment Orders</h1></div>
@@ -93,7 +95,9 @@ const ShipmentIncoming = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </WorkerLayout>
+        
     );
 }
 
