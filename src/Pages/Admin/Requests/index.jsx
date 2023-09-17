@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import RequestRow from '../../../components/Admin/RequestRow';
+import AdminLayout from '../../../utils/AdminLayout';
 
 const Requests = () => {
     const [Users , setUsers] = useState([]);
@@ -53,7 +54,8 @@ const Requests = () => {
     }, [Users,searchInput, searchedRequests]);
 
     return (
-        <div className='requests_page'> 
+        <AdminLayout>
+            <div className='requests_page'> 
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Requests</h1></div>
@@ -92,7 +94,8 @@ const Requests = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </AdminLayout>
     );
 }
 
