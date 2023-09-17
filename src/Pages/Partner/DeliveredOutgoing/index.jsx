@@ -2,6 +2,7 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import OutgoingDeliveredRow from '../../../components/Partner/OutgoingDeliveredRow';
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 const DeliveredOutgoing = () => {
     const [orders , setOrders] = useState([]);
@@ -55,7 +56,8 @@ const DeliveredOutgoing = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <div className='PartnerDeliveredOutgoing_page'> 
+        <PartnerLayout>
+            <div className='PartnerDeliveredOutgoing_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Delivered Orders</h1></div>
@@ -94,7 +96,9 @@ const DeliveredOutgoing = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </PartnerLayout>
+        
     );
 }
 
