@@ -127,7 +127,7 @@ function App() {
         <Route path='profile' element={isAdmin? <AdminProfile/> : <Navigate to="/Login"/>}/>
       </Route>
 
-      <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to="/Login"/>}>
+      <Route path='/partner'>
         <Route index  element={isPartner? <PartnerDashboard/> : <Navigate to="/Login"/>} />
         <Route path='incoming/placed' element={isPartner? <PlacedIncoming/> : <Navigate to="/Login"/>} />
         <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/Login"/>} />

@@ -2,9 +2,9 @@ import  './PartnerStyle.css';
 import React, {useState} from 'react'
 import PartnerNavSide from '../components/Partner/NavSide'
 import Header from '../components/Shared/Header'
-import {Outlet} from 'react-router-dom';
+// import {Outlet} from 'react-router-dom';
 
-const PartnerLayout = () => {
+const PartnerLayout = ({children}) => {
 
     const [isOpened, setIsOpened] = useState(false)
 
@@ -15,7 +15,8 @@ const PartnerLayout = () => {
             </div>
             <div className='right_side'>
                 <Header className="head" isOpened={isOpened} setIsOpened={setIsOpened}/>
-                <Outlet/>
+                {/* <Outlet/> */}
+                {children}
             </div>
         </div>
     );
