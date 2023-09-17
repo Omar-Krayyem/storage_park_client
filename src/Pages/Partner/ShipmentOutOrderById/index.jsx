@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
 import { Map , Marker } from "pigeon-maps"
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 const ShipmentOutgoingPlacedOrder = () => {
     const { id } = useParams();
@@ -41,7 +42,8 @@ const ShipmentOutgoingPlacedOrder = () => {
 
 
     return (
-        <div className='PartnerOutgoingShipmentOrder_page'>
+        <PartnerLayout>
+            <div className='PartnerOutgoingShipmentOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Shipment Order Number: {id}</h1></div>
@@ -112,8 +114,9 @@ const ShipmentOutgoingPlacedOrder = () => {
                             </tbody>
                         </table>
                     </div>
+                </div>
             </div>
-        </div>
+        </PartnerLayout>
     );
 }
 
