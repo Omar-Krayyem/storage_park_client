@@ -13,6 +13,7 @@
 
 .loginComponent .leftSide img{
     width: 400px;
+    cursor: pointer;
 }
 
 .rightSide{

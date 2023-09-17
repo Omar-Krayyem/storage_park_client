@@ -63,10 +63,7 @@
     box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.4);
     transform: translate(0, 0);
     transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.hero2{
-
+    margin-bottom: 60px;
 }
 
 .hero2 .left{

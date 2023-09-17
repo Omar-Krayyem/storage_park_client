@@ -54,7 +54,7 @@ const Login = () => {
         <div className='LoginPage'>
             <div className='loginComponent'>
                 <div className='leftSide'>
-                    <img src={logo} alt="Logo"></img>
+                <Link to='/'><img  src={logo} alt="Logo"></img></Link>
                 </div>
                 <div className='rightSide'>
                     <div className="form_header">
