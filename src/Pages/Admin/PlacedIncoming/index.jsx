@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import IncomingPlacedRow from '../../../components/Admin/IncomingPlacedRow';
+import AdminLayout from '../../../utils/AdminLayout';
 
 const PlacedIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -54,7 +55,8 @@ const PlacedIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <div className='Adminplacedincoming_page'> 
+        <AdminLayout>
+            <div className='Adminplacedincoming_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Placed Orders</h1></div>
@@ -93,7 +95,8 @@ const PlacedIncoming = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </AdminLayout>
     );
 }
 
