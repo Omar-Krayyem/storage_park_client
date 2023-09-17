@@ -1,6 +1,7 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import WorkerLayout from '../../../utils/WorkerLayout';
 
 const Dashboard = () => {
     const [ delivered , setDelivered] = useState(0);
@@ -35,41 +36,25 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <div className='WorkerDashboard_page'> 
-        <div className='body'>
-        <div className='title'><h1>Dashboard</h1></div>
-            <div className='records'>
-                <div className='record'>
-                    <span>{delivered}</span>Delivered Orders
-                </div>
-                <div className='record'>
-                    <span>{IncOrder}</span>Incoming Orders
-                </div>
-                <div className='record'>
-                    <span>{OutOrder}</span>Outgoing Orders
+        <WorkerLayout>
+            <div className='WorkerDashboard_page'> 
+                <div className='body'>
+                    <div className='title'><h1>Dashboard</h1></div>
+                    <div className='records'>
+                        <div className='record'>
+                            <span>{delivered}</span>Delivered Orders
+                        </div>
+                        <div className='record'>
+                            <span>{IncOrder}</span>Incoming Orders
+                        </div>
+                        <div className='record'>
+                            <span>{OutOrder}</span>Outgoing Orders
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            {/* <div className='graphs'>
-                <div className='inc_order'>
-                    <h2>Last Incoming Orders</h2>
-                    <table>
-                        <tbody>
-                        {lastIncOrder.map((order) => (
-                            <tr key={order.id} className='tr'>
-                                <td>{order.id} - {order.user?.company_name}</td> 
-                                <td></td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>
-                <div className='pieChart'>
-                    <h2>Last Outgoing Orders</h2>
-                </div>
-            </div> */}
-        </div>
-</div>
+        </WorkerLayout>
+        
     );
 }
 
