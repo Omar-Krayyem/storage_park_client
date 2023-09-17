@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import IncomingPlacedRow from '../../../components/Partner/IncomingPlacedRow';
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 const PlacedIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -53,7 +54,8 @@ const PlacedIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <div className='Partnerplacedincoming_page'> 
+        <PartnerLayout>
+            <div className='Partnerplacedincoming_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Placed Orders</h1></div>
@@ -93,7 +95,8 @@ const PlacedIncoming = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </PartnerLayout>
     );
 }
 
