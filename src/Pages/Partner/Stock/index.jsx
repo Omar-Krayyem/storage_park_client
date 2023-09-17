@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import StockRow from '../../../components/Partner/StockRow';
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 const Stock = () => {
     const [stocks , setStocks] = useState([]);
@@ -56,7 +57,8 @@ const Stock = () => {
     }, [stocks,searchInput, searchedStocks]);
 
     return (
-        <div className='PartnerStock_page'> 
+        <PartnerLayout>
+            <div className='PartnerStock_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Stored Products</h1></div>
@@ -95,7 +97,9 @@ const Stock = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </PartnerLayout>
+        
     );
 }
 
