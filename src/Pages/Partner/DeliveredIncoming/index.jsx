@@ -2,6 +2,7 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IncomingDeliveredRow from '../../../components/Partner/IncomingDeliveredRow';
+import PartnerLayout from '../../../utils/PartnerLayout';
 
 const DeliveredIncoming = () => {
 
@@ -54,7 +55,8 @@ const DeliveredIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <div className='PartnerDeliveredIncoming_page'> 
+        <PartnerLayout>
+            <div className='PartnerDeliveredIncoming_page'> 
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Delivered Orders</h1></div>
@@ -93,7 +95,8 @@ const DeliveredIncoming = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </PartnerLayout>
     );
 }
 
