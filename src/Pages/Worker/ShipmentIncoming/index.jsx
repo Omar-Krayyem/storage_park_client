@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ShipmentIncomingRow from '../../../components/Worker/ShipmentIncomingRow';
+import WorkerLayout from '../../../utils/WorkerLayout';
 
 const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -55,7 +56,8 @@ const ShipmentIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <div className='ShipmentIncoming_page'>
+        <WorkerLayout>
+            <div className='ShipmentIncoming_page'>
                 <div className='body'>
                     <div className='title'>
                     <div className='page_title'><h1>Shipment Orders</h1></div>
@@ -94,7 +96,9 @@ const ShipmentIncoming = () => {
                         </table>
                     </div>
                 </div>
-        </div>
+            </div>
+        </WorkerLayout>
+        
     );
 }
 
