@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 import { Map , Marker } from "pigeon-maps"
+import WorkerLayout from '../../../utils/WorkerLayout';
 
 const DeliveredOrderById = () => {
     const { id } = useParams();
@@ -40,7 +41,8 @@ const DeliveredOrderById = () => {
 
 
     return (
-        <div className='WorkerOutgoingDeliveredOrder_page'>
+        <WorkerLayout>
+            <div className='WorkerOutgoingDeliveredOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order ID: {id}</h1></div>
@@ -118,7 +120,9 @@ const DeliveredOrderById = () => {
                     </div>
 
                 </div>
-        </div>
+            </div>
+        </WorkerLayout>
+        
     );
 }
 
