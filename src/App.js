@@ -78,7 +78,7 @@ function App() {
       setIsPartner(true);
     }
     else{
-      console.log('error')
+      window.location.reload();
     }
 
     // if (!isAdmin && !isWorker && !isPartner) {

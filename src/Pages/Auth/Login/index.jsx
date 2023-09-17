@@ -18,8 +18,7 @@ const Login = () => {
 
         await axios.post("http://127.0.0.1:8000/api/login", postData)
         .then(response => {
-            if(response.data.status === "success"){
-                console.log(response.data.user.first_name);
+                console.log(response.data);
                 localStorage.setItem("token", response.data.authorisation.token);
                 localStorage.setItem("user_name", `${response.data.user.first_name} ${response.data.user.last_name}`);
                 localStorage.setItem("user_type", response.data.user.user_type_id);
@@ -34,11 +33,6 @@ const Login = () => {
                 else if(user_type === 3){
                     navigate("/partner");
                 }
-            }
-            else{
-                setErrorMessage("Wrong email or password");
-            }
-            
         })
         .catch(error => {
             if (error.response) {
