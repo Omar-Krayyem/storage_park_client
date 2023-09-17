@@ -9,6 +9,7 @@ import { Link, useParams  } from 'react-router-dom';
 
 
 import { Map , Marker } from "pigeon-maps"
+import AdminLayout from '../../../utils/AdminLayout';
 
 
 
@@ -77,7 +78,8 @@ const AdminIncomingPlacedOrder = () => {
 
 
     return (
-        <div className='AdminIncomingPlacedOrder_page'>
+        <AdminLayout>
+            <div className='AdminIncomingPlacedOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Placed Order Number: {id}</h1></div>
@@ -166,7 +168,9 @@ const AdminIncomingPlacedOrder = () => {
                             <div >{error}</div>
                     </div>
                 </div>
-        </div>
+            </div>
+        </AdminLayout>
+        
     );
 }
 
