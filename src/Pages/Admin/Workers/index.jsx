@@ -5,6 +5,7 @@ import axios from 'axios';
 import AddWorkerModal from '../../../components/Modals/AddWorkerModal';
 
 import WorkerRow from '../../../components/Admin/WorkerRow';
+import AdminLayout from '../../../utils/AdminLayout';
 
 const Workers = () => {
     const [Users , setUsers] = useState([]);
@@ -65,7 +66,8 @@ const Workers = () => {
     }, [Users, searchInput, searchedWorker]);
 
     return (
-        <div className='workers_page'> 
+        <AdminLayout>
+            <div className='workers_page'> 
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'><h1>Workers</h1></div>
@@ -104,12 +106,13 @@ const Workers = () => {
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <AddWorkerModal
+                    handleCloseModal={handleCloseModal}
+                    openModal={openModal} 
+                />
             </div>
-            <AddWorkerModal
-            handleCloseModal={handleCloseModal}
-            openModal={openModal} 
-            />
-        </div>
+        </AdminLayout>
     );
 }
 
