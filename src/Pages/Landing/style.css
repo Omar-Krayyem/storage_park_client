@@ -6,5 +6,75 @@
 .Landing_page .body{
     display: flex;
     flex-direction: column;
+    padding: 20px 100px;
+    gap: 50px;
+}
+
+.Landing_page .body .section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 150px;
+    align-items: center;
+    color: #1D2126;
+}
+
+.hero .right{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.hero h1{
+    font-size: 54px;
+    font-weight: 700;
+}
+
+.hero img{
+    width: 600px;
+    border-radius: 5px;
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.4);
+    transform: translate(0, 0);
+    transition: transform 0.3s, box-shadow 0.3s;
     
+}
+
+.Landing_page button{
+    background-color: #FF8B13;
+    color: #F0F0F0;
+    padding: 8px 15px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.Landing_page button:hover{
+    background-color: #1D2126;
+    transition: 0.5s;
+}
+
+.hero3 img{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.4);
+    transform: translate(0, 0);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero2 .right{
+    width: 600px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 50px;
+}
+
+.hero2 .right img{
+    background-color: #1D2126;
+    border-radius: 50%;
+    padding: 5px;
+    width: 100px;
 }

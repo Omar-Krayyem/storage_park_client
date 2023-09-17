@@ -1,8 +1,9 @@
 import './App.css';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
+import Landing from './Pages/Landing';
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register'
 
@@ -57,11 +58,11 @@ import WorkerDeliveredOutOrderById from './Pages/Worker/DeliveredOutOrderById';
 import WorkerProfile from './Pages/Worker/Profile';
 import WorkerLayout from './utils/WorkerLayout';
 
-import Landing from './Pages/Landing';
+
 
 function App() {
   let user_type = localStorage.getItem("user_type");
-
+  const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isWorker, setIsWorker] =useState(false);
   const [isPartner, setIsPartner] =useState(false);
@@ -79,10 +80,14 @@ function App() {
     else{
       console.log('error')
     }
+
     // if (!isAdmin && !isWorker && !isPartner) {
-    //   <NavLink to={'/Login'}></NavLink>
-    // }  
+    //   console.log("error")
+    //   navigate('/Login');
+    // } 
   }, []);
+
+  
 
  
   return (
@@ -92,7 +97,7 @@ function App() {
       <Route path="/Register" element={<Register/>} />
       
       
-      <Route path="/admin" element={isAdmin? <AdminLayout/> : <Navigate to="/Login"/>}>
+      <Route path="/admin">
         <Route index element={isAdmin? <AdminDashboard/> : <Navigate to="/Login"/>} />
         <Route path='requests' element={isAdmin? <Requests/> : <Navigate to="/Login"/>} />
         <Route path='partners' element={isAdmin? <Partners/> : <Navigate to="/Login"/>} />
