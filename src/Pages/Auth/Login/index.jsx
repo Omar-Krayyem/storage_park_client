@@ -5,6 +5,7 @@ import axios from "axios"
 import logo from '../../../images/logo_p.png';
 
 const Login = () => {
+    console.log("line one in login")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -25,6 +26,8 @@ const Login = () => {
                 let user_type = response.data.user.user_type_id;
                 
                 if(user_type === 1){
+
+                    console.log("navigate to admin")
                     navigate("/admin");
                 }
                 else if(user_type === 2){

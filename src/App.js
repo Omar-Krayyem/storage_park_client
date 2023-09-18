@@ -62,30 +62,73 @@ import WorkerLayout from './utils/WorkerLayout';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
+  console.log("User Type from localStorage:", user_type);
+  
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isWorker, setIsWorker] =useState(false);
   const [isPartner, setIsPartner] =useState(false);
 
+  // setTimeout(() => {
+  //   if (parseInt(user_type) === 1) {
+  //     setIsAdmin(true);
+  //     console.log("User is Admin");
+  //     navigate("/admin");
+  //   } else if (parseInt(user_type) === 2) {
+  //     setIsWorker(true);
+  //     console.log("User is Worker");
+  //     navigate("/worker");
+  //   } else if (parseInt(user_type) === 3) {
+  //     setIsPartner(true);
+  //     console.log("User is Partner");
+  //     navigate("/partner");
+  //   } else {
+  //     console.log("User type not recognized. Reloading or navigating to Login...");
+  //     navigate('/Login');}
+  //   }
+  // , 1000);
+
   useEffect(() => {
+    let user_type = localStorage.getItem("user_type");
+    console.log("User Type from localStorage:", user_type);
+  
     if (parseInt(user_type) === 1) {
       setIsAdmin(true);
-    }
-    else if (parseInt(user_type) === 2) {
+      console.log("User is Admin");
+      navigate("/admin");
+    } else if (parseInt(user_type) === 2) {
       setIsWorker(true);
-    }
-    else if (parseInt(user_type) === 3) {
+      console.log("User is Worker");
+      navigate("/worker");
+    } else if (parseInt(user_type) === 3) {
       setIsPartner(true);
+      console.log("User is Partner");
+      navigate("/partner");
+    } else {
+      console.log("User type not recognized. Reloading or navigating to Login...");
+      navigate('/Login');
     }
-    else{
-      window.location.reload();
-    }
-
-    // if (!isAdmin && !isWorker && !isPartner) {
-    //   console.log("error")
-    //   navigate('/Login');
-    // } 
   }, []);
+
+  // useEffect(() => {
+  //   if (parseInt(user_type) === 1) {
+  //     setIsAdmin(true);
+  //   }
+  //   else if (parseInt(user_type) === 2) {
+  //     setIsWorker(true);
+  //   }
+  //   else if (parseInt(user_type) === 3) {
+  //     setIsPartner(true);
+  //   }
+  //   else{
+  //     navigate('/Login')
+  //   }
+
+  //   // if (!isAdmin && !isWorker && !isPartner) {
+  //   //   console.log("error")
+  //   //   navigate('/Login');
+  //   // } 
+  // }, [user_type]);
 
   
 
