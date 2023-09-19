@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import StockRow from '../../../components/Partner/StockRow';
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const Stock = () => {
     const [stocks , setStocks] = useState([]);
@@ -21,7 +20,6 @@ const Stock = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setStocks(response.data.data);
             })            
             .catch(error => {
@@ -36,7 +34,6 @@ const Stock = () => {
             }
         })
         .then(response => {
-            // console.log(response.data.data)
             setSearchedRequests(response.data.data);
         })   
         .catch(error => {
@@ -57,7 +54,6 @@ const Stock = () => {
     }, [stocks,searchInput, searchedStocks]);
 
     return (
-        <PartnerLayout>
             <div className='PartnerStock_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -97,9 +93,7 @@ const Stock = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </PartnerLayout>
-        
+            </div>        
     );
 }
 
