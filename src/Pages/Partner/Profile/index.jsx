@@ -1,7 +1,6 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const Profile = () => {
     const [user_id, setId] = useState(0);
@@ -24,7 +23,6 @@ const Profile = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data)
             setId(response.data.data.id)
             setFName(response.data.data.first_name)
             setLName(response.data.data.last_name)
@@ -65,7 +63,6 @@ const Profile = () => {
         }
 
         const postData = {user_id, first_name, last_name, email, phone, address, password};
-        console.log(postData)
 
         axios.post('http://127.0.0.1:8000/api/partner/profile', postData, {
             headers: {
@@ -73,7 +70,6 @@ const Profile = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data);
             setSuccessMessage("Updated Successfully");
         setTimeout(() => setSuccessMessage(""), 3000);
         })
@@ -92,7 +88,6 @@ const Profile = () => {
     }, []);
  
     return (
-        <PartnerLayout>
             <div className='PartnerProfile_page'> 
                 <div className='body'>
                     <div className='title'><h1>Profile</h1></div>
@@ -175,7 +170,6 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-        </PartnerLayout>
     );
 }
 
