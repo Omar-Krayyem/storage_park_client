@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import OutgoingPlacedRow from '../../../components/Partner/OutgoingPlacedRow';
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const PlacedOutgoing = () => {
     const [orders , setOrders] = useState([]);
@@ -20,7 +19,6 @@ const PlacedOutgoing = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -55,7 +53,6 @@ const PlacedOutgoing = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <PartnerLayout> 
             <div className='PartnerplacedOutgoing_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -97,7 +94,6 @@ const PlacedOutgoing = () => {
                     </div>
                 </div>
             </div>
-        </PartnerLayout>
     );
 }
 

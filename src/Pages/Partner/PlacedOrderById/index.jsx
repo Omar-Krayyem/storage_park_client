@@ -3,9 +3,7 @@ import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
-
 import { Map , Marker } from "pigeon-maps"
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const PartnerIncomingPlacedOrder = () => {
     const { id } = useParams();
@@ -25,7 +23,6 @@ const PartnerIncomingPlacedOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.data);
             setLatitude(response.data.data.latitude);
             setLongitude(response.data.data.longitude);
             setOrder(response.data.data);
@@ -42,7 +39,6 @@ const PartnerIncomingPlacedOrder = () => {
 
 
     return (
-        <PartnerLayout>
             <div className='PartnerIncomingPlacedOrder_page'>
                 <div className='body'>
                     <div className='title'>
@@ -111,7 +107,6 @@ const PartnerIncomingPlacedOrder = () => {
                     </div>
                 </div>
             </div>
-        </PartnerLayout>
     );
 }
 
