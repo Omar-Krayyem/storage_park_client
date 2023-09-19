@@ -2,9 +2,9 @@ import  './WorkerStyle.css';
 import React, {useState} from 'react'
 import WorkerNavSide from '../components/Worker/NavSide'
 import Header from '../components/Shared/Header'
-// import {Outlet} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 
-const WorkerLayout = ({children}) => {
+const WorkerLayout = () => {
 
     const [isOpened, setIsOpened] = useState(false)
 
@@ -15,8 +15,7 @@ const WorkerLayout = ({children}) => {
             </div>
             <div className='right_side'>
                 <Header className="head" isOpened={isOpened} setIsOpened={setIsOpened}/>
-                {/* <Outlet/> */}
-                {children}
+                <Outlet/>
             </div>
         </div>
     );

@@ -16,7 +16,6 @@ const AdminLayout = () => {
             <div className='right_side'>
                 <Header className="head" isOpened={isOpened} setIsOpened={setIsOpened}/>
                 <Outlet/>
-                {/* {children} */}
             </div>
         </div>
     );
