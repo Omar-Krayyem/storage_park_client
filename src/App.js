@@ -62,7 +62,7 @@ import WorkerLayout from './utils/WorkerLayout';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
-  console.log("User Type from localStorage:", user_type);
+  // console.log("User Type from localStorage:", user_type);
   
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
@@ -90,9 +90,9 @@ function App() {
 
   useEffect(() => {
     let user_type = localStorage.getItem("user_type");
-    console.log("User Type from localStorage:", user_type);
+    console.log(typeof(user_type));
   
-    if (parseInt(user_type) === 1) {
+    if (user_type === "1") {
       setIsAdmin(true);
       console.log("User is Admin");
       navigate("/admin");
@@ -108,7 +108,7 @@ function App() {
       console.log("User type not recognized. Reloading or navigating to Login...");
       navigate('/Login');
     }
-  }, []);
+  }, [user_type]);
 
   // useEffect(() => {
   //   if (parseInt(user_type) === 1) {
