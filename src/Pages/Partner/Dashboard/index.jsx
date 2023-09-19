@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PieChart from '../../../components/Admin/pieChart';
 import Barchart from '../../../components/Admin/Barchart';
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const Dashboard = () => {
 
@@ -28,7 +27,6 @@ const Dashboard = () => {
                 }
             })
             .then(response => {
-                console.log(response.data.data)
                 setOrders(response.data.data.order_count)
                 setProducts(response.data.data.product_count)
                 setItems(response.data.data.item_count)
@@ -80,7 +78,6 @@ const Dashboard = () => {
     ));
 
     return (
-        <PartnerLayout> 
             <div className='AdminDashboard_page'> 
                 <div className='body'>
                 <div className='title'><h1>Dashboard</h1></div>
@@ -107,7 +104,6 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-        </PartnerLayout>
     );
 }
 
