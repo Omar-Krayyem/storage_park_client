@@ -1,7 +1,6 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import WorkerLayout from '../../../utils/WorkerLayout';
 
 const Profile = () => {
     const [user_id, setId] = useState(0);
@@ -24,7 +23,6 @@ const Profile = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data)
             setId(response.data.data.id)
             setFName(response.data.data.first_name)
             setLName(response.data.data.last_name)
@@ -75,7 +73,6 @@ const Profile = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data);
             setSuccessMessage("Updated Successfully");
         setTimeout(() => setSuccessMessage(""), 3000);
         })
@@ -96,7 +93,6 @@ const Profile = () => {
     }, []);
  
     return (
-        <WorkerLayout>
             <div className='WorkerProfile_page'> 
                 <div className='body'>
                     <div className='title'><h1>Profile</h1></div>
@@ -178,9 +174,7 @@ const Profile = () => {
                         </form>
                     </div>
                 </div>
-            </div>
-        </WorkerLayout>
-        
+            </div>        
     );
 }
 
