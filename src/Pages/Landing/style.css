@@ -19,25 +19,84 @@
     color: #1D2126;
 }
 
-.hero .right{
+.Landing_page .hero .right{
     display: flex;
     flex-direction: column;
     gap: 15px;
     align-items: flex-start;
 }
 
-.hero h1{
+.Landing_page .hero h1{
     font-size: 54px;
     font-weight: 700;
 }
 
-.hero img{
+.Landing_page .hero img{
     width: 600px;
     border-radius: 5px;
     box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.4);
     transform: translate(0, 0);
     transition: transform 0.3s, box-shadow 0.3s;
     
+}
+
+.Landing_page .hero2 .left{
+    width: 600px;
+}
+
+.Landing_page .hero2 .right{
+    width: 600px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.Landing_page .hero2 .right img{
+    background-color: #1D2126;
+    border-radius: 50%;
+    padding: 5px;
+    width: 100px;
+}
+
+.Landing_page .solutions{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    align-items: center;
+    gap: 50px;
+}
+
+.Landing_page .one{
+    justify-content: space-between;
+}
+
+.Landing_page .two{
+    justify-content: center;
+    gap: 100px;
+}
+
+.Landing_page .solution{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Landing_page .solution p{
+    text-align: center;
+}
+
+.Landing_page .hero3 img{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.4);
+    transform: translate(0, 0);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 60px;
 }
 
 .Landing_page button{
@@ -55,45 +114,4 @@
 .Landing_page button:hover{
     background-color: #1D2126;
     transition: 0.5s;
-}
-
-.hero3 img{
-    width: 100%;
-    border-radius: 5px;
-    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.4);
-    transform: translate(0, 0);
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-bottom: 60px;
-}
-
-.hero2 .left{
-    width: 600px;
-}
-
-.hero2 .right{
-    width: 700px;
-    display: flex;
-    flex-flow: row wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-}
-
-.hero2 .right img{
-    background-color: #1D2126;
-    border-radius: 50%;
-    padding: 5px;
-    width: 100px;
-}
-
-.solution{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.solution p{
-    text-align: center;
 }

@@ -32,52 +32,55 @@ const Landing = () => {
                         <h1>OUR ENGINEERED SOLUTIONS AND OBSE SSIVE ONBOARDING BUILD ECOMMERCE AND STRENGTHEN RETAIL</h1>
                     </div>
                     <div className='right'>
-                        <div className="solution">
-                            <img src={icon1} alt=""/>
-                            <p>
-                                OBSESSIVE
-                                <br/>
-                                ONBOARDING
-                            </p>
-                        </div>
-                        <div className="solution">
-                            <img src={icon2} alt=""/>
-                            <p className="">
-                                VALUE-ADDED 
-                                <br/>
-                                SERVICES
-                            </p>
-                        </div>
+                        <div className='solutions  one'>
+                            <div className="solution">
+                                <img src={icon1} alt=""/>
+                                <p>
+                                    OBSESSIVE
+                                    <br/>
+                                    ONBOARDING
+                                </p>
+                            </div>
+                            <div className="solution">
+                                <img src={icon2} alt=""/>
+                                <p className="">
+                                    VALUE-ADDED 
+                                    <br/>
+                                    SERVICES
+                                </p>
+                            </div>
 
-                        <div className="solution">
-                            <img src={icon3} alt=""/>
-                            <p>
-                                TAILORED
-                                <br/>
-                                ENGINEERED SOLUTIONS
-                            </p>
+                            <div className="solution">
+                                <img src={icon3} alt=""/>
+                                <p>
+                                    TAILORED
+                                    <br/>
+                                    ENGINEERED SOLUTIONS
+                                </p>
+                            </div>
                         </div>
+                        <div className='solutions  two'>
+                            <div className="solution">
+                                <img src={icon4} alt=""/>
+                                <p>
+                                    SCALABLE
+                                    <br/>
+                                    INTEGRATIONS
+                                </p>
+                            </div>
 
-                        <div className="solution">
-                            <img src={icon4} alt=""/>
-                            <p>
-                                SCALABLE
-                                <br/>
-                                INTEGRATIONS
-                            </p>
+                            <div className="solution">
+                                <img src={icon5} alt=""/>
+                                <p>
+                                    ROBUST
+                                    <br/>
+                                    REALTIME PORTAL
+                                </p>
+                            </div>
                         </div>
-
-                        <div className="solution">
-                            <img src={icon5} alt=""/>
-                            <p>
-                                ROBUST
-                                <br/>
-                                REALTIME PORTAL
-                            </p>
-                        </div>
+                        
                     </div>
                 </div>
-
                 <div className='section hero3'><img src={h2} alt='image'></img></div>
             </div>
             <div className="footer"><Footer/></div>
