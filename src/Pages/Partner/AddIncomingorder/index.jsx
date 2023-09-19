@@ -1,14 +1,10 @@
 import './style.css';
 import {MdDelete} from 'react-icons/md'
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
 import CreatableSelect from "react-select/creatable";
-
 import { Map , Marker } from "pigeon-maps"
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const AddIncomingOrder = () => {
     const token = localStorage.getItem("token");
@@ -30,17 +26,11 @@ const AddIncomingOrder = () => {
         label: product.name
     }));
 
-    const handleMapClick = ({ latLng }) => {
-
-        console.log('handleMapClick')
-        
+    const handleMapClick = ({ latLng }) => {        
         const latitudeDigits = parseFloat(latLng[0].toFixed(4));
         const longitudeDigits = parseFloat(latLng[1].toFixed(4));
-
         setLatitude(latitudeDigits);
         setLongitude(longitudeDigits);
-
-        console.log(latitudeDigits , longitudeDigits)
     };
 
     const getProducts = async () => {
@@ -78,8 +68,6 @@ const AddIncomingOrder = () => {
                 quantity: +quantity,
             };
 
-            console.log(newProduct);
-
             setNewProducts([...newProducts, newProduct]);
             
             setProductName("");
@@ -91,7 +79,6 @@ const AddIncomingOrder = () => {
             setSelectedProductId(0);
            
     };
-    console.log(newProducts);
     const handleDeleteProduct = (productNameToDelete) => {
         const updatedProducts = newProducts.filter(product => product.productName !== productNameToDelete);
         setNewProducts(updatedProducts);
@@ -127,7 +114,6 @@ const AddIncomingOrder = () => {
     const handleChange = (selectedOption) => {
 
         if(selectedOption.value === selectedOption.label){
-            console.log('new')
             setProductName(selectedOption.label)
             setPrice(0);
             setQuantity(1);
@@ -151,9 +137,7 @@ const AddIncomingOrder = () => {
         
     };
 
-
     return (
-        <PartnerLayout>
             <div className='AddIncoming_page'>
                 <div className='body'>
                     <div className='title'>
@@ -295,9 +279,7 @@ const AddIncomingOrder = () => {
                         <button onClick={handleAddOrder}>Place Order</button>
                     </div>
                 </div>
-            </div>
-        </PartnerLayout>
-        
+            </div>        
     );
 }
 

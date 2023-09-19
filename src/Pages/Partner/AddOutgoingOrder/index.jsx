@@ -1,14 +1,10 @@
 import './style.css';
 import {MdDelete} from 'react-icons/md'
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
 import CreatableSelect from "react-select/creatable";
-
 import { Map , Marker } from "pigeon-maps"
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const AddOutgoingOrder = () => {
     const token = localStorage.getItem("token");
@@ -39,16 +35,10 @@ const AddOutgoingOrder = () => {
     }));
 
     const handleMapClick = ({ latLng }) => {
-
-        console.log('handleMapClick')
-        
         const latitudeDigits = parseFloat(latLng[0].toFixed(4));
         const longitudeDigits = parseFloat(latLng[1].toFixed(4));
-
         setLatitude(latitudeDigits);
         setLongitude(longitudeDigits);
-
-        console.log(latitudeDigits , longitudeDigits)
     };
 
     const getProducts = async () => {
@@ -58,7 +48,6 @@ const AddOutgoingOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.data)
             setExistProducts(response.data.data);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -93,8 +82,6 @@ const AddOutgoingOrder = () => {
                 quantity: +quantity,
             };
 
-            console.log(newProduct);
-
             setNewProducts([...newProducts, newProduct]);
             
             setProductName("");
@@ -106,7 +93,6 @@ const AddOutgoingOrder = () => {
             setSelectedProductId(0);
            
     };
-    console.log(newProducts);
     const handleDeleteProduct = (productNameToDelete) => {
         const updatedProducts = newProducts.filter(product => product.productName !== productNameToDelete);
         setNewProducts(updatedProducts);
@@ -149,8 +135,6 @@ const AddOutgoingOrder = () => {
         }
     };
 
-    console.log(newProducts)
-
     const handleChange = (selectedOption) => {
         for(let i = 0; i < existProducts.length; i++){
             if(existProducts[i].product.id === selectedOption.value){
@@ -167,7 +151,6 @@ const AddOutgoingOrder = () => {
 
 
     return (
-        <PartnerLayout>
             <div className='AddOutgoing_page'>
                 <div className='body'>
                     <div className='title'>
@@ -332,7 +315,6 @@ const AddOutgoingOrder = () => {
                     </div>
                 </div>
             </div>
-        </PartnerLayout>
     );
 }
 
