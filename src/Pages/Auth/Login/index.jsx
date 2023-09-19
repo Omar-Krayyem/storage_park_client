@@ -27,8 +27,11 @@ const Login = () => {
                 
                 if(user_type === 1){
 
-                    console.log("navigate to admin")
+                    console.log("navigate to admin");
                     navigate("/admin");
+                    window.location.href();
+                    
+                    
                 }
                 else if(user_type === 2){
                     navigate("/worker");

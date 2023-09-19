@@ -97,7 +97,7 @@ const Dashboard = () => {
                     </div>
                     <div className='graphs'>
                     <div className='barChart'>
-                            <h2>Numbers of Orders</h2>
+                            <h2>Number of Orders</h2>
                             <Barchart data={BarData}/>
                         </div>
                         <div className='pieChart'>
