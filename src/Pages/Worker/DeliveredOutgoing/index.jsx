@@ -2,7 +2,6 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DeliveredOutgoingRow from '../../../components/Worker/DeliveredOutgoingRow';
-import WorkerLayout from '../../../utils/WorkerLayout';
 
 const DeliveredIncoming = () => {
 
@@ -20,7 +19,6 @@ const DeliveredIncoming = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -55,7 +53,6 @@ const DeliveredIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <WorkerLayout>
             <div className='DeliveredIncoming_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -96,8 +93,6 @@ const DeliveredIncoming = () => {
                     </div>
                 </div>
             </div>
-        </WorkerLayout>
-        
     );
 }
 

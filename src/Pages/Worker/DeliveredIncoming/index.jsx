@@ -2,7 +2,6 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DeliveredIncomingRow from '../../../components/Worker/DeliveredIncomingRow';
-import WorkerLayout from '../../../utils/WorkerLayout';
 
 const DeliveredIncoming = () => {
 
@@ -10,8 +9,8 @@ const DeliveredIncoming = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchedOrders, setSearchedOrders] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
-    const token = localStorage.getItem("token");
 
+    const token = localStorage.getItem("token");
 
     const getOrders = async () => {
             await axios.get(`http://127.0.0.1:8000/api/worker/incoming/delivered`, {
@@ -20,7 +19,6 @@ const DeliveredIncoming = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -55,7 +53,6 @@ const DeliveredIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <WorkerLayout>
             <div className='DeliveredIncoming_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -95,9 +92,7 @@ const DeliveredIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </WorkerLayout>
-        
+            </div>        
     );
 }
 
