@@ -5,7 +5,6 @@ import axios from "axios"
 import logo from '../../../images/logo_p.png';
 
 const Login = () => {
-    console.log("line one in login")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -19,19 +18,13 @@ const Login = () => {
 
         await axios.post("http://127.0.0.1:8000/api/login", postData)
         .then(response => {
-                console.log(response.data);
                 localStorage.setItem("token", response.data.authorisation.token);
                 localStorage.setItem("user_name", `${response.data.user.first_name} ${response.data.user.last_name}`);
                 localStorage.setItem("user_type", response.data.user.user_type_id);
                 let user_type = response.data.user.user_type_id;
                 
                 if(user_type === 1){
-
-                    console.log("navigate to admin");
-                    navigate("/admin");
-                    window.location.href();
-                    
-                    
+                    navigate("/admin");                    
                 }
                 else if(user_type === 2){
                     navigate("/worker");
