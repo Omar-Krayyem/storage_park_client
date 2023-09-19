@@ -1,17 +1,9 @@
 import './style.css';
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
-// import NavSide from '../../../components/Admin/NavSide';
-// import Header from '../../../components/Shared/Header';
-
-
 import { Map , Marker } from "pigeon-maps"
-import AdminLayout from '../../../utils/AdminLayout';
-
-
 
 const AdminIncomingPlacedOrder = () => {
     localStorage.setItem("activeSection", "Incplaced");
@@ -36,7 +28,6 @@ const AdminIncomingPlacedOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.data);
             setLatitude(response.data.data.order.latitude);
             setLongitude(response.data.data.order.longitude);
             setOrder(response.data.data.order);
@@ -67,7 +58,6 @@ const AdminIncomingPlacedOrder = () => {
                 }
             })
             .then(response => {
-                console.log(response);
                 window.location.href = '/admin/incoming/shipment';
             })
             .catch(error => {
@@ -78,7 +68,6 @@ const AdminIncomingPlacedOrder = () => {
 
 
     return (
-        <AdminLayout>
             <div className='AdminIncomingPlacedOrder_page'>
                 <div className='body'>
                     <div className='title'>
@@ -168,9 +157,7 @@ const AdminIncomingPlacedOrder = () => {
                             <div >{error}</div>
                     </div>
                 </div>
-            </div>
-        </AdminLayout>
-        
+            </div>        
     );
 }
 

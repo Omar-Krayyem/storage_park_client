@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import OutgoingPlacedRow from '../../../components/Admin/OutgoingPlacedRow';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const PlacedOutgoing = () => {
     const [orders , setOrders] = useState([]);
@@ -21,7 +20,6 @@ const PlacedOutgoing = () => {
                 }
             })
             .then(response => {
-                console.log(response.data.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -56,7 +54,6 @@ const PlacedOutgoing = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <AdminLayout>
             <div className='Adminplacedoutgoing_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -96,9 +93,7 @@ const PlacedOutgoing = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </AdminLayout>
-        
+            </div>        
     );
 }
 

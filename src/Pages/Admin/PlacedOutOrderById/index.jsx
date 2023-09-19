@@ -5,9 +5,6 @@ import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
 import { Map , Marker } from "pigeon-maps"
-import AdminLayout from '../../../utils/AdminLayout';
-
-
 
 const AdminOutgoingPlacedOrder = () => {
     localStorage.setItem("activeSection", "Incplaced");
@@ -56,7 +53,6 @@ const AdminOutgoingPlacedOrder = () => {
         }
         else{
             const postData = {id , selectedWorkerId};
-            console.log(postData)
 
             axios.post('http://127.0.0.1:8000/api/admin/outgoing/placed/selectWorker', postData, {
             headers: {
@@ -64,7 +60,6 @@ const AdminOutgoingPlacedOrder = () => {
                 }
             })
             .then(response => {
-                console.log(response);
                 window.location.href = '/admin/outgoing/shipment';
             })
             .catch(error => {
@@ -75,7 +70,6 @@ const AdminOutgoingPlacedOrder = () => {
 
 
     return (
-        <AdminLayout>
             <div className='AdminOutgoingPlacedOrder_page'>
                 <div className='body'>
                     <div className='title'>
@@ -171,9 +165,7 @@ const AdminOutgoingPlacedOrder = () => {
                             <div >{error}</div>
                     </div>
                 </div>
-            </div>
-        </AdminLayout>
-        
+            </div>        
     );
 }
 
