@@ -1,15 +1,12 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import WorkerLayout from '../../../utils/WorkerLayout';
 
 const Dashboard = () => {
     const [ delivered , setDelivered] = useState(0);
     const [ IncOrder , setIncOrder] = useState(0);
     const [ OutOrder , setOutOrder] = useState(0);
 
-    const [ lastIncOrder , setLastIncOrder] = useState([]);
-    const [ lastOutOrder , setLastOutOrder] = useState([]);
     const token = localStorage.getItem("token");
 
     const getUser = async () => {
@@ -19,12 +16,9 @@ const Dashboard = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data)
             setDelivered(response.data.data.delivered)
             setIncOrder(response.data.data.shipmentInc)
             setOutOrder(response.data.data.shipmentOut)
-            setLastIncOrder(response.data.data.lastShipmentInc)
-            setLastOutOrder(response.data.data.lastShipmentOut)
         })
         .catch(error => {
             console.log(error);
@@ -36,7 +30,6 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <WorkerLayout>
             <div className='WorkerDashboard_page'> 
                 <div className='body'>
                     <div className='title'><h1>Dashboard</h1></div>
@@ -52,9 +45,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </WorkerLayout>
-        
+            </div>        
     );
 }
 
