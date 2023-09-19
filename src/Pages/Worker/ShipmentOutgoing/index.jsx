@@ -2,7 +2,6 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ShipmentOutgoingRow from '../../../components/Worker/ShipmentOutgoingRow';
-import WorkerLayout from '../../../utils/WorkerLayout';
 
 const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -12,7 +11,6 @@ const ShipmentIncoming = () => {
 
     const token = localStorage.getItem("token");
 
-
     const getOrders = async () => {
             await axios.get(`http://127.0.0.1:8000/api/worker/outgoing/shipment`, {
                 headers: {
@@ -20,7 +18,6 @@ const ShipmentIncoming = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -55,7 +52,6 @@ const ShipmentIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
         
     return (
-        <WorkerLayout>
             <div className='ShipmentOutgoing_page'>
                 <div className='body'>
                     <div className='title'>
@@ -95,9 +91,7 @@ const ShipmentIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </WorkerLayout>
-        
+            </div>        
     );
 }
 

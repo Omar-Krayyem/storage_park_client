@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 import { Map , Marker } from "pigeon-maps"
-import WorkerLayout from '../../../utils/WorkerLayout';
 
 const AddIncomingOrder = () => {
     const { id } = useParams();
@@ -24,7 +23,6 @@ const AddIncomingOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.data);
             setLatitude(response.data.data.latitude);
             setLongitude(response.data.data.longitude);
             setOrder(response.data.data);
@@ -49,7 +47,6 @@ const AddIncomingOrder = () => {
             }
         })
         .then(response => {
-            console.log(response);
             window.location.href = '/worker/incoming/shipment';
         })
         .catch(error => {
@@ -59,7 +56,6 @@ const AddIncomingOrder = () => {
 
 
     return (
-        <WorkerLayout>
             <div className='WorkerIncomingShipmentOrder_page'>
                 <div className='body'>
                     <div className='title'>
@@ -131,9 +127,7 @@ const AddIncomingOrder = () => {
                     </div>
 
                 </div>
-            </div>
-        </WorkerLayout>
-        
+            </div>        
     );
 }
 
