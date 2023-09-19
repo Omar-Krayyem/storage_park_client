@@ -29,10 +29,8 @@ const Register = () => {
         e.preventDefault()
 
         const postData = {first_name, last_name, email, address, phone, company_name};
-        console.log(postData)
         await axios.post("http://127.0.0.1:8000/api/register", postData)
         .then(response => {
-                console.log(response);
                 setFName("");
                 setLName("");
                 setEmail("");
