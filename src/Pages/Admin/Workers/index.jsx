@@ -1,11 +1,8 @@
 import '../Workers/style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import AddWorkerModal from '../../../components/Modals/AddWorkerModal';
-
 import WorkerRow from '../../../components/Admin/WorkerRow';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const Workers = () => {
     const [Users , setUsers] = useState([]);
@@ -66,7 +63,6 @@ const Workers = () => {
     }, [Users, searchInput, searchedWorker]);
 
     return (
-        <AdminLayout>
             <div className='workers_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -112,7 +108,6 @@ const Workers = () => {
                     openModal={openModal} 
                 />
             </div>
-        </AdminLayout>
     );
 }
 

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import PartnerRow from '../../../components/Admin/PartnerRow';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const Partners = () => {
     const [Users , setUsers] = useState([]);
@@ -53,7 +52,6 @@ const Partners = () => {
     }, [Users,searchInput, searchedPartners]);
 
     return (
-        <AdminLayout>
             <div className='partners_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -94,7 +92,6 @@ const Partners = () => {
                     </div>
                 </div>
             </div>
-        </AdminLayout>
     );
 }
 
