@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PieChart from '../../../components/Admin/pieChart';
 import Barchart from '../../../components/Admin/Barchart';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const Dashboard = () => {
 
@@ -21,60 +20,58 @@ const Dashboard = () => {
 
     const [categories, setCategories] = useState([]);
 
-    
+    const token = localStorage.getItem("token");
 
-      const token = localStorage.getItem("token");
-
-        const getUser = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/admin/dashboard`, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            .then(response => {
-                setRequests(response.data.data.requests)
-                setPartners(response.data.data.partner)
-                setWorkers(response.data.data.worker)
-
-                setPlacedInc(response.data.data.placedInc)
-                setShipmentInc(response.data.data.shipmentInc)
-                setDeliveredInc(response.data.data.deliveredInc)
-
-                setPlacedOut(response.data.data.placedOut)
-                setShipmentOut(response.data.data.shipmentOut)
-                setDeliveredOut(response.data.data.deliveredOut)
-
-                setCategories(response.data.data.category)
-            })
-            .catch(error => {
-                console.log(error);
-            });    
-        };
-
-        useEffect(() => {
-            getUser();
-        }, []);
-
-        const BarData = [
-            {
-              name: 'Placed Orders',
-              outgoing: placedOut,
-              incoming: placedInc,
-              amt: 2400,
-            },
-            {
-              name: 'shipment Orders',
-              outgoing: shipmentOut,
-              incoming: shipmentInc,
-              amt: 2210,
-            },
-            {
-              name: 'Delivered Orders',
-              outgoing: deliveredOut,
-              incoming: deliveredInc,
-              amt: 2290,
+    const getUser = async () => {
+        await axios.get(`http://127.0.0.1:8000/api/admin/dashboard`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
             }
-          ];
+        })
+        .then(response => {
+            setRequests(response.data.data.requests)
+            setPartners(response.data.data.partner)
+            setWorkers(response.data.data.worker)
+
+            setPlacedInc(response.data.data.placedInc)
+            setShipmentInc(response.data.data.shipmentInc)
+            setDeliveredInc(response.data.data.deliveredInc)
+
+            setPlacedOut(response.data.data.placedOut)
+            setShipmentOut(response.data.data.shipmentOut)
+            setDeliveredOut(response.data.data.deliveredOut)
+
+            setCategories(response.data.data.category)
+        })
+        .catch(error => {
+            console.log(error);
+        });    
+    };
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    const BarData = [
+        {
+          name: 'Placed Orders',
+            outgoing: placedOut,
+          incoming: placedInc,
+          amt: 2400,
+        },
+        {
+          name: 'shipment Orders',
+          outgoing: shipmentOut,
+          incoming: shipmentInc,
+            amt: 2210,
+        },
+        {
+          name: 'Delivered Orders',
+            outgoing: deliveredOut,
+          incoming: deliveredInc,
+          amt: 2290,
+        }
+        ];
     
         const PieData = categories.map((category) => (
             { name: category.category, value: category.products_count }
