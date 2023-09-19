@@ -2,9 +2,9 @@ import  './AdminStyle.css';
 import React, {useState} from 'react'
 import AdminNavSide from '../components/Admin/NavSide'
 import Header from '../components/Shared/Header'
-// import {Outlet} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 
-const AdminLayout = ({children}) => {
+const AdminLayout = () => {
 
     const [isOpened, setIsOpened] = useState(false)
 
@@ -15,8 +15,8 @@ const AdminLayout = ({children}) => {
             </div>
             <div className='right_side'>
                 <Header className="head" isOpened={isOpened} setIsOpened={setIsOpened}/>
-                {/* <Outlet/> */}
-                {children}
+                <Outlet/>
+                {/* {children} */}
             </div>
         </div>
     );

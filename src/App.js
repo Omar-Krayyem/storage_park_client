@@ -1,7 +1,6 @@
 import './App.css';
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
-// import { NavLink } from 'react-router-dom';
 
 import Landing from './Pages/Landing';
 import Login from './Pages/Auth/Login';
@@ -62,85 +61,34 @@ import WorkerLayout from './utils/WorkerLayout';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
-  // console.log("User Type from localStorage:", user_type);
   
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isWorker, setIsWorker] =useState(false);
   const [isPartner, setIsPartner] =useState(false);
 
-  // setTimeout(() => {
-  //   if (parseInt(user_type) === 1) {
-  //     setIsAdmin(true);
-  //     console.log("User is Admin");
-  //     navigate("/admin");
-  //   } else if (parseInt(user_type) === 2) {
-  //     setIsWorker(true);
-  //     console.log("User is Worker");
-  //     navigate("/worker");
-  //   } else if (parseInt(user_type) === 3) {
-  //     setIsPartner(true);
-  //     console.log("User is Partner");
-  //     navigate("/partner");
-  //   } else {
-  //     console.log("User type not recognized. Reloading or navigating to Login...");
-  //     navigate('/Login');}
-  //   }
-  // , 1000);
-
   useEffect(() => {
     let user_type = localStorage.getItem("user_type");
-    console.log(typeof(user_type));
   
     if (user_type === "1") {
       setIsAdmin(true);
-      console.log("User is Admin");
       navigate("/admin");
     } else if (parseInt(user_type) === 2) {
       setIsWorker(true);
-      console.log("User is Worker");
       navigate("/worker");
     } else if (parseInt(user_type) === 3) {
       setIsPartner(true);
-      console.log("User is Partner");
       navigate("/partner");
-    } else {
-      console.log("User type not recognized. Reloading or navigating to Login...");
-      navigate('/Login');
     }
   }, [user_type]);
-
-  // useEffect(() => {
-  //   if (parseInt(user_type) === 1) {
-  //     setIsAdmin(true);
-  //   }
-  //   else if (parseInt(user_type) === 2) {
-  //     setIsWorker(true);
-  //   }
-  //   else if (parseInt(user_type) === 3) {
-  //     setIsPartner(true);
-  //   }
-  //   else{
-  //     navigate('/Login')
-  //   }
-
-  //   // if (!isAdmin && !isWorker && !isPartner) {
-  //   //   console.log("error")
-  //   //   navigate('/Login');
-  //   // } 
-  // }, [user_type]);
-
-  
-
  
   return (
     <Routes>
-      <Route path='/' element={<Landing/>}/>
+      <Route index element={<Landing/>}/>
       <Route path="/Login" element={<Login/>} />
       <Route path="/Register" element={<Register/>} />
       
-      
-      <Route path="/admin">
+      <Route path="/admin" element={isAdmin? <AdminLayout/> : <Navigate to="/Login"/>}>
         <Route index element={isAdmin? <AdminDashboard/> : <Navigate to="/Login"/>} />
         <Route path='requests' element={isAdmin? <Requests/> : <Navigate to="/Login"/>} />
         <Route path='partners' element={isAdmin? <Partners/> : <Navigate to="/Login"/>} />
@@ -170,7 +118,7 @@ function App() {
         <Route path='profile' element={isAdmin? <AdminProfile/> : <Navigate to="/Login"/>}/>
       </Route>
 
-      <Route path='/partner'>
+      <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to='Login'/>}>
         <Route index  element={isPartner? <PartnerDashboard/> : <Navigate to="/Login"/>} />
         <Route path='incoming/placed' element={isPartner? <PlacedIncoming/> : <Navigate to="/Login"/>} />
         <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/Login"/>} />
@@ -197,7 +145,7 @@ function App() {
         <Route path='profile' element={isPartner? <PartnerProfile/> : <Navigate to="/Login"/>}/>
       </Route>
 
-      <Route path='/worker'>
+      <Route path='/worker' element={isWorker? <WorkerLayout/> : <Navigate to="/Login"/>}>
         <Route index element={isWorker? <WorkerDashboard/> : <Navigate to="/Login"/>} />
 
         <Route path='incoming/shipment' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/Login"/>} />
