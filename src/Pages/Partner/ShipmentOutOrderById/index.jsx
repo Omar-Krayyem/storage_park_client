@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
 
 import { Map , Marker } from "pigeon-maps"
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const ShipmentOutgoingPlacedOrder = () => {
     const { id } = useParams();
@@ -25,7 +24,6 @@ const ShipmentOutgoingPlacedOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.data);
             setLatitude(response.data.data.latitude);
             setLongitude(response.data.data.longitude);
             setOrder(response.data.data);
@@ -42,7 +40,6 @@ const ShipmentOutgoingPlacedOrder = () => {
 
 
     return (
-        <PartnerLayout>
             <div className='PartnerOutgoingShipmentOrder_page'>
                 <div className='body'>
                     <div className='title'>
@@ -116,7 +113,6 @@ const ShipmentOutgoingPlacedOrder = () => {
                     </div>
                 </div>
             </div>
-        </PartnerLayout>
     );
 }
 

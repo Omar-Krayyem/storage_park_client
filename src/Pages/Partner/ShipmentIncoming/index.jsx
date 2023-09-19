@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import ShipmentPlacedRow from '../../../components/Partner/IncomingShipmentRow';
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -20,7 +19,6 @@ const ShipmentIncoming = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -55,7 +53,6 @@ const ShipmentIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <PartnerLayout>
             <div className='PartnerShipmentincoming_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -95,9 +92,7 @@ const ShipmentIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </PartnerLayout>
-        
+            </div>        
     );
 }
 
