@@ -2,7 +2,6 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IncomingDeliveredRow from '../../../components/Partner/IncomingDeliveredRow';
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const DeliveredIncoming = () => {
 
@@ -20,7 +19,6 @@ const DeliveredIncoming = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -55,7 +53,6 @@ const DeliveredIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <PartnerLayout>
             <div className='PartnerDeliveredIncoming_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -96,7 +93,6 @@ const DeliveredIncoming = () => {
                     </div>
                 </div>
             </div>
-        </PartnerLayout>
     );
 }
 

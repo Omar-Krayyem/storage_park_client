@@ -1,21 +1,11 @@
 import './style.css';
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Link, useParams  } from 'react-router-dom';
-
-import NavSide from '../../../components/Partner/NavSide';
-import Header from '../../../components/Shared/Header';
-
-
 import { Map , Marker } from "pigeon-maps"
-import PartnerLayout from '../../../utils/PartnerLayout';
-
-
 
 const DeliveredOrderById = () => {
     const { id } = useParams();
-    const name = localStorage.getItem("user_name");
     const token = localStorage.getItem("token");
 
     const [latitude, setLatitude] = useState();
@@ -32,7 +22,6 @@ const DeliveredOrderById = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.data);
             setLatitude(response.data.data.latitude);
             setLongitude(response.data.data.longitude);
             setOrder(response.data.data);
@@ -49,7 +38,6 @@ const DeliveredOrderById = () => {
 
 
     return (
-        <PartnerLayout>
             <div className='PartnerIncomingDeliveredOrder_page'>
                 <div className='body'>
                     <div className='title'>
@@ -119,9 +107,7 @@ const DeliveredOrderById = () => {
                     </div>
 
                 </div>
-            </div>
-        </PartnerLayout>
-        
+            </div>        
     );
 }
 

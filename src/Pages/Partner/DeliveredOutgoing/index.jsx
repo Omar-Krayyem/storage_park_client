@@ -2,16 +2,14 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import OutgoingDeliveredRow from '../../../components/Partner/OutgoingDeliveredRow';
-import PartnerLayout from '../../../utils/PartnerLayout';
 
 const DeliveredOutgoing = () => {
     const [orders , setOrders] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const [searchedOrders, SetSearchedOrders] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
-
+    
     const token = localStorage.getItem("token");
-
 
     const getOrders = async () => {
             await axios.get(`http://127.0.0.1:8000/api/partner/outgoing/delivered`, {
@@ -20,7 +18,6 @@ const DeliveredOutgoing = () => {
                 }
             })
             .then(response => {
-                console.log(response.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -35,7 +32,6 @@ const DeliveredOutgoing = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data)
             SetSearchedOrders(response.data.data);
         })   
         .catch(error => {
@@ -56,7 +52,6 @@ const DeliveredOutgoing = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <PartnerLayout>
             <div className='PartnerDeliveredOutgoing_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -96,9 +91,7 @@ const DeliveredOutgoing = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </PartnerLayout>
-        
+            </div>        
     );
 }
 
