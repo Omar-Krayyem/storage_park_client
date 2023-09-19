@@ -18,7 +18,6 @@ const Stock = () => {
                 }
             })
             .then(response => {
-                // console.log(response.data)
                 setStocks(response.data.data);
             })            
             .catch(error => {
@@ -33,7 +32,6 @@ const Stock = () => {
             }
         })
         .then(response => {
-            // console.log(response.data.data)
             setSearchedRequests(response.data.data);
         })   
         .catch(error => {

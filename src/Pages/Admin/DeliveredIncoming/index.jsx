@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import IncomingDeliveredRow from '../../../components/Admin/IncomingDeliveredRow';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const DeliveredIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -13,7 +12,6 @@ const DeliveredIncoming = () => {
 
     const token = localStorage.getItem("token");
 
-
     const getOrders = async () => {
             await axios.get(`http://127.0.0.1:8000/api/admin/incoming/delivered`, {
                 headers: {
@@ -21,7 +19,6 @@ const DeliveredIncoming = () => {
                 }
             })
             .then(response => {
-                console.log(response.data.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -36,7 +33,6 @@ const DeliveredIncoming = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data)
             setSearchedRequests(response.data.data);
         })   
         .catch(error => {
@@ -57,7 +53,6 @@ const DeliveredIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <AdminLayout>
             <div className='AdminDeliveredIncoming_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -97,9 +92,7 @@ const DeliveredIncoming = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </AdminLayout>
-        
+            </div>        
     );
 }
 
