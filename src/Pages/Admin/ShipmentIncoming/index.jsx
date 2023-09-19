@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import IncomingShipmentRow from '../../../components/Admin/IncomingShipmentRow';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const ShipmentIncoming = () => {
     const [orders , setOrders] = useState([]);
@@ -21,7 +20,6 @@ const ShipmentIncoming = () => {
                 }
             })
             .then(response => {
-                console.log(response.data.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -36,7 +34,6 @@ const ShipmentIncoming = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data)
             setSearchedRequests(response.data.data);
         })   
         .catch(error => {
@@ -57,7 +54,6 @@ const ShipmentIncoming = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <AdminLayout>   
             <div className='AdminShipmentincoming_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -98,7 +94,6 @@ const ShipmentIncoming = () => {
                     </div>
                 </div>
             </div>
-        </AdminLayout>
     );
 }
 

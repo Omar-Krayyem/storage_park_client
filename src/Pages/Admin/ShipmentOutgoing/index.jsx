@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import OutgoingShipmentRow from '../../../components/Admin/OutgoingShipmentRow';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const ShipmentOutgoing = () => {
     const [orders , setOrders] = useState([]);
@@ -13,7 +12,6 @@ const ShipmentOutgoing = () => {
 
     const token = localStorage.getItem("token");
 
-
     const getOrders = async () => {
             await axios.get(`http://127.0.0.1:8000/api/admin/outgoing/shipment`, {
                 headers: {
@@ -21,7 +19,6 @@ const ShipmentOutgoing = () => {
                 }
             })
             .then(response => {
-                console.log(response.data.data)
                 setOrders(response.data.data);
             })            
             .catch(error => {
@@ -36,7 +33,6 @@ const ShipmentOutgoing = () => {
             }
         })
         .then(response => {
-            console.log(response.data.data)
             setSearchedRequests(response.data.data);
         })   
         .catch(error => {
@@ -57,7 +53,6 @@ const ShipmentOutgoing = () => {
     }, [orders,searchInput, searchedOrders]);
 
     return (
-        <AdminLayout>
             <div className='AdminShipmentOutgoing_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -97,9 +92,7 @@ const ShipmentOutgoing = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </AdminLayout>
-        
+            </div>        
     );
 }
 
