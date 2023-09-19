@@ -32,7 +32,6 @@ const Dashboard = () => {
                 }
             })
             .then(response => {
-                console.log(response.data.data)
                 setRequests(response.data.data.requests)
                 setPartners(response.data.data.partner)
                 setWorkers(response.data.data.worker)
@@ -82,7 +81,6 @@ const Dashboard = () => {
         ));
 
     return (
-        <AdminLayout>
             <div className='AdminDashboard_page'> 
                 <div className='body'>
                 <div className='title'><h1>Dashboard</h1></div>
@@ -108,9 +106,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-        </div>
-        </AdminLayout>
-        
+        </div>        
     );
 }
 
