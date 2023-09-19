@@ -2,7 +2,6 @@ import './style.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StockRow from '../../../components/Admin/AdminStockRow';
-import AdminLayout from '../../../utils/AdminLayout';
 
 const Stock = () => {
     const [stocks , setStocks] = useState([]);
@@ -55,7 +54,6 @@ const Stock = () => {
     }, [stocks,searchInput, searchedProduct]);
 
     return (
-        <AdminLayout>
             <div className='AdminStock_page'> 
                 <div className='body'>
                     <div className='title'>
@@ -95,9 +93,7 @@ const Stock = () => {
                         </table>
                     </div>
                 </div>
-            </div>
-        </AdminLayout>
-        
+            </div>        
     );
 }
 
