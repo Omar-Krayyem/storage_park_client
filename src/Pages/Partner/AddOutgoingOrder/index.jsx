@@ -2,11 +2,12 @@ import './style.css';
 import {MdDelete} from 'react-icons/md'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CreatableSelect from "react-select/creatable";
 import { Map , Marker } from "pigeon-maps"
 
 const AddOutgoingOrder = () => {
+    const navigate = useNavigate();
     const token = localStorage.getItem("token");
     const [anchor, setAnchor] = useState([50.879, 4.6997]);
     const [latitude, setLatitude] = useState(anchor[0]);
@@ -129,7 +130,7 @@ const AddOutgoingOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            window.location.href = '/partner/outgoing/placed';
+            navigate('/partner/outgoing/placed');
         } catch (error) {
             console.error("Error adding order:", error);
         }
