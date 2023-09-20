@@ -1,11 +1,12 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link, useParams  } from 'react-router-dom';
+import { Link, useParams, useNavigate  } from 'react-router-dom';
 
 import { Map , Marker } from "pigeon-maps"
 
 const AdminIncomingPlacedOrder = () => {
+    const navigate = useNavigate();
     localStorage.setItem("activeSection", "Incplaced");
     const { id } = useParams();
     const token = localStorage.getItem("token");
@@ -58,7 +59,7 @@ const AdminIncomingPlacedOrder = () => {
                 }
             })
             .then(response => {
-                window.location.href = '/admin/incoming/shipment';
+                navigate('/admin/incoming/shipment');
             })
             .catch(error => {
                 console.log(error);
