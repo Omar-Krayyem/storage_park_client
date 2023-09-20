@@ -1,6 +1,8 @@
 import './App.css';
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
+import reduxStore from './redux/store';
+import { Provider } from 'react-redux';
 
 import Landing from './Pages/Landing';
 import Login from './Pages/Auth/Login';
@@ -83,86 +85,88 @@ function App() {
   }, [user_type]);
  
   return (
-    <Routes>
-      <Route index element={<Landing/>}/>
-      <Route path="/login" element={<Login/>} />
-      <Route path="/register" element={<Register/>} />
-      
-      <Route path="/admin" element={isAdmin? <AdminLayout/> : <Navigate to="/login"/>}>
-        <Route index element={isAdmin? <AdminDashboard/> : <Navigate to="/login"/>} />
-        <Route path='requests' element={isAdmin? <Requests/> : <Navigate to="/login"/>} />
-        <Route path='partners' element={isAdmin? <Partners/> : <Navigate to="/login"/>} />
-        <Route path='workers' element={isAdmin? <Workers/> : <Navigate to="/login"/>} />
+    <Provider store={reduxStore}>
+      <Routes>
+        <Route index element={<Landing/>}/>
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        
+        <Route path="/admin" element={isAdmin? <AdminLayout/> : <Navigate to="/login"/>}>
+          <Route index element={isAdmin? <AdminDashboard/> : <Navigate to="/login"/>} />
+          <Route path='requests' element={isAdmin? <Requests/> : <Navigate to="/login"/>} />
+          <Route path='partners' element={isAdmin? <Partners/> : <Navigate to="/login"/>} />
+          <Route path='workers' element={isAdmin? <Workers/> : <Navigate to="/login"/>} />
 
-        <Route path='stock' element={isAdmin? <AdminStock/> : <Navigate to="/login"/>} />
+          <Route path='stock' element={isAdmin? <AdminStock/> : <Navigate to="/login"/>} />
 
-        <Route path='incoming/placed' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/login"/>} />
-        <Route path='incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/login"/>} />
+          <Route path='incoming/placed' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/login"/>} />
 
 
-        <Route path='incoming/shipment' element={isAdmin? <AdminShipmentIncoming/> : <Navigate to="/login"/>}/>
-        <Route path='incoming/shipment/:id' element={isAdmin? <AdminShipmentIncomingById/> : <Navigate to="/login"/>}/>
+          <Route path='incoming/shipment' element={isAdmin? <AdminShipmentIncoming/> : <Navigate to="/login"/>}/>
+          <Route path='incoming/shipment/:id' element={isAdmin? <AdminShipmentIncomingById/> : <Navigate to="/login"/>}/>
 
-        <Route path='incoming/delivered' element={isAdmin? <AdminDeliveredIncoming/> : <Navigate to="/login"/>}/>
-        <Route path='incoming/delivered/:id' element={isAdmin? <AdminDeliveredOrderById/> : <Navigate to="/login"/>}/>
+          <Route path='incoming/delivered' element={isAdmin? <AdminDeliveredIncoming/> : <Navigate to="/login"/>}/>
+          <Route path='incoming/delivered/:id' element={isAdmin? <AdminDeliveredOrderById/> : <Navigate to="/login"/>}/>
 
-        <Route path='outgoing/placed' element={isAdmin? <AdminPlacedOutgoing/> : <Navigate to="/login"/>} />
-        <Route path='outgoing/placed/:id' element={isAdmin? <AdminPlacedOutgoingById/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/placed' element={isAdmin? <AdminPlacedOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/placed/:id' element={isAdmin? <AdminPlacedOutgoingById/> : <Navigate to="/login"/>} />
 
-        <Route path='outgoing/shipment' element={isAdmin? <AdminShipmentOutgoing/> : <Navigate to="/login"/>}/>
-        <Route path='outgoing/shipment/:id' element={isAdmin? <AdminShipmentOutgoingById/> : <Navigate to="/login"/>}/>
+          <Route path='outgoing/shipment' element={isAdmin? <AdminShipmentOutgoing/> : <Navigate to="/login"/>}/>
+          <Route path='outgoing/shipment/:id' element={isAdmin? <AdminShipmentOutgoingById/> : <Navigate to="/login"/>}/>
 
-        <Route path='outgoing/delivered' element={isAdmin? <AdminDeliveredOutgoing/> : <Navigate to="/login"/>}/>
-        <Route path='outgoing/delivered/:id' element={isAdmin? <AdminDeliveredOutOrderById/> : <Navigate to="/login"/>}/>
+          <Route path='outgoing/delivered' element={isAdmin? <AdminDeliveredOutgoing/> : <Navigate to="/login"/>}/>
+          <Route path='outgoing/delivered/:id' element={isAdmin? <AdminDeliveredOutOrderById/> : <Navigate to="/login"/>}/>
 
-        <Route path='profile' element={isAdmin? <AdminProfile/> : <Navigate to="/login"/>}/>
-      </Route>
+          <Route path='profile' element={isAdmin? <AdminProfile/> : <Navigate to="/login"/>}/>
+        </Route>
 
-      <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to='login'/>}>
-        <Route index  element={isPartner? <PartnerDashboard/> : <Navigate to="/login"/>} />
-        <Route path='incoming/placed' element={isPartner? <PlacedIncoming/> : <Navigate to="/login"/>} />
-        <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/login"/>} />
-        <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/login"/>} />
+        <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to='login'/>}>
+          <Route index  element={isPartner? <PartnerDashboard/> : <Navigate to="/login"/>} />
+          <Route path='incoming/placed' element={isPartner? <PlacedIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/login"/>} />
+          <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/login"/>} />
 
-        <Route path='incoming/shipment' element={isPartner? <ShipmentIncoming/> : <Navigate to="/login"/>} />
-        <Route path='incoming/shipment/:id' element={isPartner? <ShipmentIncomingById/> : <Navigate to="/login"/>} />
+          <Route path='incoming/shipment' element={isPartner? <ShipmentIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming/shipment/:id' element={isPartner? <ShipmentIncomingById/> : <Navigate to="/login"/>} />
 
-        <Route path='incoming/delivered' element={isPartner? <DeliveredIncoming/> : <Navigate to="/login"/>} />
-        <Route path='incoming/delivered/:id' element={isPartner? <DeliveredOrderById/> : <Navigate to="/login"/>} />
+          <Route path='incoming/delivered' element={isPartner? <DeliveredIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming/delivered/:id' element={isPartner? <DeliveredOrderById/> : <Navigate to="/login"/>} />
 
-        <Route path='stock' element={isPartner? <PartnerStock/> : <Navigate to="/login"/>} />
+          <Route path='stock' element={isPartner? <PartnerStock/> : <Navigate to="/login"/>} />
 
-        <Route path='outgoing/placed' element={isPartner? <PlacedOutgoing/> : <Navigate to="/login"/>} />
-        <Route path='outgoing/create' element={isPartner? <AddOutgoingOrder/> : <Navigate to="/login"/>} />
-        <Route path='outgoing/placed/:id' element={isPartner? <PlacedOutOrderById/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/placed' element={isPartner? <PlacedOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/create' element={isPartner? <AddOutgoingOrder/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/placed/:id' element={isPartner? <PlacedOutOrderById/> : <Navigate to="/login"/>} />
 
-        <Route path='outgoing/shipment' element={isPartner? <ShipmentOutgoing/> : <Navigate to="/login"/>} />
-        <Route path='outgoing/shipment/:id' element={isPartner? <ShipmentOutOrderById/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/shipment' element={isPartner? <ShipmentOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/shipment/:id' element={isPartner? <ShipmentOutOrderById/> : <Navigate to="/login"/>} />
 
-        <Route path='outgoing/delivered' element={isPartner? <DeliveredOutgoing/> : <Navigate to="/login"/>} />
-        <Route path='outgoing/delivered/:id' element={isPartner? <DeliveredOutOrderById/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/delivered' element={isPartner? <DeliveredOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/delivered/:id' element={isPartner? <DeliveredOutOrderById/> : <Navigate to="/login"/>} />
 
-        <Route path='profile' element={isPartner? <PartnerProfile/> : <Navigate to="/login"/>}/>
-      </Route>
+          <Route path='profile' element={isPartner? <PartnerProfile/> : <Navigate to="/login"/>}/>
+        </Route>
 
-      <Route path='/worker' element={isWorker? <WorkerLayout/> : <Navigate to="/login"/>}>
-        <Route index element={isWorker? <WorkerDashboard/> : <Navigate to="/login"/>} />
+        <Route path='/worker' element={isWorker? <WorkerLayout/> : <Navigate to="/login"/>}>
+          <Route index element={isWorker? <WorkerDashboard/> : <Navigate to="/login"/>} />
 
-        <Route path='incoming/shipment' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/login"/>} />
-        <Route path='incoming/shipment/:id' element={isWorker? <WorkerShipmentIncomingById/> : <Navigate to="/login"/>}></Route>
+          <Route path='incoming/shipment' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming/shipment/:id' element={isWorker? <WorkerShipmentIncomingById/> : <Navigate to="/login"/>}></Route>
 
-        <Route path='incoming/delivered' element={isWorker? <WorkerDeliveredIncoming/> : <Navigate to="/login"/>}/>
-        <Route path='incoming/delivered/:id' element={isWorker? <WorkerDeliveredOrderById/> : <Navigate to="/login"/>}></Route>
+          <Route path='incoming/delivered' element={isWorker? <WorkerDeliveredIncoming/> : <Navigate to="/login"/>}/>
+          <Route path='incoming/delivered/:id' element={isWorker? <WorkerDeliveredOrderById/> : <Navigate to="/login"/>}></Route>
 
-        <Route path='outgoing/shipment' element={isWorker? <WorkerShipmentOutgoing/> : <Navigate to="/login"/>} />
-        <Route path='outgoing/shipment/:id' element={isWorker? <WorkerShipmentOutOrderById/> : <Navigate to="/login"/>}></Route>
+          <Route path='outgoing/shipment' element={isWorker? <WorkerShipmentOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/shipment/:id' element={isWorker? <WorkerShipmentOutOrderById/> : <Navigate to="/login"/>}></Route>
 
-        <Route path='outgoing/delivered' element={isWorker? <WorkerDeliveredOutgoing/> : <Navigate to="/login"/>}/>
-        <Route path='outgoing/delivered/:id' element={isWorker? <WorkerDeliveredOutOrderById/> : <Navigate to="/login"/>}></Route>
+          <Route path='outgoing/delivered' element={isWorker? <WorkerDeliveredOutgoing/> : <Navigate to="/login"/>}/>
+          <Route path='outgoing/delivered/:id' element={isWorker? <WorkerDeliveredOutOrderById/> : <Navigate to="/login"/>}></Route>
 
-        <Route path='profile' element={isWorker? <WorkerProfile/> : <Navigate to="/login"/>}/>
-      </Route>
-    </Routes>
+          <Route path='profile' element={isWorker? <WorkerProfile/> : <Navigate to="/login"/>}/>
+        </Route>
+      </Routes>
+    </Provider>
   );
 }
 
