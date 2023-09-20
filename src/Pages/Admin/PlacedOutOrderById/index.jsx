@@ -2,9 +2,10 @@ import './style.css';
 
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link, useParams, useNavigate  } from 'react-router-dom';
+import { Link, useParams, useNavigate, useRef } from 'react-router-dom';
 
 import { Map , Marker } from "pigeon-maps"
+import emailjs from '@emailjs/browser';
 
 const AdminOutgoingPlacedOrder = () => {
     const navigate = useNavigate();
@@ -47,6 +48,23 @@ const AdminOutgoingPlacedOrder = () => {
         getOrder();
     }, []);
 
+    const sendEmail = () => {
+        const emailParams = {
+          customer_name: order.customer?.name || '',
+          order_id: id,
+          company_name: order.user?.company_name || '',
+          email: order.customer?.email || '',
+        };
+      
+        emailjs.send('service_envn8ta', 'template_xin94y2', emailParams, 'k2mdBDZm5xIUKujvn')
+          .then((response) => {
+            console.log('Email sent:', response);
+          })
+          .catch((error) => {
+            console.error('Email error:', error);
+          });
+    };
+
 
     const addToShipment = () => {
         if(selectedWorkerId === 0){
@@ -61,6 +79,8 @@ const AdminOutgoingPlacedOrder = () => {
                 }
             })
             .then(response => {
+                console.log(response)
+                sendEmail();
                 navigate('/admin/outgoing/shipment');
             })
             .catch(error => {

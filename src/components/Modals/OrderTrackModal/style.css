@@ -25,6 +25,10 @@
     align-items: center;
 }
 
+.orderModal .body .title h1{
+    color: #FF8B13;
+}
+
 .orderModal .body .title .icon{
     color: #1D2126;
     cursor: pointer;
