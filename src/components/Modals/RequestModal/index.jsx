@@ -4,7 +4,10 @@ import React, { useState, useEffect, useRef }from "react";
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
 import {AiOutlineClose} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
+
 const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
+    const navigate = useNavigate();
     const [first_name, setFName] = useState("");
     const [last_name, setLName] = useState("");
     const [email, setEmail] = useState("");
@@ -73,26 +76,40 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
 
     const password = generateRandomPassword(12);
 
+    const sendEmail = () => {
+        const emailParams = {
+            company_name: company_name,
+            email: email,
+            password: password,
+        };
+
+        emailjs.send('service_envn8ta', 'template_597msxo', emailParams, 'k2mdBDZm5xIUKujvn')
+          .then((response) => {
+            console.log('Email sent:', response);
+          })
+          .catch((error) => {
+            console.error('Email error:', error);
+          });
+    }
+
     const acceptRequest = (e) => {
         e.preventDefault();
 
         const postData = {user_id, password}
-    
-        emailjs.sendForm('service_envn8ta', 'template_597msxo', form.current, 'k2mdBDZm5xIUKujvn')
-          .then((result) => {
-            axios.post(`http://127.0.0.1:8000/api/admin/request`, postData, {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
+
+        axios.post('http://127.0.0.1:8000/api/admin/request', postData, {
+            headers: {
+                'Authorization': `Bearer ${token}`
                 }
-            }).then(response => {
-                console.log(response.data);
-                window.location.reload();
-                console.log('message sent')
             })
-          })
-          .catch(error => {
-            console.log(error);
-        });
+            .then(response => {
+                console.log(response)
+                sendEmail();
+                navigate('/admin/partners');
+            })
+            .catch(error => {
+                console.log(error);
+            });
     };
 
     return (
@@ -110,7 +127,7 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                     size={25}/>
                 </div>
                 <div className="form_body">
-                        <form ref={form} className='requestForm'>
+                        <form  className='requestForm'>
                             <div className='nameSection'>
                                 <div className="halftext_feild">
                                     <label>First Name</label>
