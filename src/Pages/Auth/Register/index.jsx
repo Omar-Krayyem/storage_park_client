@@ -137,7 +137,7 @@ const Register = () => {
                                     submitForm(e);
                                 }}
                             ></input>
-                            <div className="form_bottom">Already have an account <Link className='linkBtn' to="/Login">login</Link></div>
+                            <div className="form_bottom">Already have an account <Link className='linkBtn' to="/login">login</Link></div>
                         </form>
                     </div>
                 </div>

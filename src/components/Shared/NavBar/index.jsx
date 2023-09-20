@@ -9,8 +9,8 @@ const Navbar = () => {
                 <img src={LOGO} alt='logo'></img>
             </div>
             <div className="right">
-                <NavLink to={'/Register'}><button >Get Started</button></NavLink>
-                <NavLink to={'/Login'}><button >Login</button></NavLink>
+                <NavLink to={'/register'}><button >Get Started</button></NavLink>
+                <NavLink to={'/login'}><button >Login</button></NavLink>
             </div>
         </div>
     );
