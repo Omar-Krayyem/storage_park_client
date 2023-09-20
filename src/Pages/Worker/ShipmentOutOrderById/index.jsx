@@ -2,10 +2,11 @@ import './style.css';
 
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link, useParams  } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Map , Marker } from "pigeon-maps"
 
 const AddIncomingOrder = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const token = localStorage.getItem("token");
 
@@ -47,7 +48,7 @@ const AddIncomingOrder = () => {
             }
         })
         .then(response => {
-            window.location.href = '/worker/outgoing/shipment';
+            navigate('/worker/outgoing/shipment');
         })
         .catch(error => {
             console.log(error);
