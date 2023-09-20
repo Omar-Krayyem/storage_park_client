@@ -35,7 +35,7 @@
 
             const postData = {password};
 
-            axios.post('http://127.0.0.1:8000/api/admin/password', postData, {
+            axios.post('http://127.0.0.1:8000/api/password', postData, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
