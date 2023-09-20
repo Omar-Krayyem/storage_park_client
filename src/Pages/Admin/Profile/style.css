@@ -106,11 +106,13 @@
 
 
 .error{
+    width: 100%;
     color: red;
     font-size: 18px;
 }
 
 .success{
+    width: 100%;
     color: green;
     font-size: 18px;
 }

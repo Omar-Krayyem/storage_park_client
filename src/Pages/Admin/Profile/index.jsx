@@ -138,7 +138,7 @@ const Profile = () => {
                             </div>
                             {errorMessage && <div className='error'>{errorMessage}</div>}
                             {successMessage && <div className='success'>{successMessage}</div>}
-                            <button className='btn' onClick={handleOpenModal}>Change Password</button>
+                            <button type="button" className='btn' onClick={handleOpenModal}>Change Password</button>
                             <button className='btn' onClick={updateInfo}>Update</button>
                         </form>
                     </div>
