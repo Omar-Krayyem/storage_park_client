@@ -9,7 +9,18 @@ import icon2 from '../../images/sol2.png';
 import icon3 from '../../images/sol3.png';
 import icon4 from '../../images/sol4.png';
 import icon5 from '../../images//sol5.png';
+import OrderTrackModal from '../../components/Modals/OrderTrackModal';
 const Landing = () => {
+
+    const [openModal, setOpenModal] = useState(false);
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    }
+
+    const handleOpenModal = () => {
+        setOpenModal(true);
+    }
 
     return (
         <div className='Landing_page'> 
@@ -22,7 +33,7 @@ const Landing = () => {
                         storage park couples powerful software with its flexible nationwide fulfillment network, enabling brands to offer consistently efficient, 
                         cost-effective delivery that improves the customer experience, from every channel.
                         </p>
-                        <button>Track Your Order</button>
+                        <button onClick={handleOpenModal}>Track Your Order</button>
                     </div>
                     <div><img src={h1} alt='hero image'></img></div>
                 </div>
@@ -84,6 +95,10 @@ const Landing = () => {
                 <div className='section hero3'><img src={h2} alt='image'></img></div>
             </div>
             <div className="footer"><Footer/></div>
+            <OrderTrackModal
+            handleCloseModal={handleCloseModal}
+            openModal={openModal}
+            />
         </div>
     );
 }
