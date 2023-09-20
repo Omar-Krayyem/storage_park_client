@@ -7,10 +7,10 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import {TbTruckDelivery} from "react-icons/tb";
 import { FiLogOut } from 'react-icons/fi';
 import { BiSolidUser } from 'react-icons/bi';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const NavSide = () => {
-
+    const navigate = useNavigate();
     const [expandedSections, setExpandedSections] = useState([]);
     const [activeSection, setActiveSection] = useState("dashboard");
 
@@ -31,7 +31,7 @@ const NavSide = () => {
     const handleLogout  = () => {
         localStorage.setItem("token" , "");
         localStorage.setItem("user_type", 0);
-        window.location.href = '/Login';
+        navigate('/Login');
     }
 
     return (
