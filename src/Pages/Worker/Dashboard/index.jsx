@@ -1,12 +1,12 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
+import Graph from '../../../components/Worker/Graph'
 const Dashboard = () => {
     const [ delivered , setDelivered] = useState(0);
     const [ IncOrder , setIncOrder] = useState(0);
     const [ OutOrder , setOutOrder] = useState(0);
-
+    const [ data, setData] = useState([]);
     const token = localStorage.getItem("token");
 
     const getUser = async () => {
@@ -16,6 +16,8 @@ const Dashboard = () => {
             }
         })
         .then(response => {
+            console.log(response.data.data.dailyOrderCounts)
+            setData(response.data.data.dailyOrderCounts)
             setDelivered(response.data.data.delivered)
             setIncOrder(response.data.data.shipmentInc)
             setOutOrder(response.data.data.shipmentOut)
@@ -43,6 +45,10 @@ const Dashboard = () => {
                         <div className='record'>
                             <span>{OutOrder}</span>Outgoing Orders
                         </div>
+                    </div>
+                    <div className='graphs'>
+                        <h2>Number of Orders</h2>
+                        <Graph data={data}/>
                     </div>
                 </div>
             </div>        
