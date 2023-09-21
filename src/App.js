@@ -1,8 +1,6 @@
 import './App.css';
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
-import reduxStore from './redux/store';
-import { Provider } from 'react-redux';
 
 import Landing from './Pages/Landing';
 import Login from './Pages/Auth/Login';
@@ -59,19 +57,24 @@ import WorkerDeliveredOutOrderById from './Pages/Worker/DeliveredOutOrderById';
 import WorkerProfile from './Pages/Worker/Profile';
 import WorkerLayout from './utils/WorkerLayout';
 
-
+import { Provider, useSelector } from 'react-redux';
+import reduxStore from './redux/store';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
-  
+  // const store = useSelector((store) => store);
+  // console.log(store);
+
+  // let user_type = store.user.user_type;
+
   const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isWorker, setIsWorker] =useState(false);
   const [isPartner, setIsPartner] =useState(false);
 
   useEffect(() => {
-    let user_type = localStorage.getItem("user_type");
-  
+    // let user_type = localStorage.getItem("user_type");
+
     if (user_type === "1") {
       setIsAdmin(true);
       navigate("/admin");

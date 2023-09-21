@@ -11,18 +11,12 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action) => {
-            state = {
-                ...state, ...action.payload
-            };
-        },
-        updateData: (state, action) => {
-            state = {
-                ...state,
-                lastUpdate: action.payload.data
-            }; 
+            state.user_name = action.payload.user_name;
+            state.token = action.payload.token;
+            state.user_type = action.payload.user_type;
         },
     },
 });
 
-export const { setUser, updateData} = userSlice.actions;
+export const { setUser } = userSlice.actions;
 export default userSlice.reducer;

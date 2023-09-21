@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import React, { useState } from "react";
 import axios from "axios"
 import logo from '../../../images/logo_p.png';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../../redux/user/userSlice';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -11,6 +13,8 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
+    const dispatch = useDispatch();
+
     const submitForm = async(e) => {
         e.preventDefault()
 
@@ -18,20 +22,25 @@ const Login = () => {
 
         await axios.post("http://127.0.0.1:8000/api/login", postData)
         .then(response => {
-                localStorage.setItem("token", response.data.authorisation.token);
-                localStorage.setItem("user_name", `${response.data.user.first_name} ${response.data.user.last_name}`);
-                localStorage.setItem("user_type", response.data.user.user_type_id);
-                let user_type = response.data.user.user_type_id;
+            dispatch(setUser({
+                user_name: `${response.data.user.first_name} ${response.data.user.last_name}`,
+                token: response.data.authorisation.token,
+                user_type: response.data.user.user_type_id,
+            }))
+            localStorage.setItem("token", response.data.authorisation.token);
+            localStorage.setItem("user_name", `${response.data.user.first_name} ${response.data.user.last_name}`);
+            localStorage.setItem("user_type", response.data.user.user_type_id);
+            let user_type = response.data.user.user_type_id;
                 
-                if(user_type === 1){
-                    navigate("/admin");                    
-                }
-                else if(user_type === 2){
-                    navigate("/worker");
-                }
-                else if(user_type === 3){
-                    navigate("/partner");
-                }
+            if(user_type === 1){
+                navigate("/admin");                    
+            }
+            else if(user_type === 2){
+                navigate("/worker");
+            }
+            else if(user_type === 3){
+                navigate("/partner");
+            }
         })
         .catch(error => {
             if (error.response) {
