@@ -7,7 +7,13 @@ const OrderTrackModal = ({ openModal, handleCloseModal }) => {
     const [order, setOrder] = useState("");
     return (
         <div>
-            <Modal isOpen={openModal} className="orderModal">
+            <Modal isOpen={openModal} className="orderModal"
+            style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                },
+              }}
+              >
                 <div className='body'>
                     <div className='title'>
                         <h1>Track Your Order</h1>
