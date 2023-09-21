@@ -39,7 +39,12 @@ const PartnerStockModal = ({ openModal, handleCloseModal, id }) => {
 
     return (
         <div>
-            <Modal isOpen={openModal} className="PartnerStockModal">
+            <Modal isOpen={openModal} className="PartnerStockModal"
+            style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                },
+              }}>
                 <div className='body'>
                 <div className='title'>
                     <h1>Stored Product</h1>
