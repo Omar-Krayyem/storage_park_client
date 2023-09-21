@@ -91,7 +91,12 @@ const GetWorkerModal = ({ openModal, handleCloseModal, user_id }) => {
 
     return (
         <div>
-            <Modal isOpen={openModal} className="WorkerModal">
+            <Modal isOpen={openModal} className="WorkerModal"
+            style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                },
+              }}>
                 <div className='body'>
                 <div className='title'>
                     <h1>Worker</h1>
