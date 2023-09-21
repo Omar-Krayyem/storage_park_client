@@ -96,15 +96,17 @@
 }
 
 .AdminOutgoingDeliveredOrder_page .order_detail_table .AdminOutgoingDeliveredOrder_thead {
-    font-size: 20px;
+    font-size: 16px;
     color: #F0F0F0;
     background-color: #1D2126;
 }
   
 .AdminOutgoingDeliveredOrder_page .order_detail_table .AdminOutgoingDeliveredOrder_th {
-    width: 16%;
+    width: 14%;
     padding: 10px 10px;
     text-align: center;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .AdminOutgoingDeliveredOrder_page .order_detail_table .AdminOutgoingDeliveredOrder_tr{
@@ -116,7 +118,7 @@
 }
 
 .AdminOutgoingDeliveredOrder_page .order_detail_table .AdminOutgoingDeliveredOrder_td {
-    width: 16%;
+    width: 14%;
     padding: 10px 10px;
     text-align: center;
 }
