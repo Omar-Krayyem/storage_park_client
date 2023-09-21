@@ -50,7 +50,13 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
 
     return (
         <div>
-            <Modal isOpen={openModal} className="AddWorkerModal">
+            <Modal  isOpen={openModal} className="AddWorkerModal"
+            style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                },
+              }}
+              >
                 <div className='body'>
                 <div className='title'>
                     <h1>Add Worker</h1>

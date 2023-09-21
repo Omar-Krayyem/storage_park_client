@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.ReactModalPortal .ReactModal__Overlay::after , .ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75); 
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
