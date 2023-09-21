@@ -21,12 +21,6 @@
                 return;
             }
 
-            // if(password.length < 6){
-            //     setErrorMessage("Password is too short");
-            //     setTimeout(() => setErrorMessage(""), 3000);
-            //     return;
-            // }
-
             if ((password && conPassword) && (password !== conPassword || password.length < 6)) {
                 setErrorMessage("Passwords do not match");
                 setTimeout(() => setErrorMessage(""), 3000);
@@ -61,7 +55,13 @@
         }
         
         return (
-            <Modal isOpen={openModal} className="PasswordModal" >
+            <Modal isOpen={openModal} className="PasswordModal" 
+            style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                },
+              }}
+              >
                 <div className='title'>
                             <h1>Update Password</h1>
                             <AiOutlineClose 
