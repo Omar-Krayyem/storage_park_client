@@ -114,7 +114,12 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
 
     return (
         <div>
-            <Modal isOpen={openModal} className="requestModal">
+            <Modal isOpen={openModal} className="requestModal"
+            style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                },
+              }}>
                 <div className='body'>
                 <div className='title'>
                     <h1>Request</h1>
