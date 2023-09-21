@@ -91,7 +91,13 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
 
     return (
         <div>
-            <Modal isOpen={openModal} className="partnerModal">
+            <Modal isOpen={openModal} className="partnerModal"
+            style={{
+                overlay: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                },
+              }}
+              >
                 <div className='body'>
                 <div className='title'>
                     <h1>Partner</h1>
