@@ -117,7 +117,7 @@ const AdminDeliveredOrderById = () => {
 
                     <div>
                         <div className="halftext_feild ">
-                            <label>Selected Worker</label>
+                            <label>Worker</label>
                             <input
                                 className='creatableSelect'
                                 type="text"
