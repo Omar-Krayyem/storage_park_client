@@ -8,8 +8,8 @@
   padding: 0;
 }
 
-.ReactModalPortal .ReactModal__Overlay::after , .ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.75); 
+h1{
+  color: #1D2126;
 }
 
 .App-logo {

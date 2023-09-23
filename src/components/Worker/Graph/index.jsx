@@ -25,7 +25,7 @@ export default class Example extends PureComponent {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="uv" stroke="#FF8B13" />
         </LineChart>
       </ResponsiveContainer>
     );

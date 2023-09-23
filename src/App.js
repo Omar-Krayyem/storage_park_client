@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
 
 import Landing from './Pages/Landing';
@@ -57,24 +57,25 @@ import WorkerDeliveredOutOrderById from './Pages/Worker/DeliveredOutOrderById';
 import WorkerProfile from './Pages/Worker/Profile';
 import WorkerLayout from './utils/WorkerLayout';
 
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import reduxStore from './redux/store';
+// import { PersistGate } from 'redux-persist/integration/react'
+// import persistor from './redux/store';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
+  const navigate = useNavigate();
+
   // const store = useSelector((store) => store);
   // console.log(store);
-
   // let user_type = store.user.user_type;
+  // const location = useLocation();
 
-  const navigate = useNavigate();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isWorker, setIsWorker] =useState(false);
   const [isPartner, setIsPartner] =useState(false);
 
   useEffect(() => {
-    // let user_type = localStorage.getItem("user_type");
-
     if (user_type === "1") {
       setIsAdmin(true);
       navigate("/admin");
@@ -89,6 +90,7 @@ function App() {
  
   return (
     <Provider store={reduxStore}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
       <Routes>
         <Route index element={<Landing/>}/>
         <Route path="/login" element={<Login/>} />
@@ -169,6 +171,7 @@ function App() {
           <Route path='profile' element={isWorker? <WorkerProfile/> : <Navigate to="/login"/>}/>
         </Route>
       </Routes>
+      {/* </PersistGate> */}
     </Provider>
   );
 }

@@ -47,7 +47,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className='graphs'>
-                        <h2>Number of Orders</h2>
+                        <h2>Number of Delivered Orders</h2>
                         <Graph data={data}/>
                     </div>
                 </div>

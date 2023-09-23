@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PieChart from '../../../components/Admin/pieChart';
 import Barchart from '../../../components/Admin/Barchart';
-import { useSelector } from 'react-redux';
 const Dashboard = () => {
 
     const [ requests , setRequests] = useState(0);
@@ -20,8 +19,8 @@ const Dashboard = () => {
 
     const [categories, setCategories] = useState([]);
 
-    const token = useSelector((store) => store.user.token)
-
+    const token = localStorage.getItem('token')
+    
     const getUser = async () => {
         await axios.get(`http://127.0.0.1:8000/api/admin/dashboard`, {
             headers: {
