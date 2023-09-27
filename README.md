@@ -37,7 +37,7 @@ As a Customer:
 - I want to see real-time updates on the status of my order.
 
   
-
+<img src="./Readme/title3.svg"/>
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
