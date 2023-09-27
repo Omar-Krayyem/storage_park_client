@@ -47,3 +47,5 @@ As a Customer:
 - This project uses [Laravel](https://laravel.com/), a PHP web application framework. Laravel simplifies web development by providing robust tools and an expressive syntax for building secure and scalable web applications.
 - [MySQL](https://www.mysql.com/) for the database. It is an open-source relational database management system.
 - Storage Park includes hardware integration with an ESP8266 microchip connected to a GPS sensor to get location.
+
+<img src="./Readme/title6.svg"/>
