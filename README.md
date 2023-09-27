@@ -39,7 +39,7 @@ As a Customer:
   
 <img src="./Readme/title3.svg"/>
 
-> We designed Fatal Breath using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+>We designed Fatal Breath using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 | Landing Page  | Login | Signup |
 | ---| ---| ---|
