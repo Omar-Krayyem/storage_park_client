@@ -49,3 +49,68 @@ As a Customer:
 - Storage Park includes hardware integration with an ESP8266 microchip connected to a GPS sensor to get location.
 
 <img src="./Readme/title6.svg"/>
+
+> To set up Storage Park locally, follow these steps:
+
+## Prerequisites
+- MySQL
+	1) Follow these instructions to setup MySQL: [MySQL Insrallation](https://www.w3schools.com/mysql/mysql_install_windows.asp)
+
+## Installation
+
+1) Clone the frontend repo
+
+   ```sh
+   git clone https://github.com/Omar-Krayyem/storage_park_client.git
+   ```
+
+2) Clone the backend repo
+
+   ```sh
+   git clone https://github.com/Omar-Krayyem/storage_park_server.git
+   ```
+
+3) Install Laravel dependencies by navigating to the Laravel project directory:
+
+   ```sh
+   cd laravel-backend
+   composer install
+   ```
+
+4) Set up your Laravel environment and configure the .env file with your database settings.
+
+   Run Laravel migrations to set up the database:
+
+   ```sh
+   php artisan migrate
+   ```
+
+5) Launch the server
+	- Navigate to the server repo
+	- Run this command	
+	```sh
+	php artisan serve
+	```
+
+6) Launch the frontend
+	- Navigate to the frontend repo
+	- Run this command	
+	```sh
+	npm start
+	```
+
+### Hardware Setup (Go to the simulation section to simulate hardware functionality)
+
+-  ESP8266 Hardware Setup:
+
+1. Plug your Arduino to your laptop/mac
+
+2. Install [Arduino IDE](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing)(You can use alternative aurduino IDE's)
+
+3. Upload the Arduino code located in the esp8266 directory to your ESP8266 microchip using the Arduino IDE.
+
+4. Connect the ESP8266 to the MQ2 sensor and other required components as per your hardware configuration.
+
+<br>
+
+Now, you should be able to run **Storage Park** locally and explore its features
