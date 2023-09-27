@@ -42,25 +42,18 @@ As a Customer:
 > We designed Fatal Breath using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 | Landing Page  | Login | Signup |
-| ---| ---| ---|
 | ![Landing](./Readme/mockups/Landingpage.jpg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
 | Dashboard | Requests | Requests Form |
-| ---| ---| ---|
 | ![Dashboard](./Readme/mockups/Dashboard.jpg) | ![Requests](./Readme/mockups/Request.jpg) | ![Requests Form](./Readme/mockups/Request_Form.jpg) |
 | Profile | Partners | Partners Form |
-| ---| ---| ---|
 | ![Profile](./Readme/mockups/Profile.jpg) | ![Partners](./Readme/mockups/Partners.jpg) | ![Partners Form ](./Readme/mockups/Partners_Form.jpg) |
 | Workers | Workers Form | Stored Items |
-| ---| ---| ---|
 | ![Workers](./Readme/mockups/Workers.jpg) | ![Workers Form](./Readme/mockups/Workers_Form.jpg) | ![Stored Items](./Readme/mockups/Stored_Items.jpg) |
 | Stored Items Form | Placed Orders | Placed Order |
-| ---| ---| ---|
 | ![Stored Items Form ](./Readme/mockups/Stored_Items_Form.jpg) | ![Placed Orders](./Readme/mockups/Incoming_Placed.jpg) | ![Placed Order](./Readme/mockups/Incoming_Placed_Detail-1.jpg) |
 | Shipment Orders | Shipment Order | Delivered Orders |
-| ---| ---| ---|
 | ![Shipment Orders](./Readme/mockups/Incoming_Shipment.jpg) | ![Shipment Order](./Readme/mockups/Incoming_Shipment_Detail.jpg) | ![Delivered Orders](./Readme/mockups/Incoming_Delivered.jpg) |
 | Delivered Order |
-| ---|
 | ![Delivered Order](./Readme/mockups/Incoming_Delivered_Detail.jpg)
 <br>
 
