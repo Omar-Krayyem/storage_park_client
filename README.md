@@ -58,6 +58,8 @@ As a Customer:
 | ![Delivered Order](./Readme/mockups/Outgoing_Delivered_Detail.jpg)
 <br>
 
+<img src="./Readme/title4.svg"/>
+
 <img src="./Readme/title5.svg"/>
 
 ###  Storage Park is built using the following technologies:
