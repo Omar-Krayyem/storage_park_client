@@ -93,7 +93,7 @@ function App() {
     <Provider store={reduxStore}>
       <Routes>
         <Route index element={<Landing/>}/>
-        <Route path='/tracking' element={<Tracking/>}/>
+        <Route path='/tracking/:id' element={<Tracking/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         

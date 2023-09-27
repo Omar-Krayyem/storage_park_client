@@ -3,17 +3,18 @@ import React, { useState, useEffect } from "react";
 import Footer from '../../components/Shared/Footer';
 import { Map , Marker } from "pigeon-maps"
 import LOGO from '../../images/logo_landing.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams} from 'react-router-dom';
 import axios from 'axios';
 
 const Tracking = () => {
+    const { id } = useParams();
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
 
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/location/1043`);
+            const response = await axios.get(`http://127.0.0.1:8000/api/location/${id}`);
             setLatitude(response.data.data[0].latitude);
             setLongitude(response.data.data[0].longitude);
             setMapDataLoaded(true);
