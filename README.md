@@ -59,6 +59,15 @@ As a Customer:
 <br>
 
 <img src="./Readme/title4.svg"/>
+>Using the wireframes and mockups as a guide, we implemented the Storage Park app with the following features:
+
+| Landing Page  | Tracking Order | Login |
+| ---| ---| ---|
+| ![Landing](./Readme/gif/landing_page.gif) | ![Tracking Order](./Readme/gif/tracking_order.gif) | ![Login](./Readme/gif/login.gif) |
+| Registration | View Stock | Add New Order |
+| ![Registration](./Readme/gif/registration.gif) | ![Requests](./Readme/gif/view_stock.gif) | ![Add New Order](./Readme/gif/add_order.gif) |
+| Change Password |
+| ![Change Password](./Readme/gif/change_password.gif) |
 
 <img src="./Readme/title5.svg"/>
 
