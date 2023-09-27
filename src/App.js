@@ -3,6 +3,7 @@ import { Route, Routes, Navigate, useNavigate, useLocation } from 'react-router-
 import React, {useState, useEffect} from 'react'
 
 import Landing from './Pages/Landing';
+import Tracking from './Pages/Tracking';
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register'
 
@@ -92,6 +93,7 @@ function App() {
     <Provider store={reduxStore}>
       <Routes>
         <Route index element={<Landing/>}/>
+        <Route path='/tracking' element={<Tracking/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         
