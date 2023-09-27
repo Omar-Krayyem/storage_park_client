@@ -43,7 +43,7 @@ As a Customer:
 
 | Landing Page  | Login | Signup |
 | ---| ---| ---|
-| ![Landing](./Readme/mockups/Landingpage.jpg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
+| ![Landing](./Readme/mockups/Landing_page.jpg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
 | Dashboard | Requests | Requests Form |
 | ![Dashboard](./Readme/mockups/Dashboard.jpg) | ![Requests](./Readme/mockups/Request.jpg) | ![Requests Form](./Readme/mockups/Request_Form.jpg) |
 | Profile | Partners | Partners Form |
