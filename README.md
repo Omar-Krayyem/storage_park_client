@@ -42,6 +42,7 @@ As a Customer:
 > We designed Fatal Breath using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 | Landing Page  | Login | Signup |
+| ---| ---| ---|
 | ![Landing](./Readme/mockups/Landingpage.jpg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
 | Dashboard | Requests | Requests Form |
 | ![Dashboard](./Readme/mockups/Dashboard.jpg) | ![Requests](./Readme/mockups/Request.jpg) | ![Requests Form](./Readme/mockups/Request_Form.jpg) |
