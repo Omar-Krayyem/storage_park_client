@@ -90,7 +90,6 @@ function App() {
  
   return (
     <Provider store={reduxStore}>
-      {/* <PersistGate loading={null} persistor={persistor}> */}
       <Routes>
         <Route index element={<Landing/>}/>
         <Route path="/login" element={<Login/>} />
@@ -171,7 +170,6 @@ function App() {
           <Route path='profile' element={isWorker? <WorkerProfile/> : <Navigate to="/login"/>}/>
         </Route>
       </Routes>
-      {/* </PersistGate> */}
     </Provider>
   );
 }
