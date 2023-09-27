@@ -55,7 +55,7 @@ As a Customer:
 | Shipment Orders | Shipment Order | Delivered Orders |
 | ![Shipment Orders](./Readme/mockups/Incoming_Shipment.jpg) | ![Shipment Order](./Readme/mockups/Incoming_Shipment_Detail.jpg) | ![Delivered Orders](./Readme/mockups/Incoming_Delivered.jpg) |
 | Delivered Order |
-| ![Delivered Order](./Readme/mockups/Incoming_Delivered_Detail.jpg)
+| ![Delivered Order](./Readme/mockups/Outgoing_Delivered_Detail.jpg)
 <br>
 
 <img src="./Readme/title5.svg"/>
