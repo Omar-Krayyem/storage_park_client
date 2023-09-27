@@ -1,6 +1,6 @@
 <img src="./Readme/title1.svg"/>
 
-<img src="./readme/title2.svg"/>
+<img src="./Readme/title2.svg"/>
 
 In the project directory, you can run:
 
