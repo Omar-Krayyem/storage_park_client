@@ -56,10 +56,11 @@ As a Customer:
 | ![Shipment Orders](./Readme/mockups/Incoming_Shipment.jpg) | ![Shipment Order](./Readme/mockups/Incoming_Shipment_Detail.jpg) | ![Delivered Orders](./Readme/mockups/Incoming_Delivered.jpg) |
 | Delivered Order |
 | ![Delivered Order](./Readme/mockups/Outgoing_Delivered_Detail.jpg)
-<br>
+<br><br>
 
 <img src="./Readme/title4.svg"/>
->Using the wireframes and mockups as a guide, we implemented the Storage Park app with the following features:
+<br><br>
+> Using the wireframes and mockups as a guide, we implemented the Storage Park app with the following features:
 
 | Landing Page  | Tracking Order | Login |
 | ---| ---| ---|
