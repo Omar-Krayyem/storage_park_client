@@ -1,8 +1,6 @@
 <img src="./Readme/title1.svg"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+<img src="./readme/title2.svg"/>
 
 In the project directory, you can run:
 
