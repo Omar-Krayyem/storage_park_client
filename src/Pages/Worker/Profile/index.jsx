@@ -83,7 +83,10 @@ const Profile = () => {
     return (
             <div className='AdminProfile_page'> 
                 <div className='body'>
-                    <div className='title'><h1>Profile</h1></div>
+                    <div className='title'>
+                        <h1>Profile</h1>
+                        <button type="button" className='btn' onClick={handleOpenModal}>Change Password</button>
+                    </div>
                     <div className="form_body">
                         <form className='ProfileForm'>
                             <div className='nameSection'>
@@ -138,7 +141,7 @@ const Profile = () => {
                             </div>
                             {errorMessage && <div className='error'>{errorMessage}</div>}
                             {successMessage && <div className='success'>{successMessage}</div>}
-                            <button type="button" className='btn' onClick={handleOpenModal}>Change Password</button>
+                            
                             <button className='btn' onClick={updateInfo}>Update</button>
                         </form>
                     </div>
