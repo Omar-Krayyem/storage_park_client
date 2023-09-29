@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+:root {
+  --min-height: calc(100vh - 68px);
+}
+
+
 *{
   box-sizing: border-box;
   margin: 0;
