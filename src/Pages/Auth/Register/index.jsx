@@ -131,7 +131,7 @@ const Register = () => {
                             <input
                                 type="submit"
                                 className="RegisterBtn"
-                                value="Get Start"
+                                value="Get Started"
                                 onClick={async (e) => {
                                     e.preventDefault();
                                     submitForm(e);
