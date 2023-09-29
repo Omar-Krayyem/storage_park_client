@@ -1,6 +1,6 @@
-/* :root {
+:root {
     --min-height: calc(100vh - 68px);
-  } */
+}
 
 .partners_page {
     margin: 0;
@@ -9,7 +9,7 @@
     background-color: #F0F0F0;
     display: flex;
     flex-direction: row;
-    /* min-height: var(--min-height); */
+    min-height: var(--min-height);
     width: 100%;
 }
 

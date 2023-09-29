@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import React, { useState }from "react";
 import axios from 'axios';
 import {AiOutlineClose} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 
 const AddWorkerModal = ({ openModal, handleCloseModal }) => {
     const [first_name, setFName] = useState("");
@@ -12,7 +13,7 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("")
     const [error, setError] = useState("");
-
+    const navigate = useNavigate();
     const token = localStorage.getItem("token");
 
     const AddWorker = (e) => {
