@@ -12,7 +12,6 @@
 
 .Landing_page .body .section{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     gap: 150px;
     align-items: center;
@@ -40,21 +39,27 @@
     
 }
 
-.Landing_page .hero2 .left{
-    width: 600px;
-}
-
-.Landing_page .hero2 .right{
-    width: 600px;
+.Landing_page .hero2{
+    width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     gap: 20px;
     justify-content: center;
     align-items: center;
     gap: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1D2126;
 }
 
-.Landing_page .hero2 .right img{
+.Landing_page .hero2 h1{
+    display: flex;
+    width: 100%;
+    font-size: 45px;
+}
+
+.Landing_page .hero2 img{
     background-color: #1D2126;
     border-radius: 50%;
     padding: 5px;
@@ -65,9 +70,9 @@
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
     gap: 20px;
     align-items: center;
-    gap: 50px;
 }
 
 .Landing_page .one{
@@ -84,6 +89,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .Landing_page .solution p{

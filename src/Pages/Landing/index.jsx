@@ -30,7 +30,7 @@ const Landing = () => {
                     <div className='right'>
                         <h1>We Store, Pick, Pack and Ship</h1>
                         <p>
-                        storage park couples powerful software with its flexible nationwide fulfillment network, enabling brands to offer consistently efficient, 
+                        Storage Park couples powerful software with its flexible nationwide fulfillment network, enabling brands to offer consistently efficient, 
                         cost-effective delivery that improves the customer experience, from every channel.
                         </p>
                         <button onClick={handleOpenModal}>Track Your Order</button>
@@ -38,59 +38,53 @@ const Landing = () => {
                     <div><img src={h1} alt='hero image'></img></div>
                 </div>
 
-                <div className='section hero2'>
-                    <div className='left'>
-                        <h1>OUR ENGINEERED SOLUTIONS AND OBSESSIVE ONBOARDING BUILD ECOMMERCE AND STRENGTHEN RETAIL</h1>
-                    </div>
-                    <div className='right'>
-                        <div className='solutions  one'>
+                <div className='hero2'>
+                        <h1>Our Services</h1>
+                        <div className='solutions'>
                             <div className="solution">
-                                <img src={icon1} alt=""/>
                                 <p>
                                     OBSESSIVE
                                     <br/>
                                     ONBOARDING
                                 </p>
+                                <img src={icon1} alt=""/>
                             </div>
                             <div className="solution">
-                                <img src={icon2} alt=""/>
                                 <p className="">
                                     VALUE-ADDED 
                                     <br/>
                                     SERVICES
                                 </p>
+                                <img src={icon2} alt=""/>
                             </div>
 
                             <div className="solution">
-                                <img src={icon3} alt=""/>
                                 <p>
                                     TAILORED
                                     <br/>
                                     ENGINEERED SOLUTIONS
                                 </p>
+                                <img src={icon3} alt=""/>
                             </div>
-                        </div>
-                        <div className='solutions  two'>
                             <div className="solution">
-                                <img src={icon4} alt=""/>
                                 <p>
                                     SCALABLE
                                     <br/>
                                     INTEGRATIONS
                                 </p>
+                                <img src={icon4} alt=""/>
                             </div>
 
                             <div className="solution">
-                                <img src={icon5} alt=""/>
                                 <p>
                                     ROBUST
                                     <br/>
                                     REALTIME PORTAL
                                 </p>
+                                <img src={icon5} alt=""/> 
                             </div>
                         </div>
-                        
-                    </div>
+                                                   
                 </div>
                 <div className='section hero3'><img src={h2} alt='image'></img></div>
             </div>
