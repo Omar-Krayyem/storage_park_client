@@ -83,7 +83,7 @@ function App() {
       navigate(`/admin/${current_page}`);
     } else if (parseInt(user_type) === 2) {
       setIsWorker(true);
-      navigate(`/admin/${current_page}`);
+      navigate(`/worker/${current_page}`);
     } else if (parseInt(user_type) === 3) {
       setIsPartner(true);
       navigate(`/partner/${current_page}`);

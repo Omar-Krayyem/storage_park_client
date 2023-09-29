@@ -32,6 +32,7 @@ const NavSide = () => {
     const handleLogout  = () => {
         localStorage.setItem("token" , "");
         localStorage.setItem("user_type", 0);
+        localStorage.setItem("current_page", "dashboard");
         navigate('/login');
     }
 
