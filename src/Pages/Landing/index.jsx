@@ -28,7 +28,7 @@ const Landing = () => {
             <div className='body'>
                 <div className="section hero">
                     <div className='right'>
-                        <h1>We Stored, Pick, Pack and Ship</h1>
+                        <h1>We Store, Pick, Pack and Ship</h1>
                         <p>
                         storage park couples powerful software with its flexible nationwide fulfillment network, enabling brands to offer consistently efficient, 
                         cost-effective delivery that improves the customer experience, from every channel.
@@ -40,7 +40,7 @@ const Landing = () => {
 
                 <div className='section hero2'>
                     <div className='left'>
-                        <h1>OUR ENGINEERED SOLUTIONS AND OBSE SSIVE ONBOARDING BUILD ECOMMERCE AND STRENGTHEN RETAIL</h1>
+                        <h1>OUR ENGINEERED SOLUTIONS AND OBSESSIVE ONBOARDING BUILD ECOMMERCE AND STRENGTHEN RETAIL</h1>
                     </div>
                     <div className='right'>
                         <div className='solutions  one'>

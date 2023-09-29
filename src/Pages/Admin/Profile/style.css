@@ -85,7 +85,7 @@
     padding: 0 5px;
 }
 
-.AdminProfile_page .ProfileForm .btn{
+.AdminProfile_page .btn{
     border-radius: 45px;
     background: #1D2126;
     width: 100%;
@@ -98,7 +98,19 @@
     border: none;
 }
 
-.AdminProfile_page .ProfileForm .btn:hover{
+.AdminProfile_page .title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.AdminProfile_page .title button{
+    width: auto;
+    padding: 7px 20px;
+}
+
+
+.AdminProfile_page   .btn:hover{
     color: #1D2126;
     background-color: #FF8B13;
     transition: 0.5s;
