@@ -49,7 +49,8 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
         .then(response => {
             console.log(response)
             // handleCloseModal();
-            navigate('/admin/requests');
+            window.location.reload();
+            // navigate('/admin/requests');
         })
         .catch(error => {
             console.log(error);

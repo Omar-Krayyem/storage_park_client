@@ -48,7 +48,8 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
         .then(response => {
             console.log(response)
             // handleCloseModal();
-            navigate('/admin/partners');
+            window.location.reload();
+            // navigate('/admin/partners');
         })
         .catch(error => {
             console.log(error);

@@ -44,7 +44,7 @@ const GetWorkerModal = ({ openModal, handleCloseModal, user_id }) => {
         })
         .then(response => {
             console.log(response)
-            handleCloseModal();
+            // handleCloseModal();
             window.location.reload();
         })
         .catch(error => {

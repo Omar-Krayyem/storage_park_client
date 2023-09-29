@@ -36,8 +36,8 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
         })
         .then(response => {
             console.log(response);
-            navigate('/admin/workers');
-            // window.location.reload();
+            // navigate('/admin/workers');
+            window.location.reload();
         })
         .catch(error => {
             if (error.response && error.response.data && error.response.data.data) {
