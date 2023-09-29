@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import React, { useState, useEffect }from "react";
 import axios from 'axios';
 import {AiOutlineClose} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 
 const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
     const [first_name, setFName] = useState("");
@@ -13,6 +14,7 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
     const [company_name, setName] = useState("");
     const [error, setError] = useState("");
     const [msg, setMsg] = useState("");
+    const navigate = useNavigate();
 
     const token = localStorage.getItem("token");
 
@@ -45,8 +47,8 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
         })
         .then(response => {
             console.log(response)
-            handleCloseModal();
-            window.location.reload();
+            // handleCloseModal();
+            navigate('/admin/partners');
         })
         .catch(error => {
             console.log(error);
