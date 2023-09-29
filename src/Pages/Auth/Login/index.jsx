@@ -33,13 +33,16 @@ const Login = () => {
             let user_type = response.data.user.user_type_id;
                 
             if(user_type === 1){
-                navigate("/admin");                    
+                navigate("/admin");  
+                localStorage.setItem("current_page", "dashboard");                  
             }
             else if(user_type === 2){
                 navigate("/worker");
+                localStorage.setItem("current_page", "dashboard");
             }
             else if(user_type === 3){
                 navigate("/partner");
+                localStorage.setItem("current_page", "dashboard");
             }
         })
         .catch(error => {

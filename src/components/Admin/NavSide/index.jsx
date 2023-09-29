@@ -12,7 +12,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 const NavSide = () => {
     const navigate = useNavigate();
     const [expandedSections, setExpandedSections] = useState([]);
-    const [activeSection, setActiveSection] = useState("dashboard");
+    const [activeSection, setActiveSection] = useState(localStorage.getItem("current_page"));
 
     const toggleSection = (section) => {
         if (expandedSections.includes(section)) {
@@ -26,6 +26,7 @@ const NavSide = () => {
 
     const handlePageClick = (pageName) => {
         setActiveSection(pageName);
+        localStorage.setItem("current_page", pageName);
     };
 
     const handleLogout  = () => {
@@ -41,7 +42,7 @@ const NavSide = () => {
                     <div className="logo"><img src={logo} alt='logo'></img></div>
 
                     <div className="sections ">
-                        <NavLink className="nav_link" to={'/admin'}>
+                        <NavLink className="nav_link" to={'/admin/dashboard'}>
                             <div className={`title_section ${activeSection === "dashboard" ? 'selected' : ''}`} onClick={() => handlePageClick("dashboard")}>
                                 <div className='icon'><MdDashboard size={25} /></div>
                                 <div className="title">Dashboard</div>
@@ -66,7 +67,7 @@ const NavSide = () => {
                         </div>
 
                         <NavLink className="nav_link" to={'/admin/stock'}>
-                            <div className={`title_section ${activeSection === "stored_products" ? 'selected' : ''}`} onClick={() => handlePageClick("stored_products")}>
+                            <div className={`title_section ${activeSection === "stock" ? 'selected' : ''}`} onClick={() => handlePageClick("stock")}>
                                 <div className='icon'><FaWarehouse size={25} /></div>
                                 <div className="title">Stored Products</div>
                             </div>
@@ -74,7 +75,7 @@ const NavSide = () => {
 
                         <div className="section">
                             <div className='title_section' onClick={() => toggleSection("incomingOrders")}>
-                                <div className={`first ${activeSection === "Incplaced" || activeSection === "Incshipment" || activeSection === "Incdelivered" ? 'selected' : ''}`}>
+                                <div className={`first ${activeSection === "incoming/placed" || activeSection === "incoming/shipment" || activeSection === "incoming/delivered" ? 'selected' : ''}`}>
                                     <div className='icon'> <TbTruckDelivery size={27}/> </div>
                                     <div className="title">Incoming Orders</div>
                                 </div>
@@ -83,16 +84,16 @@ const NavSide = () => {
                             
                             {isSectionExpanded("incomingOrders") && (
                                 <div className="section-pages">
-                                    <NavLink className="nav_link" to={'/admin/incoming/placed'}><div className={`page ${activeSection === "Incplaced" ? 'selected' : ''}`} onClick={() => handlePageClick("Incplaced")}>Placed</div></NavLink>
-                                    <NavLink className="nav_link" to={'/admin/incoming/shipment'}><div className={`page ${activeSection === "Incshipment" ? 'selected' : ''}`} onClick={() => handlePageClick("Incshipment")}>Shipments</div></NavLink>
-                                    <NavLink className="nav_link" to={'/admin/incoming/delivered'}><div className={`page ${activeSection === "Incdelivered" ? 'selected' : ''}`} onClick={() => handlePageClick("Incdelivered")}>Delivered</div></NavLink>
+                                    <NavLink className="nav_link" to={'/admin/incoming/placed'}><div className={`page ${activeSection === "incoming/placed" ? 'selected' : ''}`} onClick={() => handlePageClick("incoming/placed")}>Placed</div></NavLink>
+                                    <NavLink className="nav_link" to={'/admin/incoming/shipment'}><div className={`page ${activeSection === "incoming/shipment" ? 'selected' : ''}`} onClick={() => handlePageClick("incoming/shipment")}>Shipments</div></NavLink>
+                                    <NavLink className="nav_link" to={'/admin/incoming/delivered'}><div className={`page ${activeSection === "incoming/delivered" ? 'selected' : ''}`} onClick={() => handlePageClick("incoming/delivered")}>Delivered</div></NavLink>
                                 </div>
                             )}
                         </div>
 
                         <div className="section">
                             <div className='title_section' onClick={() => toggleSection("outgoingOrders")}>
-                                <div className={`first ${activeSection === "Outplaced" || activeSection === "Outshipment" || activeSection === "Outdelivered" ? 'selected' : ''}`}>
+                                <div className={`first ${activeSection === "outgoing/placed" || activeSection === "outgoing/shipment" || activeSection === "outgoing/delivered" ? 'selected' : ''}`}>
                                     <div className='icon reflect'> <TbTruckDelivery size={27}/> </div>
                                     <div className="title">Outgoing Orders</div>
                                 </div>
@@ -101,9 +102,9 @@ const NavSide = () => {
                             
                             {isSectionExpanded("outgoingOrders") && (
                                 <div className="section-pages">
-                                    <NavLink className="nav_link" to={'/admin/outgoing/placed'}><div className={`page ${activeSection === "Outplaced" ? 'selected' : ''}`} onClick={() => handlePageClick("Outplaced")}>Placed</div></NavLink>
-                                    <NavLink className="nav_link" to={'/admin/outgoing/shipment'}><div className={`page ${activeSection === "Outshipment" ? 'selected' : ''}`} onClick={() => handlePageClick("Outshipment")}>Shipments</div></NavLink>
-                                    <NavLink className="nav_link" to={'/admin/outgoing/delivered'}><div className={`page ${activeSection === "Outdelivered" ? 'selected' : ''}`} onClick={() => handlePageClick("Outdelivered")}>Delivered</div></NavLink>
+                                    <NavLink className="nav_link" to={'/admin/outgoing/placed'}><div className={`page ${activeSection === "outgoing/placed" ? 'selected' : ''}`} onClick={() => handlePageClick("outgoing/placed")}>Placed</div></NavLink>
+                                    <NavLink className="nav_link" to={'/admin/outgoing/shipment'}><div className={`page ${activeSection === "outgoing/shipment" ? 'selected' : ''}`} onClick={() => handlePageClick("outgoing/shipment")}>Shipments</div></NavLink>
+                                    <NavLink className="nav_link" to={'/admin/outgoing/delivered'}><div className={`page ${activeSection === "outgoing/delivered" ? 'selected' : ''}`} onClick={() => handlePageClick("outgoing/delivered")}>Delivered</div></NavLink>
                                 </div>
                             )}
                         </div>

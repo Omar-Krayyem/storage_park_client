@@ -65,6 +65,7 @@ import reduxStore from './redux/store';
 
 function App() {
   let user_type = localStorage.getItem("user_type");
+  let current_page = localStorage.getItem("current_page")
   const navigate = useNavigate();
 
   // const store = useSelector((store) => store);
@@ -79,7 +80,7 @@ function App() {
   useEffect(() => {
     if (user_type === "1") {
       setIsAdmin(true);
-      navigate("/admin");
+      navigate(`/admin/${current_page}`);
     } else if (parseInt(user_type) === 2) {
       setIsWorker(true);
       navigate("/worker");
@@ -98,7 +99,7 @@ function App() {
         <Route path="/register" element={<Register/>} />
         
         <Route path="/admin" element={isAdmin? <AdminLayout/> : <Navigate to="/login"/>}>
-          <Route index element={isAdmin? <AdminDashboard/> : <Navigate to="/login"/>} />
+          <Route path='dashboard' element={isAdmin? <AdminDashboard/> : <Navigate to="/login"/>} />
           <Route path='requests' element={isAdmin? <Requests/> : <Navigate to="/login"/>} />
           <Route path='partners' element={isAdmin? <Partners/> : <Navigate to="/login"/>} />
           <Route path='workers' element={isAdmin? <Workers/> : <Navigate to="/login"/>} />
