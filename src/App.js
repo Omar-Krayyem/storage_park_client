@@ -83,10 +83,10 @@ function App() {
       navigate(`/admin/${current_page}`);
     } else if (parseInt(user_type) === 2) {
       setIsWorker(true);
-      navigate("/worker");
+      navigate(`/admin/${current_page}`);
     } else if (parseInt(user_type) === 3) {
       setIsPartner(true);
-      navigate("/partner");
+      navigate(`/partner/${current_page}`);
     }
   }, [user_type]);
  
@@ -129,7 +129,7 @@ function App() {
         </Route>
 
         <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to='login'/>}>
-          <Route index  element={isPartner? <PartnerDashboard/> : <Navigate to="/login"/>} />
+          <Route path='dashboard'  element={isPartner? <PartnerDashboard/> : <Navigate to="/login"/>} />
           <Route path='incoming/placed' element={isPartner? <PlacedIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/login"/>} />
           <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/login"/>} />
@@ -156,7 +156,7 @@ function App() {
         </Route>
 
         <Route path='/worker' element={isWorker? <WorkerLayout/> : <Navigate to="/login"/>}>
-          <Route index element={isWorker? <WorkerDashboard/> : <Navigate to="/login"/>} />
+          <Route path='dashboard' element={isWorker? <WorkerDashboard/> : <Navigate to="/login"/>} />
 
           <Route path='incoming/shipment' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/shipment/:id' element={isWorker? <WorkerShipmentIncomingById/> : <Navigate to="/login"/>}></Route>
