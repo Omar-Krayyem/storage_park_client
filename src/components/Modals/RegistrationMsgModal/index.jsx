@@ -15,7 +15,7 @@ const RegistrationMsgModal = ({ openModal, handleCloseModal }) => {
                     <div className='text'>
                     Thank you for placing your trust in us. We will review your registration and send your acceptance via email.
                     </div>
-                    <button onClick={handleCloseModal}>Close</button>
+                    <button onClick={handleCloseModal}>Done</button>
                 </div>
             </Modal>
             
