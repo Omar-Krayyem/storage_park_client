@@ -144,7 +144,7 @@ const AddIncomingOrder = () => {
                     <div className='title'>
                         <div className='page_title'><h1>Place New Order</h1></div>
                         <div className='right_title'>
-                            <Link to={'/partner/incoming/placed'}><button>Back</button></Link>
+                            <Link to={'/partner/incoming'}><button>Back</button></Link>
                         </div>
                     </div>
 

@@ -149,9 +149,10 @@ function App() {
 
           <Route path='stock' element={isPartner? <PartnerStock/> : <Navigate to="/login"/>} />
 
-          <Route path='outgoing/placed' element={isPartner? <PlacedOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing' element={isPartner? <PlacedOutgoing/> : <Navigate to="/login"/>} />
           <Route path='outgoing/create' element={isPartner? <AddOutgoingOrder/> : <Navigate to="/login"/>} />
-          <Route path='outgoing/placed/:id' element={isPartner? <PlacedOutOrderById/> : <Navigate to="/login"/>} />
+          {/* <Route path='outgoing/placed/:id' element={isPartner? <PlacedOutOrderById/> : <Navigate to="/login"/>} /> */}
+          <Route path='outgoing/:id' element={isPartner? <PartnerIncomingOrederDetails/> : <Navigate to="/login"/>} />
 
           <Route path='outgoing/shipment' element={isPartner? <ShipmentOutgoing/> : <Navigate to="/login"/>} />
           <Route path='outgoing/shipment/:id' element={isPartner? <ShipmentOutOrderById/> : <Navigate to="/login"/>} />

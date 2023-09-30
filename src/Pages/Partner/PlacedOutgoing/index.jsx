@@ -68,7 +68,7 @@ const PlacedOutgoing = () => {
                                 <tr className=''>
                                     <th className='placedOutgoing_th top_left'>Order ID</th>
                                     <th className='placedOutgoing_th'>Customer Name</th>
-                                    <th className='placedOutgoing_th '>Placed at</th>
+                                    <th className='placedOutgoing_th '>Status</th>
                                     <th className='placedOutgoing_th'>Total Price $</th>
                                     <th className='placedOutgoing_th top_right'></th>
                                 </tr>
@@ -81,11 +81,11 @@ const PlacedOutgoing = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <OutgoingPlacedRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <OutgoingPlacedRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} status={order.status}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <OutgoingPlacedRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <OutgoingPlacedRow id={order.id} customer_name={order.customer?.name} total_price={order.total_price} status={order.status}/>
                                         ))
                                     )
                                 )}

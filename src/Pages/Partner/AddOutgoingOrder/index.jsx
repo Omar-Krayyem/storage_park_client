@@ -157,7 +157,7 @@ const AddOutgoingOrder = () => {
                     <div className='title'>
                         <div className='page_title'><h1>Place New Outgoing Order</h1></div>
                         <div className='right_title'>
-                            <Link to={'/partner/outgoing/placed'}><button>Back</button></Link>
+                            <Link to={'/partner/outgoing'}><button>Back</button></Link>
                         </div>
                     </div>
 
