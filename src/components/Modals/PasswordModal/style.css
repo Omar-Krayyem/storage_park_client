@@ -31,13 +31,14 @@
     color: #FF8B13;
 }
 
-.PasswordModal .body .title .icon{
+.PasswordModal .title .icon{
     color: #1D2126;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
-.PasswordModal .body .title .icon:hover{
+.PasswordModal .title .icon:hover{
     color: #FF8B13;
+    transition: 0.5s;
 }
 
 .PasswordModal .body button{
