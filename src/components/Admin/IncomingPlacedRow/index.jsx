@@ -10,7 +10,7 @@ const IncomingPlacedRow = (props) => {
             <tr className='AdminIncomingPlacedRow_tr' id={props.id}>
                 <td className='AdminIncomingPlacedRow_td'>{props.id}</td>
                 <td className='AdminIncomingPlacedRow_td'>{props.company_name}</td>
-                <td className='AdminIncomingPlacedRow_td'>{props.placed_at}</td>
+                <td className='AdminIncomingPlacedRow_td'>{props.status}</td>
                 <td className='AdminIncomingPlacedRow_td'>{props.total_price}</td>
                 <td className='AdminIncomingPlacedRow_td'>
                     <AiFillEye 

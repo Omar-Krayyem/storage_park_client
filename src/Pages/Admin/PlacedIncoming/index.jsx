@@ -13,7 +13,7 @@ const PlacedIncoming = () => {
 
 
     const getOrders = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/admin/incoming/placed`, {
+            await axios.get(`http://127.0.0.1:8000/api/admin/incoming/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -27,7 +27,7 @@ const PlacedIncoming = () => {
     };
 
     const getSearched = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/admin/incoming/placed/search/${searchInput}`, {
+        await axios.get(`http://127.0.0.1:8000/api/admin/incoming/search/${searchInput}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -67,7 +67,7 @@ const PlacedIncoming = () => {
                                 <tr className=''>
                                     <th className='adminplacedincoming_th top_left'>Order ID</th>
                                     <th className='adminplacedincoming_th'>Company Name</th>
-                                    <th className='adminplacedincoming_th '>Placed at</th>
+                                    <th className='adminplacedincoming_th '>Status</th>
                                     <th className='adminplacedincoming_th'>Total Price $</th>
                                     <th className='adminplacedincoming_th top_right'></th>
                                 </tr>
@@ -80,11 +80,11 @@ const PlacedIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <IncomingPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <IncomingPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} status={order.status}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <IncomingPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <IncomingPlacedRow id={order.id} company_name={order.user.company_name} total_price={order.status} status={order.status}/>
                                         ))
                                     )
                                 )}
