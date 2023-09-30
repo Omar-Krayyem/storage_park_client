@@ -68,7 +68,7 @@ const Workers = () => {
                     <div className='title'>
                         <div className='page_title'><h1>Workers</h1></div>
                         <div className='right_title'>
-                            <button onClick={handleOpenModal}>Add Worker</button>
+                            <button onClick={handleOpenModal}>Add Employee</button>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ const Workers = () => {
                         <table className='worker_table'>
                             <thead className='worker_thead'>
                                 <tr className=''>
-                                    <th className='workers_th top_left'>Worker Name</th>
+                                    <th className='workers_th top_left'>Employee Name</th>
                                     <th className='workers_th'>Email</th>
                                     <th className='workers_th '>Phone Number</th>
                                     <th className='partners_th'>Address</th>

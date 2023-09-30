@@ -88,7 +88,7 @@ const Dashboard = () => {
                             <span>{partners}</span>Partners
                         </div>
                         <div className='record'>
-                            <span>{workers}</span>Workers
+                            <span>{workers}</span>Employees
                         </div>
                     </div>
                     <div className='graphs'>
