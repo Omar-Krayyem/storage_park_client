@@ -155,6 +155,18 @@
     transition: 0.5s;
 }
 
+.partnerModal .delete{
+    background-color: transparent;
+    color: #1D2126;
+    border: 2px solid #1D2126;
+}
+
+.partnerModal .delete:hover{
+    background-color: red;
+    color: #F0F0F0;
+    border: 2px solid red;
+}
+
 .partnerModal .error{
     width: 100%;
     text-align: left;

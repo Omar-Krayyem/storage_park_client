@@ -180,8 +180,8 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
                             {error && <div className='error'>{error}</div>}
                             {msg && <div className='msg'>{msg}</div>}
                             <div className='btnSection'>
+                                <button className='btn delete' onClick={deleteUser}>Delete</button>
                                 <button className='btn' onClick={updateUser}>Update</button>
-                                <button className='btn' onClick={deleteUser}>Delete</button>
                             </div>
                         </form>
                     </div>
