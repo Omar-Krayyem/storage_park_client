@@ -55,7 +55,7 @@ const PlacedIncoming = () => {
             <div className='Partnerplacedincoming_page'> 
                 <div className='body'>
                     <div className='title'>
-                    <div className='page_title'><h1>Placed Orders</h1></div>
+                    <div className='page_title'><h1>Incoming Orders</h1></div>
                         <div className='right_title'>
                         <Link to={'/partner/incoming/create'}><button>Place Order</button></Link>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>

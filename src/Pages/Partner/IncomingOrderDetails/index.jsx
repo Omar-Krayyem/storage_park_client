@@ -19,38 +19,27 @@ const AdminIncomingPlacedOrder = () => {
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
     const [status, setStatus] = useState("placed");
     const [delivered, setDelivered] = useState()
-    const [display, setDisplay] = useState(false);
 
     const [loading, setLoading] = useState(false)
-    const [workers, setWorkers] = useState([]);
-    const [selectedWorkerId, setSelectedWorkerId] = useState(0);
-    const [selectedWorkerName, setSelectedWorkerName] = useState();
 
-    const [error, setError] = useState("");
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/partner/incoming/placed/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
             console.log(response.data.data)
-            setLatitude(response.data.data.order.latitude);
-            setLongitude(response.data.data.order.longitude);
-            setOrder(response.data.data.order);
-            setWorkers(response.data.data.workers);
-            setOrderItems(response.data.data.order.order_items)
-            const orderStatus = response.data.data.order.status;
+            setLatitude(response.data.data.latitude);
+            setLongitude(response.data.data.longitude);
+            setOrder(response.data.data);
+            setOrderItems(response.data.data.order_items)
+            const orderStatus = response.data.data.status;
             setStatus(orderStatus);
             setMapDataLoaded(true);
-            if(response.data.data.order.status !== "placed"){
-                setSelectedWorkerName(`${response.data.data.order.worker.first_name} ${response.data.data.order.worker.last_name}`)
-                setDisplay(true)
+            if(response.data.data.status === "delivered"){
+                setDelivered(response.data.data.delivered_at)
             }
-            if(response.data.data.order.status === "delivered"){
-                setDelivered(response.data.data.order.delivered_at)
-            }
-            
             setLoading(true)
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -61,46 +50,12 @@ const AdminIncomingPlacedOrder = () => {
         getOrder();
     }, []);
 
-
-    const addToShipment = () => {        
-        if(selectedWorkerId === 0){
-            setError("Select worker")
-        }
-        else{
-            const postData = {id , selectedWorkerId};
-            console.log(postData)
-
-            axios.post('http://127.0.0.1:8000/api/admin/incoming/placed/selectWorker', postData, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-                }
-            })
-            .then(response => {
-                setStatus("shipment")
-                setDisplay(true)
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        }
-    }
-
-    const handleWorkerSelection = (e) => {
-        const selectedId = e.target.value;
-        setSelectedWorkerId(selectedId);
-
-        // Find the worker by ID and set the name in state
-        const selectedWorker = workers.find(worker => worker.id === parseInt(selectedId));
-        setSelectedWorkerName(selectedWorker ? `${selectedWorker.first_name} ${selectedWorker.last_name}` : "");
-    }
-
-
     return (
             <div className='AdminIncomingPlacedOrder_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'>
-                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/admin/incoming')}}/>
+                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/partner/incoming')}}/>
                             <h1>Order Number: {id}</h1>
                         </div>
                     </div>
@@ -109,39 +64,13 @@ const AdminIncomingPlacedOrder = () => {
                         <div className='right_section'>
                             <div className='order_table'>
                                 <table className='AdminIncomingPlacedOrder_table'>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th top_left'>Company Name</th>
-                                        <td className='AdminIncomingPlacedOrder_td top_right' >{order.user?.company_name || ''}</td>
-                                    </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Total Price $</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>{order.total_price}</td>
+                                    <tr className='AdminIncomingPlacedOrder_tr '>
+                                        <th className='AdminIncomingPlacedOrder_th top_left'>Total Price $</th>
+                                        <td className='AdminIncomingPlacedOrder_td top_right'>{order.total_price}</td>
                                     </tr>
                                     <tr className='AdminIncomingPlacedOrder_tr'>
                                         <th className='AdminIncomingPlacedOrder_th'>Placed At</th>
                                         <td className='AdminIncomingPlacedOrder_td'>{order.placed_at}</td>
-                                    </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Employee</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>
-                                            {display ? (
-                                                <>{selectedWorkerName}</>
-                                            ) : (
-                                                <select
-                                                    className="creatableSelect half"
-                                                    value={selectedWorkerId}
-                                                    onChange={handleWorkerSelection}
-                                                    required
-                                                >
-                                                    <option value="0">Employees</option>
-                                                    {workers.map((worker) => (
-                                                        <option key={worker.id} value={worker.id}>
-                                                            {worker.first_name} {worker.last_name}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            )}
-                                        </td>
                                     </tr>
                                     {delivered &&
                                     <tr className='AdminIncomingPlacedOrder_tr'>
@@ -155,19 +84,13 @@ const AdminIncomingPlacedOrder = () => {
                                     </tr>
                                 </table>
                             </div>
-                            {!display &&
-                                <div className='btn_section'>
-                                    {error && <div className='error'>{error}</div>}
-                                    <button onClick={addToShipment}>Assign Employee</button>
-                                </div>
-                            }
                         </div>
                         
                         <div className="left_section">
                             {mapDataLoaded && (
                                 <div className='mapContainer'>
                                     <Map
-                                        height={300}
+                                        height={180}
                                         defaultCenter={[latitude, longitude]}
                                         defaultZoom={13}
                                     >
@@ -177,6 +100,7 @@ const AdminIncomingPlacedOrder = () => {
                             )}
                         </div>
                     </div>}
+                    
                     {loading &&
                     <div className='product_table'>
                         <h2>Order Items:</h2>

@@ -138,7 +138,8 @@ function App() {
           <Route path='dashboard'  element={isPartner? <PartnerDashboard/> : <Navigate to="/login"/>} />
           <Route path='incoming' element={isPartner? <PlacedIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/login"/>} />
-          <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/login"/>} />
+          {/* <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/login"/>} /> */}
+          <Route path='incoming/:id' element={isPartner? <PartnerIncomingOrederDetails/> : <Navigate to="/login"/>} />
 
           <Route path='incoming/shipment' element={isPartner? <ShipmentIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/shipment/:id' element={isPartner? <ShipmentIncomingById/> : <Navigate to="/login"/>} />
