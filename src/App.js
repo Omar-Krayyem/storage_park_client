@@ -24,6 +24,7 @@ import AdminShipmentOutgoing from './Pages/Admin/ShipmentOutgoing';
 import AdminShipmentOutgoingById from './Pages/Admin/ShipmentOutOrderById';
 import AdminDeliveredOutgoing from './Pages/Admin/DeliveredOutgoing';
 import AdminDeliveredOutOrderById from './Pages/Admin/DeliveredOutOrderById';
+import AdminIncomingOrederDetails from './Pages/Admin/IncomingOrderDetails';
 import AdminProfile from './Pages/Admin/Profile';
 import AdminLayout from './utils/AdminLayout';
 
@@ -107,7 +108,8 @@ function App() {
           <Route path='stock' element={isAdmin? <AdminStock/> : <Navigate to="/login"/>} />
 
           <Route path='incoming/placed' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/login"/>} />
-          <Route path='incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/login"/>} />
+          <Route path='incoming/placed/:id' element={isAdmin? <AdminIncomingOrederDetails/> : <Navigate to="/login"/>} />
+          {/* <Route path='incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/login"/>} /> */}
 
 
           <Route path='incoming/shipment' element={isAdmin? <AdminShipmentIncoming/> : <Navigate to="/login"/>}/>
