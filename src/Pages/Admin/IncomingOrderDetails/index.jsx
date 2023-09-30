@@ -100,7 +100,7 @@ const AdminIncomingPlacedOrder = () => {
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'>
-                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/admin/incoming/placed')}}/>
+                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/admin/incoming')}}/>
                             <h1>Order Number: {id}</h1>
                         </div>
                     </div>

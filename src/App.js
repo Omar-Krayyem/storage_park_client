@@ -107,8 +107,8 @@ function App() {
 
           <Route path='stock' element={isAdmin? <AdminStock/> : <Navigate to="/login"/>} />
 
-          <Route path='incoming/placed' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/login"/>} />
-          <Route path='incoming/placed/:id' element={isAdmin? <AdminIncomingOrederDetails/> : <Navigate to="/login"/>} />
+          <Route path='incoming' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming/:id' element={isAdmin? <AdminIncomingOrederDetails/> : <Navigate to="/login"/>} />
           {/* <Route path='incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/login"/>} /> */}
 
 
