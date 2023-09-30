@@ -45,18 +45,18 @@ const Landing = () => {
                                 
                                 <img src={icon1} alt=""/>
                                 <p>
-                                    OBSESSIVE
+                                    Obsessive
                                     <br/>
-                                    ONBOARDING
+                                    Onboarding
                                 </p>
                             </div>
                             <div className="solution">
                                
                                 <img src={icon2} alt=""/> 
                                 <p className="">
-                                    VALUE-ADDED 
+                                    Vlaue-Added
                                     <br/>
-                                    SERVICES
+                                    Services
                                 </p>
                             </div>
 
@@ -64,18 +64,18 @@ const Landing = () => {
                                 
                                 <img src={icon3} alt=""/>
                                 <p>
-                                    TAILORED
+                                    Tailored
                                     <br/>
-                                    ENGINEERED SOLUTIONS
+                                    Engineered Solutions
                                 </p>
                             </div>
                             <div className="solution">
                                 
                                 <img src={icon4} alt=""/>
                                 <p>
-                                    SCALABLE
+                                    Scalable
                                     <br/>
-                                    INTEGRATIONS
+                                    Integrations
                                 </p>
                             </div>
 
@@ -83,9 +83,9 @@ const Landing = () => {
                                 
                                 <img src={icon5} alt=""/> 
                                 <p>
-                                    ROBUST
+                                    Robust
                                     <br/>
-                                    REALTIME PORTAL
+                                    Realtime Portal
                                 </p>
                             </div>
                         </div>

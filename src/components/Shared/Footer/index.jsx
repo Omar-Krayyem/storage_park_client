@@ -13,7 +13,7 @@ const Navbar = () => {
                     <p>storagepark.lb@gmail.com <br></br>00961 01 123 456</p>
                 </div>
                 <div className="right">
-                <span>KEEP UP TO DATE ON INDUSTRY TRENDS AND NEWS</span>
+                <span>Keep up to date on industry trends and news</span>
                 <div className='icons'>
                     <div className='icon'><GrTwitter size={25}/></div>
                     <div className='icon'><AiOutlineInstagram size={30}/></div>

@@ -98,7 +98,7 @@ const Register = () => {
                                 ></input>
                             </div>
                             <div className="text_feild">
-                                <label>Work Email</label>
+                                <label>Professional Email</label>
                                 <input 
                                 className='full'
                                 type="email" 
@@ -137,7 +137,7 @@ const Register = () => {
                                     submitForm(e);
                                 }}
                             ></input>
-                            <div className="form_bottom">Already have an account <Link className='linkBtn' to="/login">login</Link></div>
+                            <div className="form_bottom">Already have an account <Link className='linkBtn' to="/login">Login</Link></div>
                         </form>
                     </div>
                 </div>

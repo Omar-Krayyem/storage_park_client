@@ -63,8 +63,8 @@ const Login = () => {
                 </div>
                 <div className='rightSide'>
                     <div className="form_header">
-                        <div className='title'>Welcome back!</div>
-                        <div className='subTitle'>we can’t wait for you to see what’s new. happy shipping</div>
+                        <div className='formtitle'>Welcome Back!</div>
+                        <div className='formSubTitle'>We can’t wait for you to see what’s new. Happy shipping</div>
                     </div>
                     <div className="form_body">
                         <form className='loginForm'>
@@ -87,8 +87,8 @@ const Login = () => {
                                 ></input> 
                             </div>
                             <div className='error'>{errorMessage}</div>
-                            <input type="submit" className="loginBtn" value="login" onClick={submitForm}></input>
-                            <div className="form_bottom">Didn't have an account <Link className='linkBtn' to="/register">Get started</Link></div>
+                            <input type="submit" className="loginBtn" value="Login" onClick={submitForm}></input>
+                            <div className="form_bottom">Didn't have an account <Link className='linkBtn' to="/register">Get Started</Link></div>
                         </form>
                     </div>
                 </div>
