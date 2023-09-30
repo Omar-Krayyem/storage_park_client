@@ -200,8 +200,8 @@ const RequestModal = ({ openModal, handleCloseModal, user_id }) => {
                                 ></input>
                             </div>
                             <div className='btnSection'>
+                                <button className='btn reject' onClick={deleteRequest}>Reject</button>
                                 <button className='btn' onClick={acceptRequest}>Accept</button>
-                                <button className='btn' onClick={deleteRequest}>Reject</button>
                             </div>
                         </form>
                     </div>

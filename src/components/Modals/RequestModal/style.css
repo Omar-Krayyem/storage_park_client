@@ -149,8 +149,21 @@
     padding: 5px 0;
 }
 
+.requestModal .reject{
+    background-color: transparent;
+    color: #1D2126;
+    border: 2px solid #1D2126;
+}
+
 .requestModal .btn:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
 }
+
+.requestModal .reject:hover{
+    background-color: red;
+    color: #F0F0F0;
+    border: 2px solid red;
+}
+
