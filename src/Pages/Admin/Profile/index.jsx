@@ -110,7 +110,7 @@ const Profile = () => {
                                 </div>
                             </div>
                             <div className="text_feild">
-                                <label>Work Email</label>
+                                <label>Email</label>
                                 <input 
                                     className='full'
                                     type="email" 

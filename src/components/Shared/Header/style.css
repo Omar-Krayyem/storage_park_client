@@ -2,10 +2,22 @@
     background-color: #FF8B13;
     width: 100%;
     padding: 20px 50px;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.Header span{
+.text{
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.Header .text span{
     text-decoration: underline;
+}
+.Header .text:hover{
+    color: #f0f0f0;
+    transition: 0.5s;
 }
