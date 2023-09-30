@@ -167,7 +167,7 @@ function App() {
         <Route path='/worker' element={isWorker? <WorkerLayout/> : <Navigate to="/login"/>}>
           <Route path='dashboard' element={isWorker? <WorkerDashboard/> : <Navigate to="/login"/>} />
 
-          <Route path='incoming/shipment' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/shipment/:id' element={isWorker? <WorkerShipmentIncomingById/> : <Navigate to="/login"/>}></Route>
 
           <Route path='incoming/delivered' element={isWorker? <WorkerDeliveredIncoming/> : <Navigate to="/login"/>}/>

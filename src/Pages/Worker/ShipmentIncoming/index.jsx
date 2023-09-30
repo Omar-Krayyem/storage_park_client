@@ -55,7 +55,7 @@ const ShipmentIncoming = () => {
             <div className='ShipmentIncoming_page'>
                 <div className='body'>
                     <div className='title'>
-                    <div className='page_title'><h1>Shipment Orders</h1></div>
+                    <div className='page_title'><h1>Incoming Orders</h1></div>
                         <div className='right_title'>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
@@ -66,7 +66,7 @@ const ShipmentIncoming = () => {
                                 <tr className=''>
                                     <th className='ShipmentIncoming_th top_left'>Order ID</th>
                                     <th className='ShipmentIncoming_th'>Company Name</th>
-                                    <th className='ShipmentIncoming_th '>Placed at</th>
+                                    <th className='ShipmentIncoming_th '>Status</th>
                                     <th className='ShipmentIncoming_th'>Total Price $</th>
                                     <th className='ShipmentIncoming_th top_right'></th>
                                 </tr>
@@ -79,11 +79,11 @@ const ShipmentIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <ShipmentIncomingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentIncomingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} status={order.status}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <ShipmentIncomingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <ShipmentIncomingRow id={order.id} company_name={order.user.company_name} total_price={order.total_price} status={order.status}/>
                                         ))
                                     )
                                 )}

@@ -10,7 +10,7 @@ const ShipmentIncomingRow = (props) => {
         <tr className='ShipmentIncomingRow_tr' id={props.id}>
                 <td className='ShipmentIncomingRow_td'>{props.id}</td>
                 <td className='ShipmentIncomingRow_td'>{props.company_name}</td>
-                <td className='ShipmentIncomingRow_td'>{props.placed_at}</td>
+                <td className='ShipmentIncomingRow_td'>{props.status}</td>
                 <td className='ShipmentIncomingRow_td'>{props.total_price}</td>
                 <td className='ShipmentIncomingRow_td'>
                     <AiFillEye 
