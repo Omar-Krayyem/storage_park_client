@@ -28,7 +28,7 @@ const Landing = () => {
             <div className='body'>
                 <div className="section hero">
                     <div className='right'>
-                        <h1>We Store, Pick, Pack and Ship</h1>
+                        <h1>Streamlined Solutions for Your Business</h1>
                         <p>
                         Storage Park couples powerful software with its flexible nationwide fulfillment network, enabling brands to offer consistently efficient, 
                         cost-effective delivery that improves the customer experience, from every channel.
@@ -42,46 +42,51 @@ const Landing = () => {
                         <h1>Our Services</h1>
                         <div className='solutions'>
                             <div className="solution">
+                                
+                                <img src={icon1} alt=""/>
                                 <p>
                                     OBSESSIVE
                                     <br/>
                                     ONBOARDING
                                 </p>
-                                <img src={icon1} alt=""/>
                             </div>
                             <div className="solution">
+                               
+                                <img src={icon2} alt=""/> 
                                 <p className="">
                                     VALUE-ADDED 
                                     <br/>
                                     SERVICES
                                 </p>
-                                <img src={icon2} alt=""/>
                             </div>
 
                             <div className="solution">
+                                
+                                <img src={icon3} alt=""/>
                                 <p>
                                     TAILORED
                                     <br/>
                                     ENGINEERED SOLUTIONS
                                 </p>
-                                <img src={icon3} alt=""/>
                             </div>
                             <div className="solution">
+                                
+                                <img src={icon4} alt=""/>
                                 <p>
                                     SCALABLE
                                     <br/>
                                     INTEGRATIONS
                                 </p>
-                                <img src={icon4} alt=""/>
                             </div>
 
                             <div className="solution">
+                                
+                                <img src={icon5} alt=""/> 
                                 <p>
                                     ROBUST
                                     <br/>
                                     REALTIME PORTAL
                                 </p>
-                                <img src={icon5} alt=""/> 
                             </div>
                         </div>
                                                    
