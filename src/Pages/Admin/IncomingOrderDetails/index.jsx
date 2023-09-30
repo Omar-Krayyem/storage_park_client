@@ -1,7 +1,7 @@
 import './style.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Link, useParams, useNavigate  } from 'react-router-dom';
+import { useParams, useNavigate  } from 'react-router-dom';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { Map , Marker } from "pigeon-maps"
 
@@ -18,8 +18,10 @@ const AdminIncomingPlacedOrder = () => {
     const [orderItems, setOrderItems] = useState([]);
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
     const [status, setStatus] = useState("placed");
+    const [delivered, setDelivered] = useState()
     const [display, setDisplay] = useState(false);
 
+    const [loading, setLoading] = useState(false)
     const [workers, setWorkers] = useState([]);
     const [selectedWorkerId, setSelectedWorkerId] = useState(0);
     const [selectedWorkerName, setSelectedWorkerName] = useState();
@@ -27,7 +29,7 @@ const AdminIncomingPlacedOrder = () => {
     const [error, setError] = useState("");
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/placed/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -41,6 +43,15 @@ const AdminIncomingPlacedOrder = () => {
             const orderStatus = response.data.data.order.status;
             setStatus(orderStatus);
             setMapDataLoaded(true);
+            if(response.data.data.order.status !== "placed"){
+                setSelectedWorkerName(`${response.data.data.order.worker.first_name} ${response.data.data.order.worker.last_name}`)
+                setDisplay(true)
+            }
+            if(response.data.data.order.status === "delivered"){
+                setDelivered(response.data.data.order.delivered_at)
+            }
+            
+            setLoading(true)
         } catch (error) {
             console.error("Error fetching products:", error);
         }
@@ -51,30 +62,27 @@ const AdminIncomingPlacedOrder = () => {
     }, []);
 
 
-    const addToShipment = () => {
-        console.log(selectedWorkerName)
-        setStatus("shipment")
-        setDisplay(true)
-        // if(selectedWorkerId === 0){
-        //     setError("Select worker")
-        // }
-        // else{
-        //     const postData = {id , selectedWorkerId};
-        //     console.log(postData)
+    const addToShipment = () => {        
+        if(selectedWorkerId === 0){
+            setError("Select worker")
+        }
+        else{
+            const postData = {id , selectedWorkerId};
+            console.log(postData)
 
-        //     axios.post('http://127.0.0.1:8000/api/admin/incoming/placed/selectWorker', postData, {
-        //     headers: {
-        //         'Authorization': `Bearer ${token}`
-        //         }
-        //     })
-        //     .then(response => {
-
-        //         // navigate('/admin/incoming/shipment');
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     });
-        // }
+            axios.post('http://127.0.0.1:8000/api/admin/incoming/placed/selectWorker', postData, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                setStatus("shipment")
+                setDisplay(true)
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
     }
 
     const handleWorkerSelection = (e) => {
@@ -96,7 +104,7 @@ const AdminIncomingPlacedOrder = () => {
                             <h1>Order Number: {id}</h1>
                         </div>
                     </div>
-
+                    {loading &&
                     <div className='orderInfo'>
                         <div className='right_section'>
                             <div className='order_table'>
@@ -135,6 +143,12 @@ const AdminIncomingPlacedOrder = () => {
                                             )}
                                         </td>
                                     </tr>
+                                    {delivered &&
+                                    <tr className='AdminIncomingPlacedOrder_tr'>
+                                        <th className='AdminIncomingPlacedOrder_th'>Delivered At</th>
+                                        <td className='AdminIncomingPlacedOrder_td' >{delivered}</td>
+                                    </tr>
+                                    }
                                     <tr className='AdminIncomingPlacedOrder_tr'>
                                         <th className='AdminIncomingPlacedOrder_th bottom_left'>Status</th>
                                         <td className='AdminIncomingPlacedOrder_td bottom_right' >{status}</td>
@@ -162,12 +176,8 @@ const AdminIncomingPlacedOrder = () => {
                                 </div>
                             )}
                         </div>
-                    </div>
-
-                    
-
-                        
-
+                    </div>}
+                    {loading &&
                     <div className='product_table'>
                         <h2>Order Items:</h2>
                         <table className='AdminIncomingProduct_table'>
@@ -193,6 +203,7 @@ const AdminIncomingPlacedOrder = () => {
                             </tbody>
                         </table>
                     </div>
+                    }         
                 </div>
             </div>        
     );
