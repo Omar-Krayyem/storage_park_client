@@ -11,7 +11,7 @@ const AdminOutgoingPlacedRow = (props) => {
                 <td className='AdminOutgoingPlacedRow_td'>{props.id}</td>
                 <td className='AdminOutgoingPlacedRow_td'>{props.company_name}</td>
                 <td className='AdminOutgoingPlacedRow_td'>{props.customer_name}</td>
-                <td className='AdminOutgoingPlacedRow_td'>{props.placed_at}</td>
+                <td className='AdminOutgoingPlacedRow_td'>{props.status}</td>
                 <td className='AdminOutgoingPlacedRow_td'>
                     <AiFillEye 
                     onClick={() => {navigate(`${props.id}`)}} 

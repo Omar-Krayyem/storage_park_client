@@ -14,7 +14,7 @@ const PlacedOutgoing = () => {
 
 
     const getOrders = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/admin/outgoing/placed`, {
+            await axios.get(`http://127.0.0.1:8000/api/admin/outgoing`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -28,7 +28,7 @@ const PlacedOutgoing = () => {
     };
 
     const getSearched = async () => {
-        await axios.get(`http://127.0.0.1:8000/api/admin/outgoing/placed/search/${searchInput}`, {
+        await axios.get(`http://127.0.0.1:8000/api/admin/outgoing/search/${searchInput}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -57,7 +57,7 @@ const PlacedOutgoing = () => {
             <div className='Adminplacedoutgoing_page'> 
                 <div className='body'>
                     <div className='title'>
-                    <div className='page_title'><h1>Placed Orders</h1></div>
+                    <div className='page_title'><h1>Outgoing Orders</h1></div>
                         <div className='right_title'>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
@@ -69,7 +69,7 @@ const PlacedOutgoing = () => {
                                     <th className='adminplacedoutgoing_th top_left'>Order ID</th>
                                     <th className='adminplacedoutgoing_th'>Company Name</th>
                                     <th className='adminplacedoutgoing_th'>Customer Name</th>
-                                    <th className='adminplacedoutgoing_th '>Placed at</th>
+                                    <th className='adminplacedoutgoing_th '>Status</th>
                                     <th className='adminplacedoutgoing_th top_right'></th>
                                 </tr>
                             </thead>
@@ -81,11 +81,11 @@ const PlacedOutgoing = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <OutgoingPlacedRow id={order.id} company_name={order.user.company_name} customer_name={order.customer.name} placed_at={order.placed_at}/>
+                                            <OutgoingPlacedRow id={order.id} company_name={order.user.company_name} customer_name={order.customer.name} status={order.status}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <OutgoingPlacedRow id={order.id} company_name={order.user.company_name} customer_name={order.customer.name} placed_at={order.placed_at}/>
+                                            <OutgoingPlacedRow id={order.id} company_name={order.user.company_name} customer_name={order.customer.name} status={order.status}/>
                                         ))
                                     )
                                 )}

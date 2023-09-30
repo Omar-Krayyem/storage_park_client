@@ -56,7 +56,7 @@ const PlacedIncoming = () => {
             <div className='Adminplacedincoming_page'> 
                 <div className='body'>
                     <div className='title'>
-                    <div className='page_title'><h1>Placed Orders</h1></div>
+                    <div className='page_title'><h1>Incoming Orders</h1></div>
                         <div className='right_title'>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
