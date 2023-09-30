@@ -47,6 +47,8 @@ import DeliveredOutgoing from './Pages/Partner/DeliveredOutgoing';
 import DeliveredOutOrderById from './Pages/Partner/DeliveredOutOrderById';
 import PartnerProfile from './Pages/Partner/Profile';
 import PartnerLayout from './utils/PartnerLayout';
+import PartnerIncomingOrederDetails from './Pages/Partner/IncomingOrderDetails';
+
 
 import WorkerDashboard from './Pages/Worker/Dashboard';
 import WorkerShipmentIncoming from './Pages/Worker/ShipmentIncoming';
@@ -134,7 +136,7 @@ function App() {
 
         <Route path='/partner' element={isPartner? <PartnerLayout/> : <Navigate to='login'/>}>
           <Route path='dashboard'  element={isPartner? <PartnerDashboard/> : <Navigate to="/login"/>} />
-          <Route path='incoming/placed' element={isPartner? <PlacedIncoming/> : <Navigate to="/login"/>} />
+          <Route path='incoming' element={isPartner? <PlacedIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/login"/>} />
           <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/login"/>} />
 

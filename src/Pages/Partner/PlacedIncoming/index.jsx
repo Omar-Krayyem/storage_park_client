@@ -67,7 +67,7 @@ const PlacedIncoming = () => {
                                 <tr className=''>
                                     <th className='placedincoming_th top_left'>Order ID</th>
                                     <th className='placedincoming_th'>Order Items</th>
-                                    <th className='placedincoming_th'>Placed at</th>
+                                    <th className='placedincoming_th'>status</th>
                                     <th className='placedincoming_th'>Total Price $</th>
                                     <th className='placedincoming_th top_right'></th>
                                 </tr>
@@ -80,11 +80,11 @@ const PlacedIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} status={order.status}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} placed_at={order.placed_at}/>
+                                            <IncomingPlacedRow id={order.id} item_count={order.item_count} total_price={order.total_price} status={order.status}/>
                                         ))
                                     )
                                 )}
