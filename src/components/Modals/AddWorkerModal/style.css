@@ -66,6 +66,7 @@
 .AddWorkerModal .AddWorkerForm .half{
     width: 100%;
     font-size: 16px;
+    font-weight: 500;
     border: 2px solid #CCCCCC;
     background: #FFF;
     color: #1D2126;
@@ -87,7 +88,7 @@
     color: #1D2126;
     font-family: Inter;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
 }
@@ -95,6 +96,7 @@
 .AddWorkerModal .AddWorkerForm  .full{
     width: 100%;
     font-size: 16px;
+    font-weight: 500;
     border: 2px solid #CCCCCC;
     background: #FFF;
     color: #1D2126;

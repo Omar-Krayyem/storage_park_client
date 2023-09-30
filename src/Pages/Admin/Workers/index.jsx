@@ -66,7 +66,7 @@ const Workers = () => {
             <div className='workers_page'> 
                 <div className='body'>
                     <div className='title'>
-                        <div className='page_title'><h1>Workers</h1></div>
+                        <div className='page_title'><h1>Employees</h1></div>
                         <div className='right_title'>
                             <button onClick={handleOpenModal}>Add Employee</button>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>

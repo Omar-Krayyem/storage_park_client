@@ -62,7 +62,7 @@ const NavSide = () => {
                                 <div className="section-pages">
                                     <NavLink className="nav_link" to={'/admin/requests'}><div className={`page  ${activeSection === "requests" ? 'selected' : ''}`} onClick={() => handlePageClick("requests")}>Requests</div></NavLink>
                                     <NavLink className="nav_link" to={'/admin/partners'}><div className={`page ${activeSection === "partners" ? 'selected' : ''}`} onClick={() => handlePageClick("partners")}>Partners</div></NavLink>
-                                    <NavLink className="nav_link" to={'/admin/workers'}><div className={`page ${activeSection === "workers" ? 'selected' : ''}`} onClick={() => handlePageClick("workers")}>Workers</div></NavLink>
+                                    <NavLink className="nav_link" to={'/admin/workers'}><div className={`page ${activeSection === "workers" ? 'selected' : ''}`} onClick={() => handlePageClick("workers")}>Employees</div></NavLink>
                                 </div>
                             )}
                         </div>

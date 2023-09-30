@@ -177,8 +177,8 @@ const PartnerModal = ({ openModal, handleCloseModal, user_id }) => {
                                 onChange={(e) => setAddress(e.target.value)}
                                 ></input> 
                             </div>
-                            <div className='error'>{error}</div>
-                            <div className='msg'>{msg}</div>
+                            {error && <div className='error'>{error}</div>}
+                            {msg && <div className='msg'>{msg}</div>}
                             <div className='btnSection'>
                                 <button className='btn' onClick={updateUser}>Update</button>
                                 <button className='btn' onClick={deleteUser}>Delete</button>

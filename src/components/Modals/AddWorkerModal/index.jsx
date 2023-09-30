@@ -61,7 +61,7 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
               >
                 <div className='body'>
                 <div className='title'>
-                    <h1>Add Worker</h1>
+                    <h1>Add New Employee</h1>
                     <AiOutlineClose 
                     onClick={async (e) => {
                         e.preventDefault();
@@ -95,7 +95,7 @@ const AddWorkerModal = ({ openModal, handleCloseModal }) => {
                                 </div>
                             </div>
                             <div className="text_feild">
-                                <label>Work Email</label>
+                                <label>Professional Email</label>
                                 <input 
                                 className='full'
                                 type="email" 

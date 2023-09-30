@@ -99,7 +99,7 @@ const GetWorkerModal = ({ openModal, handleCloseModal, user_id }) => {
               }}>
                 <div className='body'>
                 <div className='title'>
-                    <h1>Worker</h1>
+                    <h1>Employee</h1>
                     <AiOutlineClose 
                     onClick={async (e) => {
                         e.preventDefault();
@@ -133,7 +133,7 @@ const GetWorkerModal = ({ openModal, handleCloseModal, user_id }) => {
                                 </div>
                             </div>
                             <div className="text_feild">
-                                <label>Work Email</label>
+                                <label>Professional Email</label>
                                 <input 
                                 className='full'
                                 type="email" 
@@ -163,8 +163,8 @@ const GetWorkerModal = ({ openModal, handleCloseModal, user_id }) => {
                                 onChange={(e) => setAddress(e.target.value)}
                                 ></input> 
                             </div>
-                            <div className='error'>{error}</div>
-                            <div className='msg'>{msg}</div>
+                            {error &&<div className='error'>{error}</div>}
+                            {msg && <div className='msg'>{msg}</div>}
                             <div className='btnSection'>
                                 <button className='btn' onClick={updateUser}>Update</button>
                                 <button className='btn' onClick={deleteUser}>Delete</button>
