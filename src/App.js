@@ -25,6 +25,7 @@ import AdminShipmentOutgoingById from './Pages/Admin/ShipmentOutOrderById';
 import AdminDeliveredOutgoing from './Pages/Admin/DeliveredOutgoing';
 import AdminDeliveredOutOrderById from './Pages/Admin/DeliveredOutOrderById';
 import AdminIncomingOrederDetails from './Pages/Admin/IncomingOrderDetails';
+import AdminOutgoingOrdersDetails from './Pages/Admin/OutgoingOrderDetails';
 import AdminProfile from './Pages/Admin/Profile';
 import AdminLayout from './utils/AdminLayout';
 
@@ -118,8 +119,9 @@ function App() {
           <Route path='incoming/delivered' element={isAdmin? <AdminDeliveredIncoming/> : <Navigate to="/login"/>}/>
           <Route path='incoming/delivered/:id' element={isAdmin? <AdminDeliveredOrderById/> : <Navigate to="/login"/>}/>
 
-          <Route path='outgoing/placed' element={isAdmin? <AdminPlacedOutgoing/> : <Navigate to="/login"/>} />
-          <Route path='outgoing/placed/:id' element={isAdmin? <AdminPlacedOutgoingById/> : <Navigate to="/login"/>} />
+          <Route path='outgoing' element={isAdmin? <AdminPlacedOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing/:id' element={isAdmin? <AdminOutgoingOrdersDetails/> : <Navigate to="/login"/>} />
+          {/* <Route path='outgoing/placed/:id' element={isAdmin? <AdminPlacedOutgoingById/> : <Navigate to="/login"/>} /> */}
 
           <Route path='outgoing/shipment' element={isAdmin? <AdminShipmentOutgoing/> : <Navigate to="/login"/>}/>
           <Route path='outgoing/shipment/:id' element={isAdmin? <AdminShipmentOutgoingById/> : <Navigate to="/login"/>}/>

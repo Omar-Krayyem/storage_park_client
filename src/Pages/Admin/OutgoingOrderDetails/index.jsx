@@ -5,7 +5,7 @@ import { useParams, useNavigate  } from 'react-router-dom';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { Map , Marker } from "pigeon-maps"
 
-const AdminIncomingPlacedOrder = () => {
+const AdminOutgoingOrderDetail = () => {
     const navigate = useNavigate();
     localStorage.setItem("activeSection", "Incplaced");
     const { id } = useParams();
@@ -29,7 +29,7 @@ const AdminIncomingPlacedOrder = () => {
     const [error, setError] = useState("");
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/admin/incoming/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/admin/outgoing/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -88,19 +88,17 @@ const AdminIncomingPlacedOrder = () => {
     const handleWorkerSelection = (e) => {
         const selectedId = e.target.value;
         setSelectedWorkerId(selectedId);
-
-        // Find the worker by ID and set the name in state
         const selectedWorker = workers.find(worker => worker.id === parseInt(selectedId));
         setSelectedWorkerName(selectedWorker ? `${selectedWorker.first_name} ${selectedWorker.last_name}` : "");
     }
 
 
     return (
-            <div className='AdminIncomingPlacedOrder_page'>
+            <div className='AdminOutgoingOrderDetail_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'>
-                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/admin/incoming')}}/>
+                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/admin/outgoing')}}/>
                             <h1>Order Number: {id}</h1>
                         </div>
                     </div>
@@ -112,6 +110,18 @@ const AdminIncomingPlacedOrder = () => {
                                     <tr className='AdminIncomingPlacedOrder_tr'>
                                         <th className='AdminIncomingPlacedOrder_th top_left'>Company Name</th>
                                         <td className='AdminIncomingPlacedOrder_td top_right' >{order.user?.company_name || ''}</td>
+                                    </tr>
+                                    <tr className='AdminIncomingPlacedOrder_tr'>
+                                        <th className='AdminIncomingPlacedOrder_th'>Customer Name</th>
+                                        <td className='AdminIncomingPlacedOrder_td' >{order.customer?.name || ''}</td>
+                                    </tr>
+                                    <tr className='AdminIncomingPlacedOrder_tr'>
+                                        <th className='AdminIncomingPlacedOrder_th'>Customer Email</th>
+                                        <td className='AdminIncomingPlacedOrder_td' >{order.customer?.email || ''}</td>
+                                    </tr>
+                                    <tr className='AdminIncomingPlacedOrder_tr'>
+                                        <th className='AdminIncomingPlacedOrder_th'>Customer Phone</th>
+                                        <td className='AdminIncomingPlacedOrder_td' >{order.customer?.phone || ''}</td>
                                     </tr>
                                     <tr className='AdminIncomingPlacedOrder_tr'>
                                         <th className='AdminIncomingPlacedOrder_th'>Total Price $</th>
@@ -167,7 +177,7 @@ const AdminIncomingPlacedOrder = () => {
                             {mapDataLoaded && (
                                 <div className='mapContainer'>
                                     <Map
-                                        height={300}
+                                        height={398}
                                         defaultCenter={[latitude, longitude]}
                                         defaultZoom={13}
                                     >
@@ -209,4 +219,4 @@ const AdminIncomingPlacedOrder = () => {
     );
 }
 
-export default AdminIncomingPlacedOrder;
+export default AdminOutgoingOrderDetail;
