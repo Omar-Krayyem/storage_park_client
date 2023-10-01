@@ -9,7 +9,7 @@ const Workers = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchedWorker, setSearchedWorker] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
-
+    const [loading, setLoading] = useState(true);
     const token = localStorage.getItem("token");
 
     const [openModal, setOpenModal] = useState(false);
@@ -30,6 +30,7 @@ const Workers = () => {
             })
             .then(response => {
                 setUsers(response.data.data);
+                setLoading(false);
             })            
             .catch(error => {
                 console.log(error);
@@ -72,6 +73,14 @@ const Workers = () => {
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
+                    {loading ? (
+                                <div className="loading-animation">
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                              </div>
+
+                    ) : (
                     <div className='table'>
                         <table className='worker_table'>
                             <thead className='worker_thead'>
@@ -101,7 +110,7 @@ const Workers = () => {
                                 )}
                             </tbody>
                         </table>
-                    </div>
+                    </div>)}
                 </div>
                 <AddWorkerModal
                     handleCloseModal={handleCloseModal}
