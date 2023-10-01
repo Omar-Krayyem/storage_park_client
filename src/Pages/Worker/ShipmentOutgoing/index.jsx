@@ -46,7 +46,7 @@ const ShipmentIncoming = () => {
         } else {
             getSearched();
         }
-    }, [searchInput]);
+    }, []);
 
     useEffect(() => {
         setNoRecords(orders.length === 0 && searchedOrders.length === 0);
