@@ -24,7 +24,7 @@ const AdminIncomingPlacedOrder = () => {
 
     const getOrder = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/worker/incoming/shipment/${id}`, {
+            const response = await axios.get(`http://127.0.0.1:8000/api/worker/outgoing/shipment/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -66,7 +66,7 @@ const AdminIncomingPlacedOrder = () => {
         .then(response => {
             const currentDate = new Date();
             const year = currentDate.getFullYear();
-            const month = currentDate.getMonth() + 1; // Months are 0-based, so add 1
+            const month = currentDate.getMonth() + 1;
             const day = currentDate.getDate();
             
             const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
@@ -84,7 +84,7 @@ const AdminIncomingPlacedOrder = () => {
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'>
-                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/worker/incoming')}}/>
+                            <RiArrowDownSLine className='arrow' size={35} onClick={() => {navigate('/worker/outgoing')}}/>
                             <h1>Order Number: {id}</h1>
                         </div>
                     </div>
@@ -140,7 +140,7 @@ const AdminIncomingPlacedOrder = () => {
                             {mapDataLoaded && (
                                 <div className='mapContainer'>
                                     <Map
-                                        height={230}
+                                        height={360}
                                         defaultCenter={[latitude, longitude]}
                                         defaultZoom={13}
                                     >
