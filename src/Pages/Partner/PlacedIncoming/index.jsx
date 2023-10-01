@@ -10,7 +10,7 @@ const PlacedIncoming = () => {
     const [searchedOrders, setSearchedOrders] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
-
+    const [loading, setLoading] = useState(true);
     const getOrders = async () => {
             await axios.get(`http://127.0.0.1:8000/api/partner/incoming/placed`, {
                 headers: {
@@ -19,6 +19,7 @@ const PlacedIncoming = () => {
             })
             .then(response => {
                 setOrders(response.data.data);
+                setLoading(false);
             })            
             .catch(error => {
                 console.log(error);
@@ -61,6 +62,14 @@ const PlacedIncoming = () => {
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
+                    {loading ? (
+                                <div className="loading-animation">
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                              </div>
+
+                    ) : (
                     <div className='table'>
                         <table className='placedincoming_table'>
                             <thead className='placedincoming_thead'>
@@ -90,7 +99,7 @@ const PlacedIncoming = () => {
                                 )}
                             </tbody>
                         </table>
-                    </div>
+                    </div>)}
                 </div>
             </div>
     );
