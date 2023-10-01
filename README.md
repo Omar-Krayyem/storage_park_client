@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+<img src="./Readme/title1.svg"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./Readme/title2.svg"/>
 
-## Available Scripts
+> Storage Park is a system for a warehouse includes a powerful warehouse management system that offers businesses complete control and enhanced visibility into their warehouse operations. One of the key functionalities of a WMS is its capability to incorporate location tracking technologies, such as GPS, to precisely monitor the whereabouts of orders and inventory items within the warehouse.
+>
+> In addition to its robust warehouse management features, Storage Park incorporates a customer-centric live order tracking system. This feature allows businesses to provide real-time updates and status information to their customers, ensuring a seamless and transparent order fulfillment process.
 
-In the project directory, you can run:
+### User Types 
+1. Admin
+2. Worker
+3. Partner
+4. customer
 
-### `npm start`
+### Features of the App 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+As a Admin: 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- I want to access a comprehensive dashboard, so I can view and manage all aspects of the coffee shop's app and operations.
+- I want to manage user accounts and access, including adding and removing employees and partners, to ensure security and compliance.
+- I want to view analytics and reports on sales, customer behavior, and inventory levels, so I can make informed business decisions.
+  
+As a Worker: 
 
-### `npm test`
+- I want to receive new delivery orders, so I can prepare and deliver them promptly.
+- I want to have a clear list of delivery addresses and customer contact information, so I can efficiently deliver orders.
+- I want to update the order status (picked up, on the way, delivered) in real-time, so customers and admin can track the progress.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As a Partner: 
 
-### `npm run build`
+- I want to log in to my account, so I can access my store's inventory and order history.
+- I want to place new orders for products and manage their quantities, so I can keep my store well-stocked.
+- I want to receive when my order is ready for pickup or delivery, so I can plan accordingly.
+  
+As a Customer: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- I want to see real-time updates on the status of my order.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+<img src="./Readme/title3.svg"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+>We designed Fatal Breath using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
-### `npm run eject`
+| Landing Page  | Login | Signup |
+| ---| ---| ---|
+| ![Landing](./Readme/mockups/Landing_page.jpg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
+| Dashboard | Requests | Requests Form |
+| ![Dashboard](./Readme/mockups/Dashboard.jpg) | ![Requests](./Readme/mockups/Request.jpg) | ![Requests Form](./Readme/mockups/Request_Form.jpg) |
+| Profile | Partners | Partners Form |
+| ![Profile](./Readme/mockups/Profile.jpg) | ![Partners](./Readme/mockups/Partners.jpg) | ![Partners Form ](./Readme/mockups/Partners_Form.jpg) |
+| Workers | Workers Form | Stored Items |
+| ![Workers](./Readme/mockups/Workers.jpg) | ![Workers Form](./Readme/mockups/Workers_Form.jpg) | ![Stored Items](./Readme/mockups/Stored_Items.jpg) |
+| Stored Items Form | Placed Orders | Placed Order |
+| ![Stored Items Form ](./Readme/mockups/Stored_Items_Form.jpg) | ![Placed Orders](./Readme/mockups/Incoming_Placed.jpg) | ![Placed Order](./Readme/mockups/Incoming_Placed_Detail-1.jpg) |
+| Shipment Orders | Shipment Order | Delivered Orders |
+| ![Shipment Orders](./Readme/mockups/Incoming_Shipment.jpg) | ![Shipment Order](./Readme/mockups/Incoming_Shipment_Detail.jpg) | ![Delivered Orders](./Readme/mockups/Incoming_Delivered.jpg) |
+| Delivered Order |
+| ![Delivered Order](./Readme/mockups/Outgoing_Delivered_Detail.jpg)|
+<br><br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img src="./Readme/title4.svg"/>
+<br><br>
+Using the wireframes and mockups as a guide, we implemented the Storage Park app with the following features:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Landing Page  | Tracking Order | Login |
+| ---| ---| ---|
+| ![Landing](./Readme/gif/landing_page.gif) | ![Tracking Order](./Readme/gif/tracking_order.gif) | ![Login](./Readme/gif/login.gif) |
+| Registration | View Stock | Add New Order |
+| ![Registration](./Readme/gif/registration.gif) | ![Requests](./Readme/gif/view_stock.gif) | ![Add New Order](./Readme/gif/add_order.gif) |
+| Change Password |
+| ![Change Password](./Readme/gif/change_password.gif) |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="./Readme/title5.svg"/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+###  Storage Park is built using the following technologies:
 
-## Learn More
+- This project uses the [React Library](https://react.dev/) for the frontend development.
+- This project uses [Laravel](https://laravel.com/), a PHP web application framework. Laravel simplifies web development by providing robust tools and an expressive syntax for building secure and scalable web applications.
+- [MySQL](https://www.mysql.com/) for the database. It is an open-source relational database management system.
+- Storage Park includes hardware integration with an ESP8266 microchip connected to a GPS sensor to get location.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="./Readme/title6.svg"/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> To set up Storage Park locally, follow these steps:
 
-### Code Splitting
+## Prerequisites
+- MySQL
+	1) Follow these instructions to setup MySQL: [MySQL Insrallation](https://www.w3schools.com/mysql/mysql_install_windows.asp)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Installation
 
-### Analyzing the Bundle Size
+1) Clone the frontend repo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```sh
+   git clone https://github.com/Omar-Krayyem/storage_park_client.git
+   ```
 
-### Making a Progressive Web App
+2) Clone the backend repo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```sh
+   git clone https://github.com/Omar-Krayyem/storage_park_server.git
+   ```
 
-### Advanced Configuration
+3) Install Laravel dependencies by navigating to the Laravel project directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```sh
+   cd laravel-backend
+   composer install
+   ```
 
-### Deployment
+4) Set up your Laravel environment and configure the .env file with your database settings.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   Run Laravel migrations to set up the database:
 
-### `npm run build` fails to minify
+   ```sh
+   php artisan migrate
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5) Launch the server
+	- Navigate to the server repo
+	- Run this command	
+	```sh
+	php artisan serve
+	```
+
+6) Launch the frontend
+	- Navigate to the frontend repo
+	- Run this command	
+	```sh
+	npm start
+	```
+
+### Hardware Setup (Go to the simulation section to simulate hardware functionality)
+
+-  ESP8266 Hardware Setup:
+
+1. Plug your Arduino to your laptop/mac
+
+2. Install [Arduino IDE](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing)(You can use alternative aurduino IDE's)
+
+3. Upload the Arduino code located in the esp8266 directory to your ESP8266 microchip using the Arduino IDE.
+
+4. Connect the ESP8266 to the MQ2 sensor and other required components as per your hardware configuration.
+
+<br>
+
+Now, you should be able to run **Storage Park** locally and explore its features
