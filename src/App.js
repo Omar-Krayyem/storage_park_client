@@ -176,7 +176,7 @@ function App() {
           <Route path='incoming/delivered' element={isWorker? <WorkerDeliveredIncoming/> : <Navigate to="/login"/>}/>
           <Route path='incoming/delivered/:id' element={isWorker? <WorkerDeliveredOrderById/> : <Navigate to="/login"/>}></Route>
 
-          <Route path='outgoing/shipment' element={isWorker? <WorkerShipmentOutgoing/> : <Navigate to="/login"/>} />
+          <Route path='outgoing' element={isWorker? <WorkerShipmentOutgoing/> : <Navigate to="/login"/>} />
           <Route path='outgoing/shipment/:id' element={isWorker? <WorkerShipmentOutOrderById/> : <Navigate to="/login"/>}></Route>
 
           <Route path='outgoing/delivered' element={isWorker? <WorkerDeliveredOutgoing/> : <Navigate to="/login"/>}/>

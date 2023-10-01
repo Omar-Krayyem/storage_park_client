@@ -73,8 +73,15 @@ const NavSide = () => {
                             )}
                         </div> */}
 
+                        <NavLink className="nav_link" to={'/worker/outgoing'}>
+                            <div className={`title_section ${activeSection === "outgoing" ? 'selected' : ''}`} onClick={() => handlePageClick("outgoing")}>
+                                <div className='icon reflect'> <TbTruckDelivery size={27}/> </div>
+                                <div className="title">Outgoing Orders</div>
+                            </div>
+                        </NavLink>
 
-                        <div className="section">
+
+                        {/* <div className="section">
                             <div className='title_section' onClick={() => toggleSection("outgoingOrders")}>
                                 <div className={`first ${activeSection === "outgoing/shipment" || activeSection === "outgoing/delivered" ? 'selected' : ''}`}>
                                     <div className='icon reflect'> <TbTruckDelivery size={27}/> </div>
@@ -89,7 +96,7 @@ const NavSide = () => {
                                     <NavLink className="nav_link" to={'/worker/outgoing/delivered'}><div className={`page ${activeSection === "outgoing/delivered" ? 'selected' : ''}`} onClick={() => handlePageClick("outgoing/delivered")}>Delivered</div></NavLink>
                                 </div>
                             )}
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>

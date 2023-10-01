@@ -55,7 +55,7 @@ const ShipmentIncoming = () => {
             <div className='ShipmentOutgoing_page'>
                 <div className='body'>
                     <div className='title'>
-                    <div className='page_title'><h1>Shipment Orders</h1></div>
+                    <div className='page_title'><h1>Outgoing Orders</h1></div>
                         <div className='right_title'>
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
@@ -67,7 +67,7 @@ const ShipmentIncoming = () => {
                                     <th className='ShipmentOutgoing_th top_left'>Order ID</th>
                                     <th className='ShipmentOutgoing_th'>Company Name</th>
                                     <th className='ShipmentOutgoing_th'>Customer Name</th>
-                                    <th className='ShipmentOutgoing_th '>Placed at</th>
+                                    <th className='ShipmentOutgoing_th '>Status</th>
                                     <th className='ShipmentOutgoing_th top_right'></th>
                                 </tr>
                             </thead>
@@ -79,11 +79,11 @@ const ShipmentIncoming = () => {
                                 ) : (
                                     searchInput === "" ? (
                                         orders.map((order) => (
-                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} customer_name={order.customer?.name} placed_at={order.placed_at}/>
+                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} customer_name={order.customer?.name} status={order.status}/>
                                         ))
                                     ) : (
                                         searchedOrders.map((order) => (
-                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} customer_name={order.customer?.name} placed_at={order.placed_at}/>
+                                            <ShipmentOutgoingRow id={order.id} company_name={order.user.company_name} customer_name={order.customer?.name} status={order.status}/>
                                         ))
                                     )
                                 )}

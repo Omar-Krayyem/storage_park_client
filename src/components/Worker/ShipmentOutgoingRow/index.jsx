@@ -11,7 +11,7 @@ const ShipmentOutgoingRow = (props) => {
                 <td className='ShipmentOutgoingRow_td'>{props.id}</td>
                 <td className='ShipmentOutgoingRow_td'>{props.company_name}</td>
                 <td className='ShipmentOutgoingRow_td'>{props.customer_name}</td>
-                <td className='ShipmentOutgoingRow_td'>{props.placed_at}</td>
+                <td className='ShipmentOutgoingRow_td'>{props.status}</td>
                 <td className='ShipmentOutgoingRow_td'>
                     <AiFillEye 
                     onClick={() => {navigate(`${props.id}`)}}  
