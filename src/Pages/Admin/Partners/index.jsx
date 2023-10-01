@@ -10,8 +10,10 @@ const Partners = () => {
     const [searchedPartners, setSearchedRequests] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
+    const [loading, setLoading] = useState(true);
 
     const getUsers = async () => {
+            
             await axios.get(`http://127.0.0.1:8000/api/admin/partner`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -19,6 +21,7 @@ const Partners = () => {
             })
             .then(response => {
                 setUsers(response.data.data);
+                setLoading(false);
             })            
             .catch(error => {
                 console.log(error);
@@ -60,6 +63,15 @@ const Partners = () => {
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
+                    
+                    {loading ? (
+                                <div className="loading-animation">
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                              </div>
+
+                    ) : (
                     <div className='table'>
                         <table className='partner_table'>
                             <thead className='partner_thead'>
@@ -90,6 +102,7 @@ const Partners = () => {
                             </tbody>
                         </table>
                     </div>
+                    )}
                 </div>
             </div>
     );
