@@ -9,7 +9,7 @@ const Stock = () => {
     const [searchedProduct, setSearchedRequests] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
     const token = localStorage.getItem("token");
-
+    const [loading, setLoading] = useState(true);
 
     const getOrders = async () => {
             await axios.get(`http://127.0.0.1:8000/api/admin/stock`, {
@@ -19,6 +19,7 @@ const Stock = () => {
             })
             .then(response => {
                 setStocks(response.data.data);
+                setLoading(false);
             })            
             .catch(error => {
                 console.log(error);
@@ -60,6 +61,14 @@ const Stock = () => {
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
+                    {loading ? (
+                                <div className="loading-animation">
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                              </div>
+
+                    ) : (
                     <div className='table'>
                         <table className='AdminStock_table'>
                             <thead className='AdminStock_thead'>
@@ -89,7 +98,7 @@ const Stock = () => {
                                 )}
                             </tbody>
                         </table>
-                    </div>
+                    </div>)}
                 </div>
             </div>        
     );
