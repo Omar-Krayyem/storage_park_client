@@ -130,7 +130,7 @@ const AddOutgoingOrder = () => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            navigate('/partner/outgoing/placed');
+            navigate('/partner/outgoing');
         } catch (error) {
             console.error("Error adding order:", error);
         }
