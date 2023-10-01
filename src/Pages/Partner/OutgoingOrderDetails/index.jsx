@@ -65,13 +65,9 @@ const AdminOutgoingOrderDetail = () => {
                         <div className='right_section'>
                             <div className='order_table'>
                                 <table className='AdminIncomingPlacedOrder_table'>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th top_left'>Company Name</th>
-                                        <td className='AdminIncomingPlacedOrder_td top_right' >{order.user?.company_name || ''}</td>
-                                    </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Customer Name</th>
-                                        <td className='AdminIncomingPlacedOrder_td' >{order.customer?.name || ''}</td>
+                                    <tr className='AdminIncomingPlacedOrder_tr '>
+                                        <th className='AdminIncomingPlacedOrder_th top_left'>Customer Name</th>
+                                        <td className='AdminIncomingPlacedOrder_td top_right' >{order.customer?.name || ''}</td>
                                     </tr>
                                     <tr className='AdminIncomingPlacedOrder_tr'>
                                         <th className='AdminIncomingPlacedOrder_th'>Customer Email</th>
@@ -111,7 +107,7 @@ const AdminOutgoingOrderDetail = () => {
                                         defaultCenter={[latitude, longitude]}
                                         defaultZoom={13}
                                     >
-                                        <Marker width={50} anchor={[latitude, longitude]} />
+                                        <Marker width={50} anchor={[longitude, latitude]} />
                                     </Map>
                                 </div>
                             )}

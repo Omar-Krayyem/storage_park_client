@@ -9,21 +9,24 @@ const Requests = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchedRequests, setSearchedRequests] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const token = localStorage.getItem("token");
 
     const getUsers = async () => {
-            await axios.get(`http://127.0.0.1:8000/api/admin/request`, {
+        setLoading(true);
+        try {
+            const response = await axios.get(`http://127.0.0.1:8000/api/admin/request`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
-            })
-            .then(response => {
-                setUsers(response.data.data);
-            })            
-            .catch(error => {
-                console.log(error);
-            })
+            });
+            setUsers(response.data.data);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const getSearched = async () => {
@@ -46,7 +49,7 @@ const Requests = () => {
         } else {
             getSearched();
         }
-    }, [searchInput]);
+    }, []);
 
     useEffect(() => {
         setNoRecords(Users.length === 0 && searchedRequests.length === 0);
@@ -61,6 +64,14 @@ const Requests = () => {
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
+                    {loading ? (
+                                <div className="loading-animation">
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                              </div>
+
+                    ) : (
                     <div className='table'>
                         <table className='request_table'>
                             <thead className='request_thead'>
@@ -72,25 +83,29 @@ const Requests = () => {
                                     <th className='request_th top_right'></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {noRecords ? (
-                                    <tr>
-                                        <td colSpan="5">No records found.</td>
-                                    </tr>
-                                ) : (
-                                    searchInput === "" ? (
-                                        Users.map((request) => (
-                                            <RequestRow id={request.id} name={request.company_name} email={request.email} phone={request.phone} address={request.address}/>
-                                        ))
+                            
+                                <tbody>
+                                    {noRecords ? (
+                                        <tr>
+                                            <td colSpan="5">No records found.</td>
+                                        </tr>
                                     ) : (
-                                        searchedRequests.map((request) => (
-                                            <RequestRow id={request.id} name={request.company_name} email={request.email} phone={request.phone} address={request.address}/>
-                                        ))
-                                    )
-                                )}
-                            </tbody>
+                                        searchInput === "" ? (
+                                            Users.map((request) => (
+                                                <RequestRow id={request.id} name={request.company_name} email={request.email} phone={request.phone} address={request.address}/>
+                                            ))
+                                        ) : (
+                                            searchedRequests.map((request) => (
+                                                <RequestRow id={request.id} name={request.company_name} email={request.email} phone={request.phone} address={request.address}/>
+                                            ))
+                                        )
+                                    )}
+                                </tbody>
+                            
+                            
                         </table>
                     </div>
+                    )}
                 </div>
             </div>
     );
