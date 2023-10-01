@@ -88,7 +88,7 @@ const Login = () => {
                             </div>
                             <div className='error'>{errorMessage}</div>
                             <input type="submit" className="loginBtn" value="Login" onClick={submitForm}></input>
-                            <div className="form_bottom">Didn't have an account <Link className='linkBtn' to="/register">Get Started</Link></div>
+                            <div className="form_bottom">Dont't have an account? <Link className='linkBtn' to="/register">Get Started</Link></div>
                         </form>
                     </div>
                 </div>

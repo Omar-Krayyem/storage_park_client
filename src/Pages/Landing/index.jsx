@@ -54,7 +54,7 @@ const Landing = () => {
                                
                                 <img src={icon2} alt=""/> 
                                 <p className="">
-                                    Vlaue-Added
+                                    Value-Added
                                     <br/>
                                     Services
                                 </p>

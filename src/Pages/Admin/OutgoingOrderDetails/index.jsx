@@ -13,7 +13,7 @@ const AdminOutgoingOrderDetail = () => {
     
     const [latitude, setLatitude] = useState();
     const [longitude, setLongitude] = useState();
-    
+    console.log("lat: ", latitude,"long: ", longitude)
     const [order, setOrder] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
     const [mapDataLoaded, setMapDataLoaded] = useState(false); 
@@ -25,7 +25,7 @@ const AdminOutgoingOrderDetail = () => {
     const [workers, setWorkers] = useState([]);
     const [selectedWorkerId, setSelectedWorkerId] = useState(0);
     const [selectedWorkerName, setSelectedWorkerName] = useState();
-
+    
     const [error, setError] = useState("");
     const getOrder = async () => {
         try {
@@ -37,12 +37,13 @@ const AdminOutgoingOrderDetail = () => {
             console.log(response.data.data)
             setLatitude(response.data.data.order.latitude);
             setLongitude(response.data.data.order.longitude);
+            console.log("la: ", response.data.data.order.latitude);
+            console.log("lo: ", response.data.data.order.longitude);
             setOrder(response.data.data.order);
             setWorkers(response.data.data.workers);
             setOrderItems(response.data.data.order.order_items)
             const orderStatus = response.data.data.order.status;
             setStatus(orderStatus);
-            setMapDataLoaded(true);
             if(response.data.data.order.status !== "placed"){
                 setSelectedWorkerName(`${response.data.data.order.worker.first_name} ${response.data.data.order.worker.last_name}`)
                 setDisplay(true)
@@ -59,7 +60,8 @@ const AdminOutgoingOrderDetail = () => {
 
     useEffect(() => {
         getOrder();
-    }, []);
+        setMapDataLoaded(true);
+    }, [longitude, latitude]);
 
 
     const addToShipment = () => {        
@@ -159,16 +161,33 @@ const AdminOutgoingOrderDetail = () => {
                                         <td className='AdminIncomingPlacedOrder_td' >{delivered}</td>
                                     </tr>
                                     }
+
+                                    {display &&
                                     <tr className='AdminIncomingPlacedOrder_tr'>
                                         <th className='AdminIncomingPlacedOrder_th bottom_left'>Status</th>
                                         <td className='AdminIncomingPlacedOrder_td bottom_right' >{status}</td>
                                     </tr>
+                                    }       
+                                    
+                                    
+                                    {!display &&
+                                    <tr className='AdminIncomingPlacedOrder_tr'>
+                                    <th className='AdminIncomingPlacedOrder_th '>Status</th>
+                                    <td className='AdminIncomingPlacedOrder_td' >{status}</td>
+                                    </tr>
+                                    }
+                                    {!display &&
+                                    <tr className='AdminIncomingPlacedOrder_tr'>
+                                        <th className='AdminIncomingPlacedOrder_th bottom_left'></th>
+                                        <td className='AdminIncomingPlacedOrder_td bottom_right' ><button onClick={addToShipment}>Assign Employee</button></td>
+                                    </tr>
+                                    }
                                 </table>
                             </div>
                             {!display &&
                                 <div className='btn_section'>
                                     {error && <div className='error'>{error}</div>}
-                                    <button onClick={addToShipment}>Assign Employee</button>
+                                    
                                 </div>
                             }
                         </div>
@@ -177,11 +196,11 @@ const AdminOutgoingOrderDetail = () => {
                             {mapDataLoaded && (
                                 <div className='mapContainer'>
                                     <Map
-                                        height={398}
+                                        height={410}
                                         defaultCenter={[latitude, longitude]}
                                         defaultZoom={13}
                                     >
-                                        <Marker width={50} anchor={[latitude, longitude]} />
+                                        <Marker width={50} anchor={[ longitude, latitude]} />
                                     </Map>
                                 </div>
                             )}
