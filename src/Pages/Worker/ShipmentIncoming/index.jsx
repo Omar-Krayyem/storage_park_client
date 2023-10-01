@@ -8,7 +8,7 @@ const ShipmentIncoming = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchedOrders, setSearchedOrders] = useState([]);
     const [noRecords, setNoRecords] = useState(false);
-
+    const [loading, setLoading] = useState(true);
     const token = localStorage.getItem("token");
 
     const getOrders = async () => {
@@ -19,6 +19,7 @@ const ShipmentIncoming = () => {
             })
             .then(response => {
                 setOrders(response.data.data);
+                setLoading(false);
             })            
             .catch(error => {
                 console.log(error);
@@ -60,6 +61,14 @@ const ShipmentIncoming = () => {
                             <input type='text' placeholder='Search' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
                         </div>
                     </div>
+                    {loading ? (
+                                <div className="loading-animation">
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                                    <div className="point"></div>
+                              </div>
+
+                    ) : (
                     <div className='table'>
                         <table className='ShipmentIncoming_table'>
                             <thead className='ShipmentIncoming_thead'>
@@ -89,7 +98,7 @@ const ShipmentIncoming = () => {
                                 )}
                             </tbody>
                         </table>
-                    </div>
+                    </div>)}
                 </div>
             </div>        
     );
