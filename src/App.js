@@ -63,7 +63,7 @@ import WorkerDeliveredOutOrderById from './Pages/Worker/DeliveredOutOrderById';
 import WorkerProfile from './Pages/Worker/Profile';
 import WorkerLayout from './utils/WorkerLayout';
 import WorkerIncomingOrederDetails from './Pages/Worker/IncomingOrderDetails';
-// import WorkerOutgoingOrdersDetails from './Pages/Worker/OutgoingOrderDetails';
+import WorkerOutgoingOrdersDetails from './Pages/Worker/OutgoingOrderDetails';
 
 import { Provider } from 'react-redux';
 import reduxStore from './redux/store';
@@ -178,6 +178,7 @@ function App() {
 
           <Route path='outgoing' element={isWorker? <WorkerShipmentOutgoing/> : <Navigate to="/login"/>} />
           <Route path='outgoing/shipment/:id' element={isWorker? <WorkerShipmentOutOrderById/> : <Navigate to="/login"/>}></Route>
+          <Route path='outgoing/:id' element={isWorker? <WorkerIncomingOrederDetails/> : <Navigate to="/login"/>}></Route>
 
           <Route path='outgoing/delivered' element={isWorker? <WorkerDeliveredOutgoing/> : <Navigate to="/login"/>}/>
           <Route path='outgoing/delivered/:id' element={isWorker? <WorkerDeliveredOutOrderById/> : <Navigate to="/login"/>}></Route>
