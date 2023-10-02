@@ -5,7 +5,7 @@ import { useParams, useNavigate  } from 'react-router-dom';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { Map , Marker } from "pigeon-maps"
 
-const AdminIncomingPlacedOrder = () => {
+const PartnerIncomingOrder = () => {
     const navigate = useNavigate();
     localStorage.setItem("activeSection", "Incplaced");
     const { id } = useParams();
@@ -51,7 +51,7 @@ const AdminIncomingPlacedOrder = () => {
     }, []);
 
     return (
-            <div className='AdminIncomingPlacedOrder_page'>
+            <div className='PartnerIncomingOrderDetail_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'>
@@ -63,24 +63,24 @@ const AdminIncomingPlacedOrder = () => {
                     <div className='orderInfo'>
                         <div className='right_section'>
                             <div className='order_table'>
-                                <table className='AdminIncomingPlacedOrder_table'>
-                                    <tr className='AdminIncomingPlacedOrder_tr '>
-                                        <th className='AdminIncomingPlacedOrder_th top_left'>Total Price $</th>
-                                        <td className='AdminIncomingPlacedOrder_td top_right'>{order.total_price}</td>
+                                <table className='PartnerIncomingOrderDetail_table'>
+                                    <tr className='PartnerIncomingOrderDetail_tr '>
+                                        <th className='PartnerIncomingOrderDetail_th top_left'>Total Price $</th>
+                                        <td className='PartnerIncomingOrderDetail_td top_right'>{order.total_price}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Placed At</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>{order.placed_at}</td>
+                                    <tr className='PartnerIncomingOrderDetail_tr'>
+                                        <th className='PartnerIncomingOrderDetail_th'>Placed At</th>
+                                        <td className='PartnerIncomingOrderDetail_td'>{order.placed_at}</td>
                                     </tr>
                                     {delivered &&
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Delivered At</th>
-                                        <td className='AdminIncomingPlacedOrder_td' >{delivered}</td>
+                                    <tr className='PartnerIncomingOrderDetail_tr'>
+                                        <th className='PartnerIncomingOrderDetail_th'>Delivered At</th>
+                                        <td className='PartnerIncomingOrderDetail_td' >{delivered}</td>
                                     </tr>
                                     }
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th bottom_left'>Status</th>
-                                        <td className='AdminIncomingPlacedOrder_td bottom_right' >{status}</td>
+                                    <tr className='PartnerIncomingOrderDetail_tr'>
+                                        <th className='PartnerIncomingOrderDetail_th bottom_left'>Status</th>
+                                        <td className='PartnerIncomingOrderDetail_td bottom_right' >{status}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -104,24 +104,24 @@ const AdminIncomingPlacedOrder = () => {
                     {loading &&
                     <div className='product_table'>
                         <h2>Order Items:</h2>
-                        <table className='AdminIncomingProduct_table'>
-                            <thead className='AdminIncomingProduct_thead'>
+                        <table className='PartnerIncomingProduct_table'>
+                            <thead className='PartnerIncomingProduct_thead'>
                                 <tr className=''>
-                                    <th className='AdminIncomingProduct_th top_left'>Name</th>
-                                    <th className='AdminIncomingProduct_th'>Descritpion</th>
-                                    <th className='AdminIncomingProduct_th'>Category</th>
-                                    <th className='AdminIncomingProduct_th'>Price $</th>
-                                    <th className='AdminIncomingProduct_th top_right'>Quantity</th>
+                                    <th className='PartnerIncomingProduct_th top_left'>Name</th>
+                                    <th className='PartnerIncomingProduct_th'>Descritpion</th>
+                                    <th className='PartnerIncomingProduct_th'>Category</th>
+                                    <th className='PartnerIncomingProduct_th'>Price $</th>
+                                    <th className='PartnerIncomingProduct_th top_right'>Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {orderItems.map((item, index) => (
-                                    <tr className='AdminIncomingProduct_tr'>
-                                        <td className='AdminIncomingProduct_td'>{item.product.name}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.description}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.category.category}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.price}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.quantity}</td>
+                                    <tr className='PartnerIncomingProduct_tr'>
+                                        <td className='PartnerIncomingProduct_td'>{item.product.name}</td>
+                                        <td className='PartnerIncomingProduct_td'>{item.product.description}</td>
+                                        <td className='PartnerIncomingProduct_td'>{item.product.category.category}</td>
+                                        <td className='PartnerIncomingProduct_td'>{item.product.price}</td>
+                                        <td className='PartnerIncomingProduct_td'>{item.quantity}</td>
                                     </tr>
                                 ))} 
                             </tbody>
@@ -133,4 +133,4 @@ const AdminIncomingPlacedOrder = () => {
     );
 }
 
-export default AdminIncomingPlacedOrder;
+export default PartnerIncomingOrder;

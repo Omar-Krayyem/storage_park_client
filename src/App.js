@@ -12,29 +12,19 @@ import Requests from './Pages/Admin/Requests/index';
 import Partners from './Pages/Admin/Partners';
 import Workers from './Pages/Admin/Workers';
 import AdminStock from './Pages/Admin/Stock';
-import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
-import AdminPlacedOutgoing from './Pages/Admin/PlacedOutgoing';
+import AdminPlacedIncoming from './Pages/Admin/IncomingOrders';
+import AdminPlacedOutgoing from './Pages/Admin/OutgoingOrders';
 import AdminIncomingOrederDetails from './Pages/Admin/IncomingOrderDetails';
 import AdminOutgoingOrdersDetails from './Pages/Admin/OutgoingOrderDetails';
 import AdminProfile from './Pages/Admin/Profile';
 import AdminLayout from './utils/AdminLayout';
 
 import PartnerDashboard from './Pages/Partner/Dashboard';
-import PlacedIncoming from './Pages/Partner/PlacedIncoming';
-import PlacedIncomingById from './Pages/Partner/PlacedOrderById';
+import PlacedIncoming from './Pages/Partner/IncomingOrders';
 import AddIncomingorder from './Pages/Partner/AddIncomingorder';
-import ShipmentIncoming from './Pages/Partner/ShipmentIncoming';
-import ShipmentIncomingById from './Pages/Partner/ShipmentOrderById';
-import DeliveredIncoming from './Pages/Partner/DeliveredIncoming';
-import DeliveredOrderById from './Pages/Partner/DeliveredOrderById';
 import PartnerStock from './Pages/Partner/Stock';
-import PlacedOutgoing from './Pages/Partner/PlacedOutgoing';
+import PlacedOutgoing from './Pages/Partner/OutgoingOrders';
 import AddOutgoingOrder from './Pages/Partner/AddOutgoingOrder';
-import PlacedOutOrderById from './Pages/Partner/PlacedOutOrderById';
-import ShipmentOutgoing from './Pages/Partner/ShipmentOutgoing';
-import ShipmentOutOrderById from './Pages/Partner/ShipmentOutOrderById';
-import DeliveredOutgoing from './Pages/Partner/DeliveredOutgoing';
-import DeliveredOutOrderById from './Pages/Partner/DeliveredOutOrderById';
 import PartnerProfile from './Pages/Partner/Profile';
 import PartnerLayout from './utils/PartnerLayout';
 import PartnerIncomingOrederDetails from './Pages/Partner/IncomingOrderDetails';
@@ -42,14 +32,8 @@ import PartnerOutgoingOrdersDetails from './Pages/Partner/OutgoingOrderDetails';
 
 
 import WorkerDashboard from './Pages/Worker/Dashboard';
-import WorkerShipmentIncoming from './Pages/Worker/ShipmentIncoming';
-import WorkerShipmentIncomingById from './Pages/Worker/ShipmentOrderById';
-import WorkerDeliveredIncoming from './Pages/Worker/DeliveredIncoming';
-import WorkerDeliveredOrderById from './Pages/Worker/DeliveredOrderById';
-import WorkerShipmentOutgoing from './Pages/Worker/ShipmentOutgoing';
-import WorkerShipmentOutOrderById from './Pages/Worker/ShipmentOutOrderById';
-import WorkerDeliveredOutgoing from './Pages/Worker/DeliveredOutgoing';
-import WorkerDeliveredOutOrderById from './Pages/Worker/DeliveredOutOrderById';
+import WorkerShipmentIncoming from './Pages/Worker/IncomingOrders';
+import WorkerShipmentOutgoing from './Pages/Worker/OutgoingOrders';
 import WorkerProfile from './Pages/Worker/Profile';
 import WorkerLayout from './utils/WorkerLayout';
 import WorkerIncomingOrederDetails from './Pages/Worker/IncomingOrderDetails';
@@ -116,27 +100,13 @@ function App() {
           <Route path='dashboard'  element={isPartner? <PartnerDashboard/> : <Navigate to="/login"/>} />
           <Route path='incoming' element={isPartner? <PlacedIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/create' element={isPartner? <AddIncomingorder/> : <Navigate to="/login"/>} />
-          {/* <Route path='incoming/placed/:id' element={isPartner? <PlacedIncomingById/> : <Navigate to="/login"/>} /> */}
           <Route path='incoming/:id' element={isPartner? <PartnerIncomingOrederDetails/> : <Navigate to="/login"/>} />
-
-          <Route path='incoming/shipment' element={isPartner? <ShipmentIncoming/> : <Navigate to="/login"/>} />
-          <Route path='incoming/shipment/:id' element={isPartner? <ShipmentIncomingById/> : <Navigate to="/login"/>} />
-
-          <Route path='incoming/delivered' element={isPartner? <DeliveredIncoming/> : <Navigate to="/login"/>} />
-          <Route path='incoming/delivered/:id' element={isPartner? <DeliveredOrderById/> : <Navigate to="/login"/>} />
 
           <Route path='stock' element={isPartner? <PartnerStock/> : <Navigate to="/login"/>} />
 
           <Route path='outgoing' element={isPartner? <PlacedOutgoing/> : <Navigate to="/login"/>} />
           <Route path='outgoing/create' element={isPartner? <AddOutgoingOrder/> : <Navigate to="/login"/>} />
-          {/* <Route path='outgoing/placed/:id' element={isPartner? <PlacedOutOrderById/> : <Navigate to="/login"/>} /> */}
           <Route path='outgoing/:id' element={isPartner? <PartnerOutgoingOrdersDetails/> : <Navigate to="/login"/>} />
-
-          <Route path='outgoing/shipment' element={isPartner? <ShipmentOutgoing/> : <Navigate to="/login"/>} />
-          <Route path='outgoing/shipment/:id' element={isPartner? <ShipmentOutOrderById/> : <Navigate to="/login"/>} />
-
-          <Route path='outgoing/delivered' element={isPartner? <DeliveredOutgoing/> : <Navigate to="/login"/>} />
-          <Route path='outgoing/delivered/:id' element={isPartner? <DeliveredOutOrderById/> : <Navigate to="/login"/>} />
 
           <Route path='profile' element={isPartner? <PartnerProfile/> : <Navigate to="/login"/>}/>
         </Route>

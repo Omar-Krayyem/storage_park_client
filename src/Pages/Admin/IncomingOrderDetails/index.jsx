@@ -5,7 +5,7 @@ import { useParams, useNavigate  } from 'react-router-dom';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { Map , Marker } from "pigeon-maps"
 
-const AdminIncomingPlacedOrder = () => {
+const AdminIncomingOrder = () => {
     const navigate = useNavigate();
     localStorage.setItem("activeSection", "Incplaced");
     const { id } = useParams();
@@ -225,4 +225,4 @@ const AdminIncomingPlacedOrder = () => {
     );
 }
 
-export default AdminIncomingPlacedOrder;
+export default AdminIncomingOrder;

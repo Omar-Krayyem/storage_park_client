@@ -1,4 +1,4 @@
-.AdminOutgoingOrderDetail_page {
+.PartnerOutgoingOrderDetail_page {
     margin: 0;
     padding: 20px 50px;
     box-sizing: border-box;
@@ -12,14 +12,14 @@
     justify-content: flex-start;
 }
 
-.AdminOutgoingOrderDetail_page .body{
+.PartnerOutgoingOrderDetail_page .body{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.AdminOutgoingOrderDetail_page .body .title .page_title{
+.PartnerOutgoingOrderDetail_page .body .title .page_title{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -27,18 +27,18 @@
     gap: 10px;
 }
 
-.AdminOutgoingOrderDetail_page .arrow{
+.PartnerOutgoingOrderDetail_page .arrow{
     rotate: 90deg;
     margin-top: 4px;
     cursor: pointer;
     color: #1D2126;
 }
 
-.AdminOutgoingOrderDetail_page .arrow:hover{
+.PartnerOutgoingOrderDetail_page .arrow:hover{
     color: #FF8B13;
 }
 
-.AdminOutgoingOrderDetail_page  label{
+.PartnerOutgoingOrderDetail_page  label{
     color: #1D2126;
     font-family: Inter;
     font-size: 20px;
@@ -48,7 +48,7 @@
     margin-right: 10px;
 }
 
-.AdminOutgoingOrderDetail_page button{
+.PartnerOutgoingOrderDetail_page button{
     background-color: #1D2126;
     padding: 7px 15px ;
     color: #F0F0F0;
@@ -61,13 +61,13 @@
     width: 200px;
 }
 
-.AdminOutgoingOrderDetail_page button:hover{
+.PartnerOutgoingOrderDetail_page button:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
 }
 
-.AdminOutgoingOrderDetail_page .creatableSelect {
+.PartnerOutgoingOrderDetail_page .creatableSelect {
     width: 150px;
     font-size: 16px;
     border: 2px solid #CCCCCC;
@@ -77,28 +77,29 @@
     padding: 5px 10px;
 }
 
-.AdminOutgoingOrderDetail_page .creatableSelect:focus {
+.PartnerOutgoingOrderDetail_page .creatableSelect:focus {
     border-color: #1D2126;
     box-shadow: none;
 }
 
-.AdminOutgoingOrderDetail_page .mapContainer{
+.PartnerOutgoingOrderDetail_page .mapContainer{
     flex: 1;
     height: 100%;
 }
 
-.AdminOutgoingOrderDetail_page .error{
+.PartnerOutgoingOrderDetail_page .error{
     color: red;
     width: auto;
 }
 
-.AdminOutgoingOrderDetail_page .AdminIncomingPlacedOrder_table{
+.PartnerOutgoingOrderDetail_page .PartnerOutgoingOrderDetail_table{
     background-color: white;
+    width: 100%;
     border-collapse: separate;
     border-spacing: 0;
 }
 
-.AdminOutgoingOrderDetail_page .AdminIncomingPlacedOrder_th {
+.PartnerOutgoingOrderDetail_page .PartnerOutgoingOrderDetail_th {
     width: 40%;
     font-size: 18px;
     padding: 10px 20px;
@@ -107,12 +108,12 @@
     background-color: #1D2126;
 }
 
-.AdminOutgoingOrderDetail_page .AdminIncomingPlacedOrder_td {
+.PartnerOutgoingOrderDetail_page .PartnerOutgoingOrderDetail_td {
     padding: 10px 20px;
     text-align: left;
 }
 
-.AdminOutgoingOrderDetail_page .orderInfo{
+.PartnerOutgoingOrderDetail_page .orderInfo{
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -120,26 +121,26 @@
     justify-content: space-between;
 }
 
-.AdminOutgoingOrderDetail_page .right_section{
+.PartnerOutgoingOrderDetail_page .right_section{
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 40%;
 }
 
-.AdminOutgoingOrderDetail_page .left_section{
+.PartnerOutgoingOrderDetail_page .left_section{
     width: 50%;
     height: 100%;
     flex: 1;
 }
 
-.AdminOutgoingOrderDetail_page .order_table {
+.PartnerOutgoingOrderDetail_page .order_table {
     flex: 1;
     margin-right: 20px;
     width: 100%;
 }
 
-.AdminOutgoingOrderDetail_page .btn_section{
+.PartnerOutgoingOrderDetail_page .btn_section{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -147,11 +148,11 @@
     gap: 10px;
 }
 
-.AdminOutgoingOrderDetail_page .product_table h2{
+.PartnerOutgoingOrderDetail_page .product_table h2{
     color: #1D2126;
 }
 
-.AdminOutgoingOrderDetail_page .AdminIncomingProduct_table {
+.PartnerOutgoingOrderDetail_page .PartnerOutgoingProduct_table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
@@ -159,7 +160,7 @@
     margin-top: 20px;
 }
 
-.AdminOutgoingOrderDetail_page .AdminIncomingProduct_th {
+.PartnerOutgoingOrderDetail_page .PartnerOutgoingProduct_th {
     width: 20%;
     font-size: 18px;
     padding: 10px 20px;
@@ -168,7 +169,7 @@
     background-color: #1D2126;
 }
 
-.AdminOutgoingOrderDetail_page .AdminIncomingProduct_tr{
+.PartnerOutgoingOrderDetail_page .PartnerOutgoingProduct_tr{
     width: 100%;
     background-color: white;
     font-size: 16px;
@@ -176,7 +177,7 @@
     color: #1D2126;
 }
 
-.AdminOutgoingOrderDetail_page .AdminIncomingProduct_td {
+.PartnerOutgoingOrderDetail_page .PartnerOutgoingProduct_td {
     padding: 10px 20px;
     text-align: center;
 }
