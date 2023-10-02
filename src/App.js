@@ -145,19 +145,11 @@ function App() {
           <Route path='dashboard' element={isWorker? <WorkerDashboard/> : <Navigate to="/login"/>} />
 
           <Route path='incoming' element={isWorker? <WorkerShipmentIncoming/> : <Navigate to="/login"/>} />
-          <Route path='incoming/shipment/:id' element={isWorker? <WorkerShipmentIncomingById/> : <Navigate to="/login"/>}></Route>
           <Route path='incoming/:id' element={isWorker? <WorkerIncomingOrederDetails/> : <Navigate to="/login"/>}></Route>
 
-          <Route path='incoming/delivered' element={isWorker? <WorkerDeliveredIncoming/> : <Navigate to="/login"/>}/>
-          <Route path='incoming/delivered/:id' element={isWorker? <WorkerDeliveredOrderById/> : <Navigate to="/login"/>}></Route>
-
           <Route path='outgoing' element={isWorker? <WorkerShipmentOutgoing/> : <Navigate to="/login"/>} />
-          <Route path='outgoing/shipment/:id' element={isWorker? <WorkerShipmentOutOrderById/> : <Navigate to="/login"/>}></Route>
           <Route path='outgoing/:id' element={isWorker? <WorkerOutgoingOrdersDetails/> : <Navigate to="/login"/>}></Route>
-
-          <Route path='outgoing/delivered' element={isWorker? <WorkerDeliveredOutgoing/> : <Navigate to="/login"/>}/>
-          <Route path='outgoing/delivered/:id' element={isWorker? <WorkerDeliveredOutOrderById/> : <Navigate to="/login"/>}></Route>
-
+          
           <Route path='profile' element={isWorker? <WorkerProfile/> : <Navigate to="/login"/>}/>
         </Route>
       </Routes>
