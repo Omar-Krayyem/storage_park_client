@@ -11,8 +11,8 @@ const AdminIncomingPlacedOrder = () => {
     const { id } = useParams();
     const token = localStorage.getItem("token");
     
-    const [latitude, setLatitude] = useState();
-    const [longitude, setLongitude] = useState();
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
     
     const [order, setOrder] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
@@ -42,7 +42,6 @@ const AdminIncomingPlacedOrder = () => {
             setOrderItems(response.data.data.order.order_items)
             const orderStatus = response.data.data.order.status;
             setStatus(orderStatus);
-            setMapDataLoaded(true);
             if(response.data.data.order.status !== "placed"){
                 setSelectedWorkerName(`${response.data.data.order.worker.first_name} ${response.data.data.order.worker.last_name}`)
                 setDisplay(true)
@@ -88,15 +87,17 @@ const AdminIncomingPlacedOrder = () => {
     const handleWorkerSelection = (e) => {
         const selectedId = e.target.value;
         setSelectedWorkerId(selectedId);
-
-        // Find the worker by ID and set the name in state
         const selectedWorker = workers.find(worker => worker.id === parseInt(selectedId));
         setSelectedWorkerName(selectedWorker ? `${selectedWorker.first_name} ${selectedWorker.last_name}` : "");
     }
 
+    useEffect(() => {
+        setMapDataLoaded(true);
+    }, [longitude, latitude]);
+
 
     return (
-            <div className='AdminIncomingPlacedOrder_page'>
+            <div className='IncomingOrderDetail_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'>
@@ -108,22 +109,22 @@ const AdminIncomingPlacedOrder = () => {
                     <div className='orderInfo'>
                         <div className='right_section'>
                             <div className='order_table'>
-                                <table className='AdminIncomingPlacedOrder_table'>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th top_left'>Company Name</th>
-                                        <td className='AdminIncomingPlacedOrder_td top_right' >{order.user?.company_name || ''}</td>
+                                <table className='IncomingOrderDetail_table'>
+                                    <tr className='IncomingOrderDetail_tr'>
+                                        <th className='IncomingOrderDetail_th top_left'>Company Name</th>
+                                        <td className='IncomingOrderDetail_td top_right' >{order.user?.company_name || ''}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Total Price $</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>{order.total_price}</td>
+                                    <tr className='IncomingOrderDetail_tr'>
+                                        <th className='IncomingOrderDetail_th'>Total Price $</th>
+                                        <td className='IncomingOrderDetail_td'>{order.total_price}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Placed At</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>{order.placed_at}</td>
+                                    <tr className='IncomingOrderDetail_tr'>
+                                        <th className='IncomingOrderDetail_th'>Placed At</th>
+                                        <td className='IncomingOrderDetail_td'>{order.placed_at}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Employee</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>
+                                    <tr className='IncomingOrderDetail_tr'>
+                                        <th className='IncomingOrderDetail_th'>Employee</th>
+                                        <td className='IncomingOrderDetail_td'>
                                             {display ? (
                                                 <>{selectedWorkerName}</>
                                             ) : (
@@ -144,21 +145,36 @@ const AdminIncomingPlacedOrder = () => {
                                         </td>
                                     </tr>
                                     {delivered &&
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Delivered At</th>
-                                        <td className='AdminIncomingPlacedOrder_td' >{delivered}</td>
+                                    <tr className='IncomingOrderDetail_tr'>
+                                        <th className='IncomingOrderDetail_th'>Delivered At</th>
+                                        <td className='IncomingOrderDetail_td' >{delivered}</td>
                                     </tr>
                                     }
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th bottom_left'>Status</th>
-                                        <td className='AdminIncomingPlacedOrder_td bottom_right' >{status}</td>
-                                    </tr>
+
+                                    {display ? (
+                                        <tr className='IncomingOrderDetail_tr'>
+                                            <th className='IncomingOrderDetail_th bottom_left'>Status</th>
+                                            <td className='IncomingOrderDetail_td bottom_right'>{status}</td>
+                                        </tr>
+                                    ) : (
+                                    <>
+                                        <tr className='IncomingOrderDetail_tr'>
+                                            <th className='IncomingOrderDetail_th '>Status</th>
+                                            <td className='IncomingOrderDetail_td'>{status}</td>
+                                        </tr>
+                                        <tr className='IncomingOrderDetail_tr'>
+                                            <th className='IncomingOrderDetail_th bottom_left'></th>
+                                            <td className='IncomingOrderDetail_td bottom_right'>
+                                                <button onClick={addToShipment}>Assign Employee</button>
+                                            </td>
+                                        </tr>
+                                    </>
+                                    )}
                                 </table>
                             </div>
                             {!display &&
                                 <div className='btn_section'>
                                     {error && <div className='error'>{error}</div>}
-                                    <button onClick={addToShipment}>Assign Employee</button>
                                 </div>
                             }
                         </div>
@@ -167,7 +183,7 @@ const AdminIncomingPlacedOrder = () => {
                             {mapDataLoaded && (
                                 <div className='mapContainer'>
                                     <Map
-                                        height={300}
+                                        height={280}
                                         defaultCenter={[latitude, longitude]}
                                         defaultZoom={13}
                                     >
@@ -180,24 +196,24 @@ const AdminIncomingPlacedOrder = () => {
                     {loading &&
                     <div className='product_table'>
                         <h2>Order Items:</h2>
-                        <table className='AdminIncomingProduct_table'>
-                            <thead className='AdminIncomingProduct_thead'>
+                        <table className='incomingProduct_table'>
+                            <thead className='incomingProduct_thead'>
                                 <tr className=''>
-                                    <th className='AdminIncomingProduct_th top_left'>Name</th>
-                                    <th className='AdminIncomingProduct_th'>Descritpion</th>
-                                    <th className='AdminIncomingProduct_th'>Category</th>
-                                    <th className='AdminIncomingProduct_th'>Price $</th>
-                                    <th className='AdminIncomingProduct_th top_right'>Quantity</th>
+                                    <th className='incomingProduct_th top_left'>Name</th>
+                                    <th className='incomingProduct_th'>Descritpion</th>
+                                    <th className='incomingProduct_th'>Category</th>
+                                    <th className='incomingProduct_th'>Price $</th>
+                                    <th className='incomingProduct_th top_right'>Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {orderItems.map((item, index) => (
-                                    <tr className='AdminIncomingProduct_tr'>
-                                        <td className='AdminIncomingProduct_td'>{item.product.name}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.description}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.category.category}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.price}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.quantity}</td>
+                                    <tr className='incomingProduct_tr'>
+                                        <td className='incomingProduct_td'>{item.product.name}</td>
+                                        <td className='incomingProduct_td'>{item.product.description}</td>
+                                        <td className='incomingProduct_td'>{item.product.category.category}</td>
+                                        <td className='incomingProduct_td'>{item.product.price}</td>
+                                        <td className='incomingProduct_td'>{item.quantity}</td>
                                     </tr>
                                 ))} 
                             </tbody>

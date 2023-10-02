@@ -11,8 +11,8 @@ const AdminOutgoingOrderDetail = () => {
     const { id } = useParams();
     const token = localStorage.getItem("token");
     
-    const [latitude, setLatitude] = useState();
-    const [longitude, setLongitude] = useState();
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
     console.log("lat: ", latitude,"long: ", longitude)
     const [order, setOrder] = useState([]);
     const [orderItems, setOrderItems] = useState([]);
@@ -60,8 +60,7 @@ const AdminOutgoingOrderDetail = () => {
 
     useEffect(() => {
         getOrder();
-        setMapDataLoaded(true);
-    }, [longitude, latitude]);
+    }, []);
 
 
     const addToShipment = () => {        
@@ -94,9 +93,13 @@ const AdminOutgoingOrderDetail = () => {
         setSelectedWorkerName(selectedWorker ? `${selectedWorker.first_name} ${selectedWorker.last_name}` : "");
     }
 
+    useEffect(() => {
+        setMapDataLoaded(true);
+    }, [longitude, latitude]);
+
 
     return (
-            <div className='AdminOutgoingOrderDetail_page'>
+            <div className='OutgoingOrderDetail_page'>
                 <div className='body'>
                     <div className='title'>
                         <div className='page_title'>
@@ -108,34 +111,34 @@ const AdminOutgoingOrderDetail = () => {
                     <div className='orderInfo'>
                         <div className='right_section'>
                             <div className='order_table'>
-                                <table className='AdminIncomingPlacedOrder_table'>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th top_left'>Company Name</th>
-                                        <td className='AdminIncomingPlacedOrder_td top_right' >{order.user?.company_name || ''}</td>
+                                <table className='OutgoingOrderDetail_table'>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th top_left'>Company Name</th>
+                                        <td className='OutgoingOrderDetail_td top_right' >{order.user?.company_name || ''}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Customer Name</th>
-                                        <td className='AdminIncomingPlacedOrder_td' >{order.customer?.name || ''}</td>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th'>Customer Name</th>
+                                        <td className='OutgoingOrderDetail_td' >{order.customer?.name || ''}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Customer Email</th>
-                                        <td className='AdminIncomingPlacedOrder_td' >{order.customer?.email || ''}</td>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th'>Customer Email</th>
+                                        <td className='OutgoingOrderDetail_td' >{order.customer?.email || ''}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Customer Phone</th>
-                                        <td className='AdminIncomingPlacedOrder_td' >{order.customer?.phone || ''}</td>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th'>Customer Phone</th>
+                                        <td className='OutgoingOrderDetail_td' >{order.customer?.phone || ''}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Total Price $</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>{order.total_price}</td>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th'>Total Price $</th>
+                                        <td className='OutgoingOrderDetail_td'>{order.total_price}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Placed At</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>{order.placed_at}</td>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th'>Placed At</th>
+                                        <td className='OutgoingOrderDetail_td'>{order.placed_at}</td>
                                     </tr>
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Employee</th>
-                                        <td className='AdminIncomingPlacedOrder_td'>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th'>Employee</th>
+                                        <td className='OutgoingOrderDetail_td'>
                                             {display ? (
                                                 <>{selectedWorkerName}</>
                                             ) : (
@@ -156,32 +159,31 @@ const AdminOutgoingOrderDetail = () => {
                                         </td>
                                     </tr>
                                     {delivered &&
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th'>Delivered At</th>
-                                        <td className='AdminIncomingPlacedOrder_td' >{delivered}</td>
+                                    <tr className='OutgoingOrderDetail_tr'>
+                                        <th className='OutgoingOrderDetail_th'>Delivered At</th>
+                                        <td className='OutgoingOrderDetail_td' >{delivered}</td>
                                     </tr>
                                     }
 
-                                    {display &&
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th bottom_left'>Status</th>
-                                        <td className='AdminIncomingPlacedOrder_td bottom_right' >{status}</td>
-                                    </tr>
-                                    }       
-                                    
-                                    
-                                    {!display &&
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                    <th className='AdminIncomingPlacedOrder_th '>Status</th>
-                                    <td className='AdminIncomingPlacedOrder_td' >{status}</td>
-                                    </tr>
-                                    }
-                                    {!display &&
-                                    <tr className='AdminIncomingPlacedOrder_tr'>
-                                        <th className='AdminIncomingPlacedOrder_th bottom_left'></th>
-                                        <td className='AdminIncomingPlacedOrder_td bottom_right' ><button onClick={addToShipment}>Assign Employee</button></td>
-                                    </tr>
-                                    }
+                                    {display ? (
+                                        <tr className='OutgoingOrderDetail_tr'>
+                                            <th className='OutgoingOrderDetail_th bottom_left'>Status</th>
+                                            <td className='OutgoingOrderDetail_td bottom_right'>{status}</td>
+                                        </tr>
+                                    ) : (
+                                    <>
+                                        <tr className='OutgoingOrderDetail_tr'>
+                                            <th className='OutgoingOrderDetail_th '>Status</th>
+                                            <td className='OutgoingOrderDetail_td'>{status}</td>
+                                        </tr>
+                                        <tr className='OutgoingOrderDetail_tr'>
+                                            <th className='OutgoingOrderDetail_th bottom_left'></th>
+                                            <td className='OutgoingOrderDetail_td bottom_right'>
+                                                <button onClick={addToShipment}>Assign Employee</button>
+                                            </td>
+                                        </tr>
+                                    </>
+                                    )}
                                 </table>
                             </div>
                             {!display &&
@@ -209,24 +211,24 @@ const AdminOutgoingOrderDetail = () => {
                     {loading &&
                     <div className='product_table'>
                         <h2>Order Items:</h2>
-                        <table className='AdminIncomingProduct_table'>
-                            <thead className='AdminIncomingProduct_thead'>
+                        <table className='outgoingProduct_table'>
+                            <thead className='outgoingProduct_thead'>
                                 <tr className=''>
-                                    <th className='AdminIncomingProduct_th top_left'>Name</th>
-                                    <th className='AdminIncomingProduct_th'>Descritpion</th>
-                                    <th className='AdminIncomingProduct_th'>Category</th>
-                                    <th className='AdminIncomingProduct_th'>Price $</th>
-                                    <th className='AdminIncomingProduct_th top_right'>Quantity</th>
+                                    <th className='outgoingProduct_th top_left'>Name</th>
+                                    <th className='outgoingProduct_th'>Descritpion</th>
+                                    <th className='outgoingProduct_th'>Category</th>
+                                    <th className='outgoingProduct_th'>Price $</th>
+                                    <th className='outgoingProduct_th top_right'>Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {orderItems.map((item, index) => (
-                                    <tr className='AdminIncomingProduct_tr'>
-                                        <td className='AdminIncomingProduct_td'>{item.product.name}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.description}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.category.category}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.product.price}</td>
-                                        <td className='AdminIncomingProduct_td'>{item.quantity}</td>
+                                    <tr className='outgoingProduct_tr'>
+                                        <td className='outgoingProduct_td'>{item.product.name}</td>
+                                        <td className='outgoingProduct_td'>{item.product.description}</td>
+                                        <td className='outgoingProduct_td'>{item.product.category.category}</td>
+                                        <td className='outgoingProduct_td'>{item.product.price}</td>
+                                        <td className='outgoingProduct_td'>{item.quantity}</td>
                                     </tr>
                                 ))} 
                             </tbody>

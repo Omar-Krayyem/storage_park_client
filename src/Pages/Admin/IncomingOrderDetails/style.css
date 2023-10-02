@@ -1,4 +1,4 @@
-.AdminIncomingPlacedOrder_page {
+.IncomingOrderDetail_page {
     margin: 0;
     padding: 20px 50px;
     box-sizing: border-box;
@@ -12,14 +12,14 @@
     justify-content: flex-start;
 }
 
-.AdminIncomingPlacedOrder_page .body{
+.IncomingOrderDetail_page .body{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.AdminIncomingPlacedOrder_page .body .title .page_title{
+.IncomingOrderDetail_page .body .title .page_title{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -27,18 +27,18 @@
     gap: 10px;
 }
 
-.AdminIncomingPlacedOrder_page .arrow{
+.IncomingOrderDetail_page .arrow{
     rotate: 90deg;
     margin-top: 4px;
     cursor: pointer;
     color: #1D2126;
 }
 
-.AdminIncomingPlacedOrder_page .arrow:hover{
+.IncomingOrderDetail_page .arrow:hover{
     color: #FF8B13;
 }
 
-.AdminIncomingPlacedOrder_page  label{
+.IncomingOrderDetail_page  label{
     color: #1D2126;
     font-family: Inter;
     font-size: 20px;
@@ -48,7 +48,7 @@
     margin-right: 10px;
 }
 
-.AdminIncomingPlacedOrder_page button{
+.IncomingOrderDetail_page button{
     background-color: #1D2126;
     padding: 7px 15px ;
     color: #F0F0F0;
@@ -61,13 +61,13 @@
     width: 200px;
 }
 
-.AdminIncomingPlacedOrder_page button:hover{
+.IncomingOrderDetail_page button:hover{
     background-color: #FF8B13;
     color: #1D2126;
     transition: 0.5s;
 }
 
-.AdminIncomingPlacedOrder_page .creatableSelect {
+.IncomingOrderDetail_page .creatableSelect {
     width: 150px;
     font-size: 16px;
     border: 2px solid #CCCCCC;
@@ -77,23 +77,30 @@
     padding: 5px 10px;
 }
 
-.AdminIncomingPlacedOrder_page .creatableSelect:focus {
+.IncomingOrderDetail_page .creatableSelect:focus {
     border-color: #1D2126;
     box-shadow: none;
 }
 
-.AdminIncomingPlacedOrder_page .mapContainer{
+.IncomingOrderDetail_page .mapContainer{
     flex: 1;
     height: 100%;
 }
 
-.AdminIncomingPlacedOrder_page .error{
+.IncomingOrderDetail_page .error{
     color: red;
     width: auto;
 }
 
-.AdminIncomingPlacedOrder_page .AdminIncomingPlacedOrder_th {
-    width: 12%;
+.IncomingOrderDetail_page .IncomingOrderDetail_table{
+    background-color: white;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.IncomingOrderDetail_page .IncomingOrderDetail_th {
+    width: 40%;
     font-size: 18px;
     padding: 10px 20px;
     text-align: left;
@@ -101,12 +108,12 @@
     background-color: #1D2126;
 }
 
-.AdminIncomingPlacedOrder_page .AdminIncomingPlacedOrder_td {
+.IncomingOrderDetail_page .IncomingOrderDetail_td {
     padding: 10px 20px;
     text-align: left;
 }
 
-.AdminIncomingPlacedOrder_page .orderInfo{
+.IncomingOrderDetail_page .orderInfo{
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -114,26 +121,26 @@
     justify-content: space-between;
 }
 
-.AdminIncomingPlacedOrder_page .right_section{
+.IncomingOrderDetail_page .right_section{
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 40%;
 }
 
-.AdminIncomingPlacedOrder_page .left_section{
+.IncomingOrderDetail_page .left_section{
     width: 50%;
     height: 100%;
     flex: 1;
 }
 
-.order_table {
+.IncomingOrderDetail_page .order_table {
     flex: 1;
     margin-right: 20px;
     width: 100%;
 }
 
-.AdminIncomingPlacedOrder_page .btn_section{
+.IncomingOrderDetail_page .btn_section{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -141,11 +148,11 @@
     gap: 10px;
 }
 
-.AdminIncomingPlacedOrder_page .product_table h2{
+.IncomingOrderDetail_page .product_table h2{
     color: #1D2126;
 }
 
-.AdminIncomingPlacedOrder_page .AdminIncomingProduct_table {
+.IncomingOrderDetail_page .incomingProduct_table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
@@ -153,7 +160,7 @@
     margin-top: 20px;
 }
 
-.AdminIncomingPlacedOrder_page .AdminIncomingProduct_th {
+.IncomingOrderDetail_page .incomingProduct_th {
     width: 20%;
     font-size: 18px;
     padding: 10px 20px;
@@ -162,7 +169,7 @@
     background-color: #1D2126;
 }
 
-.AdminIncomingPlacedOrder_page .AdminIncomingProduct_tr{
+.IncomingOrderDetail_page .incomingProduct_tr{
     width: 100%;
     background-color: white;
     font-size: 16px;
@@ -170,7 +177,7 @@
     color: #1D2126;
 }
 
-.AdminIncomingPlacedOrder_page .AdminIncomingProduct_td {
+.IncomingOrderDetail_page .incomingProduct_td {
     padding: 10px 20px;
     text-align: center;
 }

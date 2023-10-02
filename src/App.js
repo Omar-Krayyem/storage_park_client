@@ -13,17 +13,7 @@ import Partners from './Pages/Admin/Partners';
 import Workers from './Pages/Admin/Workers';
 import AdminStock from './Pages/Admin/Stock';
 import AdminPlacedIncoming from './Pages/Admin/PlacedIncoming';
-import AdminPlacedIncomingById from './Pages/Admin/PlacedOrderById';
-import AdminShipmentIncoming from './Pages/Admin/ShipmentIncoming';
-import AdminShipmentIncomingById from './Pages/Admin/ShipmentOrderById';
-import AdminDeliveredIncoming from './Pages/Admin/DeliveredIncoming';
-import AdminDeliveredOrderById from './Pages/Admin/DeliveredOrderById';
 import AdminPlacedOutgoing from './Pages/Admin/PlacedOutgoing';
-import AdminPlacedOutgoingById from './Pages/Admin/PlacedOutOrderById';
-import AdminShipmentOutgoing from './Pages/Admin/ShipmentOutgoing';
-import AdminShipmentOutgoingById from './Pages/Admin/ShipmentOutOrderById';
-import AdminDeliveredOutgoing from './Pages/Admin/DeliveredOutgoing';
-import AdminDeliveredOutOrderById from './Pages/Admin/DeliveredOutOrderById';
 import AdminIncomingOrederDetails from './Pages/Admin/IncomingOrderDetails';
 import AdminOutgoingOrdersDetails from './Pages/Admin/OutgoingOrderDetails';
 import AdminProfile from './Pages/Admin/Profile';
@@ -115,24 +105,9 @@ function App() {
 
           <Route path='incoming' element={isAdmin? <AdminPlacedIncoming/> : <Navigate to="/login"/>} />
           <Route path='incoming/:id' element={isAdmin? <AdminIncomingOrederDetails/> : <Navigate to="/login"/>} />
-          {/* <Route path='incoming/placed/:id' element={isAdmin? <AdminPlacedIncomingById/> : <Navigate to="/login"/>} /> */}
-
-
-          <Route path='incoming/shipment' element={isAdmin? <AdminShipmentIncoming/> : <Navigate to="/login"/>}/>
-          <Route path='incoming/shipment/:id' element={isAdmin? <AdminShipmentIncomingById/> : <Navigate to="/login"/>}/>
-
-          <Route path='incoming/delivered' element={isAdmin? <AdminDeliveredIncoming/> : <Navigate to="/login"/>}/>
-          <Route path='incoming/delivered/:id' element={isAdmin? <AdminDeliveredOrderById/> : <Navigate to="/login"/>}/>
 
           <Route path='outgoing' element={isAdmin? <AdminPlacedOutgoing/> : <Navigate to="/login"/>} />
           <Route path='outgoing/:id' element={isAdmin? <AdminOutgoingOrdersDetails/> : <Navigate to="/login"/>} />
-          {/* <Route path='outgoing/placed/:id' element={isAdmin? <AdminPlacedOutgoingById/> : <Navigate to="/login"/>} /> */}
-
-          <Route path='outgoing/shipment' element={isAdmin? <AdminShipmentOutgoing/> : <Navigate to="/login"/>}/>
-          <Route path='outgoing/shipment/:id' element={isAdmin? <AdminShipmentOutgoingById/> : <Navigate to="/login"/>}/>
-
-          <Route path='outgoing/delivered' element={isAdmin? <AdminDeliveredOutgoing/> : <Navigate to="/login"/>}/>
-          <Route path='outgoing/delivered/:id' element={isAdmin? <AdminDeliveredOutOrderById/> : <Navigate to="/login"/>}/>
 
           <Route path='profile' element={isAdmin? <AdminProfile/> : <Navigate to="/login"/>}/>
         </Route>
