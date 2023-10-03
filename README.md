@@ -1,7 +1,24 @@
 <img src="./Readme/title1.svg"/>
 <br><br>
+
+<br><br>
+<img src="./Readme/title7.svg"/>
+<br><br>
+- [Project Description](#project-description)
+- [User Types](#user-types)
+- [Features of the App](#features-of-the-app)
+- [Tech Stack](#tech-stack)
+- [Prototyping](#prototyping)
+- [Demo](#Demo)
+- [Performance](#Performance)
+- [How to Run](#how-to-run)
+ 
+  
+<br><br>
 <img src="./Readme/title2.svg"/>
 <br><br>
+
+<a name="project-description"></a>
 > Storage Park is a system for a warehouse includes a powerful warehouse management system that offers businesses complete control and enhanced visibility into their warehouse operations. One of the key functionalities of a WMS is its capability to incorporate location tracking technologies, such as GPS, to precisely monitor the whereabouts of orders and inventory items within the warehouse.
 >
 > In addition to its robust warehouse management features, Storage Park incorporates a customer-centric live order tracking system. This feature allows businesses to provide real-time updates and status information to their customers, ensuring a seamless and transparent order fulfillment process.
@@ -40,6 +57,7 @@ As a Customer:
 <img src="./Readme/title3.svg"/>
 <br><br>
 
+### Mockups 
 
 >We designed Fatal Breath using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
@@ -64,6 +82,7 @@ As a Customer:
 <img src="./Readme/title5.svg"/>
 <br><br>
 
+### tech-stack 
 ###  Storage Park is built using the following technologies:
 
 - This project uses the [React Library](https://react.dev/) for the frontend development.
@@ -77,7 +96,7 @@ As a Customer:
 <img src="./Readme/title4.svg"/>
 <br><br>
 
-
+### Demo
 Using the wireframes and mockups as a guide, we implemented the Storage Park app with the following features:
 
 | Landing Page  | Tracking Order | Login |
