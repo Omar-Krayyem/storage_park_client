@@ -183,11 +183,12 @@ const AdminIncomingOrder = () => {
                             {mapDataLoaded && (
                                 <div className='mapContainer'>
                                     <Map
-                                        height={280}
-                                        defaultCenter={[latitude, longitude]}
+                                        height={410}
+                                        // default+Center={[latitude, longitude]}
                                         defaultZoom={13}
+                                        center={[latitude, longitude]}
                                     >
-                                        <Marker width={50} anchor={[latitude, longitude]} />
+                                        <Marker width={50} anchor={[ latitude, longitude]} />
                                     </Map>
                                 </div>
                             )}

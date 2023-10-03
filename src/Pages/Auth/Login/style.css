@@ -59,9 +59,9 @@
 .loginForm .text_feild > label{
     color: #1D2126;
     font-family: Inter;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
     /* text-transform: capitalize; */
 }

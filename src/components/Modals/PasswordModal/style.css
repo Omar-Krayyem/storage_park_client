@@ -63,8 +63,8 @@
 .PasswordModal label{
     color: #1D2126;
     font-family: Inter;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     line-height: normal;
     text-transform: capitalize;
 }

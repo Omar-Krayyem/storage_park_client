@@ -36,7 +36,6 @@ const PartnerIncomingOrder = () => {
             setOrderItems(response.data.data.order_items)
             const orderStatus = response.data.data.status;
             setStatus(orderStatus);
-            setMapDataLoaded(true);
             if(response.data.data.status === "delivered"){
                 setDelivered(response.data.data.delivered_at)
             }
@@ -49,6 +48,10 @@ const PartnerIncomingOrder = () => {
     useEffect(() => {
         getOrder();
     }, []);
+
+    useEffect(() => {
+        setMapDataLoaded(true);
+    }, [longitude, latitude]);
 
     return (
             <div className='PartnerIncomingOrderDetail_page'>
@@ -90,11 +93,12 @@ const PartnerIncomingOrder = () => {
                             {mapDataLoaded && (
                                 <div className='mapContainer'>
                                     <Map
-                                        height={180}
-                                        defaultCenter={[latitude, longitude]}
+                                        height={410}
+                                        // default+Center={[latitude, longitude]}
                                         defaultZoom={13}
+                                        center={[latitude, longitude]}
                                     >
-                                        <Marker width={50} anchor={[latitude, longitude]} />
+                                        <Marker width={50} anchor={[ latitude, longitude]} />
                                     </Map>
                                 </div>
                             )}

@@ -199,10 +199,11 @@ const AdminOutgoingOrderDetail = () => {
                                 <div className='mapContainer'>
                                     <Map
                                         height={410}
-                                        defaultCenter={[latitude, longitude]}
+                                        // default+Center={[latitude, longitude]}
                                         defaultZoom={13}
+                                        center={[latitude, longitude]}
                                     >
-                                        <Marker width={50} anchor={[ longitude, latitude]} />
+                                        <Marker width={50} anchor={[ latitude, longitude]} />
                                     </Map>
                                 </div>
                             )}
