@@ -17,7 +17,7 @@ const Tracking = () => {
             const response = await axios.get(`http://127.0.0.1:8000/api/location/${id}`);
             setLatitude(response.data.data[0].latitude);
             setLongitude(response.data.data[0].longitude);
-            setMapDataLoaded(true);
+            // setMapDataLoaded(true);
         } catch (error) {
             console.error("Error fetching products:", error);
         }
@@ -26,6 +26,10 @@ const Tracking = () => {
     useEffect(() => {
         getOrder();
     }, []);
+
+    useEffect(()=>{
+        setMapDataLoaded(true);
+    }, [latitude, longitude])
 
     return (
         <div className='Tracking_page'> 
@@ -42,16 +46,16 @@ const Tracking = () => {
                 <div className='mapContainer'>
                     {mapDataLoaded && (
                         <div className='mapContainer'>
-                        <Map
-                            height={400}
-                            defaultCenter={[latitude, longitude]}
-                            defaultZoom={13}
-                            center={[latitude, longitude]}
-                        >
-                        <Marker width={50} anchor={[latitude, longitude]} />
-                        </Map>
-                            </div>
-                        )}
+                            <Map
+                                height={410}
+                                // default+Center={[latitude, longitude]}
+                                defaultZoom={13}
+                                center={[latitude, longitude]}
+                            >
+                                <Marker width={50} anchor={[ latitude, longitude]} />
+                            </Map>
+                        </div>
+                    )}
                     </div>
             </div>
             <div className="footer"><Footer/></div>
