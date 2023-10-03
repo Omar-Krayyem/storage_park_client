@@ -109,7 +109,7 @@ Using the wireframes and mockups as a guide, we implemented the Storage Park app
 
 <img src="./Readme/title10.svg"/>
 <br><br>
-### Backend (Server)
+### Backend
 
 <a name="Performance" ></a>
 <img src="./Readme/title9.svg"/> 
