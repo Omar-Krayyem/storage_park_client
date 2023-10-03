@@ -133,7 +133,7 @@ PASS: Response content type is JSON
 PASS: Response schema is valid
 PASS: Response has the required field - message
 PASS: Response content type is JSON
-
+```
 
 <br><br>
 <img src="./Readme/title6.svg"/>
