@@ -46,6 +46,7 @@ const Tracking = () => {
                             height={400}
                             defaultCenter={[latitude, longitude]}
                             defaultZoom={13}
+                            center={[latitude, longitude]}
                         >
                         <Marker width={50} anchor={[latitude, longitude]} />
                         </Map>
