@@ -106,6 +106,33 @@ Using the wireframes and mockups as a guide, we implemented the Storage Park app
 | ![Registration](./Readme/gif/registration.gif) | ![Requests](./Readme/gif/view_stock.gif) | ![Add New Order](./Readme/gif/add_order.gif) |
 | Change Password |
 | ![Change Password](./Readme/gif/change_password.gif) |
+<br><br>
+
+<a name="Performance" ></a>
+<img src="./readme/title9.svg"/> 
+> The following tests were conducted in Postman to assess the functionality of my application's primary APIs
+<br><br>
+
+URL: http://127.0.0.1:8000/api/partner/incoming/placed/create
+
+```sh 
+PASS: Response time is within acceptable range //199 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+PASS: Response has the required field - message
+PASS: Response content type is JSON
+
+```
+
+<br>
+URL: http://127.0.0.1:8000/api/location/1043
+
+```sh 
+PASS: Response time is within acceptable range //258 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+PASS: Response has the required field - message
+PASS: Response content type is JSON
 
 
 <br><br>
