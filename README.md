@@ -1,7 +1,25 @@
 <img src="./Readme/title1.svg"/>
+<br><br>
 
+<br><br>
+<img src="./Readme/title7.svg"/>
+<br><br>
+- [Project Description](#project-description)
+- [User Types](#user-types)
+- [Features of the App](#features-of-the-app)
+- [Tech Stack](#tech-stack)
+- [Prototyping](#prototyping)
+- [Demo](#Demo)
+- [Backend](#Backend)
+- [Performance](#Performance)
+- [How to Run](#how-to-run)
+ 
+  
+<br><br>
 <img src="./Readme/title2.svg"/>
+<br><br>
 
+<a name="project-description"></a>
 > Storage Park is a system for a warehouse includes a powerful warehouse management system that offers businesses complete control and enhanced visibility into their warehouse operations. One of the key functionalities of a WMS is its capability to incorporate location tracking technologies, such as GPS, to precisely monitor the whereabouts of orders and inventory items within the warehouse.
 >
 > In addition to its robust warehouse management features, Storage Park incorporates a customer-centric live order tracking system. This feature allows businesses to provide real-time updates and status information to their customers, ensuring a seamless and transparent order fulfillment process.
@@ -36,14 +54,17 @@ As a Customer:
 
 - I want to see real-time updates on the status of my order.
 
-  
+<br><br>
 <img src="./Readme/title3.svg"/>
+<br><br>
+
+### Mockups 
 
 >We designed Fatal Breath using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 | Landing Page  | Login | Signup |
 | ---| ---| ---|
-| ![Landing](./Readme/mockups/Landing_page.jpg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
+| ![Landing](./Readme/mockups/Landing_page.svg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
 | Dashboard | Requests | Requests Form |
 | ![Dashboard](./Readme/mockups/Dashboard.jpg) | ![Requests](./Readme/mockups/Request.jpg) | ![Requests Form](./Readme/mockups/Request_Form.jpg) |
 | Profile | Partners | Partners Form |
@@ -56,10 +77,25 @@ As a Customer:
 | ![Shipment Orders](./Readme/mockups/Incoming_Shipment.jpg) | ![Shipment Order](./Readme/mockups/Incoming_Shipment_Detail.jpg) | ![Delivered Orders](./Readme/mockups/Incoming_Delivered.jpg) |
 | Delivered Order |
 | ![Delivered Order](./Readme/mockups/Outgoing_Delivered_Detail.jpg)|
+
+
+<br><br>
+<img src="./Readme/title5.svg"/>
 <br><br>
 
+### tech-stack 
+###  Storage Park is built using the following technologies:
+
+- This project uses the [React Library](https://react.dev/) for the frontend development.
+- This project uses [Laravel](https://laravel.com/), a PHP web application framework. Laravel simplifies web development by providing robust tools and an expressive syntax for building secure and scalable web applications.
+- [MySQL](https://www.mysql.com/) for the database. It is an open-source relational database management system.
+- Storage Park includes hardware integration with an ESP8266 microchip connected to a GPS sensor to get location.
+
+<br><br>
 <img src="./Readme/title4.svg"/>
 <br><br>
+
+### Demo
 Using the wireframes and mockups as a guide, we implemented the Storage Park app with the following features:
 
 | Landing Page  | Tracking Order | Login |
@@ -69,17 +105,42 @@ Using the wireframes and mockups as a guide, we implemented the Storage Park app
 | ![Registration](./Readme/gif/registration.gif) | ![Requests](./Readme/gif/view_stock.gif) | ![Add New Order](./Readme/gif/add_order.gif) |
 | Change Password |
 | ![Change Password](./Readme/gif/change_password.gif) |
+<br><br>
 
-<img src="./Readme/title5.svg"/>
+<img src="./Readme/title10.svg"/>
+<br><br>
+[Backend Repository](https://github.com/Omar-Krayyem/storage_park_server.git)
+<br><br>
+<a name="Performance" ></a>
+<img src="./Readme/title9.svg"/> 
+> The following tests were conducted in Postman to assess the functionality of my application's primary APIs
+<br><br>
 
-###  Storage Park is built using the following technologies:
+URL: http://127.0.0.1:8000/api/partner/incoming/placed/create
 
-- This project uses the [React Library](https://react.dev/) for the frontend development.
-- This project uses [Laravel](https://laravel.com/), a PHP web application framework. Laravel simplifies web development by providing robust tools and an expressive syntax for building secure and scalable web applications.
-- [MySQL](https://www.mysql.com/) for the database. It is an open-source relational database management system.
-- Storage Park includes hardware integration with an ESP8266 microchip connected to a GPS sensor to get location.
+```sh 
+PASS: Response time is within acceptable range //199 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+PASS: Response has the required field - message
+PASS: Response content type is JSON
 
+```
+
+<br>
+URL: http://127.0.0.1:8000/api/location/1043
+
+```sh 
+PASS: Response time is within acceptable range //258 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+PASS: Response has the required field - message
+PASS: Response content type is JSON
+```
+
+<br><br>
 <img src="./Readme/title6.svg"/>
+<br><br>
 
 > To set up Storage Park locally, follow these steps:
 
