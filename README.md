@@ -109,8 +109,8 @@ Using the wireframes and mockups as a guide, we implemented the Storage Park app
 
 <img src="./Readme/title10.svg"/>
 <br><br>
-### Backend
 [Backend Repository](https://github.com/Omar-Krayyem/storage_park_server.git)
+<br><br>
 <a name="Performance" ></a>
 <img src="./Readme/title9.svg"/> 
 > The following tests were conducted in Postman to assess the functionality of my application's primary APIs
@@ -141,8 +141,6 @@ PASS: Response content type is JSON
 <br><br>
 <img src="./Readme/title6.svg"/>
 <br><br>
-https://github.com/Omar-Krayyem/storage_park_server.git
-
 
 > To set up Storage Park locally, follow these steps:
 
