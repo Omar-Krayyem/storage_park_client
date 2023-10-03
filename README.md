@@ -109,7 +109,7 @@ Using the wireframes and mockups as a guide, we implemented the Storage Park app
 <br><br>
 
 <a name="Performance" ></a>
-<img src="./readme/title9.svg"/> 
+<img src="./Readme/title9.svg"/> 
 > The following tests were conducted in Postman to assess the functionality of my application's primary APIs
 <br><br>
 
