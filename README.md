@@ -64,13 +64,13 @@ As a Customer:
 
 | Landing Page  | Login | Signup |
 | ---| ---| ---|
-| ![Landing](./Readme/mockups/Landing_page.svg) | ![Login](./Readme/mockups/Signin.jpg) | ![Signup](./Readme/mockups/Signup.jpg) |
+| ![Landing](./Readme/mockups/Landing_page.svg) | ![Login](./Readme/mockups/Signin.svg) | ![Signup](./Readme/mockups/Signup.svg) |
 | Dashboard | Requests | Requests Form |
-| ![Dashboard](./Readme/mockups/Dashboard.jpg) | ![Requests](./Readme/mockups/Request.jpg) | ![Requests Form](./Readme/mockups/Request_Form.jpg) |
+| ![Dashboard](./Readme/mockups/Dashboard.svg) | ![Requests](./Readme/mockups/Request.svg) | ![Requests Form](./Readme/mockups/Request_Form.svg) |
 | Profile | Partners | Partners Form |
-| ![Profile](./Readme/mockups/Profile.jpg) | ![Partners](./Readme/mockups/Partners.jpg) | ![Partners Form ](./Readme/mockups/Partners_Form.jpg) |
+| ![Profile](./Readme/mockups/Profile.svg) | ![Partners](./Readme/mockups/Partners.svg) | ![Partners Form ](./Readme/mockups/Partners_Form.svg) |
 | Workers | Workers Form | Stored Items |
-| ![Workers](./Readme/mockups/Workers.jpg) | ![Workers Form](./Readme/mockups/Workers_Form.jpg) | ![Stored Items](./Readme/mockups/Stored_Items.jpg) |
+| ![Workers](./Readme/mockups/Workers.svg) | ![Workers Form](./Readme/mockups/Workers_Form.svg) | ![Stored Items](./Readme/mockups/Stored_Items.svg) |
 | Stored Items Form | Placed Orders | Placed Order |
 | ![Stored Items Form ](./Readme/mockups/Stored_Items_Form.jpg) | ![Placed Orders](./Readme/mockups/Incoming_Placed.jpg) | ![Placed Order](./Readme/mockups/Incoming_Placed_Detail-1.jpg) |
 | Shipment Orders | Shipment Order | Delivered Orders |
