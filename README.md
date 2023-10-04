@@ -6,7 +6,7 @@
 <br><br>
 - [Project Description](#project-description)
 - [User Types](#user-types)
-- [Features of the App](#User-Stories)
+- [User Stories](#User-Stories)
 - [Tech Stack](#Tech-stack)
 - [Prototyping](#prototyping)
 - [Demo](#Demo)
