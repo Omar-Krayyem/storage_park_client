@@ -7,12 +7,12 @@
 - [Project Description](#project-description)
 - [User Types](#user-types)
 - [Features of the App](#features-of-the-app)
-- [Tech Stack](#tech-stack)
+- [Tech Stack](#Tech-stack)
 - [Prototyping](#prototyping)
 - [Demo](#Demo)
 - [Backend](#Backend)
 - [Performance](#Performance)
-- [How to Run](#how-to-run)
+- [How to Run](#How-to-run)
  
   
 <br><br>
@@ -28,11 +28,11 @@
 1. Admin
 2. Worker
 3. Partner
-4. customer
+4. Customer
 
 ### Features of the App 
 
-As a Admin: 
+As an Admin: 
 
 - I want to access a comprehensive dashboard, so I can view and manage all aspects of the coffee shop's app and operations.
 - I want to manage user accounts and access, including adding and removing employees and partners, to ensure security and compliance.
@@ -48,7 +48,7 @@ As a Partner:
 
 - I want to log in to my account, so I can access my store's inventory and order history.
 - I want to place new orders for products and manage their quantities, so I can keep my store well-stocked.
-- I want to receive when my order is ready for pickup or delivery, so I can plan accordingly.
+- I want to be notified when my order is ready for pickup or delivery.
   
 As a Customer: 
 
@@ -83,7 +83,7 @@ As a Customer:
 <img src="./Readme/title5.svg"/>
 <br><br>
 
-### tech-stack 
+### Tech-stack 
 ###  Storage Park is built using the following technologies:
 
 - This project uses the [React Library](https://react.dev/) for the frontend development.
@@ -109,6 +109,7 @@ Using the wireframes and mockups as a guide, we implemented the Storage Park app
 
 <img src="./Readme/title10.svg"/>
 <br><br>
+### Backend
 [Backend Repository](https://github.com/Omar-Krayyem/storage_park_server.git)
 <br><br>
 <a name="Performance" ></a>
@@ -141,6 +142,7 @@ PASS: Response content type is JSON
 <br><br>
 <img src="./Readme/title6.svg"/>
 <br><br>
+### How-to-run
 
 > To set up Storage Park locally, follow these steps:
 
