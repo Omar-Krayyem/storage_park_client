@@ -71,12 +71,10 @@ As a Customer:
 | ![Profile](./Readme/mockups/Profile.svg) | ![Partners](./Readme/mockups/Partners.svg) | ![Partners Form ](./Readme/mockups/Partners_Form.svg) |
 | Workers | Workers Form | Stored Items |
 | ![Workers](./Readme/mockups/Workers.svg) | ![Workers Form](./Readme/mockups/Workers_Form.svg) | ![Stored Items](./Readme/mockups/Stored_Items.svg) |
-| Stored Items Form | Placed Orders | Placed Order |
-| ![Stored Items Form ](./Readme/mockups/Stored_Items_Form.jpg) | ![Placed Orders](./Readme/mockups/Incoming_Placed.jpg) | ![Placed Order](./Readme/mockups/Incoming_Placed_Detail-1.jpg) |
-| Shipment Orders | Shipment Order | Delivered Orders |
-| ![Shipment Orders](./Readme/mockups/Incoming_Shipment.jpg) | ![Shipment Order](./Readme/mockups/Incoming_Shipment_Detail.jpg) | ![Delivered Orders](./Readme/mockups/Incoming_Delivered.jpg) |
-| Delivered Order |
-| ![Delivered Order](./Readme/mockups/Outgoing_Delivered_Detail.jpg)|
+| Stored Items Form | Incoming Orders | Incoming Order Details |
+| ![Stored Items Form ](./Readme/mockups/Stored_Items_Form.svg) | ![Placed Orders](./Readme/mockups/Incoming.svg) | ![Placed Order](./Readme/mockups/Incoming_Detail.svg) |
+| Outgoing Orders | Incoming Order Details |
+| ![Shipment Orders](./Readme/mockups/Outgoing.svg) | ![Shipment Order](./Readme/mockups/Outgoing_Detail.svg) |
 
 
 <br><br>
