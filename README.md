@@ -6,7 +6,7 @@
 <br><br>
 - [Project Description](#project-description)
 - [User Types](#user-types)
-- [Features of the App](#features-of-the-app)
+- [Features of the App](#User-Stories)
 - [Tech Stack](#Tech-stack)
 - [Prototyping](#prototyping)
 - [Demo](#Demo)
@@ -30,7 +30,7 @@
 3. Partner
 4. Customer
 
-### Features of the App 
+### User Stories
 
 As an Admin: 
 
