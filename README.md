@@ -99,10 +99,10 @@ Using the wireframes and mockups as a guide, we implemented the Storage Park app
 | Landing Page  | Tracking Order | Login |
 | ---| ---| ---|
 | ![Landing](./Readme/gif/landing_page.gif) | ![Tracking Order](./Readme/gif/tracking_order.gif) | ![Login](./Readme/gif/login.gif) |
-| Registration | View Stock | Add New Order |
-| ![Registration](./Readme/gif/registration.gif) | ![Requests](./Readme/gif/view_stock.gif) | ![Add New Order](./Readme/gif/add_order.gif) |
-| Change Password |
-| ![Change Password](./Readme/gif/change_password.gif) |
+| Registration | Accepted Request | View Stock |
+| ![Registration](./Readme/gif/registration.gif) | ![Accepted Request](./Readme/gif/accept_request.gif) | ![View Stock](./Readme/gif/view_stock.gif) |
+| Add New Order | View Orders | Change Password | 
+| ![Add New Order](./Readme/gif/add_order.gif) | ![View Orders](./Readme/gif/view_order.gif) | ![Change Password](./Readme/gif/change_password.gif) |
 <br><br>
 
 <img src="./Readme/title10.svg"/>
